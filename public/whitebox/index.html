@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statify · 首页白模工作台</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="toolbar"><div><strong>Statify</strong><span>首页白模工作台</span></div><div class="toolbar-actions"><button id="guidesButton" aria-pressed="true">基准框 开</button><button id="saveButton">保存方案</button><button id="exportButton">导出参数</button><button id="resetButton">重置本版</button></div></header>
+<main class="workspace">
+<aside class="controls"><div class="intro"><h1>先把布局定下来。</h1><p>三种属性布局 × 三种顶部布局 × 两种卡牌形态。所有控件实时生效。</p></div>
+<label class="field">UI 套装<select id="themeSelect"><option value="raven-wizard">乌鸦巫师 · 月窗书房</option><option value="paper-lavender">纸绘 · 薰衣草</option><option value="peach">素色 · 暖桃</option></select></label><label class="toggle"><input id="whiteToggle" type="checkbox" checked>显示白模（关闭后查看套装）</label><p id="syncState" role="status"></p><div class="preset-tabs" role="group" aria-label="白模方案"><button data-preset="sidebar">01 侧栏</button><button data-preset="float">02 悬浮</button><button data-preset="arc">03 圆弧</button></div>
+<section class="reference-library"><h2>参考默认方案 <small>按当前套装保存 · 可编辑</small></h2><p class="hint">点击缩略图编辑默认值，或微调后“保存当前值”。两种卡牌共用尺寸，保存尺寸会同时更新两种形态。</p><div id="referenceLibrary"></div></section>
+<button id="advancedButton" aria-expanded="false">高级模式 · 细微调整</button><div id="controlFields" hidden></div>
+<section class="saved"><h2>我的方案</h2><div id="savedList"></div><label class="import-label">导入参数<input id="importInput" type="file" accept="application/json,.json"></label></section>
+</aside>
+<section class="stage"><div class="stage-caption"><span id="variantTitle">左侧属性栏</span><button id="motionPreview">演示收起</button><span id="dimensions">390 × 844</span></div><div id="phoneWrap"><iframe id="livePreview" title="共用首页实时预览"></iframe><div id="phone" class="guides"><div class="safe-top"><span>9:41</span><span>▂ ▄ ▆ ▰</span></div><div id="topZone"></div><div id="customZone" data-drag="custom"></div><div id="heroZone" data-drag="hero"><svg viewBox="0 0 180 300" aria-hidden="true"><ellipse cx="90" cy="281" rx="55" ry="9" fill="#dcdedc"/><circle cx="90" cy="66" r="34" fill="#d1d4d1"/><path d="M62 110Q90 100 118 110L142 217Q144 232 125 234L113 272H94L90 234L85 272H66L55 234Q36 230 40 216Z" fill="#d1d4d1"/><path d="M60 125L31 184M120 125L149 184" fill="none" stroke="#d1d4d1" stroke-width="19" stroke-linecap="round"/></svg><span>主体占位</span></div><div id="abilityZone" data-drag="ability"></div><div id="cardZone" data-drag="card"></div><div class="home-indicator"></div></div></div><div class="stage-footer"><span>高级模式中调整位置、尺寸和动效</span><span>点击卡牌切换中心卡 · 参数自动记住</span></div><div id="warnings" role="status"></div></section>
+<aside class="inspector"><h2>布局检查</h2><div class="check"><b>05</b><span>状态 · 轻量展示</span></div><div class="check"><b>05</b><span>自定义数值 · 实际占位</span></div><div class="check"><b>06</b><span>属性 · 含一个待添加位</span></div><div class="check"><b>03</b><span>任务卡 · 共用矩形基准</span></div><hr><h2>卡牌基准</h2><div class="mini-card"><span>外轮廓</span></div><p>虚线是固定矩形基准。圆角或切角轮廓都限制在这个范围内。卡牌内容、轮廓和边线使用同一透视。</p><div id="cardReadout" class="readout"></div><hr><h2>当前排版</h2><div id="layoutReadout" class="readout"></div><p>这里验证尺寸、层级与排布。关闭“显示白模”即可查看同一布局的套装效果。</p></aside>
+</main><div id="toast" role="status"></div>
+<dialog id="saveDialog"><form method="dialog"><h2>保存这版布局</h2><label>方案名称<input id="saveName" maxlength="36" required></label><div><button value="cancel" formnovalidate>取消</button><button id="confirmSave" value="save">保存</button></div></form></dialog>
+<dialog id="referenceDialog"><div class="reference-dialog-head"><h2 id="referenceTitle"></h2><button id="closeReference">关闭</button></div><img id="referenceImage" alt="用户提供的布局参考"><p id="referenceNote"></p><div id="referenceParameters"></div><button id="applyReference">应用已保存值</button><button id="saveReference">保存默认值并应用</button></dialog>
+<script type="module" src="app.js"></script></body></html>

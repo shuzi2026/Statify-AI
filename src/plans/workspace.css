@@ -1,0 +1,1827 @@
+/* Plan workspace, sources, editors and timeline ownership. Public typography, surfaces, Dialog shell and CardFace remain shared. */
+.workspace-plans {
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.workspace-plans .section-heading {
+  margin-bottom: 16px;
+}
+.workspace-plans h2 {
+  font-size: 18px;
+}
+.plan-empty {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+@media (max-width: 759px) {
+  .workspace-plans .section-heading > div {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+  }
+  .workspace-plans .section-heading span {
+    font-size: 11px;
+    margin: 0;
+  }
+  .workspace-plans .section-heading > button {
+    font-size: 12px;
+    padding: 9px 11px;
+  }
+  .workspace-plans .help {
+    font-size: 11px;
+  }
+}
+.workspace-scene .workspace-plans {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 12px 0;
+  color: var(--ink);
+}
+.workspace-scene > .workspace-plans {
+  order: 1;
+  padding-top: 0;
+}
+.workspace-plan-layout {
+  display: grid;
+  gap: 24px;
+}
+.workspace-plan-layout > .workspace-plans {
+  min-width: 0;
+}
+@media (max-width: 759px) {
+  .workspace-plan-layout {
+    grid-template-columns: minmax(0, 1fr) 64px;
+    gap: 12px;
+  }
+}
+@media (max-width: 359px) {
+  .workspace-plan-layout {
+    grid-template-columns: minmax(0, 1fr) 58px;
+    gap: 8px;
+  }
+}
+.workspace-plan-layout > .workspace-plans {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 0;
+}
+.plan-card-library {
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.plan-card-library > h2 {
+  font-size: 16px;
+  margin: 0 0 16px;
+}
+.workspace-plan-layout > .plan-card-categories {
+  grid-column: 2;
+  grid-row: 2;
+  position: static;
+  border-top: 1px solid var(--line);
+}
+.plan-card-categories > nav > button {
+  justify-content: center;
+  text-align: center;
+}
+.plan-card-library .card-grid {
+  margin: 0;
+}
+@media (max-width: 759px) {
+  .workspace-plan-layout {
+    row-gap: 24px;
+  }
+}
+.workspace-plan-layout {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  row-gap: 16px;
+}
+.workspace-plan-layout > .workspace-plans {
+  min-height: 0;
+  margin: 0;
+  padding: 0 4px 12px;
+}
+.plan-card-library {
+  padding: 16px 4px 16px 0;
+}
+.workspace-plan-layout > .plan-card-categories {
+  padding-top: 16px;
+}
+.plan-system {
+  --plan-card-width: 96px;
+  --plan-card-height: 136px;
+}
+.plan-system .workspace-pane-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.plan-system .workspace-pane-tools select {
+  min-width: 0;
+  flex: 1;
+  max-width: calc(100% - 84px);
+  font-size: 12px;
+  background: transparent;
+  border: 0;
+  padding-left: 0;
+}
+.plan-board-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+.plan-board-controls [role="group"] {
+  display: flex;
+  gap: 4px;
+}
+.plan-board-controls button {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.plan-board-controls button[aria-pressed="true"] {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.plan-board-controls label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.plan-board-controls input {
+  accent-color: var(--accent);
+  width: 17px;
+  height: 17px;
+}
+.plan-timeline {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior: contain;
+  touch-action: pan-x;
+  scrollbar-width: none;
+  margin: 0 0 16px;
+  padding-bottom: 4px;
+}
+.plan-timeline::-webkit-scrollbar {
+  display: none;
+}
+.plan-timeline-cell {
+  position: relative;
+  width: var(--plan-card-width);
+  flex: none;
+}
+.plan-time-label {
+  height: 34px;
+  font-size: 10px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+}
+.plan-ticks {
+  height: 16px;
+  display: flex;
+  border-top: 1px solid var(--line);
+  justify-content: space-between;
+  padding-right: calc(var(--plan-card-width) / 3);
+}
+.plan-ticks i {
+  width: 2px;
+  height: 8px;
+  background: var(--line);
+}
+.plan-ticks i:first-child {
+  height: 16px;
+  background: var(--ink);
+}
+.plan-system .gallery-card-paper,
+.plan-schedule-card,
+.plan-drag-card {
+  width: var(--plan-card-width);
+  height: var(--plan-card-height);
+  min-height: 0;
+  padding: 12px 10px;
+  box-sizing: border-box;
+}
+.plan-system .gallery-card-paper .fan-card-name {
+  font-size: 11px;
+  text-align: center;
+  min-height: 24px;
+}
+.plan-system .gallery-card-paper .fan-card-kind {
+  font-size: 9px;
+}
+.plan-system .gallery-card-paper .fan-card-art {
+  height: 55px;
+}
+.plan-system .gallery-card-paper .card-soft-orb {
+  width: 50px;
+}
+.plan-system .gallery-card-paper .fan-card-footer {
+  font-size: 9px;
+}
+.plan-timeline-cell > .gallery-card-paper {
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+}
+.plan-goal {
+  width: var(--plan-card-width);
+  flex: none;
+}
+.plan-goal-fields {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 8px;
+  font-size: 10px;
+}
+.plan-goal-fields label {
+  display: flex;
+  align-items: center;
+}
+.plan-goal-fields input,
+.plan-goal-fields select,
+.plan-target input {
+  width: 46px;
+  min-height: 30px;
+  padding: 4px;
+  font-size: 12px;
+  text-align: center;
+  border-color: var(--border-soft);
+  background: var(--surface-hover);
+}
+.plan-goal-fields .icon-button {
+  width: 28px;
+  height: 30px;
+  min-width: 28px;
+  padding: 4px;
+}
+.plan-target {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  margin: 8px 0;
+}
+.plan-target input {
+  width: 70px;
+}
+.plan-progress-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--muted);
+  margin: 10px 0;
+}
+.plan-progress-line progress {
+  height: 4px;
+  flex: 1;
+  min-width: 0;
+}
+.plan-progress-line span {
+  white-space: nowrap;
+}
+.plan-small {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.plan-source {
+  position: relative;
+  touch-action: none;
+}
+.plan-source .gallery-card-paper {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 112 / 158;
+}
+.plan-drag-hint {
+  position: absolute;
+  left: 4px;
+  top: 5px;
+  color: var(--muted);
+  opacity: 0.45;
+  pointer-events: none;
+}
+.plan-source .playing-card {
+  margin: 0;
+}
+.plan-drag-card {
+  --plan-card-width: 112px;
+  --plan-card-height: 158px;
+  position: fixed;
+  transform: translate(-50%, -40%) rotate(-4deg);
+  z-index: 90;
+  pointer-events: none;
+  box-shadow: var(--sheet-shadow);
+}
+.plan-drag-card .fan-card-name {
+  font-size: 12px;
+}
+.workspace-plans.is-drop-ready {
+  background: var(--accent-wash);
+  border-radius: 14px;
+  transition: background 120ms;
+}
+.plan-schedule-dialog {
+  max-width: 380px;
+  background: var(--sheet-background);
+}
+.plan-schedule-dialog::backdrop {
+  backdrop-filter: blur(8px);
+  background: var(--overlay);
+}
+.plan-schedule-card {
+  --plan-card-width: 150px;
+  --plan-card-height: 210px;
+  margin: 0 auto 22px;
+  box-shadow: var(--sheet-shadow);
+  border-radius: 14px;
+}
+.plan-schedule-card .fan-card-name {
+  font-size: 15px;
+}
+@media (min-width: 760px) {
+  .plan-system {
+    --plan-card-width: 118px;
+    --plan-card-height: 166px;
+  }
+  .plan-system .gallery-card-paper .fan-card-name {
+    font-size: 14px;
+  }
+  .plan-system .gallery-card-paper .fan-card-kind {
+    font-size: 11px;
+  }
+  .plan-system .gallery-card-paper .fan-card-art {
+    height: 78px;
+  }
+  .plan-system .gallery-card-paper .card-soft-orb {
+    width: 70px;
+  }
+  .plan-system .gallery-card-paper .fan-card-footer {
+    font-size: 11px;
+  }
+}
+@media (max-width: 359px) {
+  .plan-system {
+    --plan-card-width: 96px;
+    --plan-card-height: 136px;
+  }
+  .plan-system .gallery-card-paper .fan-card-name {
+    font-size: 10px;
+  }
+  .plan-system .gallery-card-paper .fan-card-art {
+    height: 40px;
+  }
+  .plan-system .gallery-card-paper .card-soft-orb {
+    width: 42px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .workspace-plans.is-drop-ready {
+    transition: none;
+  }
+}
+
+.plan-source .plan-drag-hint {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  pointer-events: auto;
+  touch-action: none;
+  display: grid;
+  place-items: center;
+  left: -6px;
+  top: -4px;
+  cursor: grab;
+}
+.plan-source .plan-drag-hint::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+}
+
+.plan-schedule-card .fan-card-corner {
+  visibility: hidden;
+}
+.workspace-plan-layout.plan-system {
+  grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 8px 12px;
+}
+.plan-system > .workspace-plans {
+  grid-column: 1/-1;
+  grid-row: 1;
+  container-type: inline-size;
+  padding: 0;
+  --plan-card-width: min(160px, calc((100cqw - 18px) / 3.5));
+  --plan-card-height: calc(var(--plan-card-width) * 218/158);
+}
+.plan-system > .plan-board-controls {
+  grid-column: 1/-1;
+  grid-row: 2;
+  margin: 0;
+  padding: 5px 0 9px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+.plan-system > .plan-card-library {
+  grid-column: 1;
+  grid-row: 3;
+  border: 0;
+  padding: 5px 2px 12px 0;
+}
+.plan-system > .plan-card-categories {
+  grid-column: 2;
+  grid-row: 3;
+  border: 0;
+  padding-top: 5px;
+}
+.plan-system .plan-card-library > h2 {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.plan-selectors {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.plan-selectors > select,
+.plan-date-choice summary {
+  height: 38px;
+  min-height: 38px;
+  min-width: 0;
+  width: auto;
+  font-size: 11px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 9px;
+  color: var(--ink);
+  background: var(--surface-hover);
+  box-shadow: none;
+}
+.plan-date-choice details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.plan-date-choice {
+  position: relative;
+  min-width: 0;
+}
+.plan-date-choice summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  font-size: 11px;
+}
+.plan-date-choice summary::-webkit-details-marker {
+  display: none;
+}
+.plan-date-choice summary span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.plan-date-menu {
+  position: absolute;
+  top: 42px;
+  width: 230px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--sheet-background);
+  box-shadow: var(--sheet-shadow);
+  z-index: 10;
+}
+.plan-date-menu [role="group"] {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.plan-date-menu button {
+  flex: 1;
+  font-size: 11px;
+  min-height: 36px;
+  padding: 5px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.plan-date-menu button[aria-pressed="true"] {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.plan-date-menu input {
+  width: 100%;
+  min-height: 40px;
+  font-size: 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: 9px;
+  background: var(--surface-hover);
+  color: var(--ink);
+  padding: 6px;
+}
+.plan-rail {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 2px 0 6px;
+  min-height: 160px;
+}
+.plan-rail::-webkit-scrollbar {
+  display: none;
+}
+.plan-rail-strip {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  align-items: start;
+  gap: 6px;
+}
+.plan-entry {
+  position: relative;
+  width: var(--plan-card-width);
+  flex: none;
+}
+.plan-paper-wrap {
+  position: relative;
+  margin-block: calc(
+    var(--plan-card-height) * var(--theme-card-outset-y-ratio, 0)
+  );
+}
+.plan-paper-wrap > .gallery-card-paper {
+  display: block;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+}
+.plan-system .plan-paper-wrap .gallery-card-paper {
+  width: 100%;
+  height: var(--plan-card-height);
+  aspect-ratio: 158/218;
+  padding: 10px 7px;
+}
+.plan-system .plan-paper-wrap .fan-card-kind {
+  font-size: 9px;
+}
+.plan-system .plan-paper-wrap .fan-card-art {
+  height: 32%;
+}
+.plan-system .plan-paper-wrap .card-soft-orb {
+  width: 49%;
+}
+.plan-system .plan-paper-wrap .fan-card-footer {
+  font-size: 9px;
+}
+.plan-system .plan-goal-fields {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 5px;
+}
+.plan-goal-fields label {
+  gap: 2px;
+  white-space: nowrap;
+}
+.plan-system .plan-goal-fields input,
+.plan-system .plan-goal-fields select {
+  font-size: 10px;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.plan-goal-fields input::-webkit-inner-spin-button,
+.plan-goal-fields input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.plan-system .plan-goal-remove {
+  position: absolute;
+  left: -3px;
+  bottom: 1px;
+  width: 26px;
+  height: 28px;
+  min-width: 26px;
+  min-height: 28px;
+  padding: 4px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--muted);
+}
+.plan-slot-heading {
+  position: relative;
+  height: 27px;
+}
+.plan-system .plan-time-label {
+  height: 27px;
+  min-height: 27px;
+  font-size: 9px;
+  width: calc(100% - 20px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.plan-system .plan-ticks {
+  height: 12px;
+}
+.plan-system .plan-ticks i:first-child {
+  height: 12px;
+}
+.plan-system .plan-target {
+  gap: 3px;
+  margin: 0;
+  margin-left: auto;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.plan-board-controls button {
+  font-size: 10px;
+  padding: 5px 7px;
+  min-height: 32px;
+}
+.plan-board-controls > label {
+  font-size: 10px;
+  gap: 4px;
+  white-space: nowrap;
+}
+.plan-board-controls input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
+.plan-system .plan-progress-line {
+  margin: 4px 0 0;
+  font-size: 9px;
+}
+.plan-system .plan-empty {
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  background: transparent;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+.plan-system .workspace-plans.is-drop-ready {
+  background: var(--accent-wash);
+  transition: background 120ms;
+}
+.plan-entry.is-new .gallery-card-paper {
+  animation: plan-arrival 1600ms ease-out;
+}
+@media (min-width: 760px) {
+  .plan-system .plan-paper-wrap .fan-card-kind,
+  .plan-system .plan-paper-wrap .fan-card-footer {
+    font-size: 11px;
+  }
+}
+@media (max-width: 359px) {
+  .workspace-plan-layout.plan-system {
+    gap: 6px 8px;
+  }
+  .plan-board-controls button {
+    padding: 4px 5px;
+    font-size: 9px;
+  }
+  .plan-board-controls > label {
+    font-size: 9px;
+    gap: 2px;
+  }
+  .plan-system > .plan-board-controls {
+    gap: 5px;
+  }
+  .plan-system .plan-target input {
+    width: 31px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-entry.is-new .gallery-card-paper {
+    animation: none;
+  }
+  .plan-system .workspace-plans.is-drop-ready {
+    transition: none;
+  }
+}
+
+@media (max-width: 359px) {
+  .plan-system .plan-goal-fields label {
+    flex: 1;
+    min-width: 0;
+  }
+  .plan-system .plan-goal-fields input,
+  .plan-system .plan-goal-fields select {
+    width: 0;
+    min-width: 0;
+    flex: 1;
+    padding: 1px;
+  }
+  .plan-system .plan-paper-wrap .gallery-card-paper {
+    padding: 8px 5px;
+  }
+}
+
+.plan-system .plan-ticks {
+  width: calc(100% + 6px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-right: 0;
+}
+.plan-system .plan-ticks i {
+  justify-self: start;
+}
+.workspace-plan-layout {
+  grid-template-columns: minmax(0, 1fr) 60px;
+  column-gap: 14px;
+}
+.plan-selectors > select {
+  field-sizing: content;
+  flex: none;
+  width: auto;
+  max-width: 100%;
+  height: 34px;
+  min-height: 34px;
+  background: var(--compact-surface);
+}
+.plan-date-choice {
+  flex: none;
+  max-width: 100%;
+}
+.plan-date-choice summary {
+  justify-content: flex-start;
+  height: 34px;
+  min-height: 34px;
+  gap: 6px;
+  padding: 5px 8px;
+}
+.plan-date-menu {
+  left: 0;
+  right: auto;
+  max-width: calc(100vw - 80px);
+}
+.plan-system .plan-goal-fields {
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 38px;
+}
+.plan-system .plan-goal-fields label {
+  flex: none;
+  min-width: 0;
+  gap: 2px;
+  background: var(--compact-surface);
+  border-radius: 6px;
+  height: 30px;
+}
+.plan-system .plan-goal-fields input,
+.plan-system .plan-goal-fields select {
+  flex: none;
+  min-width: 0;
+  width: 2ch;
+  height: 30px;
+  min-height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: 11px/1.2 var(--font-ui);
+  box-shadow: none;
+  appearance: none;
+  text-align: center;
+}
+.plan-system .plan-goal-fields select {
+  width: 1.5ch;
+}
+@media (max-width: 759px) {
+  .workspace-plan-layout.plan-system {
+    grid-template-columns: minmax(0, 1fr) 48px;
+    column-gap: 8px;
+  }
+}
+@media (max-width: 359px) {
+  .plan-system .plan-goal-fields {
+    gap: 2px;
+  }
+  .plan-system .plan-goal-fields label {
+    padding: 0 1px;
+    gap: 1px;
+    font-size: 9px;
+  }
+  .plan-system .plan-goal-fields input,
+  .plan-system .plan-goal-fields select {
+    font-size: 9px;
+  }
+}
+
+.plan-system .plan-goal-fields label:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+.plan-system .plan-goal-fields input:focus-visible,
+.plan-system .plan-goal-fields select:focus-visible {
+  outline: none;
+}
+.plan-system > .workspace-plans {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 8px;
+}
+.plan-selectors {
+  flex-shrink: 0;
+  margin: 0;
+}
+.plan-system .plan-goal-board {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  container-type: inline-size;
+}
+.plan-goal-board > .plan-rail-strip {
+  display: grid;
+  gap: 10px 8px;
+  min-width: 0;
+  width: 100%;
+}
+.plan-goal-board .plan-entry {
+  width: 100%;
+  min-width: 0;
+}
+.plan-system .plan-timeline {
+  flex: none;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  padding-bottom: 8px;
+  overflow: auto hidden;
+}
+.plan-timeline .plan-rail-strip {
+  width: max-content;
+  min-width: 100%;
+}
+.plan-axis-empty {
+  height: 64px;
+  border-top: 1px solid var(--line);
+  background: repeating-linear-gradient(
+      90deg,
+      var(--line) 0 1px,
+      transparent 1px 24px
+    )
+    top left / 100% 8px no-repeat;
+}
+.plan-system .plan-progress-line {
+  flex: none;
+  margin-top: 0;
+}
+
+.plan-goal-board .plan-goal {
+  touch-action: none;
+}
+
+.workspace-plan-layout.plan-system:has(.plan-timeline) {
+  grid-template-rows: minmax(0, 2.1fr) auto minmax(0, 1fr);
+}
+.plan-system .plan-timeline {
+  --plan-card-width: min(80px, calc((100cqw - 18px) / 3.5));
+  --plan-card-height: calc(var(--plan-card-width) * 218/158);
+}
+
+.plan-system .plan-goal-board {
+  touch-action: none;
+}
+.plan-system > .plan-divider {
+  grid-column: 1/-1;
+  grid-row: 2;
+  min-width: 0;
+}
+.plan-divider .plan-board-controls {
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+  min-height: 32px;
+  flex-wrap: nowrap;
+  border: 0;
+}
+.plan-resize-handle {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: row-resize;
+  touch-action: none;
+  user-select: none;
+  position: relative;
+}
+.plan-resize-handle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--line);
+}
+.plan-resize-handle > span {
+  position: relative;
+  border-radius: 8px;
+}
+.plan-resize-handle:hover > span,
+.plan-resize-handle:active > span {
+  background: var(--accent);
+}
+.plan-resize-handle:focus-visible {
+  outline-offset: 0;
+  border-radius: 6px;
+}
+.plan-system .plan-goal-board {
+  --plan-card-width: min(120px, calc((100cqw - 24px) / 4));
+  --plan-card-height: calc(var(--plan-card-width) * 218/158);
+}
+.plan-goal-board > .plan-rail-strip {
+  max-width: 504px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.plan-system .plan-card-library .card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 8px;
+  padding: 4px;
+}
+.plan-system .plan-card-library .plan-source {
+  width: 86%;
+  margin-inline: auto;
+  padding-block: calc(var(--theme-card-outset-y, 0%) * 1.38);
+  box-sizing: content-box;
+}
+.plan-system .plan-card-library .plan-source .gallery-card-paper {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 158/218;
+}
+
+.plan-system .plan-goal-fields {
+  gap: 1px;
+  font-size: 9px;
+}
+.plan-system .plan-goal-fields label {
+  padding: 0 1px;
+  font-size: 9px;
+}
+.plan-two-panels {
+  column-gap: 0 !important;
+  row-gap: 0 !important;
+}
+.plan-two-panels > .workspace-plans {
+  padding: 10px !important;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  background: linear-gradient(
+    145deg,
+    var(--surface-tint),
+    color-mix(in srgb, var(--surface-tint) 65%, var(--surface))
+  );
+  gap: 7px;
+  box-shadow: inset 0 2px 5px
+    color-mix(in srgb, var(--color-shadow) 10%, transparent);
+}
+.plan-two-panels > .plan-divider {
+  grid-row: 2;
+  grid-column: 1/-1;
+}
+.plan-two-panels .plan-area-label {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--muted);
+}
+.plan-two-panels .plan-selectors {
+  gap: 4px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+.plan-timeline-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.plan-timeline-toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+.plan-two-panels .plan-timeline {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 4px 0 8px;
+  --plan-card-width: clamp(72px, 21cqw, 108px);
+  --plan-card-height: calc(var(--plan-card-width) * 218/158);
+}
+.plan-source-panel {
+  grid-row: 3;
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+}
+.plan-source-tabs {
+  display: flex;
+  flex: none;
+  gap: 0;
+  background: var(--surface);
+}
+.plan-source-tabs button {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  border-radius: 12px 12px 0 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 12px;
+  min-height: 38px;
+  padding: 8px;
+}
+.plan-source-tabs button[aria-selected="true"] {
+  color: var(--accent);
+}
+.plan-task-source {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
+}
+.plan-warehouse-source {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: 6px;
+  padding: 10px 6px 6px 8px;
+  overflow: hidden;
+}
+.plan-two-panels .plan-card-library {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 0;
+  padding: 0 2px 8px 0;
+  border: 0;
+  overflow: auto;
+}
+.plan-two-panels .plan-card-categories {
+  grid-column: 2;
+  grid-row: 1;
+  padding-top: 0;
+  min-height: 0;
+  overflow: auto;
+  border: 0;
+}
+.plan-two-panels .plan-card-library > h2 {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.plan-progress-summary {
+  flex: none;
+  min-width: 0;
+  padding-top: 5px;
+}
+.plan-progress-summary .plan-progress-line {
+  margin: 0;
+}
+.plan-mode-note {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 5px 0 0;
+}
+.plan-progress-summary > .plan-target {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+.plan-two-panels .plan-goal-board {
+  background: transparent;
+}
+.plan-two-panels .plan-goal-board > .plan-rail-strip {
+  max-width: none;
+}
+
+.plan-source-panel.is-warehouse-source,
+.plan-warehouse-source {
+  background: var(--color-cream-50);
+  box-shadow: none;
+}
+.plan-source-tabs button[aria-selected="true"] {
+  background: var(--color-cream-50);
+}
+
+.plan-system .plan-goal-summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  font-size: 10px;
+  line-height: 1.5;
+  min-height: 44px;
+  padding: 5px 2px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.plan-system .plan-goal-summary:hover {
+  background: var(--accent-wash);
+  box-shadow: none;
+}
+.plan-goal-summary > span {
+  display: block;
+}
+.plan-edit-name {
+  margin-bottom: 18px;
+  font-size: 15px;
+  color: var(--ink);
+}
+.plan-progress-summary > .plan-target {
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin: 0 0 8px;
+  padding: 0;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.plan-system .plan-target input {
+  background: transparent !important;
+  color: var(--ink);
+  width: 3ch;
+  min-height: 32px;
+  height: 32px;
+  font-size: 12px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  border-radius: 0;
+  box-shadow: none;
+}
+.plan-target input::-webkit-inner-spin-button {
+  appearance: none;
+}
+.plan-remove-cross {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 4;
+  min-height: 28px;
+  width: 28px;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: 0 2px 6px #a14b3326;
+}
+.plan-remove-cross:hover {
+  background: var(--surface);
+  color: var(--accent);
+}
+.plan-system .plan-timeline,
+.plan-system .plan-timeline * {
+  touch-action: none;
+}
+.plan-two-panels > .plan-divider {
+  position: relative;
+  height: 0;
+  min-height: 0;
+  z-index: 6;
+  background: none;
+  border: 0;
+}
+.plan-two-panels .plan-resize-handle {
+  position: absolute;
+  left: calc(50% - 40px);
+  right: auto;
+  width: 80px;
+  top: -14px;
+  height: 28px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.plan-resize-handle::before {
+  display: none;
+}
+.plan-resize-handle > span {
+  background: var(--theme-lavender);
+  outline: 0;
+  width: 40px;
+  height: 5px;
+  transform: translateY(5px);
+}
+.plan-resize-handle:focus-visible {
+  outline: none;
+}
+.plan-resize-handle:focus-visible > span {
+  box-shadow: 0 0 0 3px var(--accent-wash);
+}
+.plan-source-panel {
+  background: var(--sheet-background, var(--surface));
+  padding-top: 12px;
+}
+.plan-source.is-selected .gallery-card-paper {
+  animation: plan-card-float 1600ms ease-in-out infinite;
+}
+.plan-source.is-lifted .gallery-card-paper {
+  animation: none;
+  opacity: 0.35;
+}
+.plan-entry.is-new {
+  z-index: 3;
+}
+.plan-system .plan-goal-board,
+.plan-two-panels .plan-timeline {
+  padding: 18px 8px 8px;
+}
+.plan-inspect-card {
+  position: absolute;
+  bottom: -10px;
+  left: 25%;
+  width: 50%;
+  min-height: 28px;
+  padding: 3px;
+  font-size: 11px;
+  z-index: 5;
+  background: var(--surface);
+  border: 0;
+  box-shadow: 0 2px 6px #30263320;
+}
+.plan-inspect-card[hidden] {
+  display: none;
+}
+.plan-inspect-card::before {
+  content: "";
+  position: absolute;
+  inset: -8px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-source.is-selected .gallery-card-paper {
+    animation: none;
+    transform: translateY(-4px);
+  }
+}
+.plan-drag-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 90;
+  contain: layout paint;
+}
+.plan-drag-layer > .plan-drag-card {
+  position: absolute;
+}
+html[data-theme] .simulator-shell .workspace-plan-layout .plan-card-categories {
+  padding-bottom: 8px;
+  border-radius: 12px;
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--skin-paper) 78%, transparent),
+    color-mix(in srgb, var(--skin-panel) 56%, transparent)
+  );
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--skin-paper) 60%, transparent),
+    inset 1px 0 0 color-mix(in srgb, var(--skin-paper) 86%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.plan-card-categories > nav {
+  padding-inline: 3px;
+}
+html[data-theme]
+  .simulator-shell
+  .workspace-plan-layout
+  .plan-card-categories
+  nav
+  > button {
+  border: 0;
+  border-radius: 8px;
+  padding-inline: 1px;
+  background: transparent;
+  color: var(--skin-ink);
+  box-shadow: none;
+}
+html[data-input-method="keyboard"] .plan-card-categories button:focus-visible {
+  outline-offset: -2px;
+}
+html[data-theme]
+  .simulator-shell
+  .workspace-plan-layout
+  .plan-card-categories
+  nav
+  > button:hover {
+  background: color-mix(in srgb, var(--skin-paper) 68%, transparent);
+  color: var(--skin-ink);
+}
+html[data-theme]
+  .simulator-shell
+  .workspace-plan-layout
+  .plan-card-categories
+  nav
+  > button[aria-pressed="true"] {
+  background: color-mix(
+    in srgb,
+    var(--skin-control) 68%,
+    var(--skin-navigation)
+  );
+  color: var(--skin-ink);
+  box-shadow: inset 2px 0 0 var(--skin-navigation);
+}
+html[data-theme]
+  :is(.workspace-plans, .plan-task-source, .plan-card-library, .plan-drag-card)
+  .action-card-face
+  .fan-card-category {
+  display: block;
+  top: 34%;
+  left: 11%;
+  width: 78%;
+  height: 1.2em;
+  font-size: clamp(7px, 7cqw, 9px);
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+html[data-theme]
+  :is(.workspace-plans, .plan-task-source, .plan-card-library, .plan-drag-card)
+  .action-card-face
+  .fan-card-name {
+  top: auto;
+  bottom: 68%;
+  left: 9%;
+  width: 82%;
+  /* Small source and drag copies must not inherit the old 24px title floor. */
+  min-height: 0;
+  height: 2.4em;
+  max-height: 2.4em;
+  padding-block: 1px;
+  box-sizing: content-box;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: clamp(8.5px, 9.5cqw, 12.5px);
+  font-weight: 700;
+  line-height: 1.2;
+  align-content: center;
+  letter-spacing: 0;
+}
+html[data-theme]
+  :is(.workspace-plans, .plan-task-source, .plan-card-library, .plan-drag-card)
+  .action-card-face
+  .fan-card-art {
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  height: 36%;
+  min-height: 0;
+}
+html[data-theme]
+  :is(.workspace-plans, .plan-task-source, .plan-card-library, .plan-drag-card)
+  .action-card-face
+  .fan-card-method {
+  bottom: 7%;
+  font-size: clamp(7px, 7cqw, 10px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+@media (min-width: 760px) {
+  html[data-theme]
+    .simulator-shell
+    .workspace-scene
+    .workspace-plan-layout.plan-two-panels {
+    gap: 0 !important;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-scene
+    .workspace-plan-layout.plan-two-panels
+    > .workspace-plans {
+    border-radius: 20px 0 0 20px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-scene
+    .workspace-plan-layout.plan-two-panels
+    > .plan-source-panel {
+    border-radius: 0 20px 20px 0;
+    border-left: 0;
+    padding-bottom: 76px !important;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout.plan-two-panels {
+    display: grid;
+    grid-template-columns: clamp(260px, 30%, 360px) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    gap: 20px !important;
+    background: transparent;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .workspace-plans,
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .plan-source-panel {
+    grid-row: 1;
+    min-width: 0;
+    min-height: 0;
+    border: 1px solid var(--desktop-line);
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: var(--desktop-inset);
+    padding: 18px !important;
+    overflow: hidden;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .workspace-plans {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .plan-source-panel {
+    grid-column: 2;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    :is(.plan-task-source, .plan-warehouse-source) {
+    background: none;
+    box-shadow: none;
+    padding: 6px;
+    min-height: 0;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-warehouse-source {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 62px;
+    flex: 1;
+    overflow: hidden;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-card-categories
+    button {
+    font-size: 13px;
+    min-height: 44px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    :is(
+      .plan-mode-note,
+      .plan-progress-line > span,
+      .plan-time-label,
+      .plan-area-label,
+      .plan-timeline-toggle,
+      .plan-small,
+      .plan-empty,
+      .plan-goal-summary
+    ) {
+    color: var(--desktop-ink);
+    opacity: 1;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    :is(.plan-source-panel h2, .desktop-source-heading) {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 650;
+    color: var(--desktop-ink);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-selectors
+    select {
+    background: var(--desktop-light);
+    color: var(--desktop-ink);
+    font-size: 13px;
+    min-height: 40px;
+    border-color: var(--desktop-line);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-card-library
+    .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    max-width: none;
+    gap: 24px 18px;
+    padding: 8px;
+    align-items: start;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-card-library
+    .plan-source {
+    width: 100%;
+    max-width: 120px;
+    justify-self: center;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-goal-board {
+    --plan-card-width: 110px;
+    --plan-card-height: 152px;
+    flex: 1;
+    min-height: 0;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-goal-board
+    > .plan-rail-strip {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 20px 18px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-goal {
+    max-width: 110px;
+    justify-self: center;
+    width: 100%;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-timeline {
+    overflow-y: auto;
+    overflow-x: hidden;
+    touch-action: pan-y;
+    scrollbar-width: thin;
+    scrollbar-color: var(--desktop-shadow) transparent;
+    --plan-card-width: 110px;
+    --plan-card-height: 152px;
+    padding: 8px 12px 18px;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-timeline * {
+    touch-action: pan-y;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-timeline
+    > .plan-rail-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+    min-width: 0;
+    padding: 0 0 0 10px;
+    border-left: 2px solid var(--desktop-line);
+    box-sizing: border-box;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-timeline-cell {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 84px minmax(0, 110px);
+    gap: 16px;
+    align-items: start;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-timeline-cell
+    .plan-paper-wrap {
+    grid-column: 2;
+    margin-block: 10px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-timeline-cell
+    .plan-slot-heading {
+    grid-column: 1;
+    height: auto;
+    padding-top: 16px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-timeline-cell
+    .plan-time-label {
+    width: 100%;
+    white-space: normal;
+    height: auto;
+    min-height: 44px;
+    padding: 6px;
+    background: transparent;
+    border-radius: 0;
+    text-align: center;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-timeline-cell
+    .plan-ticks {
+    display: none;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-progress-summary {
+    flex: none;
+  }
+}
+@media (min-width: 760px) and (max-width: 1099px) {
+  html[data-theme] .simulator-shell .workspace-plan-layout.plan-two-panels {
+    grid-template-columns: clamp(220px, 36%, 280px) minmax(0, 1fr);
+    gap: 12px !important;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .workspace-plans,
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .plan-source-panel {
+    padding: 12px !important;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-timeline-cell {
+    grid-template-columns: 64px minmax(0, 90px);
+    gap: 8px;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-timeline {
+    --plan-card-width: 90px;
+    --plan-card-height: 124px;
+    padding-inline: 4px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-card-library
+    .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+    gap: 18px 10px;
+  }
+}
+
+@media (min-width: 760px) {
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels.is-timeline-off {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.is-timeline-off
+    .plan-card-library
+    .card-grid {
+    /* Give each card frame enough room and fill the available warehouse width. */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 135px), 1fr));
+    column-gap: 18px;
+  }
+  html[data-theme] .simulator-shell .plan-timeline:focus-visible {
+    outline: 2px solid var(--desktop-ink);
+    outline-offset: -3px;
+    border-radius: 12px;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-selectors {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-source-tabs {
+    display: flex;
+    flex: none;
+    gap: 8px;
+    padding: 0 0 12px;
+    margin: 0 0 8px;
+    background: transparent;
+    border-bottom: 1px solid var(--desktop-line);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-tabs::before {
+    content: none;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-tabs
+    button {
+    flex: 0 1 auto;
+    min-height: 44px;
+    padding: 8px 18px;
+    clip-path: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--desktop-ink);
+    border: 0;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 550;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-tabs
+    button[aria-selected="true"] {
+    background: var(--desktop-light);
+    color: var(--desktop-ink);
+    box-shadow: inset 0 0 0 1px var(--desktop-line);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-tabs
+    button:hover {
+    background: var(--desktop-light);
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-task-source {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+  }
+}
+@media (min-width: 760px) and (max-width: 899px) {
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-goal-board {
+    --plan-card-width: 90px;
+    --plan-card-height: 124px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-goal-board
+    > .plan-rail-strip {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 18px 12px;
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-goal {
+    max-width: 90px;
+  }
+}
+
+html[data-theme] .plan-source .plan-drag-hint,
+html[data-theme] .plan-source .plan-drag-hint:hover,
+html[data-theme] .plan-source .plan-drag-hint:active {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}

@@ -1,0 +1,520 @@
+/* Shared skin recipes. Replacement packs change catalog.ts, not business pages. */
+:root {
+  --bg: var(--theme-canvas);
+  --paper: var(--theme-canvas);
+  --surface: var(--theme-paper);
+  --porcelain: var(--surface);
+  --ink: var(--theme-ink);
+  --cocoa: var(--ink);
+  --muted: var(--theme-muted);
+  --taupe: var(--muted);
+  --accent: var(--theme-accent);
+  --coral: var(--accent);
+  --coral-dark: var(--theme-accent-hover);
+  --danger: var(--coral-dark);
+  --focus: var(--coral-dark);
+  --on-accent: var(--theme-on-accent);
+  --line: var(--theme-line);
+  --border-soft: color-mix(in srgb, var(--line) 65%, transparent);
+  --surface-hover: var(--theme-paper-light);
+  --surface-tint: var(--theme-lavender-light);
+  --sage: var(--theme-growth);
+  --peach-cream: var(--theme-canvas);
+  --peach-paper: var(--surface);
+  --peach-coral: var(--theme-growth);
+  --peach-ink: var(--ink);
+  --peach-track: var(--theme-line);
+  --color-shadow: var(--theme-shadow);
+  --accent-wash: color-mix(in srgb, var(--theme-lavender) 35%, var(--surface));
+  --overlay: color-mix(in srgb, var(--theme-shadow) 32%, transparent);
+  --app-background: var(--theme-canvas-background);
+  --sheet-background:
+    linear-gradient(
+      color-mix(in srgb, var(--surface) var(--theme-surface-veil), transparent),
+      color-mix(in srgb, var(--surface) var(--theme-surface-veil), transparent)
+    ),
+    var(--theme-paper-image) var(--theme-paper-position) /
+      var(--theme-paper-size),
+    var(--surface);
+  --sheet-shadow:
+    0 18px 44px -18px color-mix(in srgb, var(--theme-shadow) 40%, transparent),
+    inset 0 1px 0 var(--surface-hover);
+  --card-paper: var(--surface);
+  --card-outline: var(--line);
+  --card-print: var(--ink);
+  --stock-cream: var(--surface);
+  --stock-ink: var(--ink);
+  --stock-red: var(--accent);
+  --stock-blue: var(--ink);
+  --stock-green: var(--ink);
+  --stock-purple: var(--ink);
+  --hand-stock: var(--surface);
+  --hand-ink: var(--ink);
+  --hand-edge: var(--line);
+  --card-shadow:
+    0 3px 0 -1px color-mix(in srgb, var(--theme-shadow) 20%, var(--surface)),
+    0 12px 20px -10px color-mix(in srgb, var(--theme-shadow) 38%, transparent);
+  --button-shadow: 0 4px 12px -5px
+    color-mix(in srgb, var(--theme-shadow) 24%, transparent);
+  --sheet-radius: var(--theme-radius-panel);
+}
+body {
+  color: var(--ink);
+}
+body,
+.app-shell,
+.simulator-shell,
+.home-page,
+.workspace-scene {
+  background: var(--app-background);
+}
+button,
+.file-button {
+  border-radius: var(--theme-radius-button);
+  border-color: var(--line);
+  color: var(--ink);
+}
+button.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+  box-shadow: var(--button-shadow);
+}
+button.primary:hover:not(:disabled) {
+  background: var(--coral-dark);
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+.lucide {
+  stroke-width: var(--theme-stroke);
+}
+.guide-paper,
+.dialog,
+.dialog:has(.compact-creation),
+.settings-section,
+.attribute-panel,
+.floating-attributes,
+.status-hud,
+.abandon-message,
+.plan-date-menu,
+.plan-schedule-dialog,
+.card-more-menu,
+.meter-card {
+  background: var(--sheet-background);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--theme-radius-panel);
+  box-shadow: var(--sheet-shadow);
+  color: var(--ink);
+}
+.dialog::backdrop,
+.drawn-card-overlay::backdrop,
+.abandon-dialog::backdrop {
+  background: var(--overlay);
+  backdrop-filter: blur(7px);
+}
+.dialog h2,
+.dialog h3,
+.dialog p,
+.dialog small {
+  color: inherit;
+}
+.dialog p.help,
+.dialog small,
+.dialog .help {
+  color: var(--muted);
+}
+.field input,
+.field select,
+.field textarea,
+.onboarding-form .field input:not([type="range"]) {
+  border-color: var(--line);
+  background: color-mix(in srgb, var(--surface-hover) 78%, transparent);
+  color: var(--ink);
+  box-shadow: inset 0 2px 4px
+    color-mix(in srgb, var(--theme-shadow) 5%, transparent);
+}
+.field input[type="range"] {
+  background: transparent;
+  box-shadow: none;
+}
+.creation-assessment,
+.initial-level-curve,
+.rating-options button,
+.template-list button {
+  background: color-mix(in srgb, var(--surface-hover) 60%, transparent);
+  border-color: var(--line);
+}
+.curve-frame {
+  fill: var(--surface-hover);
+  stroke: var(--line);
+}
+.curve-grid,
+.curve-axes {
+  stroke: var(--line);
+}
+.curve-track {
+  stroke: var(--theme-lavender);
+}
+.curve-active,
+.curve-marker {
+  stroke: var(--accent);
+}
+.curve-area {
+  fill: var(--accent-wash);
+}
+.curve-dot {
+  fill: var(--accent);
+}
+.onboarding-form .dialog-actions {
+  background: transparent;
+}
+.settings-section {
+  box-shadow: var(--button-shadow);
+}
+.sidebar {
+  background: var(--sheet-background);
+  border-color: var(--line);
+}
+.sidebar nav button.active,
+.mobile-nav button.active {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.sidebar .brand {
+  color: var(--ink);
+}
+.brand-symbol {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.sidebar .brand small,
+.version {
+  color: var(--muted);
+}
+.sidebar nav button {
+  border-radius: var(--theme-radius-button);
+}
+.mobile-nav {
+  background: var(--sheet-background);
+  border-top: 0;
+  box-shadow: 0 -5px 18px
+    color-mix(in srgb, var(--theme-shadow) 7%, transparent);
+}
+.mobile-nav button {
+  color: var(--ink);
+}
+.gallery-card-paper,
+.fan-card,
+.fan-card:hover:not(:disabled),
+.fan-card:active:not(:disabled),
+.drawn-card-paper {
+  background: var(--sheet-background) !important;
+  border: 1px solid color-mix(in srgb, var(--surface-hover) 80%, var(--line));
+  border-radius: var(--theme-radius-card);
+  color: var(--ink);
+  box-shadow: var(--card-shadow);
+  aspect-ratio: var(--theme-card-ratio);
+}
+.gallery-card-paper:before,
+.drawn-card-paper:before {
+  display: none;
+}
+.action-card-face {
+  color: var(--ink);
+}
+.action-card-face .fan-card-name {
+  color: var(--ink);
+}
+.action-card-face .fan-card-category,
+.action-card-face .fan-card-method,
+.gallery-card-actions button {
+  color: var(--muted);
+}
+.action-card-face .fan-card-art {
+  border: 0;
+}
+.theme-artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.action-card-face .fan-card-art > .theme-artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+html[data-illustrated="true"] .action-card-face .card-soft-orb {
+  display: none;
+}
+html[data-illustrated="true"] .action-card-face .fan-card-art {
+  top: 36%;
+  height: 43%;
+  left: 2%;
+  width: 96%;
+}
+html[data-illustrated="true"]
+  .action-card-face:has(.action-card-details)
+  .fan-card-art {
+  height: 35%;
+}
+.action-card-details {
+  color: var(--muted);
+}
+.card-management-actions .selected {
+  color: var(--accent);
+}
+.companion-brush {
+  inset: -10% -6% -5% -12%;
+  width: 120%;
+  height: 120%;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  transform: rotate(-9deg);
+  z-index: -2;
+}
+.companion-foliage {
+  left: -13%;
+  bottom: -8%;
+  width: 45%;
+  height: 65%;
+  opacity: 0.85;
+  z-index: -1;
+}
+.companion-ground {
+  left: 8%;
+  top: 85%;
+  width: 90%;
+  height: 20%;
+  opacity: 0.65;
+  z-index: -1;
+}
+.companion-portrait {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(
+    0 10px 8px color-mix(in srgb, var(--theme-shadow) 12%, transparent)
+  );
+}
+html[data-illustrated="true"] .character-stage .orb,
+html[data-illustrated="true"] .character-caption {
+  display: none;
+}
+@media (min-width: 760px) {
+  .simulator-stage {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 32%);
+    gap: 36px;
+  }
+  .character-stage {
+    min-width: 0;
+  }
+  .character-stage .sleep-reminder {
+    position: relative;
+    z-index: 1;
+  }
+}
+.empty > .empty-companion {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 12px;
+}
+html[data-illustrated="true"] .empty > .lucide {
+  display: none;
+}
+html[data-illustrated="false"] .empty > .empty-companion {
+  display: none;
+}
+.workspace-folder {
+  background: var(--sheet-background);
+  border-color: var(--border-soft);
+}
+.workspace-tabs {
+  background: var(--theme-lavender-light);
+}
+.workspace-tabs .workspace-tab {
+  background: transparent;
+  color: var(--ink);
+}
+.workspace-tabs .workspace-tab[aria-selected="true"] {
+  background: var(--sheet-background);
+  color: var(--accent);
+}
+.workspace-heading .workspace-tab h1 {
+  color: inherit;
+}
+.workspace-panels,
+.workspace-panel-viewport {
+  background: transparent;
+}
+.workspace-categories nav > button[aria-pressed="true"] {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.plan-system .workspace-plans,
+.workspace-scene .plan-system .workspace-plans {
+  background: color-mix(in srgb, var(--theme-lavender) 45%, transparent);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--theme-radius-panel);
+}
+.plan-source-tabs [aria-selected="true"] {
+  color: var(--accent);
+  background: var(--sheet-background);
+}
+.plan-system .plan-divider {
+  border-color: var(--line);
+}
+.plan-resize-handle {
+  background: var(--theme-lavender-light);
+}
+.plan-resize-handle > span {
+  background: var(--muted);
+}
+.plan-date-choice summary,
+.plan-selectors select,
+.plan-mode-note {
+  color: var(--ink);
+}
+.plan-goal-summary {
+  color: var(--muted);
+}
+.completed-animation,
+.settlement-orb,
+.toast {
+  box-shadow: var(--sheet-shadow);
+}
+.settlement-orb {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+@media (max-width: 759px) {
+  .workspace-scene {
+    background: var(--sheet-background);
+  }
+  .workspace-heading .workspace-tab h1 {
+    font-size: 16px;
+  }
+  .workspace-tabs .workspace-tab {
+    padding-top: 13px;
+  }
+  .workspace-card-layout {
+    background: transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-artwork {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* A stock asset owns the silhouette, edge relief and paint. Text remains live. */
+html[data-card-surface="image"]
+  :is(
+    .fan-card,
+    .fan-card.is-front,
+    .fan-card:hover:not(:disabled),
+    .fan-card:active:not(:disabled),
+    .gallery-card-paper,
+    .drawn-card-paper,
+    .drawn-card-front,
+    .drawn-card-back
+  ) {
+  background: transparent !important;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-card-surface="image"]
+  :is(
+    .fan-card,
+    .gallery-card-paper,
+    .drawn-card-front,
+    .drawn-card-back
+  )::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border: 0;
+  border-radius: 0;
+  opacity: 1;
+  background: var(--theme-card-image) center / 100% 100% no-repeat;
+  filter: var(--theme-card-depth);
+}
+html[data-card-surface="image"] .drawn-card-paper::before {
+  display: none;
+}
+html[data-card-surface="image"]
+  :is(.action-card-face, .fan-card-main, .card-history) {
+  z-index: 1;
+}
+html[data-card-surface="image"] :is(.card-edit-button, .card-delete-button) {
+  z-index: 3;
+}
+html[data-card-surface="image"] .card-history {
+  position: relative;
+  padding: 4%;
+}
+html[data-card-surface="image"]
+  :is(
+    .guide-paper,
+    .dialog,
+    .floating-attributes,
+    .attribute-panel,
+    .settings-section
+  ) {
+  border-image: var(--theme-card-image) 100 / 8px / 1px stretch;
+}
+html[data-card-surface="image"] .workspace-folder {
+  background: transparent;
+}
+html[data-card-surface="image"]
+  :is(
+    .plan-source-panel,
+    .plan-source-panel.is-warehouse-source,
+    .plan-warehouse-source
+  ) {
+  background: var(--sheet-background);
+}
+/* Quiet reading centers retain the original raised stock around the perimeter. */
+html[data-card-surface="image"] .action-card-face::before,
+html[data-card-surface="image"] .drawn-card-back::after {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  z-index: 0;
+  pointer-events: none;
+  background: color-mix(
+    in srgb,
+    var(--surface) var(--theme-card-center-veil),
+    transparent
+  );
+  mask-image:
+    linear-gradient(transparent, #000 9%, #000 91%, transparent),
+    linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-composite: intersect;
+}
+html[data-card-surface="image"]
+  .action-card-face
+  > :is(
+    .fan-card-name,
+    .fan-card-category,
+    .fan-card-art,
+    .action-card-details,
+    .fan-card-method,
+    .fan-card-corner
+  ) {
+  z-index: 1;
+}

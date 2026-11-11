@@ -1,0 +1,154 @@
+/* Card depth follows the printed silhouette, including the artwork's outsets. */
+@media (min-width: 760px) {
+  :root {
+    --web-card-shadow: drop-shadow(
+        0 2px 2px color-mix(in srgb, var(--theme-shadow) 32%, transparent)
+      )
+      drop-shadow(
+        0 9px 7px color-mix(in srgb, var(--theme-shadow) 38%, transparent)
+      );
+    --web-card-shadow-raised: drop-shadow(
+        0 3px 2px color-mix(in srgb, var(--theme-shadow) 26%, transparent)
+      )
+      drop-shadow(
+        0 16px 11px color-mix(in srgb, var(--theme-shadow) 48%, transparent)
+      );
+  }
+  html[data-theme]
+    :is(.gallery-card-paper, .drawn-card-front, .drawn-card-back) {
+    --theme-card-depth: none;
+    filter: var(--web-card-shadow);
+    transition: filter 180ms ease;
+  }
+  html[data-theme] :is(.card-paper-controls, .plan-paper-wrap) {
+    transition: transform 180ms cubic-bezier(0.2, 0.7, 0.25, 1);
+    transform-origin: center;
+    position: relative;
+  }
+  html[data-theme]
+    .drawn-card-overlay.is-ready
+    :is(.drawn-card-front, .drawn-card-back),
+  html[data-theme] .plan-drag-card {
+    filter: var(--web-card-shadow-raised);
+  }
+}
+@keyframes desktop-card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes desktop-drawn-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
+}
+@media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
+  html[data-card-floating="true"]
+    .workspace-pane:not([inert])
+    :is(.card-paper-controls, .plan-paper-wrap) {
+    animation: desktop-card-float 5.6s ease-in-out infinite;
+    animation-delay: var(--card-float-phase, -1.2s);
+  }
+  .collection-item:nth-child(3n + 2),
+  .plan-source:nth-child(3n + 2),
+  .plan-timeline-cell:nth-child(3n + 2),
+  .plan-goal:nth-child(3n + 2) {
+    --card-float-phase: -3.1s;
+  }
+  .collection-item:nth-child(3n),
+  .plan-source:nth-child(3n),
+  .plan-timeline-cell:nth-child(3n),
+  .plan-goal:nth-child(3n) {
+    --card-float-phase: -4.6s;
+  }
+  html[data-card-floating="true"]
+    :is(.card-paper-controls, .plan-paper-wrap):is(
+      :hover,
+      :focus-within,
+      :active
+    ) {
+    animation-play-state: paused;
+  }
+  @supports (translate: 0) {
+    html[data-card-floating="true"]
+      .drawn-card-overlay.is-ready:not([data-departure])
+      > .drawn-card-paper {
+      animation: desktop-drawn-float 5.6s ease-in-out infinite;
+    }
+  }
+}
+@media (min-width: 760px) {
+  .desktop-card-motion {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    z-index: 6;
+    right: 124px;
+    bottom: 28px;
+    min-height: 44px;
+  }
+  .desktop-card-motion.is-plan {
+    right: 24px;
+  }
+  html[data-theme] .desktop-card-motion > button {
+    display: flex;
+    gap: 10px;
+    min-height: 44px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: 24px;
+    background: var(--web-sidebar);
+    color: var(--web-ink);
+    box-shadow: none;
+  }
+}
+@media (min-width: 760px) and (max-width: 1099px) {
+  .desktop-card-motion:not(.is-plan) {
+    right: 110px;
+  }
+}
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
+  html[data-theme]:not([data-reduce-effects="true"])
+    :is(.card-paper-controls, .plan-paper-wrap):is(:hover, :focus-within) {
+    transform: translateY(-6px);
+    z-index: 4;
+  }
+  html[data-theme]
+    :is(.card-paper-controls, .plan-paper-wrap):is(:hover, :focus-within)
+    > .gallery-card-paper {
+    filter: var(--web-card-shadow-raised);
+  }
+  html[data-theme]:not([data-reduce-effects="true"])
+    :is(.card-paper-controls, .plan-paper-wrap):active {
+    transform: translateY(-2px);
+  }
+}
+@media (min-width: 760px) {
+  html[data-reduce-effects="true"]:not([data-card-floating="true"])
+    :is(.card-paper-controls, .plan-paper-wrap) {
+    transform: none !important;
+    transition: none;
+  }
+  html[data-reduce-effects="true"]
+    :is(.gallery-card-paper, .drawn-card-front, .drawn-card-back) {
+    transition: none;
+  }
+}
+@media (min-width: 760px) and (prefers-reduced-motion: reduce) {
+  html[data-theme] :is(.card-paper-controls, .plan-paper-wrap) {
+    transform: none !important;
+    transition: none;
+  }
+  html[data-theme]
+    :is(.gallery-card-paper, .drawn-card-front, .drawn-card-back) {
+    transition: none;
+  }
+}

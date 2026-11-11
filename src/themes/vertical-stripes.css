@@ -1,0 +1,69 @@
+/* Ink on the existing card stock. Each repeat pairs a broad band with fine rules. */
+[data-card-pattern="vertical-stripes"] {
+  --stripe-ink: var(--theme-stripe-ink, #b3776352);
+  --stripe-rule: var(--theme-stripe-rule, #ad63444d);
+  --stripe-repeat: var(--theme-stripe-repeat, 20%);
+  --stripe-inset: var(--theme-stripe-inset, 10% 9% 11%);
+}
+[data-theme="raven-wizard"] {
+  --theme-stripe-ink: #59694158;
+  --theme-stripe-rule: #5a4c3666;
+  --theme-stripe-repeat: 17%;
+  --theme-stripe-inset: 21% 7% 15%;
+}
+[data-theme="mouse-balloon"] {
+  --theme-stripe-ink: #609a9a45;
+  --theme-stripe-rule: #a267345e;
+  --theme-stripe-repeat: 23%;
+}
+[data-theme="night-sprout"] {
+  --theme-stripe-ink: #8a7caa4f;
+  --theme-stripe-rule: #72658e62;
+  --theme-stripe-repeat: 16%;
+}
+[data-theme="pearl-pistachio"] {
+  --theme-stripe-ink: #9aad5b59;
+  --theme-stripe-rule: #8198464d;
+  --theme-stripe-repeat: 24%;
+}
+[data-theme="pearl-apricot"] {
+  --theme-stripe-ink: #e0a26d64;
+  --theme-stripe-rule: #bf7c6552;
+  --theme-stripe-repeat: 24%;
+}
+[data-theme="bakery-ochre"] {
+  --theme-stripe-ink: #ca8a385e;
+  --theme-stripe-rule: #a45a2c61;
+  --theme-stripe-repeat: 21%;
+}
+[data-theme="paper-lavender"] {
+  --theme-stripe-ink: #aa90bd5c;
+  --theme-stripe-rule: #9274ab57;
+  --theme-stripe-repeat: 21%;
+}
+
+[data-card-pattern="vertical-stripes"]:not([data-white-model="true"], [data-simple-theme="true"])
+  .action-card-face::after {
+  content: "";
+  position: absolute;
+  inset: var(--stripe-inset);
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+      90deg,
+      transparent 16%,
+      var(--stripe-rule) 16% 19%,
+      transparent 19% 24%,
+      var(--stripe-ink) 24% 76%,
+      transparent 76% 81%,
+      var(--stripe-rule) 81% 84%,
+      transparent 84%
+    )
+    center / var(--stripe-repeat) 100% repeat-x;
+  mask-image: linear-gradient(transparent 13%, #000 31% 82%, transparent);
+  mix-blend-mode: multiply;
+}
+[data-card-pattern="vertical-stripes"]:not([data-white-model="true"], [data-simple-theme="true"])
+  .action-card-face > :is(.card-method-texture, .card-text-paper-wash) {
+  display: none;
+}

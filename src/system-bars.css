@@ -1,0 +1,10 @@
+/* The native inset stays outside the WebView. Blend its theme colour into the
+   first strip of page artwork; never cover controls or fake system icons. */
+.native-window-blend {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3.5dvh;
+  background: linear-gradient(to bottom, var(--native-window-top), transparent);
+  pointer-events: none;
+  z-index: 20;
+}

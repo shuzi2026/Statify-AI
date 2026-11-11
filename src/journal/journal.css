@@ -1,0 +1,274 @@
+/* Record list, reflection content and their responsive differences.
+   Shared typography, surface recipes and Dialog geometry keep their common owners. */
+
+.journal-log {
+  padding: 8px 0 24px;
+  max-width: 760px;
+}
+.journal-day-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 760px;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.journal-day-nav .icon-button {
+  min-width: 48px;
+  min-height: 48px;
+}
+.journal-day-nav .icon-button:last-child {
+  margin-left: auto;
+}
+.journal-page > .field {
+  max-width: 760px;
+  margin-bottom: 8px;
+}
+.journal-day {
+  margin-bottom: 28px;
+}
+.journal-day ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.journal-search {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 760px;
+}
+.journal-search > .field {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+.journal-day-label {
+  margin: 8px 0 10px;
+  font-size: 0.875rem;
+}
+.journal-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.journal-page button.journal-sentence:hover,
+.journal-page button.journal-sentence:active {
+  background: var(--surface);
+  box-shadow: none;
+  transform: none;
+}
+.journal-dialog .journal-context {
+  font-size: 13px;
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+}
+.journal-context time {
+  color: var(--muted);
+  font-size: 12px;
+}
+.journal-dialog .journal-note {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.9;
+}
+.journal-detail-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.journal-detail-row > details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.journal-detail-row summary {
+  min-height: var(--control-min-height);
+  line-height: var(--control-min-height);
+}
+.journal-detail-row details[open] + .journal-delete-entry {
+  align-self: end;
+}
+.journal-dialog .journal-delete-entry {
+  min-height: var(--control-min-height);
+  color: var(--muted);
+}
+.journal-dialog details p {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  margin: 8px 0;
+}
+/* DateInput keeps the shared value-input border, fill, padding and touch size. */
+.journal-day-nav input {
+  font-size: 15px;
+  min-width: 0;
+  flex: 1;
+  max-width: 220px;
+}
+.journal-note,
+.journal-line {
+  border-color: var(--line);
+  color: var(--ink);
+}
+.journal-page {
+  --journal-text: var(--muted);
+  --journal-link: var(--ink);
+  --journal-time: var(--muted);
+  min-height: 70dvh;
+}
+.journal-page .journal-line {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.journal-message {
+  display: inline;
+  font: inherit;
+  overflow-wrap: anywhere;
+}
+.journal-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  margin-left: 10px;
+  vertical-align: baseline;
+}
+.journal-sentence time {
+  white-space: nowrap;
+  display: inline;
+  margin: 0;
+  font: inherit;
+  color: var(--muted);
+}
+.journal-sentence svg {
+  display: inline-block;
+  color: var(--journal-link);
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  vertical-align: 0;
+}
+.journal-page .journal-sentence.has-note {
+  color: var(--accent);
+}
+.journal-page .journal-sentence:focus-visible {
+  outline: none;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.journal-page .empty {
+  padding-block: 32px;
+}
+@media (max-width: 759px) {
+  .journal-page .journal-log {
+    max-width: none;
+  }
+}
+
+.journal-encouragement {
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: 0.25em;
+  font: inherit;
+  color: inherit;
+}
+/* Only the first text line yields room to the time; later lines span the bubble. */
+.journal-page .journal-sentence {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  flex: 0 1 auto;
+  max-width: min(100%, 660px);
+  margin: 0;
+  padding: 8px 12px;
+  min-height: 44px;
+  border-radius: var(--paper-corner-radius);
+  background: var(--surface);
+  background-clip: padding-box;
+  border: 0;
+  border-image: none;
+  box-shadow: none;
+  font: 400 13px/1.65 var(--font-ui);
+  color: var(--ink);
+  text-align: left;
+  display: flow-root;
+  width: 100%;
+  box-sizing: border-box;
+}
+.journal-page .journal-meta {
+  float: right;
+  margin-left: 10px;
+}
+.journal-page .journal-meta time {
+  font-variant-numeric: tabular-nums;
+}
+@media (min-width: 760px) {
+  html[data-theme] .journal-page .journal-day-nav {
+    max-width: none;
+    background: var(--web-panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    padding: 6px;
+    margin-bottom: 20px;
+  }
+  html[data-theme] .journal-page .journal-log {
+    max-width: 900px;
+    padding: 0;
+  }
+  html[data-theme] .journal-page .journal-sentence {
+    background: var(--web-panel);
+    border: 1px solid var(--border-soft);
+    padding: 12px 16px;
+  }
+  html[data-theme] .journal-page .journal-sentence.has-note {
+    color: var(--web-ink);
+  }
+  html[data-theme] .journal-page .journal-sentence svg {
+    color: var(--web-action-hover);
+  }
+  html[data-theme] .journal-page {
+    --journal-text: var(--web-ink);
+    --journal-link: var(--web-action);
+    --journal-time: var(--web-muted);
+    color: var(--web-ink);
+  }
+  html[data-theme]
+    .journal-page
+    :is(.journal-day-nav, .journal-day-nav input, .journal-day-nav button) {
+    color: var(--web-ink);
+    border-color: var(--web-line);
+  }
+  html[data-theme] .journal-page .journal-sentence:hover {
+    background: var(--web-control);
+    color: var(--web-ink);
+  }
+  html[data-theme] .journal-page .journal-day-nav button:hover {
+    background: var(--web-control);
+    color: var(--web-ink);
+  }
+}
+
+/* Text directly on the scene uses scene ink; paper bubbles keep their own ink. */
+@media (max-width: 759px) {
+  html[data-theme]
+    .journal-page
+    :is(
+      .empty,
+      .empty h3,
+      .empty p,
+      .journal-day-label,
+      .journal-day-nav > .icon-button
+    ) {
+    color: var(--theme-scene-ink);
+  }
+}

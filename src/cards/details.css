@@ -1,0 +1,498 @@
+/* Drawn card and usage history ownership. Public typography, surfaces, Dialog shell and CardFace remain shared. */
+html[data-theme]
+  .drawn-card-paper
+  .action-card-face:has(.drawn-card-changes[data-has-status])
+  .fan-card-art {
+  height: 27%;
+}
+.drawn-card-paper .action-card-details:has(.drawn-card-changes) {
+  bottom: 14%;
+  max-height: none;
+  overflow: hidden;
+}
+html[data-theme] .drawn-card-paper .action-card-details:has(.drawn-card-changes[data-has-status]) {
+  top: 63%;
+}
+.drawn-card-detail-copy {
+  display: block;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  scrollbar-width: thin;
+}
+.drawn-card-changes {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  column-gap: 8px;
+  line-height: 1.5;
+  max-block-size: 4.5em;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  scrollbar-width: thin;
+  color: var(--skin-ink);
+}
+.drawn-card-changes > span {
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
+}
+.drawn-card-changes b {
+  color: #9b3832;
+  font-weight: 600;
+}
+.drawn-card-paper {
+  padding: 0 !important;
+  position: relative;
+  aspect-ratio: 158/218;
+  height: auto;
+  overflow: visible !important;
+  max-height: none !important;
+}
+.drawn-card-paper .action-card-face {
+  position: absolute;
+  inset: 0;
+}
+.drawn-card-close {
+  position: fixed;
+  top: max(24px, env(safe-area-inset-top));
+  right: 22px;
+  background: var(--sheet-background);
+  box-shadow: 0 5px 15px #211e1b20;
+}
+.drawn-card-overlay.is-flying .drawn-card-close {
+  opacity: 0;
+  pointer-events: none;
+}
+@media (max-width: 759px) {
+  .drawn-card-paper {
+    width: min(292px, calc((100dvh - 180px) * 158 / 218)) !important;
+  }
+}
+.drawn-card-paper:has(.card-edit-button) .fan-card-corner {
+  visibility: hidden;
+}
+/* Detail cards use readable secondary text and one aligned footer row. */
+html[data-theme] .drawn-card-paper .action-card-face .fan-card-category {
+  top: 20.5%;
+  font-size: clamp(14px, 5.5cqw, 16px);
+  line-height: 1.3;
+  height: 1.3em;
+}
+html[data-theme] .drawn-card-paper .action-card-face .fan-card-method {
+  top: 88.5%;
+  bottom: auto;
+  left: 23%;
+  width: 54%;
+  font-size: clamp(16px, 6.2cqw, 18px);
+  line-height: 1.3;
+  transform: translateY(-50%);
+}
+html[data-theme] .drawn-card-front > :is(.card-edit-button, .card-delete-button) {
+  top: 88.5%;
+  bottom: auto;
+  width: 16%;
+  height: 12%;
+  min-height: 44px;
+  padding: 0;
+  aspect-ratio: auto;
+  transform: translateY(-50%);
+}
+html[data-theme] .drawn-card-front > .card-delete-button {
+  left: 8%;
+}
+html[data-theme] .drawn-card-front > .card-edit-button {
+  right: 8%;
+}
+html[data-theme] .drawn-card-front > :is(.card-edit-button, .card-delete-button) svg {
+  width: 24px;
+  height: 24px;
+}
+.drawn-card-overlay {
+  --drawn-card-width: min(
+    292px,
+    calc((100vw - 44px) / (1 + 2 * var(--theme-card-outset-x-ratio, 0))),
+    calc(
+      (100dvh - 220px) * 158 / 218 /
+        (1 + 2 * var(--theme-card-outset-y-ratio, 0))
+    )
+  );
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 24px 22px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  overflow: auto;
+  box-sizing: border-box;
+}
+.drawn-card-overlay[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.drawn-card-overlay::backdrop {
+  background: var(--overlay);
+  backdrop-filter: blur(7px);
+}
+.drawn-card-paper {
+  width: var(--drawn-card-width) !important;
+  margin-block: calc(
+    var(--drawn-card-width) * 218 / 158 * var(--theme-card-outset-y-ratio, 0)
+  );
+  flex-shrink: 0;
+  perspective: 1000px;
+  container-type: inline-size;
+  touch-action: manipulation;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.card-flip-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  transition: transform 480ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+.is-flipped > .card-flip-inner {
+  transform: rotateY(180deg);
+}
+.drawn-card-front,
+.drawn-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--sheet-background);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 3px 0 var(--line),
+    0 26px 50px -12px color-mix(in srgb, var(--color-shadow) 40%, transparent);
+}
+.drawn-card-back {
+  transform: rotateY(180deg);
+}
+.drawn-card-actions {
+  width: min(292px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.card-flip-hint {
+  min-height: 44px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 13px;
+  font-weight: 650;
+  color: #fffbee;
+  text-shadow: 0 1px 2px #241c16, 0 0 4px #241c16, 0 0 8px #241c16;
+  flex-shrink: 0;
+}
+.drawn-card-restrictions {
+  color: #691f21;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+.restriction-divider {
+  margin-inline: 3px;
+}
+.drawn-card-overlay.is-flying > .drawn-card-paper,
+.drawn-card-overlay.is-flying > .drawn-card-actions,
+.drawn-card-overlay.is-flying > .card-flip-hint {
+  opacity: 0;
+  pointer-events: none;
+}
+.card-history {
+  padding: 9%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--ink);
+}
+.card-history > header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+.card-history > header > strong {
+  overflow-wrap: anywhere;
+}
+.card-history > header > span,
+.card-history > p {
+  font-size: 4cqw;
+  color: var(--muted);
+  text-align: center;
+}
+.card-history > p {
+  margin: 0 0 14px;
+}
+.card-history-grid > span,
+.card-history-legend > i {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: color-mix(
+    in srgb,
+    var(--accent) calc(var(--heat) * 100%),
+    var(--line)
+  );
+}
+.card-history-dates {
+  display: flex;
+  justify-content: space-between;
+  font-size: 3.5cqw;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.card-history-legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  font-size: 3.5cqw;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.card-history-legend > i {
+  display: block;
+  width: 10px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-flip-inner {
+    transition: none;
+  }
+}
+.drawn-card-overlay.is-flying > .drawn-card-paper {
+  opacity: 1;
+  pointer-events: none;
+}
+.drawn-card-overlay.is-flying .action-card-details {
+  visibility: hidden;
+}
+.drawn-card-paper {
+  transform-origin: center;
+  will-change: transform;
+}
+.card-history {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.card-history::-webkit-scrollbar {
+  display: none;
+}
+.card-history-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  flex-shrink: 0;
+  align-self: center;
+}
+.card-history-grid > span {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+}
+.card-history-month {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.card-history-month button {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.card-history .card-history-dates,
+.card-history .card-history-legend {
+  flex-shrink: 0;
+  font-size: 10px;
+}
+.card-history > header {
+  flex-shrink: 0;
+}
+.card-history-month {
+  flex-shrink: 0;
+}
+.card-history > .text-button {
+  flex-shrink: 0;
+}
+.card-all-records {
+  overflow-y: auto;
+  font-size: 11px;
+}
+.card-all-records p {
+  margin: 6px 0;
+}
+html[data-card-surface] .card-history {
+  padding: 40px 22px 24px;
+  justify-content: flex-start;
+  gap: 0;
+}
+.card-history > header {
+  margin-bottom: 4px;
+}
+.card-history > header > strong {
+  font-size: 14px;
+  line-height: 1.4;
+  max-height: 40px;
+  overflow-y: auto;
+}
+.card-history > header > span {
+  font-size: 11px;
+}
+.card-history-month {
+  width: min(164px, 100%);
+  align-self: center;
+  min-height: 32px;
+}
+.card-history-month button {
+  min-width: 32px;
+  min-height: 32px;
+  box-shadow: none;
+}
+.card-history-month strong {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.card-history-grid {
+  width: min(156px, 100%);
+  max-width: 156px;
+  gap: 3px;
+  margin: 5px auto;
+  grid-auto-rows: auto;
+}
+.card-history-grid > span {
+  min-height: 0;
+  aspect-ratio: 1;
+}
+.card-history .card-history-dates,
+.card-history .card-history-legend {
+  width: min(156px, 100%);
+  max-width: 156px;
+  margin: 3px auto;
+}
+.card-history .card-history-empty {
+  margin: 8px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.card-history > .text-button {
+  min-height: 30px;
+  margin-top: 5px;
+  padding: 4px;
+  font-size: 11px;
+}
+.card-all-records {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  margin-top: 5px;
+}
+.drawn-card-overlay.is-ready:not([data-departure]) .drawn-card-paper {
+  animation: drawn-card-hover 5s ease-in-out infinite;
+}
+.drawn-card-overlay[data-held] .drawn-card-paper {
+  animation: none !important;
+}
+.drawn-card-overlay[data-departure] .drawn-card-paper {
+  translate: none;
+  rotate: none;
+  pointer-events: none;
+}
+.drawn-card-overlay[data-departure="instant"] .drawn-card-paper {
+  animation: card-dissolve var(--card-exit-duration, 340ms) ease-out both;
+  filter: blur(1px);
+}
+.drawn-card-overlay[data-departure="focus"] .drawn-card-paper {
+  animation: card-to-focus var(--card-exit-duration, 340ms)
+    cubic-bezier(0.3, 0.05, 0.5, 1) both;
+  mask-image: radial-gradient(ellipse at center, #000 54%, transparent 100%);
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+.drawn-card-overlay[data-departure]
+  :is(.drawn-card-actions, .drawn-card-close, .card-flip-hint) {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 100ms ease-out;
+}
+.drawn-card-overlay[data-completed] .drawn-card-paper {
+  opacity: 0;
+  animation: card-completion-release var(--card-exit-duration, 340ms) ease-out
+    both;
+}
+.drawn-card-overlay .inline-completion {
+  animation: card-completion-arrive var(--card-exit-duration, 340ms) ease-out
+    both;
+  transform: translate(-50%, -50%);
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+.drawn-card-overlay[data-completion-closing] .inline-completion {
+  animation: card-completion-leave 200ms ease-out both;
+}
+.drawn-card-overlay[data-completion-closing]::backdrop {
+  animation: card-backdrop-release 200ms ease-out both;
+}
+.drawn-card-overlay[data-completed]
+  :is(.drawn-card-actions, .drawn-card-close, .card-flip-hint) {
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .drawn-card-overlay[data-departure="instant"] .drawn-card-paper {
+    filter: none;
+  }
+  .drawn-card-overlay[data-departure="focus"] .drawn-card-paper {
+    mask-image: none;
+  }
+  .drawn-card-overlay[data-departure]
+    :is(.drawn-card-actions, .drawn-card-close, .card-flip-hint) {
+    transition: none;
+  }
+}
+html[data-statify-no-aspect="true"][data-theme] .drawn-card-paper {
+  width: var(--drawn-card-width) !important;
+}
+/* Old compositors rasterize filtered backfaces even when facing away. The
+   printed frame already supplies its edge; avoid two growing shadow passes. */
+html[data-statify-no-aspect="true"][data-card-surface="image"]
+  .drawn-card-front::before,
+html[data-statify-no-aspect="true"][data-card-surface="image"]
+  .drawn-card-back::before {
+  filter: none;
+}
+html[data-statify-no-aspect="true"] .drawn-card-back {
+  visibility: hidden;
+}
+html[data-statify-no-aspect="true"] .is-flipped > .card-flip-inner > .drawn-card-back {
+  visibility: visible;
+  transition-delay: 0s;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-statify-no-aspect="true"] .drawn-card-back {
+    /* Keep the back visible through the first half of the return flip. */
+    transition: visibility 0s linear 240ms;
+  }
+  html[data-statify-no-aspect="true"] .is-flipped > .card-flip-inner > .drawn-card-back {
+    transition-delay: 0s;
+  }
+}

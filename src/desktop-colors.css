@@ -1,0 +1,570 @@
+/* Desktop paint only. Geometry and type stay in the shared layout contracts. */
+@media (min-width: 760px) {
+  :root {
+    --web-ink: var(--skin-ink);
+    --web-muted: var(--skin-muted);
+    --web-scene-ink: var(--theme-ink);
+    --web-scene-danger: #742c28;
+    --web-exterior: var(--skin-exterior);
+    --web-sidebar: var(--skin-sidebar);
+    --web-card-well: var(--skin-card-well);
+    --web-timeline: var(--skin-timeline);
+    --web-panel: var(--skin-panel);
+    --web-paper: var(--skin-paper);
+    --web-field: var(--skin-field);
+    --web-control: var(--skin-control);
+    --web-action: var(--skin-action);
+    --web-action-hover: var(--skin-action-hover);
+    --web-navigation: var(--skin-navigation);
+    --web-on-action: var(--skin-on-action);
+    --web-line: var(--skin-line);
+    --web-danger: #92362e;
+    --web-danger-wash: #f4e0d9;
+    --web-success: #2e614c;
+    --web-shadow: var(--skin-shadow);
+    --web-track: var(--skin-track);
+    --web-scene-line: color-mix(
+      in srgb,
+      var(--web-scene-ink) 28%,
+      var(--theme-canvas)
+    );
+    --surface: var(--web-panel);
+    --surface-hover: var(--web-field);
+    --surface-tint: var(--web-control);
+    --ink: var(--web-ink);
+    --cocoa: var(--web-ink);
+    --muted: var(--web-muted);
+    --taupe: var(--web-muted);
+    --accent: var(--web-action);
+    --accent-ink: var(--web-action);
+    --coral: var(--web-action);
+    --coral-dark: var(--web-action-hover);
+    --focus: var(--web-action-hover);
+    --on-accent: var(--web-on-action);
+    --danger: var(--web-danger);
+    --line: var(--web-line);
+    --border-soft: color-mix(in srgb, var(--web-line) 60%, transparent);
+    --accent-wash: color-mix(in srgb, var(--web-action) 12%, var(--web-paper));
+    --peach-track: var(--web-track);
+    --peach-coral: var(--web-action);
+    --sage: var(--web-action);
+    --overlay: color-mix(in srgb, var(--web-shadow) 48%, transparent);
+    --sheet-background: var(--web-paper);
+    --sheet-shadow: 0 18px 48px -16px #102d3152, inset 0 1px 0 #fffbee;
+    --button-shadow: 0 2px 6px #102d311c;
+  }
+  html[data-theme] {
+    --dialog-paper-base: var(--web-paper);
+    --dialog-paper-inset: 0px;
+    --dialog-paper-texture: none;
+  }
+  html[data-theme="night-sprout"] {
+    --web-scene-danger: #ffd0c1;
+  }
+  html[data-theme] .simulator-shell {
+    --theme-scene-ink: var(--web-ink);
+    --desktop-ink: var(--web-scene-ink);
+    --desktop-light: var(--web-control);
+    --desktop-line: var(--web-scene-line);
+    --desktop-shadow: var(--web-shadow);
+    --desktop-inset: var(--skin-recess-shadow);
+    background: var(--web-exterior);
+    color: var(--web-ink);
+  }
+  html[data-theme] .simulator-shell > main {
+    background: transparent;
+  }
+  /* Text lives on opaque light surfaces; the recessed wells belong to cards. */
+  html[data-theme] .simulator-shell .desktop-sidebar {
+    background: var(--web-sidebar);
+    border-color: var(--web-line);
+  }
+  html[data-theme]
+    .simulator-shell
+    .desktop-sidebar
+    :is(
+      .player-hud,
+      .execution-summary,
+      .execution-track,
+      .attribute-panel,
+      .simulator-attribute,
+      .sim-attr-icon,
+      .text-button,
+      small
+    ) {
+    color: var(--web-ink);
+  }
+  html[data-theme]
+    .desktop-sidebar
+    :is(.simulator-attribute, .execution-track)
+    progress,
+  html[data-theme] .desktop-sidebar progress::-webkit-progress-bar {
+    background: var(--web-track);
+  }
+  html[data-theme] .simulator-shell .workspace-card-layout > .tasks {
+    background: var(--web-card-well);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-card-layout
+    > .workspace-categories {
+    background: var(--web-sidebar);
+    border-radius: 14px;
+    box-shadow: inset 0 0 0 1px var(--border-soft);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .workspace-plans {
+    background: var(--web-timeline);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout.plan-two-panels
+    > .plan-source-panel {
+    background: var(--web-card-well);
+  }
+  html[data-theme] .simulator-shell .workspace-plan-layout .plan-source-tabs {
+    background: var(--web-sidebar);
+    border-radius: 12px;
+    padding: 6px;
+    border-color: var(--web-line);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-panel
+    :is(.desktop-source-heading, .plan-empty) {
+    background: var(--web-sidebar);
+    color: var(--web-ink);
+    border-radius: 10px;
+    padding: 8px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-panel
+    .plan-progress-summary {
+    background: transparent;
+    color: var(--skin-well-ink);
+    border-radius: 0;
+    margin-top: 8px;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-panel
+    :is(
+      .plan-goal-summary,
+      .plan-mode-note,
+      .plan-progress-line,
+      .plan-progress-line > span,
+      .plan-target
+    ) {
+    color: var(--skin-well-ink);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-tabs
+    button[aria-selected="true"] {
+    background: var(--web-navigation);
+    color: var(--web-on-action);
+  }
+  html[data-theme] .simulator-shell .workspace-pane-tools {
+    background: transparent;
+  }
+  html[data-theme] .simulator-shell .gallery-card-actions {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  html[data-theme] .simulator-shell .gallery-card-actions button {
+    color: var(--skin-well-ink);
+    border-color: transparent;
+  }
+  html[data-theme]
+    .simulator-shell
+    > main:has(.settings-page, .payment-test-page) {
+    background: transparent;
+    min-height: 0;
+  }
+  html[data-theme] .simulator-shell .desktop-status .status-hud {
+    background: var(--web-panel);
+    border-color: var(--web-line);
+    color: var(--web-ink);
+  }
+  html[data-theme] .simulator-shell .desktop-status .status-cell,
+  html[data-theme]
+    .simulator-shell
+    .desktop-status
+    .status-cell
+    :is(span, strong, small) {
+    color: var(--web-ink);
+  }
+  html[data-theme] .simulator-shell .desktop-status .status-cell {
+    border-color: var(--web-line);
+  }
+  html[data-theme] .simulator-shell .desktop-status .status-cell:hover {
+    background: var(--web-control);
+  }
+  html[data-theme] .simulator-shell .desktop-status progress,
+  html[data-theme]
+    .simulator-shell
+    .desktop-status
+    progress::-webkit-progress-bar {
+    background: var(--web-track);
+  }
+  html[data-theme]
+    .simulator-shell
+    .desktop-status
+    progress::-webkit-progress-value {
+    background: var(--web-action);
+  }
+  html[data-theme]
+    .simulator-shell
+    .desktop-status
+    progress::-moz-progress-bar {
+    background: var(--web-action);
+  }
+  html[data-theme] .desktop-sidebar progress::-webkit-progress-value {
+    background: var(--web-scene-ink);
+  }
+  html[data-theme] .desktop-sidebar progress::-moz-progress-bar {
+    background: var(--web-scene-ink);
+  }
+  html[data-theme]
+    .simulator-shell
+    :is(
+      .workspace-categories nav > button,
+      .plan-card-categories nav > button
+    ) {
+    color: var(--web-scene-ink);
+  }
+  html[data-theme]
+    .simulator-shell
+    :is(
+      .workspace-categories nav > button,
+      .plan-card-categories nav > button
+    ):hover {
+    background: var(--web-control);
+    color: var(--web-ink);
+  }
+  html[data-theme]
+    .simulator-shell
+    :is(
+      .workspace-categories nav > button,
+      .plan-card-categories nav > button
+    )[aria-pressed="true"] {
+    background: var(--web-navigation);
+    color: var(--web-on-action);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-tabs
+    button {
+    color: var(--web-scene-ink);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-source-tabs
+    button:hover:not([aria-selected="true"]) {
+    background: var(--web-control);
+    color: var(--web-ink);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-selectors select {
+    background: var(--web-control);
+    color: var(--web-ink);
+    border-color: var(--web-line);
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-plan-layout
+    .plan-progress-line
+    progress {
+    accent-color: var(--web-action);
+  }
+  html[data-theme] .simulator-shell .workspace-pane-tools > .icon-button {
+    background: var(--web-control);
+    color: var(--web-ink);
+    border-color: var(--web-line);
+  }
+  html[data-theme] .simulator-shell .workspace-pane-tools > .icon-button:hover {
+    background: var(--web-paper);
+  }
+  html[data-theme] .desktop-view-switch:is(:hover, :active) {
+    background: transparent;
+    box-shadow: none;
+  }
+  html[data-theme] .desktop-view-label {
+    background: transparent;
+    color: var(--web-scene-ink);
+  }
+  html[data-theme] .desktop-view-label:hover {
+    background: var(--web-control);
+    color: var(--web-ink);
+  }
+  html[data-theme] .desktop-view-switch i {
+    background: color-mix(in srgb, var(--web-action) 32%, var(--theme-canvas));
+  }
+  html[data-theme] .desktop-view-switch[aria-checked="true"] i {
+    background: var(--web-action);
+  }
+  html[data-theme] .desktop-view-switch b {
+    background: var(--web-paper);
+  }
+  html[data-theme] .desktop-utilities {
+    background: var(--web-panel);
+    border-color: var(--web-line);
+  }
+  html[data-theme] .desktop-utilities button {
+    color: var(--web-ink);
+  }
+  html[data-theme] .desktop-utilities button:hover {
+    background: var(--web-control);
+  }
+  html[data-theme] .desktop-utilities button[aria-current="page"] {
+    background: var(--web-navigation);
+    color: var(--web-on-action);
+  }
+  html[data-theme] .desktop-page-switch {
+    background: var(--web-panel);
+    box-shadow: inset 1px 2px 5px
+      color-mix(in srgb, var(--web-shadow) 24%, transparent);
+    border: 1px solid var(--border-soft);
+  }
+  html[data-theme] .desktop-page-switch > i {
+    background: var(--web-navigation);
+    box-shadow: 0 2px 5px color-mix(in srgb, var(--web-shadow) 24%, transparent);
+  }
+  html[data-theme] .desktop-page-switch > button {
+    color: var(--web-ink);
+    background: transparent;
+    box-shadow: none;
+  }
+  html[data-theme] .desktop-page-switch > button[aria-current="page"] {
+    color: var(--web-on-action);
+  }
+  html[data-theme]
+    :is(
+      .dialog,
+      .guide-paper,
+      .value-picker,
+      .abandon-message,
+      .plan-date-menu,
+      .card-more-menu
+    ) {
+    --ink: var(--web-ink);
+    --muted: var(--web-muted);
+    --accent: var(--web-action);
+    --accent-ink: var(--web-action);
+    --danger: var(--web-danger);
+    --line: var(--web-line);
+    --border-soft: color-mix(in srgb, var(--web-line) 60%, transparent);
+    color: var(--web-ink);
+    border-image: none !important;
+    border-color: var(--web-line);
+  }
+  html[data-theme] .focus-session.dialog {
+    background: var(--web-paper) !important;
+  }
+  html[data-theme]
+    :is(.dialog[data-layout-shell], .guide-paper, .value-picker,
+      .plan-date-menu, .card-more-menu, .abandon-message) {
+    border-color: transparent;
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper, .value-picker)
+    :is(h1, h2, h3, label, legend, summary) {
+    color: var(--web-ink);
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper, .value-picker)
+    :is(.help, small, .field-hint, .guide-instruction, .plan-small) {
+    color: var(--web-muted);
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper, .value-picker)
+    :is(
+      input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+      select,
+      textarea
+    ) {
+    background: var(--web-field) !important;
+    color: var(--web-ink);
+    border-color: var(--web-line);
+    caret-color: var(--web-action);
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper, .value-picker)
+    :is(input, textarea)::placeholder {
+    color: var(--web-muted);
+    opacity: 1;
+  }
+  /* Progress segments and schedule options use the shared transparent paint. */
+  html[data-theme]
+    :is(.dialog, .guide-paper, .value-picker)
+    button:not(:where(.card-form-progress > button, .plan-schedule-dialog .plan-wheel > button)) {
+    background: var(--web-panel);
+    color: var(--web-ink);
+    border-color: var(--web-line);
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper, .value-picker)
+    button:hover:not(:disabled, :where(.card-form-progress > button, .plan-schedule-dialog .plan-wheel > button)) {
+    background: var(--web-control);
+    color: var(--web-ink);
+  }
+  html[data-theme] .plan-schedule-dialog .plan-wheel > button:is(:hover, :active) {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+  html[data-theme] :is(.dialog, .guide-paper, .value-picker) .dialog-actions {
+    --web-dialog-action: var(--surface);
+    --web-dialog-on-action: var(--web-ink);
+  }
+  html[data-theme] :is(.dialog, .guide-paper, .value-picker) button.primary {
+    background: var(--web-dialog-action, var(--web-action)) !important;
+    color: var(--web-dialog-on-action, var(--web-on-action)) !important;
+    border-color: var(--web-action);
+    box-shadow: 0 2px 6px #102d3129;
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper, .value-picker)
+    button.primary:hover:not(:disabled) {
+    background: var(--web-dialog-action, var(--web-action-hover)) !important;
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper)
+    .dialog-actions
+    button:not(.primary) {
+    background: var(--web-panel);
+    color: var(--web-ink);
+    border-color: var(--web-line);
+    box-shadow: none;
+  }
+  html[data-theme]
+    :is(.dialog, .guide-paper)
+    .dialog-actions
+    button:not(.primary):hover {
+    background: var(--web-control);
+  }
+  html[data-theme] :is(.dialog, .guide-paper) .text-button {
+    background: transparent;
+    box-shadow: none;
+    color: var(--web-action);
+  }
+  html[data-theme]
+    :is(.dialog, .value-picker, .guide-paper)
+    :is(button.danger, [role="alert"], .meter-error) {
+    color: var(--web-danger);
+  }
+  html[data-theme]
+    :is(
+      .membership,
+      .global-membership,
+      .payment-test-page,
+      .settings-section
+    ) {
+    background: var(--web-paper);
+    color: var(--web-ink);
+    border-color: var(--web-line);
+    border-image: none;
+  }
+  html[data-theme] .payment-test-page :is(.text-button, a) {
+    color: var(--web-action);
+  }
+  html[data-theme] .payment-test-page .primary {
+    background: var(--web-action);
+    color: var(--web-on-action);
+  }
+  html[data-theme]
+    :is(
+      .reward-pills span,
+      .rating-options button.selected,
+      .method-picker label.selected,
+      .anchor-choices button[aria-pressed="true"]
+    ) {
+    background: var(--accent-wash);
+    color: var(--web-action);
+    border-color: var(--web-action);
+  }
+  html[data-theme] :is(.value-picker, .dialog) button[aria-pressed="true"] {
+    background: var(--web-action);
+    color: var(--web-on-action);
+  }
+  html[data-theme] .value-picker .plan-wheel [aria-selected="true"] {
+    color: var(--web-action);
+    background: var(--accent-wash);
+  }
+  html[data-theme]
+    :is(button, input, select, textarea, [tabindex]):focus-visible {
+    outline-color: var(--web-action-hover);
+  }
+  html[data-theme]
+    .simulator-shell
+    :is(button, input, select, textarea, [tabindex]):focus-visible {
+    outline-color: var(--web-scene-ink);
+  }
+  html[data-theme]
+    :is(
+      .dialog,
+      .guide-paper,
+      .value-picker,
+      .settings-page,
+      .journal-page,
+      .payment-test-page
+    )
+    :is(button, input, select, textarea, [tabindex]):focus-visible {
+    outline-color: var(--web-action-hover);
+  }
+  html[data-theme] .dialog::backdrop,
+  html[data-theme] .drawn-card-overlay::backdrop {
+    background: var(--overlay);
+  }
+  html[data-theme]
+    :is(
+      .gallery-card-paper,
+      .drawn-card-front,
+      .drawn-card-back,
+      .action-card-face
+    ) {
+    --ink: var(--theme-ink);
+    --muted: var(--theme-muted);
+    --accent: var(--theme-accent-ink);
+  }
+  html[data-theme] .card-more-bubbles > button {
+    background: var(--web-paper);
+    color: var(--web-ink);
+    border-color: var(--web-line);
+  }
+  html[data-theme] .home-filter-popover button {
+    background: var(--web-paper);
+    color: var(--web-ink);
+    border-color: var(--web-line);
+  }
+  html[data-theme] .home-filter-popover button[aria-checked="true"] {
+    background: var(--web-action);
+    color: var(--web-on-action);
+  }
+  html[data-theme] .toast {
+    background: var(--web-action-hover);
+    color: var(--web-on-action);
+  }
+}
+
+@media (min-width: 760px) {
+  html[data-theme]
+    .simulator-shell
+    .workspace-categories
+    nav
+    > button[aria-pressed="true"] {
+    color: var(--web-on-action);
+  }
+}

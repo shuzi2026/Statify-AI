@@ -1,0 +1,117 @@
+/* One reading layout for every skin. Only the footer is outside the scroller. */
+html[data-theme] .dialog[data-layout-shell].onboarding-dialog {
+  max-width: 460px;
+  padding: 16px;
+  touch-action: pan-y;
+}
+html[data-theme] .onboarding-dialog .dialog-scroll {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding: 8px;
+  padding: 4px;
+  outline-offset: -2px;
+}
+html[data-theme] .onboarding-dialog .dialog-heading {
+  margin: 0 0 16px;
+  padding: 0;
+  align-items: flex-start;
+}
+html[data-theme] .onboarding-dialog .dialog-heading h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  margin: 0;
+  min-width: 0;
+}
+html[data-theme] .onboarding-dialog .creation-progress {
+  position: static;
+  display: flex;
+  height: 4px;
+  margin: 0 0 18px;
+  gap: 0;
+}
+html[data-theme] .onboarding-dialog .creation-progress i + i {
+  margin-left: 5px;
+}
+html[data-theme] .onboarding-dialog .creation-preview-note {
+  position: static;
+  display: block;
+  margin-bottom: 12px;
+}
+html[data-theme] .onboarding-dialog .creation-assessment {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  margin: 8px 0 0;
+  padding: 12px;
+}
+html[data-theme] .onboarding-dialog .creation-assessment strong {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+html[data-theme] .onboarding-dialog .creation-assessment span,
+html[data-theme] .onboarding-dialog .creation-attribute-meaning,
+html[data-theme] .onboarding-dialog .creation-brief-copy p,
+html[data-theme] .onboarding-dialog .creation-welcome,
+html[data-theme] .onboarding-dialog .creation-review-welcome {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+html[data-theme] .onboarding-dialog .creation-percentile {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+html[data-theme] .onboarding-dialog .creation-footer-note {
+  white-space: normal;
+  text-overflow: clip;
+  overflow: visible;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+html[data-theme] .onboarding-dialog .creation-level-readout > span {
+  font-size: 0.875rem;
+}
+html[data-theme] .onboarding-dialog .creation-level-readout output {
+  font-size: 2rem;
+}
+html[data-theme] .onboarding-dialog .creation-level .initial-level-curve {
+  height: auto;
+  max-height: 142px;
+}
+html[data-theme] .onboarding-dialog .creation-level .field {
+  margin-top: 8px;
+}
+html[data-theme] .onboarding-dialog .creation-help-toggle {
+  margin: 0;
+  vertical-align: middle;
+}
+html[data-theme] .onboarding-dialog .creation-help-toggle svg {
+  width: 1em;
+  height: 1em;
+}
+html[data-theme] .onboarding-dialog .creation-review-levels {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+html[data-theme] .onboarding-dialog .creation-review-levels span {
+  font-size: 0.875rem;
+}
+html[data-theme] .onboarding-dialog .creation-review-levels b {
+  font-size: 1.75rem;
+}
+html[data-theme] .onboarding-dialog .dialog-fixed-footer {
+  max-height: 35%;
+  padding-top: 12px;
+}
+html[data-theme] .onboarding-dialog .dialog-actions button {
+  font-size: 0.9375rem;
+}
+html[data-theme] .onboarding-dialog .field > span {
+  font-size: 0.875rem;
+}
+html[data-theme] .onboarding-dialog .field input:not([type="range"]) {
+  font-size: 1rem;
+}

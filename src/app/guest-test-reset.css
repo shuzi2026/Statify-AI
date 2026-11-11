@@ -1,0 +1,25 @@
+.guest-test-reset {
+  position: fixed;
+  z-index: 100;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--sheet-background);
+  color: var(--ink);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+}
+
+body:has(main[data-page="ai"]) .guest-test-reset {
+  right: auto;
+  left: max(16px, env(safe-area-inset-left));
+}
+
+@media (max-width: 759px) {
+  .guest-test-reset { bottom: calc(76px + env(safe-area-inset-bottom)); }
+}

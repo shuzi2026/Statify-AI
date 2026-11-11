@@ -1,0 +1,379 @@
+/* New visual identity, with the original simulator's compact stage and small hand. */
+.wizard-progress {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 5px;
+  margin: 0 0 24px;
+  overflow: hidden;
+}
+.wizard-progress li {
+  flex: 1;
+  min-width: 0;
+  border-top: 3px solid var(--line);
+  padding-top: 8px;
+  color: var(--taupe);
+  text-align: center;
+}
+.wizard-progress li.done {
+  border-color: var(--sage);
+}
+.wizard-progress li.current {
+  border-color: var(--coral);
+  color: var(--coral);
+  font-weight: 700;
+}
+.wizard-progress li > span {
+  display: block;
+  font-size: 12px;
+}
+.wizard-progress small {
+  display: block;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  margin-top: 3px;
+}
+.wizard-intro {
+  color: var(--taupe);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.wizard-step-title {
+  font-size: 19px;
+  margin: 0 0 16px;
+}
+.wizard-explanation {
+  text-align: center;
+  padding: 4px 0;
+}
+.wizard-explanation p {
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: left;
+}
+.wizard-explanation h3 {
+  font-size: 18px;
+  margin: 16px 0;
+}
+.onboarding-orb {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+  border: 15px solid var(--coral);
+  border-radius: 50%;
+  box-shadow:
+    5px 8px 12px #493b3520,
+    inset 3px 5px 10px #493b3520;
+}
+.setup-attribute {
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+  background: var(--porcelain);
+}
+.setup-attribute > svg {
+  color: var(--coral);
+}
+.setup-attribute h3 {
+  font-size: 22px;
+  margin: 12px 0 6px;
+}
+.setup-attribute > p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.setup-attribute output {
+  display: block;
+  font-size: 48px;
+  line-height: 1.2;
+  margin: 18px 0;
+  color: var(--coral);
+}
+.setup-attribute output small {
+  display: block;
+  font-size: 12px;
+  color: var(--taupe);
+  margin-top: 5px;
+}
+.setup-attribute .field > span {
+  font-size: 13px;
+}
+.setup-attribute input[type="range"] {
+  width: 100%;
+  accent-color: var(--coral);
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--taupe);
+}
+.profile-review,
+.card-review {
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.profile-review > strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+.profile-review > strong small {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--taupe);
+}
+.profile-review .between {
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+.card-review > strong,
+.card-review > span,
+.card-review > small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.card-review > strong {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.card-review > span {
+  font-size: 14px;
+}
+.card-review > small {
+  font-size: 12px;
+  color: var(--taupe);
+  margin-top: 8px;
+}
+.hand-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hand-toolbar > .icon-button {
+  min-width: 48px;
+  min-height: 48px;
+}
+.simulator-stage {
+  padding-top: 18px;
+  gap: 24px;
+}
+.character-stage {
+  min-height: 205px;
+}
+.quick-actions {
+  padding-top: 14px;
+}
+.quick-deck {
+  gap: 14px;
+  padding-top: 9px;
+  max-width: 100%;
+}
+.quick-deck .playing-header {
+  min-height: 24px;
+  gap: 5px;
+}
+.quick-deck .playing-index b {
+  font-size: 16px;
+}
+.quick-deck .playing-index svg {
+  width: 11px;
+  height: 11px;
+}
+.quick-deck .playing-category {
+  font-size: 10px;
+  padding-top: 4px;
+}
+.quick-deck .playing-art {
+  height: 43px;
+  margin: 2px 2px 5px;
+  gap: 0;
+  overflow: visible;
+  border: 0;
+}
+.quick-deck .playing-emblem {
+  width: 43px;
+  height: 43px;
+}
+.quick-deck .playing-emblem svg {
+  width: 43px;
+  height: 43px;
+}
+.quick-deck .print-caption {
+  display: none;
+}
+.quick-deck .print-star {
+  font-size: 12px;
+  top: 9px;
+}
+.quick-deck .star-two {
+  font-size: 10px;
+  top: auto;
+  bottom: 6px;
+}
+.quick-deck .playing-title {
+  font-size: 15px;
+  line-height: 1.3;
+  margin-bottom: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.quick-deck .playing-rewards {
+  font-size: 11px;
+  gap: 1px 6px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  max-height: 29px;
+  overflow: hidden;
+}
+.quick-deck .playing-meta {
+  font-size: 10px;
+  line-height: 1.3;
+}
+.quick-deck .playing-index-bottom {
+  bottom: 6px;
+  right: 10px;
+}
+.quick-deck .playing-index-bottom b {
+  font-size: 11px;
+}
+.quick-deck .availability {
+  position: absolute;
+  inset: auto 8px 77px;
+  padding: 3px;
+  background: var(--card-paper);
+  font-size: 10px;
+  max-height: 40px;
+  overflow: auto;
+}
+.tasks .playing-art {
+  height: 64px;
+  margin-bottom: 5px;
+}
+.tasks .playing-emblem,
+.tasks .playing-emblem svg {
+  width: 55px;
+  height: 55px;
+}
+.tasks .print-caption {
+  display: none;
+}
+.tasks .playing-title {
+  font-size: 16px;
+}
+.tasks .playing-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 4px 0 8px;
+}
+.tasks .playing-title-button {
+  min-height: 48px;
+}
+@media (max-width: 759px) {
+  .simulator-shell main {
+    padding-top: 9px;
+  }
+  .simulator-shell .topbar {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  .simulator-stage {
+    padding-top: 9px;
+    gap: 15px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .character-stage .orb {
+    width: 125px;
+    height: 125px;
+  }
+  .character-stage .orb-inner {
+    width: 82px;
+    height: 82px;
+  }
+  .character-stage {
+    min-height: 180px;
+  }
+  .character-caption {
+    margin-top: 12px;
+  }
+  .quick-actions {
+    padding-top: 10px;
+  }
+  .quick-actions .section-heading {
+    margin-bottom: 2px;
+  }
+  .quick-actions .section-heading > div {
+    display: block;
+  }
+  .quick-actions .section-heading span {
+    display: block;
+  }
+  .hand-toolbar {
+    gap: 2px;
+  }
+  .wizard-progress {
+    gap: 3px;
+    margin-bottom: 18px;
+  }
+  .wizard-progress small {
+    font-size: 10px;
+  }
+  .setup-attribute {
+    padding: 20px 14px;
+  }
+  .dialog-actions {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 359px) {
+  .character-stage .orb {
+    width: 96px;
+    height: 96px;
+  }
+  .character-stage .orb-inner {
+    width: 63px;
+    height: 63px;
+  }
+}
+@media (max-width: 759px) {
+  .simulator-shell .topbar {
+    margin-bottom: 3px;
+  }
+  .simulator-stage {
+    padding-top: 5px;
+  }
+  .quick-actions {
+    padding-top: 4px;
+  }
+}
+
+/* Mobile app surfaces keep touch/keyboard scrolling without desktop scrollbar chrome. */
+@media (max-width: 759px) {
+  html,
+  body,
+  body * {
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  body *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}

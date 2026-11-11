@@ -1,0 +1,90 @@
+/* The shared layout owns dimensions. These recipes only paint the selected packs. */
+html[data-skin="selected"]
+  :is(
+    .guide-paper,
+    .dialog,
+    .dialog:has(.compact-creation),
+    .attribute-panel,
+    .settings-section,
+    .abandon-message,
+    .plan-date-menu,
+    .card-more-menu
+  ) {
+  background: transparent;
+  border: 14px solid transparent;
+  border-image: var(--theme-dialog-image) 18% fill / 14px stretch;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-skin="selected"] .focus-session.dialog {
+  border: 0;
+  border-image: none;
+  background: var(--sheet-background);
+}
+html[data-skin="selected"]
+  :is(.action-card-face::before, .drawn-card-back::after) {
+  display: none;
+}
+html[data-skin="selected"]
+  :is(.dialog-actions, .abandon-actions)
+  button:not(.icon-button):not(.text-button) {
+  background: var(--theme-button-image) center/100% 100% no-repeat;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--ink);
+}
+html[data-skin="selected"] .dialog-actions button.primary {
+  color: var(--accent);
+}
+html[data-skin="selected"] .companion-portrait {
+  filter: none;
+}
+html[data-skin="selected"] .workspace-scene {
+  background: var(--sheet-background);
+}
+@media (min-width: 760px) {
+  html[data-theme="night-sprout"]
+    :is(
+      .topbar,
+      .topbar .icon-button,
+      .plan-message-bell,
+      .player-hud,
+      .player-hud button,
+      .player-hud span,
+      .player-hud small,
+      .value-hud,
+      .value-hud button,
+      .value-hud span,
+      .quick-actions > .section-heading h2,
+      .quick-actions > .section-heading span,
+      .home-progress-footer,
+      .day-footnote
+    ) {
+    color: var(--theme-scene-ink);
+  }
+}
+
+/* The white rectangle is the printable inner paper. Ornament is paint outside it. */
+html[data-skin="selected"]
+  :is(
+    .fan-card,
+    .gallery-card-paper,
+    .drawn-card-front,
+    .drawn-card-back
+  )::before {
+  inset: calc(0% - var(--theme-card-outset-y, 0%))
+    calc(0% - var(--theme-card-outset-x, 0%));
+}
+html[data-skin="selected"] .companion-portrait[overflow="visible"] {
+  overflow: visible;
+}
+html[data-white-model="true"][data-skin="selected"]
+  :is(
+    .fan-card,
+    .gallery-card-paper,
+    .drawn-card-front,
+    .drawn-card-back
+  )::before {
+  display: none;
+}

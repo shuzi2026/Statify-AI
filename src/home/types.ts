@@ -1,0 +1,36 @@
+import type { ReactNode } from "react";
+import type { TourScene } from "../guides/tour";
+import type { Action, Card, Entry, State } from "../model";
+export type MobileHomeProps = {
+  mainContent?: ReactNode;
+  notification?: ReactNode;
+  tourScene?: TourScene;
+  filterControl?: ReactNode;
+  resetFilter: () => void;
+  s: State;
+  now: number;
+  cards: Card[];
+  plannedCards?: ReadonlyMap<string, unknown>;
+  executionLevel: number;
+  reminderCardId?: string;
+  dailyProgress: { value: number; target: number; done: boolean } | null;
+  timer?: Action;
+  quantityInput?: ReactNode;
+  pending: Action[];
+  openStatus: () => void;
+  openAttributes: () => void;
+  openMeter: (id?: string) => void;
+  openWorkspace: () => void;
+  workspaceDrag: (distance: number) => void;
+  workspaceDrop: (distance: number) => void;
+  newCard: () => void;
+  deleteCard: (id: string) => void;
+  editCard: (id: string) => void;
+  begin: (card: Card) => Promise<boolean | Entry>;
+  openSession: (id: string) => void;
+  pauseTimer: (id: string) => void;
+  finishTimer: (action: Action) => void;
+  openFinish: (id: string) => void;
+};
+
+export type HomeViewport = { width: number; height: number; fontScale: number };

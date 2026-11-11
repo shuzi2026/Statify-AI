@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Statify AI · 实时预览</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#ddd8d0;color:#493b35;font:14px/1.5 system-ui,"Microsoft YaHei",sans-serif;height:100dvh;overflow:hidden;display:grid;grid-template-rows:auto minmax(0,1fr)}
+.preview-tools{height:auto;min-height:64px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:10px 24px;background:#f2eee7;border-bottom:1px solid #c6baaa}.preview-tools strong{font-size:16px}.preview-tools small{display:block;font-size:11px}
+.mode-switch{display:flex;flex-wrap:wrap;gap:8px;align-items:center}button,select{font:inherit;border:1px solid #9c8c7c;border-radius:7px;background:#fff7e9;padding:9px 15px;min-height:44px;color:inherit;cursor:pointer}button[aria-pressed=true]{background:#a43d37;color:#fff7df;border-color:#a43d37}button:focus-visible{outline:3px solid #34566d;outline-offset:3px}
+.preview-stage{display:grid;place-items:safe center;padding:20px;min-height:0;overflow:hidden}
+.phone{width:402px;height:min(874px,calc(100dvh - var(--preview-toolbar-height,64px) - 40px));max-width:100%;max-height:100%;background:#e9e4dc;border:7px solid #332e29;border-radius:29px;box-shadow:0 15px 40px #493b3530;overflow:hidden}
+.phone iframe{width:100%;height:100%;display:block;border:0}.web .preview-stage{padding:0;display:block}.web .phone{width:100%;height:calc(100dvh - var(--preview-toolbar-height,64px));max-height:none;max-width:none;border:0;border-radius:0;box-shadow:none}
+@media(max-width:600px){.preview-tools{height:auto;min-height:64px;padding:8px 12px;flex-wrap:wrap}.preview-tools strong{font-size:13px}.preview-tools small{font-size:10px}.mode-switch{gap:5px}button,select{font-size:12px;padding:8px 10px}.preview-stage{padding:12px} .phone{height:calc(100dvh - var(--preview-toolbar-height,108px) - 24px);max-height:100%}.web .phone{height:calc(100dvh - var(--preview-toolbar-height,108px))}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style></head><body>
+<header class="preview-tools"><div><strong>Statify AI · 实时预览</strong><small id="preview-hint">安卓布局 · 保存代码自动更新 · 浏览器预览，不是真机</small></div><nav class="mode-switch" aria-label="预览模式"><select id="theme-choice" aria-label="视觉主题"></select><button type="button" data-mode="android" aria-pressed="true">安卓布局</button><button type="button" data-mode="web" aria-pressed="false">网页版</button><button type="button" id="reset-preview">重置测试数据</button></nav></header>
+<main class="preview-stage"><div class="phone"><iframe src="/index.html" title="Statify应用预览"></iframe></div></main>
+<script type="module">
+import {selectableThemes,isSelectableThemeId,defaultTheme} from '/src/themes/catalog.ts';
+const themeChoice=document.getElementById('theme-choice'),appFrame=document.querySelector('iframe');
+if(import.meta.env.DEV)import('/src/themes/preview-tools.ts').then(({mountArtworkTools})=>mountArtworkTools(appFrame,themeChoice));
+if(import.meta.env.DEV){
+ const region=document.createElement('span');
+ region.textContent=import.meta.env.VITE_STATIFY_REGION==='global'?'国际服 AI':'国区 AI';
+ document.querySelector('.mode-switch').prepend(region);
+}
+if(import.meta.env.DEV){const guide=document.createElement('button');guide.type='button';guide.textContent='预览蒙板引导';guide.addEventListener('click',()=>appFrame.contentWindow.postMessage({type:'statify-preview-tour'},location.origin));document.querySelector('.mode-switch').append(guide);}
+if(import.meta.env.DEV){
+ const access=document.createElement('select');access.setAttribute('aria-label','预览会员权限');
+ for(const [value,label] of [['member','会员功能预览（本地）'],['account','使用真实账号权益']]){const option=document.createElement('option');option.value=value;option.textContent=label;access.append(option);}
+ try{access.value=sessionStorage.getItem('statify-preview-access')||'member';}catch{}
+ access.addEventListener('change',()=>{try{sessionStorage.setItem('statify-preview-access',access.value);}catch{}appFrame.contentWindow.location.reload();});
+ window.addEventListener('message',event=>{if(event.source===appFrame.contentWindow&&event.origin===location.origin&&event.data?.type==='statify-preview-access'&&event.data.value==='account')access.value='account';});
+ document.querySelector('.mode-switch').append(access);
+ const white=document.createElement('button');white.textContent='白模';white.type='button';white.setAttribute('aria-pressed','false');
+ const sendWhite=()=>appFrame.contentWindow.postMessage({type:'statify-white-model',enabled:white.getAttribute('aria-pressed')==='true'},location.origin);
+ white.addEventListener('click',()=>{white.setAttribute('aria-pressed',String(white.getAttribute('aria-pressed')!=='true'));sendWhite();});appFrame.addEventListener('load',sendWhite);
+ const size=document.createElement('select');size.setAttribute('aria-label','逻辑窗口尺寸');
+ for(const [value,label] of [['auto','自动窗口'],['320x568','小屏 320×568'],['360x640','矮屏 360×640'],['390x844','基准 390×844'],['412x915','大屏 412×915'],['600x960','折叠内屏 600×960'],['844x390','横屏 844×390']]){const option=document.createElement('option');option.value=value;option.textContent=label;size.append(option);}
+ size.addEventListener('change',()=>{const phone=document.querySelector('.phone');if(size.value==='auto'){phone.style.cssText='';document.querySelector('.preview-stage').style.overflow='';return;}mode('android');const [w,h]=size.value.split('x').map(Number);phone.style.cssText=`width:${w+14}px;height:${h+14}px;max-width:none;max-height:none;flex-shrink:0`;document.querySelector('.preview-stage').style.overflow='auto';});
+ document.querySelector('.mode-switch').append(white,size);
+}
+for(const theme of selectableThemes){const option=document.createElement('option');option.value=theme.id;option.textContent=theme.name;themeChoice.append(option);}
+const requestedTheme=new URLSearchParams(location.search).get('theme');
+let savedTheme,deviceTheme;try{savedTheme=sessionStorage.getItem('statify-preview-theme');}catch{}try{deviceTheme=localStorage.getItem('statify-ui-theme');}catch{}
+themeChoice.value=[requestedTheme,savedTheme,deviceTheme].find(isSelectableThemeId)||defaultTheme;
+// Dynamic bootstrap can finish after iframe load; pass the initial choice in its URL.
+const initialFrameUrl=new URL(appFrame.src);initialFrameUrl.searchParams.set('theme',themeChoice.value);appFrame.src=initialFrameUrl.href;
+function sendTheme(){appFrame.contentWindow.postMessage({type:'statify-preview-theme',theme:themeChoice.value},location.origin);try{sessionStorage.setItem('statify-preview-theme',themeChoice.value);}catch{}}
+themeChoice.addEventListener('change',sendTheme);appFrame.addEventListener('load',sendTheme);
+window.addEventListener('message',event=>{if(event.source!==appFrame.contentWindow||event.origin!==location.origin||event.data?.type!=='statify-theme-selected'||!isSelectableThemeId(event.data.theme))return;themeChoice.value=event.data.theme;try{sessionStorage.setItem('statify-preview-theme',event.data.theme);}catch{}});
+const buttons=document.querySelectorAll('[data-mode]');
+const toolbar=document.querySelector('.preview-tools');new ResizeObserver(()=>document.documentElement.style.setProperty('--preview-toolbar-height',toolbar.getBoundingClientRect().height+'px')).observe(toolbar);
+function mode(value){if(value==='web'){document.querySelector('.phone').style.cssText='';document.querySelector('.preview-stage').style.overflow='';const size=document.querySelector('[aria-label="逻辑窗口尺寸"]');if(size)size.value='auto';}document.body.classList.toggle('web',value==='web');for(const button of buttons)button.setAttribute('aria-pressed',String(button.dataset.mode===value));document.getElementById('preview-hint').textContent=value==='web'?'网页版 · 保存代码自动更新':'安卓布局 · 保存代码自动更新 · 浏览器预览，不是真机';try{sessionStorage.setItem('life-rpg-preview-mode',value);}catch{}}
+for(const button of buttons)button.addEventListener('click',()=>mode(button.dataset.mode));
+document.getElementById('reset-preview').addEventListener('click',()=>document.querySelector('iframe').contentWindow.postMessage({type:'life-rpg-preview-reset'},location.origin));
+try{mode(sessionStorage.getItem('life-rpg-preview-mode')||'android');}catch{}
+if(import.meta.env.DEV){
+ import('/src/themes/argyle-preview.ts').then(({mountArgylePreview})=>mountArgylePreview(appFrame));
+ const stripes=document.createElement('a');stripes.href='./card-stripes.html';stripes.textContent='竖条纹图鉴';document.querySelector('.mode-switch').append(stripes);
+}
+</script></body></html>

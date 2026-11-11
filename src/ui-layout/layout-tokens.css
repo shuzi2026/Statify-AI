@@ -1,0 +1,23 @@
+/* Public geometry defaults. window.ts supplies live viewport metrics; skins only paint. */
+:root {
+  --control-min-height: 44px;
+  --layout-touch: 48px;
+  --layout-dialog-gap: 4vw;
+  --dialog-edge-gap: 12px;
+  --dialog-frame-width: 14px;
+  --paper-corner-radius: 26px;
+  --window-width: 100vw;
+  --window-height: 100vh;
+  --visible-height: 100vh;
+  --visible-top: 0px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+html[data-native-insets="true"] {
+  --safe-top: 0px;
+  --safe-right: 0px;
+  --safe-bottom: 0px;
+  --safe-left: 0px;
+}

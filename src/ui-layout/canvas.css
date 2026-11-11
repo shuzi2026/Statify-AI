@@ -1,0 +1,836 @@
+.layout-canvas /* The phone uses a fixed logical pixel coordinate system. */
+#topZone {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 48px;
+  z-index: 4;
+}
+.layout-canvas .top-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 64px;
+  padding: 10px 12px;
+  border: 1px solid #d8ddd7;
+  border-radius: 15px;
+  background: #fff9;
+}
+.layout-canvas .level {
+  flex: 0 0 67px;
+}
+.layout-canvas .level small {
+  font-size: 10px;
+}
+.layout-canvas .level-value {
+  line-height: 1.1;
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+.layout-canvas .level-value i {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 400;
+}
+.layout-canvas .periods {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+.layout-canvas .period {
+  font-size: 10px;
+  white-space: nowrap;
+}
+.layout-canvas .bar {
+  height: 3px;
+  border-radius: 4px;
+  background: #dce1db;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.layout-canvas .bar:before {
+  content: "";
+  display: block;
+  width: 38%;
+  height: 100%;
+  background: #a0aca0;
+}
+.layout-canvas .coefficient {
+  font-size: 10px;
+  text-align: right;
+  white-space: nowrap;
+}
+.layout-canvas .coefficient b {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 3px;
+}
+.layout-canvas .bell {
+  font-size: 18px;
+  color: #7b877b;
+}
+.layout-canvas .states {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 12px;
+  font-size: 10px;
+}
+.layout-canvas .state {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.layout-canvas .state b {
+  font-size: 11px;
+  font-weight: 500;
+}
+.layout-canvas .state .bar {
+  display: none;
+}
+.layout-canvas .top-main .bar {
+  width: 42px;
+}
+.layout-canvas .top-split .top-main,
+.layout-canvas .top-open .top-main {
+  width: 116px;
+  height: 131px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+}
+.layout-canvas .top-split .level,
+.layout-canvas .top-open .level {
+  flex: 0;
+}
+.layout-canvas .top-split .periods,
+.layout-canvas .top-open .periods {
+  display: block;
+}
+.layout-canvas .top-split .period,
+.layout-canvas .top-open .period {
+  margin-bottom: 9px;
+}
+.layout-canvas .top-split .period .bar,
+.layout-canvas .top-open .period .bar {
+  display: inline-block;
+  width: 36px;
+  margin: 0 5px;
+}
+.layout-canvas .top-split .coefficient,
+.layout-canvas .top-open .coefficient {
+  position: absolute;
+  right: 27px;
+  top: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.layout-canvas .top-split .coefficient b,
+.layout-canvas .top-open .coefficient b {
+  margin: 0;
+}
+.layout-canvas .top-split .bell,
+.layout-canvas .top-open .bell {
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+.layout-canvas .top-split .states,
+.layout-canvas .top-open .states {
+  position: absolute;
+  left: 126px;
+  right: 0;
+  top: 53px;
+  margin: 0;
+}
+.layout-canvas .top-split .state,
+.layout-canvas .top-open .state {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  gap: 5px;
+}
+.layout-canvas .top-split .state b,
+.layout-canvas .top-open .state b {
+  font-size: 15px;
+}
+.layout-canvas .top-split .state .bar,
+.layout-canvas .top-open .state .bar {
+  display: block;
+  width: 36px;
+  margin: 0;
+}
+.layout-canvas .top-open .top-main {
+  border: 0;
+  background: none;
+  padding-left: 0;
+}
+.layout-canvas .top-open .states {
+  left: 121px;
+}
+.layout-canvas .top-open .level-value {
+  font-size: 32px;
+}
+.layout-canvas #customZone {
+  position: absolute;
+  z-index: 6;
+  cursor: move;
+  touch-action: none;
+}
+.layout-canvas .custom-title {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: #737f73;
+}
+.layout-canvas .custom-title button {
+  border: 0;
+  padding: 0 4px;
+  background: transparent;
+  font-size: 16px;
+}
+.layout-canvas .custom-values {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+.layout-canvas .custom-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #cbd4c9;
+  border-radius: 5px;
+  background: #ffffff70;
+  min-width: 0;
+}
+.layout-canvas .custom-value span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.layout-canvas .custom-value b {
+  font-weight: 500;
+}
+.layout-canvas .custom-inline .custom-values {
+  gap: 8px;
+}
+.layout-canvas .custom-inline .custom-value {
+  border: 0;
+  background: transparent;
+  flex-direction: row;
+  gap: 4px;
+}
+.layout-canvas .custom-inline .custom-title {
+  margin-bottom: 4px;
+}
+.layout-canvas #heroZone {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  cursor: move;
+  z-index: 1;
+  color: #9da79d;
+}
+.layout-canvas #heroZone svg {
+  height: calc(100% - 20px);
+  width: 100%;
+}
+.layout-canvas #heroZone > span {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.layout-canvas #abilityZone {
+  position: absolute;
+  z-index: 3;
+  cursor: move;
+  touch-action: none;
+}
+.layout-canvas .ability-shell {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #cbd3c9;
+  background: #ffffffb0;
+  border-radius: 14px;
+}
+.layout-canvas .ability-heading {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+.layout-canvas .ability {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  gap: 7px;
+  border: 1px solid #ccd4ca;
+  background: #ffffffe6;
+  color: #4d594e;
+  cursor: pointer;
+  box-shadow: 0 3px 7px #364a3610;
+  transition: background 0.15s;
+}
+.layout-canvas .ability:hover {
+  background: #e6ece4;
+}
+.layout-canvas .ability-icon {
+  font-size: 19px;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+  font-weight: 400;
+}
+.layout-canvas .ability-text {
+  min-width: 0;
+  flex: 1;
+}
+.layout-canvas .ability-name {
+  font-size: 11px;
+  white-space: nowrap;
+}
+.layout-canvas .ability-level {
+  font-size: 16px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.layout-canvas .ability-level small {
+  font-size: 9px;
+  color: #829080;
+  margin-right: 2px;
+}
+.layout-canvas .ability .bar {
+  margin-top: 5px;
+  height: 2px;
+}
+.layout-canvas .ability.stack {
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding: 7px 3px;
+}
+.layout-canvas .ability.stack .ability-text {
+  width: 100%;
+  flex: 0;
+}
+.layout-canvas .ability.stack .ability-level {
+  font-size: 14px;
+  margin-top: 2px;
+}
+.layout-canvas .ability.inline .ability-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+}
+.layout-canvas .ability.inline .bar {
+  display: none;
+}
+.layout-canvas .ability.empty {
+  border-style: dashed;
+  color: #81907f;
+}
+.layout-canvas .ability.empty .ability-icon {
+  font-size: 21px;
+}
+.layout-canvas .ability.empty .ability-name {
+  font-size: 10px;
+}
+.layout-canvas .manage {
+  position: absolute;
+  border: 0;
+  background: none;
+  padding: 4px;
+  font-size: 10px;
+  color: #7d8b7b;
+  white-space: nowrap;
+}
+.layout-canvas .arc-guide {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.layout-canvas .arc-guide path {
+  stroke: #c1ccc0;
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 2 5;
+}
+.layout-canvas .layout-sidebar .ability {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  padding: 5px 9px;
+}
+.layout-canvas .layout-sidebar .ability-icon {
+  font-size: 16px;
+  width: 17px;
+}
+.layout-canvas .layout-sidebar .ability-level {
+  font-size: 18px;
+}
+.layout-canvas .layout-sidebar .ability:not(.empty):after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 9px;
+  right: 9px;
+  border-bottom: 1px solid #e1e6df;
+}
+.layout-canvas #cardZone {
+  position: absolute;
+  z-index: 5;
+  cursor: move;
+  touch-action: none;
+}
+.layout-canvas .card-slot {
+  position: absolute;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.layout-canvas .card-face {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+}
+.layout-canvas .card-inner {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border: 1px solid #bfc9bc;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 -3px #e0e5dc;
+}
+.layout-canvas .card-round .card-inner {
+  border-radius: 11px;
+}
+.layout-canvas .card-cut .card-inner {
+  clip-path: polygon(
+    8% 0,
+    92% 0,
+    100% 6%,
+    100% 94%,
+    92% 100%,
+    8% 100%,
+    0 94%,
+    0 6%
+  );
+  border-radius: 0;
+}
+.layout-canvas .card-arch .card-inner {
+  border-radius: 45% 45% 9px 9px / 7% 7% 4px 4px;
+  padding-top: 16px;
+}
+.layout-canvas .card-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+.layout-canvas .card-category {
+  font-size: 9px;
+  color: #8d988b;
+  text-align: center;
+  margin-top: 6px;
+}
+.layout-canvas .card-art {
+  margin: 10px 0;
+  flex: 1;
+  min-height: 28px;
+  background: repeating-linear-gradient(
+    135deg,
+    #f2f4ef,
+    #f2f4ef 7px,
+    #ecefe8 7px,
+    #ecefe8 8px
+  );
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  color: #b1baad;
+  font-size: 10px;
+}
+.layout-canvas .layout-card-action {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  gap: 4px;
+  align-items: center;
+}
+.layout-canvas .layout-card-action span:first-child,
+.layout-canvas .layout-card-action span:last-child {
+  color: #8c9788;
+}
+.layout-canvas .card-shadow {
+  position: absolute;
+  inset: 4px;
+  background: #596c491a;
+  filter: blur(8px);
+  transform: translateY(9px);
+  border-radius: 12px;
+  z-index: -1;
+}
+.layout-canvas .card-add {
+  position: absolute;
+  right: 3px;
+  top: -33px;
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  font-size: 20px;
+}
+.layout-canvas .card-nav {
+  position: absolute;
+  bottom: -33px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #8d988b;
+  font-size: 10px;
+}
+.layout-canvas .card-nav button {
+  border: 0;
+  padding: 2px 8px;
+  background: none;
+  font-size: 17px;
+  color: #6c7967;
+}
+.layout-canvas .base-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px dashed #74916b;
+  z-index: 8;
+  opacity: 0.75;
+  display: none;
+}
+.layout-canvas .base-frame > span {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  font-size: 7px;
+  color: #78916d;
+  background: #f9fff4c9;
+}
+.layout-canvas .guides .base-frame {
+  display: block;
+}
+.layout-canvas .guides #heroZone {
+  outline: 1px dashed #cbd3c6;
+}
+.layout-canvas .guides #abilityZone:before,
+.layout-canvas .guides #customZone:before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  outline: 1px dashed #c4d1be;
+  pointer-events: none;
+}
+.layout-canvas .guides #topZone {
+  outline: 1px dashed #c4d1be;
+  outline-offset: 3px;
+}
+.layout-canvas .layout-sidebar .ability.inline .bar {
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  left: 9px;
+  right: 9px;
+}
+.layout-canvas .layout-sidebar .ability.inline .ability-name {
+  font-size: 10px;
+}
+.layout-canvas .layout-sidebar .ability.inline .ability-level {
+  font-size: 16px;
+}
+.layout-canvas .layout-sidebar .ability.stacked {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.layout-canvas .layout-sidebar .ability.stacked .ability-level {
+  font-size: 14px;
+}
+.layout-canvas .layout-sidebar .ability.stacked .bar {
+  margin-top: 2px;
+}
+.layout-canvas /* Reference-calibrated compact rows and horizontal ability pills. */
+#customZone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+.layout-canvas #customZone .custom-values {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  gap: 6px;
+}
+.layout-canvas #customZone .custom-value {
+  flex-direction: row;
+  gap: 5px;
+  line-height: 1;
+  margin: 0;
+  padding: 0 3px;
+}
+.layout-canvas .custom-empty {
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.layout-canvas .custom-empty span,
+.layout-canvas .custom-add-inline {
+  font-size: 19px;
+}
+.layout-canvas .custom-add-inline {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.layout-canvas .top-strip .top-main {
+  height: 44px;
+  padding: 5px 12px;
+  gap: 12px;
+  border-radius: 13px;
+}
+.layout-canvas .top-strip .level {
+  flex-basis: 63px;
+}
+.layout-canvas .top-strip .level-value {
+  font-size: 23px;
+  margin-top: 1px;
+}
+.layout-canvas .top-strip .level small {
+  font-size: 10px;
+}
+.layout-canvas .top-strip .periods {
+  gap: 17px;
+}
+.layout-canvas .top-strip .bar {
+  margin-top: 5px;
+}
+.layout-canvas .top-strip .coefficient b {
+  font-size: 16px;
+  margin-top: 1px;
+}
+.layout-canvas .top-strip .states {
+  margin-top: 12px;
+  font-size: 10px;
+}
+.layout-canvas .top-split .top-main {
+  border-radius: 14px 42px 20px 15px;
+}
+.layout-canvas .top-split .level-value {
+  font-size: 29px;
+}
+.layout-canvas .top-open .top-main {
+  width: 116px;
+}
+.layout-canvas .top-open .states {
+  top: 43px;
+}
+.layout-canvas .top-open .state b {
+  font-size: 18px;
+}
+.layout-canvas .top-open .coefficient b {
+  font-size: 23px;
+}
+.layout-canvas .top-open .coefficient {
+  top: 4px;
+}
+.layout-canvas .arc .ability {
+  padding: 5px 6px;
+  gap: 4px;
+}
+.layout-canvas .arc .ability-icon {
+  width: 18px;
+  font-size: 18px;
+}
+.layout-canvas .arc .ability-name {
+  font-size: 9px;
+}
+.layout-canvas .arc .ability-level {
+  font-size: 13px;
+  line-height: 1.2;
+}
+.layout-canvas .arc .ability-level small {
+  font-size: 9px;
+}
+.layout-canvas .arc .ability .bar {
+  position: absolute;
+  bottom: 5px;
+  left: 9px;
+  right: 9px;
+  margin: 0;
+  opacity: 0.8;
+}
+.layout-canvas .arc .ability-text {
+  padding-bottom: 3px;
+}
+.layout-canvas .arc .ability.empty .ability-name {
+  font-size: 9px;
+}
+.layout-canvas .arc .ability.empty .ability-text {
+  padding: 0;
+}
+.layout-canvas .arc .manage {
+  border: 1px solid #d1d8ce;
+  border-radius: 15px;
+  padding: 5px 12px;
+}
+.layout-canvas .float .ability {
+  padding: 6px 8px;
+  gap: 5px;
+}
+.layout-canvas .float .ability-icon {
+  width: 19px;
+  font-size: 18px;
+}
+.layout-canvas .float .ability-name {
+  font-size: 10px;
+}
+.layout-canvas .float .ability-level {
+  font-size: 14px;
+}
+.layout-canvas .float .ability .bar {
+  margin-top: 3px;
+}
+.layout-canvas .card-layout-inner .card-inner {
+  padding: 15px 10px 12px;
+}
+.layout-canvas .card-layout-inner .card-title {
+  font-size: 14px;
+}
+.layout-canvas .card-layout-inner .card-category {
+  font-size: 10px;
+  margin-top: 8px;
+}
+.layout-canvas .card-layout-inner .card-art {
+  margin: 14px 0 18px;
+}
+.layout-canvas .card-layout-inner .layout-card-action {
+  font-size: 10px;
+}
+.layout-canvas .card-layout-orbit .card-inner {
+  padding: 0 10px 10px;
+  overflow: hidden;
+}
+.layout-canvas .card-layout-orbit .card-art {
+  flex: 0 0 36%;
+  margin: 0 -10px 8px;
+  border-radius: 0;
+  font-size: 10px;
+}
+.layout-canvas .card-layout-orbit .card-title {
+  text-align: left;
+  font-size: 12px;
+}
+.layout-canvas .card-layout-orbit .card-category {
+  text-align: left;
+  font-size: 9px;
+  margin-top: 4px;
+}
+.layout-canvas .card-progress {
+  font-size: 9px;
+  margin-top: 9px;
+}
+.layout-canvas .card-progress b {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 3px;
+}
+.layout-canvas .card-progress .bar {
+  margin-top: 5px;
+  height: 3px;
+}
+.layout-canvas .card-layout-orbit .layout-card-action {
+  margin-top: auto;
+  padding-top: 7px;
+  border-top: 1px solid #e1e5dc;
+  justify-content: space-around;
+  font-size: 12px;
+}
+.layout-canvas .card-nav button:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.layout-canvas .card-nav {
+  bottom: -25px;
+}
+.layout-canvas .card-shadow {
+  display: none;
+}
+.layout-canvas .ability-icon svg {
+  display: block;
+  width: 100%;
+  height: 22px;
+}
+.layout-canvas .arc .ability-icon svg {
+  height: 19px;
+}
+.layout-canvas .bell svg {
+  width: 19px;
+  height: 19px;
+}
+.layout-canvas .top-strip .periods {
+  flex: 1;
+  justify-content: space-around;
+}
+.layout-canvas .top-strip .level {
+  border-right: 1px solid #d7ddd3;
+}
+.layout-canvas .top-strip .coefficient {
+  border-left: 1px solid #d7ddd3;
+  padding-left: 10px;
+}
+.layout-canvas .card-layout-orbit .card-art {
+  flex-basis: 36%;
+}
+.layout-canvas .state-symbol {
+  display: none;
+}
+.layout-canvas .top-strip .state-symbol {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1;
+}
+.layout-canvas .top-strip .state {
+  gap: 3px;
+}
+.layout-canvas .top-strip .states {
+  font-size: 9px;
+}
+.layout-canvas .top-strip .state b {
+  font-size: 11px;
+}

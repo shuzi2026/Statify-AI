@@ -1,0 +1,210 @@
+/* Settings lists, preferences, archive controls and feedback presentation.
+   Shared typography, surface recipes and Dialog geometry keep their common owners.
+   Desktop selection colors follow this file in desktop-colors.css. */
+
+html:lang(en) .settings-options > button {
+  white-space: normal;
+  gap: 12px;
+  text-align: left;
+}
+html:lang(en) .settings-options > button > span {
+  flex-shrink: 0;
+  max-width: 48%;
+  text-align: right;
+}
+.settings-page {
+  width: min(100%, 680px);
+  margin: 0 auto;
+  padding: 16px 0 32px;
+  color: var(--ink);
+}
+.settings-page h1 {
+  font: 600 24px/1.4 var(--font-ui);
+  margin: 0 0 24px;
+}
+.settings-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.settings-options > button,
+.settings-import {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 56px;
+  margin: 0;
+  padding: 14px 4px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.6;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--ink);
+}
+.settings-options > button > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.settings-options > button:disabled {
+  opacity: 0.48;
+}
+.settings-options > button:hover:not(:disabled),
+.settings-import:hover {
+  background: color-mix(
+    in srgb,
+    var(--theme-lavender) 10%,
+    transparent
+  ) !important;
+}
+.settings-import {
+  cursor: pointer;
+}
+.settings-import input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.settings-import:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.settings-version {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+@media (max-width: 759px) {
+  .settings-page {
+    padding-top: 12px;
+    padding-bottom: 100px;
+  }
+  .settings-page h1 {
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+  .settings-options > button,
+  .settings-import {
+    min-height: 56px;
+    font-size: 14px;
+  }
+  .settings-options > button {
+    min-height: var(--layout-touch);
+  }
+  html[data-theme] .settings-options > button {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    gap: 12px;
+    text-align: left;
+  }
+  html[data-theme] .settings-options > button > span {
+    flex-shrink: 0;
+    max-width: 48%;
+    text-align: right;
+  }
+}
+
+.bug-feedback-contact {
+  user-select: text;
+  -webkit-user-select: text;
+}
+.bug-feedback-report {
+  width: 100%;
+  min-height: 180px;
+  max-height: 45vh;
+  font: 12px/1.6 var(--font-mono);
+  resize: vertical;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@media (min-width: 760px) {
+  html[data-theme] .simulator-shell > main > .settings-page {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+  html[data-theme] .settings-page .settings-options {
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--web-panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    padding: 4px 16px;
+    overflow: hidden;
+  }
+  html[data-theme] .settings-page h1 {
+    max-width: 920px;
+    margin-inline: auto;
+  }
+  html[data-theme]
+    .settings-page
+    > :is(.membership, .global-membership, .membership-summary) {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto 18px;
+  }
+  html[data-theme] .settings-page > .settings-options > button:last-child {
+    border-bottom: 0;
+  }
+  html[data-theme] .settings-page {
+    --border-soft: color-mix(in srgb, var(--web-line) 55%, transparent);
+  }
+  html[data-theme] .settings-page > .settings-options > button {
+    padding: 14px 8px;
+    color: var(--web-ink);
+  }
+  html[data-theme] .settings-page > .settings-options > button > span,
+  html[data-theme] .settings-version {
+    color: var(--web-muted);
+  }
+  html[data-theme]
+    .settings-page
+    > .settings-options
+    > button:hover:not(:disabled) {
+    background: var(--web-control) !important;
+    color: var(--web-ink);
+  }
+  html[data-theme]
+    .settings-page
+    > .settings-options
+    > button:hover:not(:disabled)
+    > span {
+    color: var(--web-muted);
+  }
+  html[data-theme] .settings-page > .settings-options > button.danger {
+    color: var(--web-danger);
+  }
+  html[data-theme] .settings-page > .settings-options > button.danger:hover {
+    background: var(--web-danger-wash) !important;
+    color: var(--web-danger);
+  }
+  html[data-theme]
+    .dialog
+    :is(
+      .settings-options > button,
+      .settings-options > button > span,
+      .settings-import
+    ) {
+    color: var(--web-ink);
+  }
+  html[data-theme] .dialog .settings-options > button:hover {
+    background: var(--web-control) !important;
+  }
+  html[data-theme] .dialog .settings-options > button.danger {
+    color: var(--web-danger);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "kid": "cn-test-p256-v1",
+  "jwk": {
+    "kty": "EC",
+    "x": "zCjebexSftSoZXCM6-5ickjas1rWA6si8myBNEZ35ss",
+    "y": "vq1id83kPe1cO2TKzQaC7l9cQI-Lfp5Tpqx0BAF84eU",
+    "crv": "P-256"
+  }
+}

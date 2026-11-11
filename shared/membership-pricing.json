@@ -1,0 +1,14 @@
+{
+  "cn": {
+    "betaLifetime": "29.90",
+    "launchAnnual": "49.90",
+    "launchLifetime": "98.00",
+    "currency": "CNY"
+  },
+  "global": {
+    "betaLifetime": "7.40",
+    "launchAnnual": "14.70",
+    "launchLifetime": "21.00",
+    "currency": "USD"
+  }
+}

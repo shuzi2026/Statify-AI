@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh-CN" data-starting><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content"/><meta name="theme-color" content="#f3ece4"/><meta name="description" content="把想做的事，变成看得见的成长。"/><title>Statify AI</title>
+<style>
+html[data-starting] #root{visibility:hidden}#launch-screen{position:fixed;inset:0;z-index:2147483647;display:grid;place-content:center;justify-items:center;gap:24px;background:#f3ece4;color:#514452;font:24px Georgia,serif;transition:opacity .32s ease;pointer-events:none}#launch-screen.is-ready{opacity:0}#launch-screen i{display:block;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff8eb,#d0b4bd 60%,#a497ad);box-shadow:0 8px 36px #a497ad44;animation:launch-breathe 1.4s ease-in-out infinite alternate}@keyframes launch-breathe{to{transform:translateY(-7px) scale(1.05);box-shadow:0 16px 44px #a497ad66}}@media(prefers-reduced-motion:reduce){#launch-screen{transition:none}#launch-screen i{animation:none}}
+</style><meta name="color-scheme" content="light"></head><body><div id="launch-screen" role="status" aria-label="正在启动 Statify"><i aria-hidden="true"></i><span>Statify</span></div><div id="root"></div>
+<script>
+/* ES5 on purpose: this message works even when the application bundle cannot parse. */
+(function(){
+ if(typeof globalThis==='undefined'){window.globalThis=window;}
+ var launchError='',retryTimer=0,scope=location.pathname+':'+document.documentElement.lang;
+ var region=location.pathname.indexOf('/international/')===0||document.documentElement.lang==='en'||/[?&]region=global(?:&|$)/.test(location.search)?'global':'cn';
+ var retryKey='statify-launch-retry:'+scope,readyObserver;
+ var webBuild=document.querySelector('meta[name="statify-web-release"]'),pwaBase=/^\/(mainland|international)\//.exec(location.pathname);
+ function cleanSearch(){var parts=location.search.slice(1).split('&').filter(function(part){return part&&part.split('=')[0]!=='__statify_launch';});return parts.length?'?'+parts.join('&'):'';}
+ function reopen(){if(webBuild&&pwaBase){var search=cleanSearch();location.replace(location.pathname+search+(search?'&':'?')+'__statify_launch='+Date.now()+location.hash);}else location.reload();}
+ // Update checks must still run when the application module cannot load.
+ // Registration does not force activation or reload an already-running session.
+ if(webBuild&&pwaBase&&'serviceWorker' in navigator){try{window.__statifyWorkerRegistration=navigator.serviceWorker.register(pwaBase[0]+'sw.js',{updateViaCache:'none'});window.__statifyWorkerRegistration.catch(function(){});}catch(e){}}
+ function launchStorage(){return window.__statifyPwaSession||window.sessionStorage;}
+ function remember(reason){try{if(window.__statifyDiagnostics)window.__statifyDiagnostics.record('startup',reason);}catch(e){}}
+ window.statifyLaunchReady=function(){if(retryTimer)clearTimeout(retryTimer);retryTimer=0;if(readyObserver)readyObserver.disconnect();try{launchStorage().removeItem(retryKey);}catch(e){}try{if(webBuild&&pwaBase&&/[?&]__statify_launch=/.test(location.search))history.replaceState(history.state,'',location.pathname+cleanSearch()+location.hash);}catch(e){}};
+ if(window.MutationObserver){readyObserver=new MutationObserver(function(){if(!document.documentElement.hasAttribute('data-starting'))window.statifyLaunchReady();});readyObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-starting']});}
+ function resourceFailed(reason){
+  if(!document.documentElement.hasAttribute('data-starting'))return;
+  launchError=reason;remember(reason);if(retryTimer)return;
+  var retry=false;try{var storage=launchStorage();if(storage.getItem(retryKey)!=='1'){storage.setItem(retryKey,'1');retry=storage.getItem(retryKey)==='1';}}catch(e){}
+  if(!retry){failed(false);return;}
+  var screen=document.getElementById('launch-screen');if(screen){screen.innerHTML='';var hint=document.createElement('p');hint.style.cssText='font:16px/1.8 sans-serif;margin:24px;text-align:center';hint.textContent='启动资源连接中断，正在自动重试一次…';screen.appendChild(hint);}
+  retryTimer=setTimeout(function(){retryTimer=0;if(document.documentElement.hasAttribute('data-starting'))reopen();else window.statifyLaunchReady();},900);
+ }
+ function waiting(){
+  if(!document.documentElement.hasAttribute('data-starting')||launchError)return;
+  var screen=document.getElementById('launch-screen');if(!screen)return;
+  var hint=document.createElement('p');hint.style.cssText='font:14px/1.8 sans-serif;max-width:28em;margin:0 24px;text-align:center';hint.textContent='首次打开仍在加载界面，请稍候。加载完成后会自动进入，无需再次打开。';screen.appendChild(hint);
+  var retry=document.createElement('button');retry.textContent='重新尝试';retry.style.cssText='padding:10px 22px;min-height:48px;pointer-events:auto';retry.onclick=reopen;screen.appendChild(retry);
+ }
+ function failed(unsupported){
+  if(!document.documentElement.hasAttribute('data-starting'))return;
+  var screen=document.getElementById('launch-screen');if(!screen)return;
+  screen.style.pointerEvents='auto';screen.style.padding='24px';screen.style.textAlign='center';
+  screen.innerHTML='';
+  var title=document.createElement('p');title.style.font='16px/1.7 sans-serif';
+  title.textContent=unsupported?'当前运行环境暂不支持此版本，请更新系统 WebView 或浏览器后重试。':'启动未完成，请重试。现有存档不会被清除。';screen.appendChild(title);
+  var button=document.createElement('button');button.textContent='重新打开';button.style.cssText='padding:12px 24px;min-height:48px';button.onclick=reopen;screen.appendChild(button);
+  var info='UA: '+navigator.userAgent+'\n';
+  var build=document.querySelector('meta[name="statify-web-release"]');if(build)info+='Web: '+build.content+'\n';
+  info+='Path: '+location.pathname+' Standalone: '+!!(navigator.standalone||(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches))+'\n';
+  if(window.__statifyBuild)info+='Build: '+JSON.stringify(window.__statifyBuild)+'\n';
+  if(launchError)info='启动错误: '+(window.__statifyDiagnostics?window.__statifyDiagnostics.safe(launchError).message:'Error')+'\n'+info;
+  info+='CSS:'+!!window.CSS+' Promise:'+!!window.Promise+' fetch:'+!!window.fetch+' dialog:'+!!(window.HTMLDialogElement&&window.HTMLDialogElement.prototype.showModal)+'\n';
+  info+='indexedDB:'+!!window.indexedDB+' ResizeObserver:'+!!window.ResizeObserver+' AbortController:'+!!window.AbortController+'\n';
+  info+='crypto:'+!!(window.crypto&&window.crypto.getRandomValues)+' subtle:'+!!(window.crypto&&window.crypto.subtle)+' globalThis:'+!!window.globalThis+'\n';
+  try{info+='fromEntries:'+(typeof Object.fromEntries==='function')+' at:'+(typeof Array.prototype.at==='function')+' flatMap:'+(typeof Array.prototype.flatMap==='function')+' matchAll:'+(typeof String.prototype.matchAll==='function')+' structuredClone:'+(typeof window.structuredClone==='function')+'\n';}catch(e){}
+  var pre=document.createElement('pre');pre.style.cssText='margin-top:12px;padding:10px;background:#f7f1e7;border:1px solid #d9cdbb;border-radius:8px;font:11px/1.7 monospace;text-align:left;white-space:pre-wrap;word-break:break-all;max-height:42vh;overflow:auto';
+  pre.textContent=info;screen.appendChild(pre);
+  var copy=document.createElement('button');copy.textContent='复制诊断信息，发给开发者';copy.style.cssText='margin-top:8px;padding:10px 18px;min-height:44px';
+  copy.onclick=function(){
+   function select(){var range=document.createRange();range.selectNodeContents(pre);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);copy.textContent='已选中，请长按复制';}
+   try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(info).then(function(){copy.textContent='已复制';},function(){select();});}else{select();}}catch(e){select();}
+  };
+  screen.appendChild(copy);
+  var note=document.createElement('p');note.style.font='12px/1.8 sans-serif';note.textContent='如果反复出现此页面，请点击上方按钮复制诊断信息发给开发者，帮助定位问题。';screen.appendChild(note);
+ }
+ window.statifyLaunchFailed=function(reason){if(!document.documentElement.hasAttribute('data-starting'))return;launchError=String(reason&&reason.message?reason.message:reason||'应用启动异常').slice(0,500);if(reason&&reason.name==='TypeError'&&(/^(Importing a module script failed\.?|error loading dynamically imported module(?:: .+)?)$/.test(launchError)||/^Failed to fetch dynamically imported module: /.test(launchError))){resourceFailed(launchError);return;}remember(launchError);if(!retryTimer)failed(false);};
+ window.statifyLaunchUnsupported=function(){failed(true);};
+ window.addEventListener('error',function(event){var node=event.target;if(node&&node!==window&&(node.tagName==='SCRIPT'&&node.type==='module'||node.tagName==='LINK'&&node.rel==='stylesheet')){var url=node.src||node.href||'关键资源';if(url.indexOf(location.origin+'/')===0)resourceFailed('加载失败: '+url.split('?')[0]);}},true);
+ try{window.statifyUnsupported=!(window.CSS&&window.Promise&&window.fetch&&window.HTMLDialogElement&&HTMLDialogElement.prototype.showModal&&window.indexedDB&&window.ResizeObserver&&window.crypto&&crypto.getRandomValues&&window.AbortController);}catch(e){window.statifyUnsupported=true;}
+ if(window.statifyUnsupported)failed(true);else setTimeout(waiting,20000);
+})();
+</script><script type="module" src="/src/bootstrap.ts"></script></body></html>

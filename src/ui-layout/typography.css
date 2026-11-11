@@ -1,0 +1,35 @@
+/* Application typography belongs to the shared white-model layout, never a skin.
+   Roles stay fixed across skins, languages and paint/white-model previews. */
+:root {
+  --font-ui: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  --font-number: var(--font-ui);
+  --font-mono: ui-monospace, Consolas, monospace;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-ui);
+}
+.action-card-face,
+.card-management-actions button {
+  font-family: var(--font-ui);
+}
+.execution-hud > strong,
+.mobile-status-values strong,
+.floating-attribute-list strong,
+.mobile-coefficient b,
+.sim-attr-line strong,
+.execution-total strong,
+.attribute-growth-values strong,
+.creation-level-readout output,
+.timer-clock,
+.value-reward strong {
+  font-family: var(--font-number);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.dialog-actions button.primary,
+.payment-test-page button.primary {
+  font-weight: 700;
+}

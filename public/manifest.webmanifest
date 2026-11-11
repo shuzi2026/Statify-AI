@@ -1,0 +1,17 @@
+{
+  "name": "玩家模拟器",
+  "short_name": "玩家模拟器",
+  "description": "量化人生：把每天的努力变成看得见的成长",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f7f4",
+  "theme_color": "#3ea97d",
+  "icons": [
+    { "src": "icons/statify-logo-v1-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/statify-logo-v1-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/statify-logo-v1-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

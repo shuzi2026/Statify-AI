@@ -1,0 +1,2376 @@
+{
+  "at": 1793559600000,
+  "expected": {
+    "version": "0.2.2",
+    "preferences": {
+      "earlyCompletion": "record",
+      "rewardPerUnitMax": 300,
+      "rewardTotalMax": 800
+    },
+    "region": "cn",
+    "planMode": "cards",
+    "createdAt": 1793559600000,
+    "profile": {
+      "name": "样本玩家🌱",
+      "age": 36,
+      "onboarded": true
+    },
+    "homeTourPending": true,
+    "firstActionGuide": true,
+    "cards": [
+      {
+        "id": "card-old",
+        "name": "旧卡牌标题",
+        "message": "旧鼓励",
+        "customArt": "data:image/png;base64,AA==",
+        "artwork": "reading",
+        "description": "完整备注",
+        "method": "timed",
+        "minutes": 90,
+        "unit": "页",
+        "category": "阅读",
+        "favorite": true,
+        "order": 2,
+        "createdAt": 1793559600000,
+        "archiveBaseName": "原名",
+        "life": "repeat",
+        "uses": 20,
+        "count": 5,
+        "state": "active",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 10,
+        "capPeriod": "week",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeWindows": [
+          {
+            "start": "08:00",
+            "end": "23:00"
+          }
+        ],
+        "timeMode": "block",
+        "rewards": [
+          {
+            "id": "attr-body",
+            "amount": 15
+          }
+        ],
+        "effects": [
+          {
+            "id": "mood",
+            "amount": 2
+          }
+        ],
+        "values": [
+          {
+            "id": "meter-old",
+            "amount": 3
+          }
+        ],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 1793559500000,
+        "changes": [
+          {
+            "at": 1793559599000,
+            "description": "历史卡牌修改"
+          }
+        ]
+      },
+      {
+        "id": "card-archived",
+        "name": "已归档卡",
+        "message": "",
+        "customArt": "",
+        "artwork": "auto",
+        "description": "",
+        "method": "instant",
+        "minutes": 25,
+        "unit": "个",
+        "category": "",
+        "favorite": false,
+        "order": 1793559600000,
+        "createdAt": 1793559600000,
+        "life": "repeat",
+        "uses": 1,
+        "count": 0,
+        "state": "archived",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 0,
+        "capPeriod": "day",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeWindows": [],
+        "timeMode": "block",
+        "rewards": [],
+        "effects": [],
+        "values": [],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 0,
+        "changes": []
+      }
+    ],
+    "cardTemplates": [
+      {
+        "id": "template-old",
+        "name": "模板",
+        "message": "旧鼓励",
+        "customArt": "data:image/png;base64,AA==",
+        "artwork": "reading",
+        "description": "完整备注",
+        "method": "timed",
+        "minutes": 90,
+        "unit": "页",
+        "category": "阅读",
+        "favorite": true,
+        "order": 2,
+        "createdAt": 1793559600000,
+        "archiveBaseName": "原名",
+        "life": "repeat",
+        "uses": 20,
+        "count": 5,
+        "state": "active",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 10,
+        "capPeriod": "week",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeWindows": [
+          {
+            "start": "08:00",
+            "end": "23:00"
+          }
+        ],
+        "timeMode": "block",
+        "rewards": [
+          {
+            "id": "attr-body",
+            "amount": 15
+          }
+        ],
+        "effects": [
+          {
+            "id": "mood",
+            "amount": 2
+          }
+        ],
+        "values": [
+          {
+            "id": "meter-old",
+            "amount": 3
+          }
+        ],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 1793559500000,
+        "changes": [
+          {
+            "at": 1793559599000,
+            "description": "历史卡牌修改"
+          }
+        ]
+      }
+    ],
+    "attributes": [
+      {
+        "id": "attr-body",
+        "name": "体魄",
+        "initial": 50,
+        "earned": 235,
+        "slot": 0,
+        "daily": {
+          "2026-10-31": 20
+        },
+        "original": true
+      },
+      {
+        "id": "attr-mem",
+        "name": "记忆",
+        "initial": 50,
+        "earned": 0,
+        "slot": 1,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-know",
+        "name": "认知",
+        "initial": 50,
+        "earned": 0,
+        "slot": 2,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-foc",
+        "name": "专注",
+        "initial": 50,
+        "earned": 0,
+        "slot": 3,
+        "daily": {},
+        "original": true
+      }
+    ],
+    "meters": [
+      {
+        "id": "meter-old",
+        "name": "阅读页数",
+        "unit": "页",
+        "value": 123.45,
+        "precision": 2,
+        "min": null,
+        "max": 9999
+      }
+    ],
+    "states": {
+      "mood": {
+        "base": 70,
+        "offset": 12,
+        "expires": 1793646000000
+      },
+      "vitality": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "stress": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "comfort": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "sleep": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      }
+    },
+    "sleepCycle": "",
+    "restUntil": 1793559900000,
+    "actions": [
+      {
+        "id": "action-old",
+        "card": {
+          "id": "card-old",
+          "name": "开始时卡名",
+          "message": "旧鼓励",
+          "customArt": "data:image/png;base64,AA==",
+          "artwork": "reading",
+          "description": "完整备注",
+          "method": "timed",
+          "minutes": 90,
+          "unit": "页",
+          "category": "阅读",
+          "favorite": true,
+          "order": 2,
+          "createdAt": 1793559600000,
+          "archiveBaseName": "原名",
+          "life": "repeat",
+          "uses": 20,
+          "count": 5,
+          "state": "active",
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 10,
+          "capPeriod": "week",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [
+            {
+              "start": "08:00",
+              "end": "23:00"
+            }
+          ],
+          "timeMode": "block",
+          "rewards": [
+            {
+              "id": "attr-body",
+              "amount": 15
+            }
+          ],
+          "effects": [
+            {
+              "id": "mood",
+              "amount": 2
+            }
+          ],
+          "values": [
+            {
+              "id": "meter-old",
+              "amount": 3
+            }
+          ],
+          "sleep": false,
+          "rest": false,
+          "statsSince": 1793559500000,
+          "changes": [
+            {
+              "at": 1793559599000,
+              "description": "历史卡牌修改"
+            }
+          ]
+        },
+        "startedAt": 1793559540000,
+        "elapsed": 123,
+        "runningSince": null,
+        "endedAt": null,
+        "status": {
+          "mood": 75
+        },
+        "coefficient": 1.1,
+        "plans": ["cycle-old"],
+        "draft": {
+          "seconds": 123,
+          "quantity": 4,
+          "rating": 1.1,
+          "counted": null,
+          "note": "未提交结算草稿"
+        }
+      }
+    ],
+    "entries": [
+      {
+        "id": "entry-old",
+        "cardId": "card-old",
+        "name": "结算时卡名",
+        "method": "timed",
+        "startedAt": 1793558700000,
+        "endedAt": 1793559300000,
+        "date": "2026-11-01",
+        "seconds": 600,
+        "measured": 610,
+        "quantity": 1,
+        "counted": true,
+        "rating": 1.1,
+        "coefficient": 1.05,
+        "note": "历史感悟🌱",
+        "score": 3,
+        "plans": ["cycle-old"],
+        "rewards": [
+          {
+            "id": "attr-body",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "effects": [
+          {
+            "id": "mood",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "values": [
+          {
+            "id": "meter-old",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "legacy": false
+      }
+    ],
+    "plans": [
+      {
+        "id": "plan-old",
+        "name": "指定计划",
+        "period": "day",
+        "mode": "cards",
+        "target": 1,
+        "cards": [
+          {
+            "id": "card-old",
+            "target": 2,
+            "score": 3
+          }
+        ],
+        "active": true,
+        "createdAt": 1793559600000,
+        "scope": "once",
+        "anchor": "2026-11-01",
+        "startsAt": 1793559600000,
+        "timeline": true,
+        "slots": [
+          {
+            "id": "slot-old",
+            "cardId": "card-old",
+            "day": "2026-11-01",
+            "time": "20:00",
+            "minutes": 30,
+            "configured": true
+          }
+        ]
+      }
+    ],
+    "days": [
+      {
+        "date": "2026-10-31",
+        "target": 7,
+        "mode": "score",
+        "requirements": [
+          {
+            "id": "card-old",
+            "target": 2
+          }
+        ],
+        "planId": "legacy-plan",
+        "enabled": true
+      }
+    ],
+    "dailyPlan": "legacy-plan",
+    "planCycles": [
+      {
+        "id": "cycle-old",
+        "planId": "plan-old",
+        "key": "2026-11-01",
+        "start": 1793556000000,
+        "end": 1793563200000,
+        "startsAt": 1793559600000,
+        "mode": "cards",
+        "target": 1,
+        "cards": [
+          {
+            "id": "card-old",
+            "target": 2,
+            "score": 3
+          }
+        ],
+        "scope": "once",
+        "period": "day",
+        "timeline": true,
+        "slots": [
+          {
+            "id": "slot-old",
+            "cardId": "card-old",
+            "day": "2026-11-01",
+            "time": "20:00",
+            "minutes": 30,
+            "configured": true
+          }
+        ],
+        "doneAt": 1793559601000
+      }
+    ],
+    "messages": [
+      {
+        "id": "message-old",
+        "planId": "plan-old",
+        "slotId": "slot-old",
+        "cardId": "card-old",
+        "name": "旧提醒",
+        "dueAt": 1793559601000,
+        "kind": "scheduled",
+        "read": true
+      }
+    ],
+    "changes": [
+      {
+        "id": "change-old",
+        "at": 1793559600000,
+        "kind": "attribute",
+        "name": "体魄",
+        "objectId": "attr-body",
+        "before": 40,
+        "after": 50,
+        "note": "修改说明"
+      }
+    ],
+    "trialStarted": 1793559599000,
+    "initialEdited": true,
+    "slotChanges": {
+      "2026-11-01": 2
+    },
+    "legacy": {
+      "rawExtra": {
+        "nested": [
+          1,
+          "unknown field",
+          {
+            "keep": true
+          }
+        ]
+      },
+      "previousTitle": "原始载荷"
+    },
+    "migrationNotice": true,
+    "categories": ["阅读", "生活"]
+  },
+  "v021": {
+    "version": "0.2.1",
+    "region": "cn",
+    "planMode": "cards",
+    "createdAt": 1793559600000,
+    "profile": {
+      "name": "样本玩家🌱",
+      "age": 36,
+      "onboarded": true
+    },
+    "cards": [
+      {
+        "id": "card-old",
+        "name": "旧卡牌标题",
+        "customArt": "data:image/png;base64,AA==",
+        "artwork": "reading",
+        "description": "完整备注",
+        "method": "timed",
+        "minutes": 90,
+        "unit": "页",
+        "category": "阅读",
+        "favorite": true,
+        "order": 2,
+        "createdAt": 1793559600000,
+        "archiveBaseName": "原名",
+        "life": "repeat",
+        "uses": 20,
+        "count": 5,
+        "state": "active",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 10,
+        "capPeriod": "week",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeMode": "block",
+        "rewards": [
+          {
+            "id": "attr-body",
+            "amount": 15
+          }
+        ],
+        "effects": [
+          {
+            "id": "mood",
+            "amount": 2
+          }
+        ],
+        "values": [
+          {
+            "id": "meter-old",
+            "amount": 3
+          }
+        ],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 1793559500000,
+        "changes": [
+          {
+            "at": 1793559599000,
+            "description": "历史卡牌修改"
+          }
+        ]
+      },
+      {
+        "id": "card-archived",
+        "name": "已归档卡",
+        "message": "",
+        "customArt": "",
+        "artwork": "auto",
+        "description": "",
+        "method": "instant",
+        "minutes": 25,
+        "unit": "个",
+        "category": "",
+        "favorite": false,
+        "order": 1793559600000,
+        "createdAt": 1793559600000,
+        "life": "repeat",
+        "uses": 1,
+        "count": 0,
+        "state": "archived",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 0,
+        "capPeriod": "day",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeWindows": [],
+        "timeMode": "block",
+        "rewards": [],
+        "effects": [],
+        "values": [],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 0,
+        "changes": []
+      }
+    ],
+    "attributes": [
+      {
+        "id": "attr-body",
+        "name": "体魄",
+        "initial": 50,
+        "earned": 235,
+        "slot": 0,
+        "daily": {
+          "2026-10-31": 20
+        },
+        "original": true
+      },
+      {
+        "id": "attr-mem",
+        "name": "记忆",
+        "initial": 50,
+        "earned": 0,
+        "slot": 1,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-know",
+        "name": "认知",
+        "initial": 50,
+        "earned": 0,
+        "slot": 2,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-foc",
+        "name": "专注",
+        "initial": 50,
+        "earned": 0,
+        "slot": 3,
+        "daily": {},
+        "original": true
+      }
+    ],
+    "meters": [
+      {
+        "id": "meter-old",
+        "name": "阅读页数",
+        "unit": "页",
+        "value": 123.45,
+        "precision": 2,
+        "min": null,
+        "max": 9999
+      }
+    ],
+    "states": {
+      "mood": {
+        "base": 70,
+        "offset": 12,
+        "expires": 1793646000000
+      },
+      "vitality": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "stress": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "comfort": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "sleep": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      }
+    },
+    "sleepCycle": "",
+    "restUntil": 1793559900000,
+    "actions": [
+      {
+        "id": "action-old",
+        "card": {
+          "id": "card-old",
+          "name": "开始时卡名",
+          "message": "旧鼓励",
+          "customArt": "data:image/png;base64,AA==",
+          "artwork": "reading",
+          "description": "完整备注",
+          "method": "timed",
+          "minutes": 90,
+          "unit": "页",
+          "category": "阅读",
+          "favorite": true,
+          "order": 2,
+          "createdAt": 1793559600000,
+          "archiveBaseName": "原名",
+          "life": "repeat",
+          "uses": 20,
+          "count": 5,
+          "state": "active",
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 10,
+          "capPeriod": "week",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [
+            {
+              "start": "08:00",
+              "end": "23:00"
+            }
+          ],
+          "timeMode": "block",
+          "rewards": [
+            {
+              "id": "attr-body",
+              "amount": 15
+            }
+          ],
+          "effects": [
+            {
+              "id": "mood",
+              "amount": 2
+            }
+          ],
+          "values": [
+            {
+              "id": "meter-old",
+              "amount": 3
+            }
+          ],
+          "sleep": false,
+          "rest": false,
+          "statsSince": 1793559500000,
+          "changes": [
+            {
+              "at": 1793559599000,
+              "description": "历史卡牌修改"
+            }
+          ]
+        },
+        "startedAt": 1793559540000,
+        "elapsed": 123,
+        "runningSince": null,
+        "endedAt": null,
+        "status": {
+          "mood": 75
+        },
+        "coefficient": 1.1,
+        "plans": ["cycle-old"],
+        "draft": {
+          "seconds": 123,
+          "quantity": 4,
+          "rating": 1.1,
+          "counted": null,
+          "note": "未提交结算草稿"
+        }
+      }
+    ],
+    "entries": [
+      {
+        "id": "entry-old",
+        "cardId": "card-old",
+        "name": "结算时卡名",
+        "method": "timed",
+        "startedAt": 1793558700000,
+        "endedAt": 1793559300000,
+        "date": "2026-11-01",
+        "seconds": 600,
+        "measured": 610,
+        "quantity": 1,
+        "counted": true,
+        "rating": 1.1,
+        "coefficient": 1.05,
+        "note": "历史感悟🌱",
+        "score": 3,
+        "plans": ["cycle-old"],
+        "rewards": [
+          {
+            "id": "attr-body",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "effects": [
+          {
+            "id": "mood",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "values": [
+          {
+            "id": "meter-old",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "legacy": false
+      }
+    ],
+    "plans": [
+      {
+        "id": "plan-old",
+        "name": "指定计划",
+        "period": "day",
+        "mode": "cards",
+        "target": 1,
+        "cards": [
+          {
+            "id": "card-old",
+            "target": 2,
+            "score": 3
+          }
+        ],
+        "active": true,
+        "createdAt": 1793559600000,
+        "scope": "once",
+        "anchor": "2026-11-01",
+        "startsAt": 1793559600000,
+        "timeline": true,
+        "slots": [
+          {
+            "id": "slot-old",
+            "cardId": "card-old",
+            "day": "2026-11-01",
+            "time": "20:00",
+            "minutes": 30,
+            "configured": true
+          }
+        ]
+      }
+    ],
+    "days": [
+      {
+        "date": "2026-10-31",
+        "target": 7,
+        "mode": "score",
+        "requirements": [
+          {
+            "id": "card-old",
+            "target": 2
+          }
+        ],
+        "planId": "legacy-plan",
+        "enabled": true
+      }
+    ],
+    "dailyPlan": "legacy-plan",
+    "planCycles": [
+      {
+        "id": "cycle-old",
+        "planId": "plan-old",
+        "key": "2026-11-01",
+        "start": 1793556000000,
+        "end": 1793563200000,
+        "startsAt": 1793559600000,
+        "mode": "cards",
+        "target": 1,
+        "cards": [
+          {
+            "id": "card-old",
+            "target": 2,
+            "score": 3
+          }
+        ],
+        "scope": "once",
+        "period": "day",
+        "timeline": true,
+        "slots": [
+          {
+            "id": "slot-old",
+            "cardId": "card-old",
+            "day": "2026-11-01",
+            "time": "20:00",
+            "minutes": 30,
+            "configured": true
+          }
+        ],
+        "doneAt": 1793559601000
+      }
+    ],
+    "messages": [
+      {
+        "id": "message-old",
+        "planId": "plan-old",
+        "slotId": "slot-old",
+        "cardId": "card-old",
+        "name": "旧提醒",
+        "dueAt": 1793559601000,
+        "kind": "scheduled",
+        "read": true
+      }
+    ],
+    "changes": [
+      {
+        "id": "change-old",
+        "at": 1793559600000,
+        "kind": "attribute",
+        "name": "体魄",
+        "objectId": "attr-body",
+        "before": 40,
+        "after": 50,
+        "note": "修改说明"
+      }
+    ],
+    "trialStarted": 1793559599000,
+    "initialEdited": true,
+    "slotChanges": {
+      "2026-11-01": 2
+    },
+    "legacy": {
+      "rawExtra": {
+        "nested": [
+          1,
+          "unknown field",
+          {
+            "keep": true
+          }
+        ]
+      },
+      "previousTitle": "原始载荷"
+    },
+    "migrationNotice": true,
+    "categories": ["阅读", "生活"]
+  },
+  "v021Expected": {
+    "version": "0.2.2",
+    "preferences": {
+      "earlyCompletion": "ask",
+      "rewardPerUnitMax": 100,
+      "rewardTotalMax": 1000
+    },
+    "region": "cn",
+    "planMode": "cards",
+    "createdAt": 1793559600000,
+    "profile": {
+      "name": "样本玩家🌱",
+      "age": 36,
+      "onboarded": true
+    },
+    "homeTourPending": false,
+    "firstActionGuide": false,
+    "cards": [
+      {
+        "id": "card-old",
+        "name": "旧卡牌标题",
+        "message": "",
+        "customArt": "data:image/png;base64,AA==",
+        "artwork": "reading",
+        "description": "完整备注",
+        "method": "timed",
+        "minutes": 90,
+        "unit": "页",
+        "category": "阅读",
+        "favorite": true,
+        "order": 2,
+        "createdAt": 1793559600000,
+        "archiveBaseName": "原名",
+        "life": "repeat",
+        "uses": 20,
+        "count": 5,
+        "state": "active",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 10,
+        "capPeriod": "week",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeWindows": [],
+        "timeMode": "block",
+        "rewards": [
+          {
+            "id": "attr-body",
+            "amount": 15
+          }
+        ],
+        "effects": [
+          {
+            "id": "mood",
+            "amount": 2
+          }
+        ],
+        "values": [
+          {
+            "id": "meter-old",
+            "amount": 3
+          }
+        ],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 1793559500000,
+        "changes": [
+          {
+            "at": 1793559599000,
+            "description": "历史卡牌修改"
+          }
+        ]
+      },
+      {
+        "id": "card-archived",
+        "name": "已归档卡",
+        "message": "",
+        "customArt": "",
+        "artwork": "auto",
+        "description": "",
+        "method": "instant",
+        "minutes": 25,
+        "unit": "个",
+        "category": "",
+        "favorite": false,
+        "order": 1793559600000,
+        "createdAt": 1793559600000,
+        "life": "repeat",
+        "uses": 1,
+        "count": 0,
+        "state": "archived",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 0,
+        "capPeriod": "day",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeWindows": [],
+        "timeMode": "block",
+        "rewards": [],
+        "effects": [],
+        "values": [],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 0,
+        "changes": []
+      }
+    ],
+    "cardTemplates": [],
+    "attributes": [
+      {
+        "id": "attr-body",
+        "name": "体魄",
+        "initial": 50,
+        "earned": 235,
+        "slot": 0,
+        "daily": {
+          "2026-10-31": 20
+        },
+        "original": true
+      },
+      {
+        "id": "attr-mem",
+        "name": "记忆",
+        "initial": 50,
+        "earned": 0,
+        "slot": 1,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-know",
+        "name": "认知",
+        "initial": 50,
+        "earned": 0,
+        "slot": 2,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-foc",
+        "name": "专注",
+        "initial": 50,
+        "earned": 0,
+        "slot": 3,
+        "daily": {},
+        "original": true
+      }
+    ],
+    "meters": [
+      {
+        "id": "meter-old",
+        "name": "阅读页数",
+        "unit": "页",
+        "value": 123.45,
+        "precision": 2,
+        "min": null,
+        "max": 9999
+      }
+    ],
+    "states": {
+      "mood": {
+        "base": 70,
+        "offset": 12,
+        "expires": 1793646000000
+      },
+      "vitality": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "stress": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "comfort": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "sleep": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      }
+    },
+    "sleepCycle": "",
+    "restUntil": 1793559900000,
+    "actions": [
+      {
+        "id": "action-old",
+        "card": {
+          "id": "card-old",
+          "name": "开始时卡名",
+          "message": "旧鼓励",
+          "customArt": "data:image/png;base64,AA==",
+          "artwork": "reading",
+          "description": "完整备注",
+          "method": "timed",
+          "minutes": 90,
+          "unit": "页",
+          "category": "阅读",
+          "favorite": true,
+          "order": 2,
+          "createdAt": 1793559600000,
+          "archiveBaseName": "原名",
+          "life": "repeat",
+          "uses": 20,
+          "count": 5,
+          "state": "active",
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 10,
+          "capPeriod": "week",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [
+            {
+              "start": "08:00",
+              "end": "23:00"
+            }
+          ],
+          "timeMode": "block",
+          "rewards": [
+            {
+              "id": "attr-body",
+              "amount": 15
+            }
+          ],
+          "effects": [
+            {
+              "id": "mood",
+              "amount": 2
+            }
+          ],
+          "values": [
+            {
+              "id": "meter-old",
+              "amount": 3
+            }
+          ],
+          "sleep": false,
+          "rest": false,
+          "statsSince": 1793559500000,
+          "changes": [
+            {
+              "at": 1793559599000,
+              "description": "历史卡牌修改"
+            }
+          ]
+        },
+        "startedAt": 1793559540000,
+        "elapsed": 123,
+        "runningSince": null,
+        "endedAt": null,
+        "status": {
+          "mood": 75
+        },
+        "coefficient": 1.1,
+        "plans": ["cycle-old"],
+        "draft": {
+          "seconds": 123,
+          "quantity": 4,
+          "rating": 1.1,
+          "counted": null,
+          "note": "未提交结算草稿"
+        }
+      }
+    ],
+    "entries": [
+      {
+        "id": "entry-old",
+        "cardId": "card-old",
+        "name": "结算时卡名",
+        "method": "timed",
+        "startedAt": 1793558700000,
+        "endedAt": 1793559300000,
+        "date": "2026-11-01",
+        "seconds": 600,
+        "measured": 610,
+        "quantity": 1,
+        "counted": true,
+        "rating": 1.1,
+        "coefficient": 1.05,
+        "note": "历史感悟🌱",
+        "score": 3,
+        "plans": ["cycle-old"],
+        "rewards": [
+          {
+            "id": "attr-body",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "effects": [
+          {
+            "id": "mood",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "values": [
+          {
+            "id": "meter-old",
+            "name": "体魄",
+            "before": 10,
+            "after": 20,
+            "requested": 15,
+            "actual": 10,
+            "reason": "当日上限"
+          }
+        ],
+        "legacy": false
+      }
+    ],
+    "plans": [
+      {
+        "id": "plan-old",
+        "name": "指定计划",
+        "period": "day",
+        "mode": "cards",
+        "target": 1,
+        "cards": [
+          {
+            "id": "card-old",
+            "target": 2,
+            "score": 3
+          }
+        ],
+        "active": true,
+        "createdAt": 1793559600000,
+        "scope": "once",
+        "anchor": "2026-11-01",
+        "startsAt": 1793559600000,
+        "timeline": true,
+        "slots": [
+          {
+            "id": "slot-old",
+            "cardId": "card-old",
+            "day": "2026-11-01",
+            "time": "20:00",
+            "minutes": 30,
+            "configured": true
+          }
+        ]
+      }
+    ],
+    "days": [
+      {
+        "date": "2026-10-31",
+        "target": 7,
+        "mode": "score",
+        "requirements": [
+          {
+            "id": "card-old",
+            "target": 2
+          }
+        ],
+        "planId": "legacy-plan",
+        "enabled": true
+      }
+    ],
+    "dailyPlan": "legacy-plan",
+    "planCycles": [
+      {
+        "id": "cycle-old",
+        "planId": "plan-old",
+        "key": "2026-11-01",
+        "start": 1793556000000,
+        "end": 1793563200000,
+        "startsAt": 1793559600000,
+        "mode": "cards",
+        "target": 1,
+        "cards": [
+          {
+            "id": "card-old",
+            "target": 2,
+            "score": 3
+          }
+        ],
+        "scope": "once",
+        "period": "day",
+        "timeline": true,
+        "slots": [
+          {
+            "id": "slot-old",
+            "cardId": "card-old",
+            "day": "2026-11-01",
+            "time": "20:00",
+            "minutes": 30,
+            "configured": true
+          }
+        ],
+        "doneAt": 1793559601000
+      }
+    ],
+    "messages": [
+      {
+        "id": "message-old",
+        "planId": "plan-old",
+        "slotId": "slot-old",
+        "cardId": "card-old",
+        "name": "旧提醒",
+        "dueAt": 1793559601000,
+        "kind": "scheduled",
+        "read": true
+      }
+    ],
+    "changes": [
+      {
+        "id": "change-old",
+        "at": 1793559600000,
+        "kind": "attribute",
+        "name": "体魄",
+        "objectId": "attr-body",
+        "before": 40,
+        "after": 50,
+        "note": "修改说明"
+      }
+    ],
+    "trialStarted": 1793559599000,
+    "initialEdited": true,
+    "slotChanges": {
+      "2026-11-01": 2
+    },
+    "legacy": {
+      "rawExtra": {
+        "nested": [
+          1,
+          "unknown field",
+          {
+            "keep": true
+          }
+        ]
+      },
+      "previousTitle": "原始载荷"
+    },
+    "migrationNotice": true,
+    "categories": ["阅读", "生活"]
+  },
+  "packed": {
+    "schemaVersion": 2,
+    "header": {
+      "version": "0.2.2",
+      "preferences": {
+        "earlyCompletion": "record",
+        "rewardPerUnitMax": 300,
+        "rewardTotalMax": 800
+      },
+      "region": "cn",
+      "planMode": "cards",
+      "createdAt": 1793559600000,
+      "profile": {
+        "name": "样本玩家🌱",
+        "age": 36,
+        "onboarded": true
+      },
+      "homeTourPending": true,
+      "firstActionGuide": true,
+      "states": {
+        "mood": {
+          "base": 70,
+          "offset": 12,
+          "expires": 1793646000000
+        },
+        "vitality": {
+          "base": 50,
+          "offset": 0,
+          "expires": 0
+        },
+        "stress": {
+          "base": 50,
+          "offset": 0,
+          "expires": 0
+        },
+        "comfort": {
+          "base": 50,
+          "offset": 0,
+          "expires": 0
+        },
+        "sleep": {
+          "base": 50,
+          "offset": 0,
+          "expires": 0
+        }
+      },
+      "sleepCycle": "",
+      "restUntil": 1793559900000,
+      "dailyPlan": "legacy-plan",
+      "trialStarted": 1793559599000,
+      "initialEdited": true,
+      "slotChanges": {
+        "2026-11-01": 2
+      },
+      "migrationNotice": true,
+      "categories": ["阅读", "生活"]
+    },
+    "rows": {
+      "cards": [
+        {
+          "id": "card-old",
+          "position": 0,
+          "data": {
+            "id": "card-old",
+            "cardVersionId": "68ad9a15-7189-41d1-b0c3-5ad58a0cb635",
+            "cardRuntime": {
+              "count": 5,
+              "favorite": true,
+              "order": 2,
+              "state": "active",
+              "statsSince": 1793559500000,
+              "changes": [
+                {
+                  "at": 1793559599000,
+                  "description": "历史卡牌修改"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "card-archived",
+          "position": 1,
+          "data": {
+            "id": "card-archived",
+            "cardVersionId": "4974754f-74b2-46a7-b33d-9cd8582b9b4f",
+            "cardRuntime": {
+              "count": 0,
+              "favorite": false,
+              "order": 1793559600000,
+              "state": "archived",
+              "statsSince": 0,
+              "changes": []
+            }
+          }
+        }
+      ],
+      "cardTemplates": [
+        {
+          "id": "template-old",
+          "position": 0,
+          "data": {
+            "id": "template-old",
+            "cardVersionId": "01a7b8ca-0197-4f44-865f-d10f8c8e62ef",
+            "cardRuntime": {
+              "count": 5,
+              "favorite": true,
+              "order": 2,
+              "state": "active",
+              "statsSince": 1793559500000,
+              "changes": [
+                {
+                  "at": 1793559599000,
+                  "description": "历史卡牌修改"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "id": "attr-body",
+          "position": 0,
+          "data": {
+            "id": "attr-body",
+            "name": "体魄",
+            "initial": 50,
+            "earned": 235,
+            "slot": 0,
+            "daily": {
+              "2026-10-31": 20
+            },
+            "original": true
+          }
+        },
+        {
+          "id": "attr-mem",
+          "position": 1,
+          "data": {
+            "id": "attr-mem",
+            "name": "记忆",
+            "initial": 50,
+            "earned": 0,
+            "slot": 1,
+            "daily": {},
+            "original": true
+          }
+        },
+        {
+          "id": "attr-know",
+          "position": 2,
+          "data": {
+            "id": "attr-know",
+            "name": "认知",
+            "initial": 50,
+            "earned": 0,
+            "slot": 2,
+            "daily": {},
+            "original": true
+          }
+        },
+        {
+          "id": "attr-foc",
+          "position": 3,
+          "data": {
+            "id": "attr-foc",
+            "name": "专注",
+            "initial": 50,
+            "earned": 0,
+            "slot": 3,
+            "daily": {},
+            "original": true
+          }
+        }
+      ],
+      "meters": [
+        {
+          "id": "meter-old",
+          "position": 0,
+          "data": {
+            "id": "meter-old",
+            "name": "阅读页数",
+            "unit": "页",
+            "value": 123.45,
+            "precision": 2,
+            "min": null,
+            "max": 9999
+          }
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-old",
+          "position": 0,
+          "data": {
+            "id": "action-old",
+            "startedAt": 1793559540000,
+            "elapsed": 123,
+            "runningSince": null,
+            "endedAt": null,
+            "status": {
+              "mood": 75
+            },
+            "coefficient": 1.1,
+            "plans": ["cycle-old"],
+            "draft": {
+              "seconds": 123,
+              "quantity": 4,
+              "rating": 1.1,
+              "counted": null,
+              "note": "未提交结算草稿"
+            },
+            "cardVersionId": "e665c1cd-e54a-460c-8339-6a47a873eb84",
+            "cardRuntime": {
+              "count": 5,
+              "favorite": true,
+              "order": 2,
+              "state": "active",
+              "statsSince": 1793559500000,
+              "changes": [
+                {
+                  "at": 1793559599000,
+                  "description": "历史卡牌修改"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "entries": [
+        {
+          "id": "entry-old",
+          "position": 0,
+          "data": {
+            "id": "entry-old",
+            "cardId": "card-old",
+            "name": "结算时卡名",
+            "method": "timed",
+            "startedAt": 1793558700000,
+            "endedAt": 1793559300000,
+            "date": "2026-11-01",
+            "seconds": 600,
+            "measured": 610,
+            "quantity": 1,
+            "counted": true,
+            "rating": 1.1,
+            "coefficient": 1.05,
+            "note": "历史感悟🌱",
+            "score": 3,
+            "plans": ["cycle-old"],
+            "rewards": [
+              {
+                "id": "attr-body",
+                "name": "体魄",
+                "before": 10,
+                "after": 20,
+                "requested": 15,
+                "actual": 10,
+                "reason": "当日上限"
+              }
+            ],
+            "effects": [
+              {
+                "id": "mood",
+                "name": "体魄",
+                "before": 10,
+                "after": 20,
+                "requested": 15,
+                "actual": 10,
+                "reason": "当日上限"
+              }
+            ],
+            "values": [
+              {
+                "id": "meter-old",
+                "name": "体魄",
+                "before": 10,
+                "after": 20,
+                "requested": 15,
+                "actual": 10,
+                "reason": "当日上限"
+              }
+            ],
+            "legacy": false
+          },
+          "endedAt": 1793559300000,
+          "startedAt": 1793558700000,
+          "cardId": "card-old",
+          "date": "2026-11-01"
+        }
+      ],
+      "plans": [
+        {
+          "id": "plan-old",
+          "position": 0,
+          "data": {
+            "id": "plan-old",
+            "name": "指定计划",
+            "period": "day",
+            "mode": "cards",
+            "target": 1,
+            "cards": [
+              {
+                "id": "card-old",
+                "target": 2,
+                "score": 3
+              }
+            ],
+            "active": true,
+            "createdAt": 1793559600000,
+            "scope": "once",
+            "anchor": "2026-11-01",
+            "startsAt": 1793559600000,
+            "timeline": true,
+            "slots": [
+              {
+                "id": "slot-old",
+                "cardId": "card-old",
+                "day": "2026-11-01",
+                "time": "20:00",
+                "minutes": 30,
+                "configured": true
+              }
+            ]
+          }
+        }
+      ],
+      "days": [
+        {
+          "id": "2026-10-31",
+          "position": 0,
+          "data": {
+            "date": "2026-10-31",
+            "target": 7,
+            "mode": "score",
+            "requirements": [
+              {
+                "id": "card-old",
+                "target": 2
+              }
+            ],
+            "planId": "legacy-plan",
+            "enabled": true
+          }
+        }
+      ],
+      "planCycles": [
+        {
+          "id": "cycle-old",
+          "position": 0,
+          "data": {
+            "id": "cycle-old",
+            "planId": "plan-old",
+            "key": "2026-11-01",
+            "start": 1793556000000,
+            "end": 1793563200000,
+            "startsAt": 1793559600000,
+            "scope": "once",
+            "period": "day",
+            "doneAt": 1793559601000,
+            "planVersionId": "21a6398e-958d-4289-9b73-0265fcc060d9"
+          }
+        }
+      ],
+      "messages": [
+        {
+          "id": "message-old",
+          "position": 0,
+          "data": {
+            "id": "message-old",
+            "planId": "plan-old",
+            "slotId": "slot-old",
+            "cardId": "card-old",
+            "name": "旧提醒",
+            "dueAt": 1793559601000,
+            "kind": "scheduled",
+            "read": true
+          }
+        }
+      ],
+      "changes": [
+        {
+          "id": "change-old",
+          "position": 0,
+          "data": {
+            "id": "change-old",
+            "at": 1793559600000,
+            "kind": "attribute",
+            "name": "体魄",
+            "objectId": "attr-body",
+            "before": 40,
+            "after": 50,
+            "note": "修改说明"
+          }
+        }
+      ]
+    },
+    "versions": [
+      {
+        "id": "68ad9a15-7189-41d1-b0c3-5ad58a0cb635",
+        "kind": "card",
+        "data": {
+          "id": "card-old",
+          "name": "旧卡牌标题",
+          "message": "旧鼓励",
+          "customArt": "data:image/png;base64,AA==",
+          "artwork": "reading",
+          "description": "完整备注",
+          "method": "timed",
+          "minutes": 90,
+          "unit": "页",
+          "category": "阅读",
+          "createdAt": 1793559600000,
+          "archiveBaseName": "原名",
+          "life": "repeat",
+          "uses": 20,
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 10,
+          "capPeriod": "week",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [
+            {
+              "start": "08:00",
+              "end": "23:00"
+            }
+          ],
+          "timeMode": "block",
+          "rewards": [
+            {
+              "id": "attr-body",
+              "amount": 15
+            }
+          ],
+          "effects": [
+            {
+              "id": "mood",
+              "amount": 2
+            }
+          ],
+          "values": [
+            {
+              "id": "meter-old",
+              "amount": 3
+            }
+          ],
+          "sleep": false,
+          "rest": false
+        }
+      },
+      {
+        "id": "4974754f-74b2-46a7-b33d-9cd8582b9b4f",
+        "kind": "card",
+        "data": {
+          "id": "card-archived",
+          "name": "已归档卡",
+          "message": "",
+          "customArt": "",
+          "artwork": "auto",
+          "description": "",
+          "method": "instant",
+          "minutes": 25,
+          "unit": "个",
+          "category": "",
+          "createdAt": 1793559600000,
+          "life": "repeat",
+          "uses": 1,
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 0,
+          "capPeriod": "day",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [],
+          "timeMode": "block",
+          "rewards": [],
+          "effects": [],
+          "values": [],
+          "sleep": false,
+          "rest": false
+        }
+      },
+      {
+        "id": "01a7b8ca-0197-4f44-865f-d10f8c8e62ef",
+        "kind": "card",
+        "data": {
+          "id": "template-old",
+          "name": "模板",
+          "message": "旧鼓励",
+          "customArt": "data:image/png;base64,AA==",
+          "artwork": "reading",
+          "description": "完整备注",
+          "method": "timed",
+          "minutes": 90,
+          "unit": "页",
+          "category": "阅读",
+          "createdAt": 1793559600000,
+          "archiveBaseName": "原名",
+          "life": "repeat",
+          "uses": 20,
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 10,
+          "capPeriod": "week",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [
+            {
+              "start": "08:00",
+              "end": "23:00"
+            }
+          ],
+          "timeMode": "block",
+          "rewards": [
+            {
+              "id": "attr-body",
+              "amount": 15
+            }
+          ],
+          "effects": [
+            {
+              "id": "mood",
+              "amount": 2
+            }
+          ],
+          "values": [
+            {
+              "id": "meter-old",
+              "amount": 3
+            }
+          ],
+          "sleep": false,
+          "rest": false
+        }
+      },
+      {
+        "id": "e665c1cd-e54a-460c-8339-6a47a873eb84",
+        "kind": "card",
+        "data": {
+          "id": "card-old",
+          "name": "开始时卡名",
+          "message": "旧鼓励",
+          "customArt": "data:image/png;base64,AA==",
+          "artwork": "reading",
+          "description": "完整备注",
+          "method": "timed",
+          "minutes": 90,
+          "unit": "页",
+          "category": "阅读",
+          "createdAt": 1793559600000,
+          "archiveBaseName": "原名",
+          "life": "repeat",
+          "uses": 20,
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 10,
+          "capPeriod": "week",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [
+            {
+              "start": "08:00",
+              "end": "23:00"
+            }
+          ],
+          "timeMode": "block",
+          "rewards": [
+            {
+              "id": "attr-body",
+              "amount": 15
+            }
+          ],
+          "effects": [
+            {
+              "id": "mood",
+              "amount": 2
+            }
+          ],
+          "values": [
+            {
+              "id": "meter-old",
+              "amount": 3
+            }
+          ],
+          "sleep": false,
+          "rest": false
+        }
+      },
+      {
+        "id": "21a6398e-958d-4289-9b73-0265fcc060d9",
+        "kind": "plan",
+        "data": {
+          "cards": [
+            {
+              "id": "card-old",
+              "target": 2,
+              "score": 3
+            }
+          ],
+          "slots": [
+            {
+              "id": "slot-old",
+              "cardId": "card-old",
+              "day": "2026-11-01",
+              "time": "20:00",
+              "minutes": 30,
+              "configured": true
+            }
+          ],
+          "mode": "cards",
+          "target": 1,
+          "timeline": true
+        }
+      }
+    ],
+    "legacy": {
+      "rawExtra": {
+        "nested": [
+          1,
+          "unknown field",
+          {
+            "keep": true
+          }
+        ]
+      },
+      "previousTitle": "原始载荷"
+    }
+  },
+  "legacy": {
+    "profile": {
+      "name": "0.1玩家",
+      "age": 28
+    },
+    "attributes": [
+      {
+        "id": "old-attr",
+        "name": "旧属性",
+        "value": 55,
+        "score": 321
+      }
+    ],
+    "events": [
+      {
+        "id": "old-event",
+        "name": "旧计时",
+        "type": "timed",
+        "duration": 25,
+        "rewards": [
+          {
+            "attrId": "old-attr",
+            "points": 5
+          }
+        ]
+      }
+    ],
+    "customValues": [
+      {
+        "key": "old-meter",
+        "name": "旧数值",
+        "mode": "percent",
+        "value": 66
+      }
+    ],
+    "status": {
+      "mood": 60,
+      "fatigue": 30
+    },
+    "log": [
+      {
+        "eventId": "old-event",
+        "eventName": "旧记录",
+        "time": 1793559540000,
+        "note": "不可丢失旧感悟",
+        "minutes": 1
+      }
+    ],
+    "activeEvent": {
+      "eventId": "old-event",
+      "startedAt": 1793559570000
+    },
+    "unknownOriginal": {
+      "preserve": ["a", "b"]
+    }
+  },
+  "legacyExpected": {
+    "version": "0.2.2",
+    "preferences": {
+      "earlyCompletion": "ask",
+      "rewardPerUnitMax": 100,
+      "rewardTotalMax": 1000
+    },
+    "region": "cn",
+    "planMode": "cards",
+    "createdAt": 1793559600000,
+    "profile": {
+      "name": "0.1玩家",
+      "age": 28,
+      "onboarded": true
+    },
+    "homeTourPending": false,
+    "firstActionGuide": false,
+    "cards": [
+      {
+        "id": "old-event",
+        "name": "旧计时",
+        "message": "",
+        "customArt": "",
+        "artwork": "auto",
+        "description": "",
+        "method": "timed",
+        "minutes": 25,
+        "unit": "个",
+        "category": "生活",
+        "favorite": false,
+        "order": 0,
+        "createdAt": 1793559600000,
+        "life": "repeat",
+        "uses": 1,
+        "count": 0,
+        "state": "active",
+        "evaluate": false,
+        "settle": true,
+        "score": 1,
+        "cap": 0,
+        "capPeriod": "day",
+        "timeStart": "",
+        "timeEnd": "",
+        "timeWindows": [],
+        "timeMode": "block",
+        "rewards": [
+          {
+            "id": "old-attr",
+            "amount": 5
+          }
+        ],
+        "effects": [],
+        "values": [],
+        "sleep": false,
+        "rest": false,
+        "statsSince": 0,
+        "changes": []
+      }
+    ],
+    "cardTemplates": [],
+    "attributes": [
+      {
+        "id": "old-attr",
+        "name": "旧属性",
+        "initial": 55,
+        "earned": 321,
+        "slot": 0,
+        "daily": {},
+        "original": true
+      }
+    ],
+    "meters": [
+      {
+        "id": "old-meter",
+        "name": "旧数值",
+        "unit": "%",
+        "value": 66,
+        "precision": 2,
+        "min": 0,
+        "max": 100
+      }
+    ],
+    "states": {
+      "mood": {
+        "base": 60,
+        "offset": 0,
+        "expires": 0
+      },
+      "vitality": {
+        "base": 70,
+        "offset": 0,
+        "expires": 0
+      },
+      "stress": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "comfort": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "sleep": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      }
+    },
+    "sleepCycle": "",
+    "restUntil": 0,
+    "actions": [
+      {
+        "id": "f80c1b1f-b45f-4152-8cac-1db867e1b4e0",
+        "card": {
+          "id": "old-event",
+          "name": "旧计时",
+          "message": "",
+          "customArt": "",
+          "artwork": "auto",
+          "description": "",
+          "method": "timed",
+          "minutes": 25,
+          "unit": "个",
+          "category": "生活",
+          "favorite": false,
+          "order": 0,
+          "createdAt": 1793559600000,
+          "life": "repeat",
+          "uses": 1,
+          "count": 0,
+          "state": "active",
+          "evaluate": false,
+          "settle": true,
+          "score": 1,
+          "cap": 0,
+          "capPeriod": "day",
+          "timeStart": "",
+          "timeEnd": "",
+          "timeWindows": [],
+          "timeMode": "block",
+          "rewards": [
+            {
+              "id": "old-attr",
+              "amount": 5
+            }
+          ],
+          "effects": [],
+          "values": [],
+          "sleep": false,
+          "rest": false,
+          "statsSince": 0,
+          "changes": []
+        },
+        "startedAt": 1793559570000,
+        "elapsed": 0,
+        "runningSince": 1793559570000,
+        "endedAt": null,
+        "status": {
+          "mood": 60,
+          "vitality": 70,
+          "stress": 50,
+          "comfort": 50,
+          "sleep": 50
+        },
+        "coefficient": 1.0345600000000001,
+        "plans": []
+      }
+    ],
+    "entries": [
+      {
+        "id": "legacy-0",
+        "cardId": "old-event",
+        "name": "旧记录",
+        "method": "instant",
+        "startedAt": 1793559540000,
+        "endedAt": 1793559540000,
+        "date": "2026-11-01",
+        "seconds": 60,
+        "measured": 60,
+        "quantity": 0,
+        "counted": true,
+        "rating": 1,
+        "coefficient": 1,
+        "note": "不可丢失旧感悟",
+        "score": 0,
+        "plans": [],
+        "rewards": [],
+        "effects": [],
+        "values": [],
+        "legacy": true
+      }
+    ],
+    "plans": [],
+    "days": [
+      {
+        "date": "2026-11-01",
+        "target": 7,
+        "mode": "score",
+        "requirements": [],
+        "planId": "",
+        "enabled": false
+      }
+    ],
+    "dailyPlan": "",
+    "planCycles": [],
+    "messages": [],
+    "changes": [],
+    "trialStarted": null,
+    "initialEdited": false,
+    "slotChanges": {},
+    "legacy": {
+      "profile": {
+        "name": "0.1玩家",
+        "age": 28
+      },
+      "attributes": [
+        {
+          "id": "old-attr",
+          "name": "旧属性",
+          "value": 55,
+          "score": 321
+        }
+      ],
+      "events": [
+        {
+          "id": "old-event",
+          "name": "旧计时",
+          "type": "timed",
+          "duration": 25,
+          "rewards": [
+            {
+              "attrId": "old-attr",
+              "points": 5
+            }
+          ]
+        }
+      ],
+      "customValues": [
+        {
+          "key": "old-meter",
+          "name": "旧数值",
+          "mode": "percent",
+          "value": 66
+        }
+      ],
+      "status": {
+        "mood": 60,
+        "fatigue": 30
+      },
+      "log": [
+        {
+          "eventId": "old-event",
+          "eventName": "旧记录",
+          "time": 1793559540000,
+          "note": "不可丢失旧感悟",
+          "minutes": 1
+        }
+      ],
+      "activeEvent": {
+        "eventId": "old-event",
+        "startedAt": 1793559570000
+      },
+      "unknownOriginal": {
+        "preserve": ["a", "b"]
+      }
+    },
+    "migrationNotice": true,
+    "categories": ["生活"]
+  }
+}

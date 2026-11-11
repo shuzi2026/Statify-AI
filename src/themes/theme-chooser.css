@@ -1,0 +1,142 @@
+/* Geometry is shared by all bundled themes; material comes from the normal Dialog. */
+.dialog.theme-chooser {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: min(94%, 40rem);
+  max-height: 92dvh;
+  max-height: 92svh;
+  padding: clamp(1.15rem, 5vw, 2.5rem);
+  overflow: hidden;
+}
+.theme-chooser .dialog-heading {
+  flex-shrink: 0;
+  margin: 0;
+}
+.theme-chooser .dialog-heading h2 {
+  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  line-height: 1.5;
+}
+.theme-chooser-intro,
+.theme-chooser > .member-notice {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.theme-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  padding: 0.25rem;
+}
+.theme-options::-webkit-scrollbar {
+  display: none;
+}
+.theme-options > .theme-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0.4rem 0.4rem 0.6rem;
+  text-align: left;
+  border: 0.1rem solid transparent;
+  border-radius: 0.85rem;
+  background: color-mix(
+    in srgb,
+    var(--theme-paper) 65%,
+    transparent
+  ) !important;
+  box-shadow: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+.theme-options > .theme-option[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: color-mix(
+    in srgb,
+    var(--theme-lavender) 25%,
+    var(--theme-paper)
+  ) !important;
+}
+.theme-option-art {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.65;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: var(--theme-canvas);
+}
+.theme-option-art > .theme-artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  filter: none;
+  opacity: 1;
+}
+.theme-option-name {
+  display: grid;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  padding: 0 1.15rem 0 0.15rem;
+  overflow-wrap: anywhere;
+}
+.theme-option-name > strong {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.theme-option-check {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 0.4rem;
+  width: 1rem;
+  height: 1rem;
+  color: var(--accent);
+}
+.theme-option-orb {
+  display: block;
+  width: 44%;
+  height: 75%;
+  margin: 4% auto;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 25%,
+    var(--theme-paper-light),
+    var(--theme-accent) 65%,
+    var(--theme-lavender)
+  );
+  filter: blur(0.15rem);
+  opacity: 0.7;
+}
+.theme-chooser > .dialog-actions {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.6rem 0 0;
+}
+.theme-first-choice > .dialog-actions > button {
+  width: 100%;
+  font-size: 0.94rem;
+  min-height: 2.8rem;
+}
+@media (orientation: landscape) and (max-height: 35rem) {
+  .dialog.theme-chooser {
+    max-height: 96svh;
+    gap: 0.4rem;
+    padding: 0.85rem 1.5rem;
+  }
+  .theme-options {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .theme-option-art {
+    aspect-ratio: 2.2;
+  }
+}

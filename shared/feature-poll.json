@@ -1,0 +1,37 @@
+{
+  "id": "v023",
+  "title": "内测用户新功能投票",
+  "description": "以下是预计准备完成的新功能，请你根据你更想要哪个进行投票。帮助开发者进行选择。",
+  "options": [
+    {
+      "id": "shared-card-voice",
+      "title": "分享卡牌，让朋友录制完成任务恭贺语音"
+    },
+    {
+      "id": "custom-themes",
+      "title": "用户自定义主题"
+    },
+    {
+      "id": "plan-card-ui",
+      "title": "优化计划与卡牌页面 UI",
+      "status": "completed"
+    },
+    {
+      "id": "attribute-shop",
+      "title": "新增属性商店"
+    },
+    {
+      "id": "status-shop",
+      "title": "新增状态商店"
+    },
+    {
+      "id": "wearable-status",
+      "title": "状态接入 Apple Watch、华为等穿戴设备"
+    },
+    {
+      "id": "assessment-center",
+      "title": "评测中心",
+      "description": "通过答题评估能力，将初始属性等级细化到个位数。"
+    }
+  ]
+}

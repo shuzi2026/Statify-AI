@@ -1,0 +1,474 @@
+/* Card creation and editing form ownership. Public typography, surfaces, Dialog shell and CardFace remain shared. */
+.card-form-dialog {
+  position: relative;
+}
+.card-form-dialog > .dialog-heading {
+  margin: 0;
+  height: 0;
+  min-height: 0;
+}
+.card-form-dialog > .dialog-heading > .icon-button {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 1;
+}
+.card-form-progress {
+  display: flex;
+  gap: 8px;
+  /* Keep the progress hit areas clear of the 16px-inset close control. */
+  padding-right: calc(var(--layout-touch) + 16px + 8px);
+  margin: 0 0 20px;
+}
+.card-form-progress > button {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--control-min-height);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 8px;
+}
+.card-form-progress > button > span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--line);
+}
+.card-form-progress > button.current > span {
+  background: var(--accent);
+}
+.card-form-progress > button.done > span {
+  background: var(--peach-coral);
+}
+.card-form-dialog .card-settings-title {
+  font-size: 17px;
+  margin: 0 0 20px;
+}
+.card-method-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 8px 0 24px;
+}
+.card-method-choices > button {
+  background: var(--surface);
+}
+.card-method-choices > button.selected {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--sheet-background);
+}
+.card-form-dialog .wizard-intro {
+  font-size: 12px;
+  margin: 0 0 16px;
+}
+.card-form-dialog .card-setting-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.card-inline-setting {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.card-inline-setting > input {
+  width: 76px;
+  min-width: 0;
+}
+.card-setting-group {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.card-setting-group .check-line {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-setting-group .field {
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+.card-time-windows {
+  margin-top: 12px;
+}
+.card-time-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.card-time-row > input {
+  min-width: 0;
+  padding: 8px 4px;
+}
+.card-time-row > .icon-button {
+  flex-shrink: 0;
+  padding: 4px;
+}
+.card-time-entry {
+  --card-time-danger: var(--web-danger, #922e2e);
+}
+.card-form-dialog .card-time-row .value-input > input[aria-invalid="true"] {
+  --web-line: var(--card-time-danger);
+  border-color: var(--card-time-danger);
+}
+.card-form-dialog .card-time-entry .card-time-error[role="alert"] {
+  margin: -2px 0 8px;
+  color: var(--card-time-danger);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.card-cap-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.card-cap-heading > select {
+  width: auto;
+  min-width: 0;
+  padding: 8px;
+}
+.card-settlement-settings {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.card-settlement-settings > summary {
+  min-height: 44px;
+  font-size: 14px;
+}
+.card-settlement-settings .checks {
+  padding-top: 4px;
+}
+.card-inline-setting > input,
+.card-time-row > input,
+.card-cap-heading > select {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  min-height: 44px;
+  font: inherit;
+}
+.card-inline-setting > input {
+  padding: 10px;
+}
+.card-time-row > .icon-button {
+  width: 44px;
+  min-width: 44px;
+}
+@media (max-width: 359px) {
+  .card-time-row {
+    gap: 3px;
+    font-size: 10px;
+  }
+}
+.card-form-dialog .card-form-short-step {
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+.card-generation-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-generation-status svg {
+  flex: none;
+  animation: card-generation-spin 0.9s linear infinite;
+}
+@keyframes card-generation-spin { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) {
+  .card-generation-status svg { animation: none; }
+}
+.card-form-short-step > .dialog-actions {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.card-method-choices > button {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 100px;
+  padding: 12px 8px;
+}
+.card-method-choices > button > strong {
+  font-size: 14px;
+}
+.card-method-choices > button > small {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-weight: 400;
+}
+.card-method-choices > button > small > span {
+  display: block;
+}
+.card-time-row > input {
+  flex: 0 1 82px;
+  width: 82px;
+  padding-inline: 4px;
+  font-size: 12px;
+}
+@media (max-width: 359px) {
+  .card-time-row > input {
+    flex-basis: 64px;
+    width: 64px;
+    font-size: 11px;
+    padding-inline: 1px;
+  }
+}
+.card-form-progress > button:hover:not(:disabled),
+.card-form-progress > button:active {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.reward-slider-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.reward-slider-heading output {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  font-weight: 600;
+}
+.reward-slider input[type="range"] {
+  padding: 0;
+  min-height: 44px;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+}
+.reward-slider .reward-slider-bounds {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -4px;
+  font-size: 11px;
+}
+.reward-slider-bounds small {
+  font-size: 11px;
+}
+.reward-slider input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    var(--accent) 0 var(--reward-progress),
+    var(--line) var(--reward-progress) 100%
+  );
+  border-radius: 6px;
+  height: 6px;
+}
+.reward-slider input[type="range"]::-moz-range-progress {
+  background: var(--accent);
+  height: 6px;
+  border-radius: 6px;
+}
+.card-form-dialog .form-grid.reward-experience-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 14px;
+  margin-bottom: 12px;
+}
+.reward-experience-grid .reward-slider.is-compact {
+  margin: 0;
+  gap: 2px;
+  min-width: 0;
+}
+.reward-experience-grid .reward-slider-heading {
+  font-size: 12px;
+  line-height: 16px;
+  gap: 4px;
+}
+.reward-experience-grid .reward-slider-heading > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.reward-experience-grid .reward-slider-heading output {
+  font-size: 11px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.card-form-dialog .reward-experience-grid .reward-slider input[type="range"] {
+  min-height: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+}
+.reward-experience-grid
+  .reward-slider
+  input[type="range"]::-webkit-slider-runnable-track {
+  height: 5px;
+}
+.card-form-dialog .form-grid.reward-setting-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin-bottom: 10px;
+}
+.card-form-dialog .reward-setting-grid .reward-slider {
+  display: grid;
+  align-items: center;
+  row-gap: 0;
+  min-height: 44px;
+  margin: 0;
+}
+.reward-setting-grid .reward-slider-heading {
+  display: contents;
+}
+.reward-setting-grid .reward-slider-heading > span {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.reward-setting-grid .reward-slider-heading output {
+  grid-column: 3;
+  grid-row: 1;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.card-form-dialog .reward-setting-grid .reward-slider input[type="range"] {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+}
+.reward-setting-grid .reward-slider > small {
+  grid-column: 1/-1;
+}
+.reward-setting-grid .reward-slider-heading output {
+  justify-self: end;
+}
+.card-time-row > .value-input {
+  flex: 1;
+  min-width: 0;
+  width: 0;
+}
+.card-time-row .value-input > input {
+  padding: 8px 22px 8px 5px !important;
+  font-size: 12px;
+}
+.card-time-row .value-input > svg {
+  right: 4px;
+  width: 15px;
+}
+.card-inline-setting > .value-input {
+  width: 72px;
+}
+@media (max-width: 359px) {
+  .card-time-row {
+    flex-wrap: wrap;
+  }
+  .card-time-row > span:first-child {
+    flex-basis: 100%;
+  }
+}
+.card-settlement-settings .checks {
+  display: grid;
+  gap: 4px;
+  margin-top: 6px;
+}
+.card-settlement-settings .checks label {
+  margin: 0;
+  min-height: 32px;
+}
+.card-form-dialog .reward-setting-grid .reward-slider {
+  grid-template-columns: minmax(56px, 0.8fr) minmax(30px, 1fr) auto;
+  column-gap: 6px;
+}
+.card-art-picker > small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.card-form-dialog .card-extra-settings {
+  margin-top: 8px;
+  padding: 4px 0;
+  border-block: 1px solid var(--line);
+}
+.card-form-dialog .card-extra-settings > details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.card-form-dialog .card-extra-settings > details > summary {
+  min-height: 40px;
+  line-height: 40px;
+  padding: 0;
+  font-size: 14px;
+}
+.card-extra-settings .checks {
+  padding: 0 0 8px;
+  gap: 2px;
+}
+.card-extra-settings .checks label {
+  min-height: 30px;
+}
+.card-extra-settings .card-art-picker {
+  padding: 4px 0 12px;
+}
+.card-extra-settings .field {
+  margin: 4px 0 12px;
+}
+.card-form-dialog .reward-setting-grid .reward-slider.has-direct-input {
+  grid-template-columns: minmax(0, 0.9fr) 4.2em minmax(0, 1fr) 6em;
+  column-gap: clamp(3px, 1vw, 8px);
+  font-size: 12px;
+}
+.reward-setting-grid .has-direct-input .reward-slider-heading > span {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  padding-block: 4px;
+}
+.reward-setting-grid .has-direct-input .reward-direct-input {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+.card-form-dialog .reward-direct-input input {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 4px 3px;
+  text-align: center;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+.card-form-dialog .reward-setting-grid .has-direct-input input[type="range"] {
+  grid-column: 3;
+  min-width: 0;
+}
+.reward-setting-grid .has-direct-input .reward-slider-heading output {
+  grid-column: 4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  text-align: right;
+  min-width: 0;
+}
+.reward-setting-grid .has-direct-input > small[role="alert"] {
+  color: var(--accent);
+}
+.card-art-picker .artwork-choices {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+html[data-theme] .dialog[data-layout-shell].card-form-dialog {
+  height: min(560px, var(--panel-max-height));
+  max-height: none;
+}

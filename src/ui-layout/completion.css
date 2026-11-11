@@ -1,0 +1,395 @@
+/* Shared geometry: skins supply ink and paper; they do not move content. */
+:root {
+  --closing-gap: 12px;
+  --closing-panel-width: 148px;
+  --closing-compact-width: 80px;
+  --closing-motion: 480ms;
+  --warning-ink: #a5292c;
+}
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+button:focus-visible,
+[role="separator"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.dialog:has(.compact-creation)::before {
+  display: none;
+}
+.dialog:has(.compact-creation) {
+  position: fixed;
+  padding-top: 30px;
+}
+.creation-progress {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 4px;
+  display: flex;
+  gap: 5px;
+}
+.creation-progress i {
+  height: 3px;
+  flex: 1;
+  background: var(--line);
+  border-radius: 2px;
+}
+.creation-progress i[data-active="true"] {
+  background: var(--accent);
+}
+.dialog:has(.creation-level) .dialog-heading {
+  padding-right: 0;
+  margin-bottom: 8px;
+}
+.creation-level-readout,
+.dialog:has(.creation-preview-note) .creation-level-readout {
+  position: static;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 4px 0 8px;
+}
+.creation-level-readout > span {
+  font-size: 13px;
+  color: var(--ink);
+}
+.creation-level-readout output {
+  font-size: 36px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.creation-attribute-meaning {
+  min-height: 0;
+}
+.creation-footer-note {
+  white-space: nowrap;
+  font-size: clamp(9px, 2.7vw, 12px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.creation-percentile {
+  margin: 4px 0 0;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.creation-percentile b {
+  color: inherit;
+  font-weight: 400;
+}
+.curve-percent-area {
+  fill: var(--accent);
+  opacity: 0.18;
+}
+.membership-required {
+  color: var(--warning-ink);
+  font-weight: 600;
+  font-size: 13px;
+}
+.workspace-folder,
+.plan-source-panel,
+.workspace-categories {
+  color: var(--ink);
+}
+.focus-session.dialog {
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  inset: 0;
+  border-radius: 0;
+  padding: calc(24px + env(safe-area-inset-top))
+    max(24px, calc((100vw - 640px) / 2))
+    calc(24px + env(safe-area-inset-bottom));
+  border: 0;
+  background: var(--sheet-background, var(--surface));
+  border-image: none;
+  box-shadow: none;
+  overflow-y: auto;
+}
+html[data-theme] .focus-session.dialog {
+  border: 0;
+  border-image: none;
+  background: var(--sheet-background, var(--surface));
+  box-shadow: none;
+}
+.focus-session {
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+.focus-session .dialog-heading {
+  position: relative;
+  z-index: 2;
+}
+.focus-session .dialog-heading h2 {
+  max-width: 80%;
+  overflow-wrap: anywhere;
+}
+.focus-art {
+  position: relative;
+  width: min(72vw, 320px);
+  height: clamp(120px, 32dvh, 300px);
+  flex-shrink: 0;
+  margin: 0 auto 16px;
+  opacity: 1;
+  pointer-events: none;
+}
+.focus-art .theme-artwork {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+}
+.focus-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 240px;
+  padding: 20px 0;
+}
+.focus-content > span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.focus-content .timer-clock {
+  font-size: clamp(50px, 12vw, 90px);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.focus-content p {
+  max-width: 26em;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.focus-session .dialog-actions {
+  position: static;
+  justify-content: center;
+  gap: 16px;
+  background: transparent;
+}
+.dialog.settlement-page {
+  width: min(460px, calc(100% - 32px));
+  max-width: 460px;
+  height: fit-content;
+  max-height: calc(100dvh - 64px);
+  margin: auto;
+  inset: 0;
+  padding: 20px;
+  overflow-y: auto;
+  animation: settlement-arrive 260ms ease-out;
+}
+.settlement-page .dialog-heading {
+  margin-bottom: 12px;
+}
+.dialog.settlement-page .settlement-task-name {
+  margin: 0 0 8px;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.settlement-page .settlement-orb {
+  width: 56px;
+  height: 56px;
+  margin: 14px auto;
+}
+.settlement-page .dialog-actions {
+  position: static;
+  background: transparent;
+  margin-top: 16px;
+}
+.partial-options label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0;
+}
+.partial-options small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.6;
+}
+.completion-message {
+  text-align: center;
+  line-height: 1.8;
+  color: var(--accent);
+}
+.abandon-actions .danger {
+  color: var(--warning-ink) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--warning-ink) 10%,
+    var(--surface)
+  ) !important;
+}
+.card-created-dialog {
+  text-align: center;
+}
+.created-card-preview.gallery-card-paper {
+  display: block;
+  position: relative;
+  width: min(100%, 260px);
+  height: auto;
+  aspect-ratio: 158/218;
+  margin: 32px auto;
+  padding: 0;
+  animation: card-created 650ms ease-out;
+}
+.created-card-preview .action-card-face {
+  width: 100%;
+  height: 100%;
+}
+.artwork-choices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.artwork-choices button {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 11px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.artwork-choices svg {
+  height: 60px;
+  width: 100%;
+}
+.artwork-choices [aria-pressed="true"] {
+  border-color: var(--accent);
+}
+.experience-track .daily-cap {
+  font-size: 10px;
+  line-height: 1.2;
+  position: relative;
+  z-index: 3;
+  color: var(--ink);
+}
+@keyframes focus-card-grow {
+  from {
+    transform: scale(0.55);
+    opacity: 0.6;
+    filter: blur(0);
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0.14;
+    filter: blur(2px);
+  }
+}
+@keyframes card-created {
+  from {
+    transform: perspective(800px) rotateY(-180deg) scale(0.75);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(800px) rotateY(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes settlement-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .focus-art,
+  .created-card-preview,
+  .settlement-page {
+    animation: none;
+  }
+  .creation-progress i {
+    transition: none;
+  }
+}
+/* The preview uses the same framed gallery paper as saved cards. */
+.dialog.card-created-dialog {
+  width: min(520px, calc(100% - 24px));
+}
+
+.creation-percentile {
+  white-space: nowrap;
+}
+@media (max-width: 359px) {
+  .creation-percentile {
+    font-size: 10px;
+  }
+}
+
+.artwork-upload {
+  display: block;
+  margin: 12px 0 6px;
+  padding: 9px;
+  border: 1px dashed var(--line);
+  font-size: 12px;
+  text-align: center;
+}
+.artwork-upload input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+.dialog:has(.creation-level) {
+  padding: 14px 20px;
+}
+.creation-level-readout {
+  padding: 0 0 4px;
+}
+.creation-level-readout output {
+  font-size: 32px;
+}
+.creation-level .initial-level-curve {
+  height: 100px;
+  margin: 0 auto;
+}
+.creation-level .creation-attribute-meaning {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.creation-assessment {
+  min-height: 0;
+  height: 110px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.creation-assessment::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width: 359px) {
+  .creation-assessment {
+    min-height: 0;
+    height: 130px;
+  }
+}
+
+.experience-track .daily-cap {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+/* One optional-settings column, with only the opened section taking extra space. */
+.reward-direct-input .value-input {
+  width: 100%;
+}

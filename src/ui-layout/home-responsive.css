@@ -1,0 +1,17 @@
+/* Shared meter overflow and capacity feedback. Home geometry now belongs to home/layout.css. */
+.meter-overflow-list {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  max-height: 50dvh;
+  overflow: auto;
+}
+.meter-overflow-list button {
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.meter-capacity-warning {
+  grid-column: 1 / -1;
+  line-height: 1.5;
+  color: var(--accent);
+}

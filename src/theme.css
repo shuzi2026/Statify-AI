@@ -1,0 +1,394 @@
+/* Statify palette: shared by every page, sheet and application confirmation. */
+:root {
+  --peach-cream: #f5e8d9;
+  --peach-paper: #fff5e7;
+  --peach-coral: #ef7057;
+  --peach-ink: #211e1b;
+  --peach-track: #ddc4af;
+  --color-coral-600: #bf402b;
+  --color-coral-700: #a23324;
+  --color-cocoa-600: #66564a;
+  --color-peach-100: #f3dcc9;
+  --color-peach-200: #dfc6b2;
+  --color-cream-50: #fffaf3;
+  --color-shadow: #755239;
+  --bg: var(--peach-cream);
+  --paper: var(--peach-cream);
+  --surface: var(--peach-paper);
+  --porcelain: var(--surface);
+  --ink: var(--peach-ink);
+  --cocoa: var(--ink);
+  --muted: var(--color-cocoa-600);
+  --taupe: var(--muted);
+  --accent: var(--color-coral-600);
+  --coral: var(--accent);
+  --coral-dark: var(--color-coral-700);
+  --focus: var(--coral-dark);
+  --sage: var(--peach-coral);
+  --line: var(--color-peach-200);
+  --surface-tint: var(--color-peach-100);
+  --surface-hover: var(--color-cream-50);
+  --danger: var(--coral-dark);
+  --on-accent: var(--color-cream-50);
+  --border-soft: color-mix(in srgb, var(--line) 65%, transparent);
+  --accent-wash: color-mix(in srgb, var(--peach-coral) 12%, var(--surface));
+  --overlay: color-mix(in srgb, var(--color-shadow) 34%, transparent);
+  --app-background:
+    radial-gradient(
+      ellipse at 30% 36%,
+      color-mix(in srgb, var(--peach-coral) 15%, transparent),
+      transparent 40%
+    ),
+    radial-gradient(ellipse at 79% 62%, var(--surface-tint), transparent 55%),
+    linear-gradient(130deg, var(--surface), var(--bg));
+  --sheet-background: linear-gradient(
+    145deg,
+    var(--surface-hover),
+    var(--surface)
+  );
+  --sheet-shadow:
+    0 24px 65px color-mix(in srgb, var(--color-shadow) 28%, transparent),
+    inset 0 1px 0 var(--surface-hover);
+  --card-paper: var(--surface);
+  --card-outline: var(--line);
+  --card-print: var(--ink);
+  --stock-cream: var(--surface);
+  --stock-ink: var(--ink);
+  --stock-red: var(--accent);
+  --stock-green: var(--accent);
+  --stock-blue: var(--accent);
+  --stock-purple: var(--accent);
+  --card-shadow:
+    0 12px 24px -10px color-mix(in srgb, var(--color-shadow) 22%, transparent),
+    inset 0 1px 0 var(--surface-hover);
+  --button-shadow: 0 4px 8px
+    color-mix(in srgb, var(--color-shadow) 10%, transparent);
+  color-scheme: light;
+}
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+body,
+.app-shell,
+.simulator-shell {
+  background: var(--app-background);
+}
+.sidebar,
+.right-rail {
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  border-color: var(--border-soft);
+}
+.simulator-shell main {
+  background: transparent;
+}
+button,
+.file-button {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button:hover:not(:disabled) {
+    background: var(--surface-hover);
+  }
+}
+
+button.primary,
+.task-card.playing-card .card-action {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button.primary:hover:not(:disabled),
+  .task-card.playing-card .card-action:hover:not(:disabled) {
+    background: var(--coral-dark);
+    color: var(--on-accent);
+  }
+}
+
+button.primary:active:not(:disabled) {
+  background: var(--coral-dark);
+}
+.danger,
+[role="alert"] {
+  color: var(--danger);
+}
+.icon-button,
+.text-button {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.text-button {
+  color: var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .icon-button:hover:not(:disabled),
+  .text-button:hover:not(:disabled) {
+    background: var(--accent-wash);
+  }
+}
+
+.field input,
+.field select,
+.field textarea,
+.onboarding-form .field input:not([type="range"]),
+.state-trend select {
+  background: var(--surface-hover);
+  color: var(--ink);
+  border-color: var(--line);
+  accent-color: var(--accent);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+  accent-color: var(--accent);
+}
+.field input[type="range"] {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.field input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--peach-track);
+}
+.field input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -5px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.field input[type="range"]::-moz-range-track {
+  height: 6px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--peach-track);
+}
+.field input[type="range"]::-moz-range-progress {
+  height: 6px;
+  border-radius: 4px;
+  background: var(--peach-coral);
+}
+.field input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--accent);
+}
+option {
+  background: var(--surface);
+  color: var(--ink);
+}
+.dialog,
+.dialog:has(.compact-creation),
+.drawn-card-paper {
+  background: var(--sheet-background);
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: var(--sheet-shadow);
+}
+.dialog::backdrop,
+.drawn-card-overlay::backdrop {
+  background: var(--overlay);
+  backdrop-filter: blur(7px);
+}
+.dialog-heading,
+.dialog-actions,
+details,
+fieldset {
+  border-color: var(--border-soft);
+}
+.onboarding-form .dialog-actions {
+  background: var(--surface);
+}
+.dialog .dialog-heading h2,
+.drawn-card-paper h2 {
+  color: var(--ink);
+}
+.dialog p.help,
+.dialog > p,
+.dialog small {
+  color: var(--muted);
+}
+.surface,
+.workspace-plan,
+.entry-body,
+.meter-card,
+.today-note,
+.identity-sheet,
+.profile-review,
+.card-review,
+.settings-section,
+.status-hud,
+.attribute-panel {
+  background: var(--sheet-background);
+  color: var(--ink);
+  border-color: var(--border-soft);
+}
+.settings-section,
+.workspace-plans {
+  background: color-mix(in srgb, var(--surface) 65%, transparent);
+}
+.segmented,
+.search,
+.timer-dock,
+.rest-banner,
+.notice {
+  background: var(--surface-tint);
+  color: var(--ink);
+  border-color: var(--line);
+}
+.segmented button,
+.category-row button {
+  background: transparent;
+  color: var(--muted);
+}
+.segmented button.selected,
+.category-row button.selected,
+.rating-options button.selected,
+.method-picker label.selected,
+.anchor-choices button[aria-pressed="true"] {
+  background: var(--accent-wash);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.anchor-choices button {
+  background: var(--surface);
+  color: var(--ink);
+}
+.sidebar nav button.active,
+.mobile-nav button.active {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.mobile-nav {
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border-color: var(--border-soft);
+}
+.card-mark,
+.attribute-icon,
+.sim-attr-icon,
+.tone-study .card-mark,
+.tone-move .card-mark,
+.tone-night .card-mark,
+.settlement-orb {
+  background: var(--surface-tint);
+  color: var(--accent);
+}
+.task-card.playing-card,
+.task-card.playing-card.tone-study,
+.task-card.playing-card.tone-move,
+.task-card.playing-card.tone-night {
+  --card-print: var(--ink);
+  background: var(--sheet-background);
+  border-color: var(--card-outline);
+}
+.task-card.playing-card:before,
+.task-card.playing-card .playing-footer {
+  border-color: var(--border-soft);
+}
+.playing-emblem,
+.favorite.selected,
+.playing-index,
+.playing-index-bottom {
+  color: var(--accent);
+}
+.reward-pills span {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.task-card.playing-card .card-action:disabled {
+  background: var(--surface-tint);
+  color: var(--muted);
+  border-color: var(--line);
+}
+.curve-area {
+  fill: var(--accent-wash);
+}
+.curve-track {
+  stroke: var(--line);
+}
+.creation-signal i {
+  background: var(--accent-wash);
+}
+.creation-signal i:nth-child(2) {
+  background: var(--accent);
+}
+.first-action-explanation {
+  background: var(--accent-wash);
+  border-color: var(--accent);
+}
+.wizard-progress li.done {
+  border-color: var(--peach-coral);
+}
+.creation-level input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--peach-track);
+}
+progress,
+progress::-webkit-progress-bar {
+  background: var(--peach-track);
+}
+progress::-webkit-progress-value {
+  background: var(--peach-coral);
+}
+progress::-moz-progress-bar {
+  background: var(--peach-coral);
+}
+.heatmap > span,
+.week-dots .done {
+  background: var(--peach-coral);
+  color: var(--ink);
+}
+.toast {
+  background: var(--ink);
+  color: var(--surface);
+}
+.completed-animation {
+  background: var(--sheet-background);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.completed-animation svg,
+.settlement-list strong {
+  color: var(--accent);
+}
+.fan-card-name {
+  color: var(--ink);
+}
+.fan-card-category,
+.fan-card-method {
+  color: var(--muted);
+}
+.drawn-card-actions > .text-button {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  padding-inline: 14px;
+  border-radius: 10px;
+}
+.themed-confirmation h2 {
+  font-size: 21px;
+}
+.themed-confirmation .dialog-actions {
+  margin-bottom: 0;
+}

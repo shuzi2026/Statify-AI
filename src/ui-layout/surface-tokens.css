@@ -1,0 +1,58 @@
+/* Shared paint recipes, taken from the existing desktop surfaces.
+   Theme primitives supply colour; neither skin nor viewport owns a new palette. */
+:root {
+  --skin-ink: var(--theme-ink);
+  --skin-muted: color-mix(in srgb, var(--theme-ink) 78%, var(--theme-paper));
+  --skin-exterior: color-mix(
+    in srgb,
+    var(--theme-paper) 78%,
+    var(--theme-canvas)
+  );
+  --skin-sidebar: color-mix(
+    in srgb,
+    var(--theme-paper) 94%,
+    var(--theme-canvas)
+  );
+  --skin-well-base: color-mix(
+    in srgb,
+    var(--theme-canvas) 82%,
+    var(--theme-shadow)
+  );
+  --skin-card-well: color-mix(
+    in srgb,
+    var(--skin-well-base) 88%,
+    var(--theme-paper)
+  );
+  --skin-well-ink: color-mix(
+    in srgb,
+    var(--theme-scene-ink, var(--theme-ink)) 88%,
+    black
+  );
+  --skin-panel: color-mix(in srgb, var(--theme-paper) 84%, var(--theme-canvas));
+  --skin-timeline: color-mix(
+    in srgb,
+    var(--skin-panel) 86%,
+    var(--theme-shadow)
+  );
+  --skin-paper: color-mix(in srgb, var(--theme-paper) 94%, white);
+  --skin-field: color-mix(in srgb, var(--theme-paper) 65%, white);
+  --skin-control: color-mix(
+    in srgb,
+    var(--theme-paper) 72%,
+    var(--theme-lavender)
+  );
+  --skin-action: color-mix(in srgb, var(--theme-accent) 62%, var(--theme-ink));
+  --skin-action-hover: color-mix(in srgb, var(--skin-action) 78%, #111);
+  --skin-navigation: color-mix(
+    in srgb,
+    var(--theme-lavender) 44%,
+    var(--theme-ink)
+  );
+  --skin-on-action: #fffbee;
+  --skin-line: color-mix(in srgb, var(--theme-ink) 38%, var(--theme-paper));
+  --skin-shadow: var(--theme-shadow);
+  --skin-track: color-mix(in srgb, var(--theme-ink) 25%, var(--theme-paper));
+  --skin-recess-shadow:
+    inset 4px 5px 13px color-mix(in srgb, var(--skin-shadow) 36%, transparent),
+    inset -2px -2px 5px #fffbee40, 0 1px 0 #fffbee61;
+}

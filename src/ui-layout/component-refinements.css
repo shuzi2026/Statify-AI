@@ -1,0 +1,593 @@
+/* Physical card feedback replaces rectangular selection frames. */
+.workspace-scene .gallery-card-paper:focus-visible,
+.plan-paper-wrap > .gallery-card-paper:focus-visible {
+  outline: none;
+}
+.workspace-scene .gallery-card-paper:focus-visible::before,
+.plan-paper-wrap > .gallery-card-paper:focus-visible::before {
+  filter: var(--theme-card-depth) brightness(1.12);
+}
+.workspace-scene .gallery-card-paper:focus-visible::after,
+.plan-paper-wrap > .gallery-card-paper:focus-visible::after {
+  content: "";
+  position: absolute;
+  left: 44%;
+  bottom: 13%;
+  width: 12%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+@keyframes plan-card-float {
+  0%,
+  100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Six calendar rows fit inside the paper stock; every date is a square. */
+
+html[data-theme="raven-wizard"] .focus-session.dialog {
+  background:
+    linear-gradient(
+      155deg,
+      color-mix(in srgb, var(--theme-lavender-light) 65%, transparent),
+      transparent 65%
+    ),
+    var(--sheet-background);
+}
+html[data-theme="raven-wizard"] .focus-session .dialog-heading {
+  margin-bottom: 8px;
+}
+.focus-content {
+  padding-block: 8px;
+  min-height: 0;
+}
+.focus-content .timer-clock {
+  line-height: 1.25;
+}
+.focus-content p {
+  margin: 10px 0;
+}
+.focus-art:empty {
+  display: grid;
+  place-items: center;
+}
+.focus-art:empty::before {
+  content: "";
+  width: 65%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 25%,
+    var(--theme-paper-light),
+    var(--theme-lavender-light) 55%,
+    var(--theme-growth)
+  );
+  box-shadow: 0 18px 30px -15px var(--theme-shadow);
+}
+@media (max-height: 640px) {
+  .focus-art {
+    height: 22dvh;
+    margin-bottom: 8px;
+  }
+  .focus-content .timer-clock {
+    font-size: 46px;
+  }
+  .focus-session .dialog-actions {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+}
+
+/* Match the quieter skin's content proportions, leaving the raven edge visible. */
+
+.artwork-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.artwork-category-tabs button {
+  min-height: 36px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border: 0;
+  background: var(--surface);
+  box-shadow: none;
+}
+.artwork-category-tabs [aria-selected="true"] {
+  background: var(--accent-wash);
+  color: var(--accent);
+  box-shadow: inset 0 -2px var(--accent);
+}
+.artwork-follow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  min-height: 40px;
+  margin-bottom: 8px;
+}
+.artwork-follow input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+/* Reward beat: rush to full, hit and hold, then resolve to the actual level progress. */
+.finish-dialog .growth-reward {
+  grid-template-columns: minmax(48px, 0.7fr) minmax(80px, 1.5fr) minmax(
+      52px,
+      max-content
+    );
+  min-height: 62px;
+}
+.finish-dialog .growth-reward .experience-track {
+  height: 24px;
+  border-radius: 6px;
+  isolation: isolate;
+}
+.growth-reward .experience-fill {
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    var(--experience-color),
+    color-mix(in srgb, var(--experience-color) 75%, var(--theme-paper-light))
+  );
+  will-change: transform;
+}
+.growth-reward[data-phase="complete"] .experience-fill {
+  will-change: auto;
+}
+.growth-reward .experience-fill::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--theme-paper-light);
+  box-shadow: 0 0 12px 4px var(--theme-paper-light);
+}
+.growth-reward .reward-position {
+  line-height: 24px;
+  opacity: 1;
+  transition: opacity 180ms ease-out;
+  text-shadow: 0 1px var(--surface);
+}
+.growth-reward[data-phase="charge"] .reward-position,
+.growth-reward[data-phase="impact"] .reward-position {
+  opacity: 0;
+}
+.growth-reward .reward-delta {
+  font-size: 22px;
+  line-height: 1.1;
+  transform-origin: center;
+  white-space: nowrap;
+}
+.growth-reward[data-phase="charge"] .reward-delta {
+  opacity: 0;
+  transform: translateX(-8px) scale(0.75);
+}
+.growth-reward[data-phase="impact"] .reward-delta {
+  animation: reward-delta-hit 600ms cubic-bezier(0.16, 0.9, 0.2, 1) both;
+}
+.growth-reward[data-phase="impact"] .experience-track {
+  animation: reward-track-hit 520ms ease-out both;
+}
+.growth-reward[data-phase="impact"] .experience-track::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 10%,
+    var(--theme-paper-light) 48%,
+    transparent 80%
+  );
+  animation: reward-flash 500ms ease-out both;
+  pointer-events: none;
+}
+.growth-reward.is-zero .reward-delta {
+  color: var(--muted);
+  font-size: 18px;
+}
+.growth-reward.is-zero .experience-fill::after {
+  display: none;
+}
+.growth-reward .experience-cap {
+  grid-column: 1/-1;
+  font-size: 10px;
+  line-height: 12px;
+  margin-top: -6px;
+  color: var(--muted);
+}
+@keyframes reward-delta-hit {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.7);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(2px) scale(1.38);
+  }
+  48% {
+    transform: translateX(-1px) scale(0.96);
+  }
+  72%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes reward-track-hit {
+  0% {
+    transform: scale(1, 1);
+    box-shadow: 0 0 0 transparent;
+  }
+  18% {
+    transform: translateX(2px) scale(1.02, 1.17);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+  38% {
+    transform: translateX(-2px) scale(1, 1.05);
+  }
+  62% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: none;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 20%, transparent);
+  }
+}
+@keyframes reward-flash {
+  0% {
+    opacity: 0.85;
+    transform: translateX(-70%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .growth-reward .reward-position {
+    transition: none;
+  }
+  .growth-reward .reward-delta,
+  .growth-reward .experience-track,
+  .growth-reward .experience-track::after {
+    animation: none !important;
+  }
+  .growth-reward .experience-fill {
+    will-change: auto;
+  }
+  .growth-reward .experience-fill::after {
+    display: none;
+  }
+}
+
+/* The attribute archive replays real daily growth only when its dialog opens. */
+.attribute-growth-record .archive-growth-level {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  min-width: 0;
+}
+.attribute-growth-record .attribute-growth-values > span {
+  white-space: nowrap;
+}
+.attribute-growth-record progress {
+  height: 14px;
+  transform-origin: center;
+}
+.archive-today-growth {
+  display: inline-block;
+  font: 700 12px/1.4 var(--font-ui);
+  color: var(--accent);
+  white-space: nowrap;
+  transform-origin: left center;
+}
+.attribute-growth-record[data-growth-phase="growing"] .archive-today-growth {
+  opacity: 0;
+}
+.archive-has-growth[data-growth-phase="complete"] .archive-today-growth {
+  animation: reward-delta-hit 600ms cubic-bezier(0.16, 0.9, 0.2, 1) both;
+}
+.archive-has-growth[data-growth-phase="complete"] progress {
+  animation: reward-track-hit 520ms ease-out both;
+}
+.archive-has-growth[data-growth-phase="complete"]
+  progress::-webkit-progress-value {
+  animation: archive-growth-flash 600ms ease-out;
+}
+.archive-has-growth[data-growth-phase="complete"] progress::-moz-progress-bar {
+  animation: archive-growth-flash 600ms ease-out;
+}
+@keyframes archive-growth-flash {
+  0%,
+  30% {
+    background: color-mix(in srgb, var(--accent) 45%, var(--theme-paper-light));
+  }
+  100% {
+    background: var(--theme-growth);
+  }
+}
+
+/* A soft pocket of depth behind the hand, leaving the upper scene untouched. */
+@media (prefers-reduced-motion: reduce) {
+  .archive-has-growth[data-growth-phase="complete"] .archive-today-growth,
+  .archive-has-growth[data-growth-phase="complete"] progress {
+    animation: none;
+  }
+  .archive-has-growth[data-growth-phase="complete"]
+    progress::-webkit-progress-value,
+  .archive-has-growth[data-growth-phase="complete"]
+    progress::-moz-progress-bar {
+    animation: none;
+  }
+}
+
+/* One continuous handoff from the floating card to the next action surface. */
+.focus-session.dialog[open] {
+  animation: focus-surface-arrive 180ms ease-out both;
+}
+.dialog[open]:is(.settlement-page, .card-created-dialog, .themed-confirmation),
+.abandon-dialog[open] {
+  animation: task-modal-drop 520ms linear both;
+  transform-origin: center;
+}
+.completed-animation {
+  animation: completion-drop 1800ms linear both;
+}
+.dialog.settlement-page.instant-result[open] {
+  animation: instant-result-arrive 180ms ease-out both;
+}
+.completed-animation.is-instant {
+  animation: instant-completion 1600ms ease-out both;
+}
+@keyframes drawn-card-hover {
+  0%,
+  18%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  40% {
+    translate: 0 -3px;
+    rotate: 0.35deg;
+  }
+  65% {
+    translate: 0 -2px;
+    rotate: -0.3deg;
+  }
+  82% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+}
+/* Retain a visible card until its replacement is ready; only opacity animates. */
+@keyframes card-dissolve {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.72;
+  }
+}
+@keyframes card-completion-release {
+  from {
+    opacity: var(--card-handoff-opacity, 1);
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes card-completion-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes card-completion-leave {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes instant-result-arrive {
+  0% {
+    transform: translateY(-12px);
+  }
+  70% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes instant-completion {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 6px));
+  }
+  12%,
+  88% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 6px));
+  }
+}
+@keyframes card-to-focus {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    mask-size: 200% 200%;
+  }
+  40% {
+    opacity: 0.88;
+    filter: blur(2px);
+    mask-size: 160% 160%;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: scale(var(--card-focus-scale, 2.4));
+    mask-size: 100% 100%;
+  }
+}
+@keyframes card-backdrop-release {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes focus-surface-arrive {
+  from {
+    opacity: 0.8;
+    filter: blur(3px);
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+/* WebView 83 recompiles/rasterizes the growing blur + radial mask on the GPU.
+   Keep the same handoff and duration, using only composited scale/opacity. */
+html[data-statify-no-aspect="true"] .focus-session.dialog::backdrop {
+  /* The fullscreen paper covers this layer; do not blur a moving home below. */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-statify-no-aspect="true"]
+  .simulator-shell:has(> .focus-session[open]) > main,
+html[data-statify-no-aspect="true"]
+  .simulator-shell:has(> .focus-session[open]) > main * {
+  /* Preserve geometry and state for return, while skipping covered paints. */
+  visibility: hidden !important;
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-statify-no-aspect="true"]
+    .drawn-card-overlay[data-departure="focus"] .drawn-card-paper {
+    animation-name: card-to-focus-legacy;
+    filter: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  html[data-statify-no-aspect="true"] .focus-session.dialog[open] {
+    animation-name: focus-surface-arrive-legacy;
+    filter: none;
+  }
+}
+@keyframes card-to-focus-legacy {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 0.88;
+  }
+  to {
+    opacity: 0;
+    transform: scale(var(--card-focus-scale, 2.4));
+  }
+}
+@keyframes focus-surface-arrive-legacy {
+  from {
+    opacity: 0.8;
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes task-modal-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100dvh) scale(0.98, 1.025);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.65);
+  }
+  62% {
+    opacity: 1;
+    transform: translateY(14px) scale(1.02, 0.975);
+    animation-timing-function: ease-out;
+  }
+  80% {
+    transform: translateY(-6px) scale(0.99, 1.01);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes completion-drop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 100dvh));
+    animation-timing-function: ease-in;
+  }
+  24% {
+    opacity: 1;
+    transform: translate(-50%, calc(-50% + 12px)) scale(1.02, 0.98);
+    animation-timing-function: ease-out;
+  }
+  31% {
+    transform: translate(-50%, calc(-50% - 5px));
+    animation-timing-function: ease-in-out;
+  }
+  38%,
+  87% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 12px));
+  }
+}
+/* Avoid adding the local hand veil beneath an already shaded modal. */
+/* Restore the hand under the retained modal before its backdrop fades away. */
+.mobile-home:has(> .drawn-card-overlay[data-completed]) .fan-card {
+  opacity: 1 !important;
+}
+.mobile-home:has(> .drawn-card-overlay[data-completion-closing])
+  .hand-focus-veil {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 200ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .drawn-card-overlay .drawn-card-paper,
+  .drawn-card-overlay::backdrop,
+  .focus-session.dialog[open],
+  .dialog[open]:is(
+      .settlement-page,
+      .card-created-dialog,
+      .themed-confirmation
+    ),
+  .abandon-dialog[open],
+  .completed-animation {
+    animation: none !important;
+  }
+}

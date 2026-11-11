@@ -1,0 +1,164 @@
+/* Shared content contracts apply after theme paint. */
+html[data-theme] .action-card-face .fan-card-name,
+html[data-theme] .action-card-face .fan-card-name[data-title-wrap="two-lines"] {
+  font-size: clamp(12px, calc(var(--card-type-unit) * 9.5), 20px);
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* align-content does not center this legacy box on Android WebView 83. */
+  -webkit-box-pack: center;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  height: 19%;
+  top: 3%;
+  align-content: center;
+}
+html[data-theme] .action-card-face .fan-card-category {
+  top: 23%;
+  font-size: clamp(10px, calc(var(--card-type-unit) * 7.5), 14px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 88%;
+  left: 6%;
+}
+html[data-theme] .action-card-face .fan-card-method {
+  font-size: clamp(10px, calc(var(--card-type-unit) * 7.5), 14px);
+}
+@container (max-height:160px) {
+  html[data-theme] .action-card-face .fan-card-name {
+    height: 32%;
+    top: 3%;
+  }
+  html[data-theme] .action-card-face .fan-card-category {
+    top: 36%;
+  }
+  html[data-theme] .action-card-face .fan-card-art {
+    top: 49%;
+    height: 32%;
+  }
+}
+.dialog-actions.single-action {
+  justify-content: center;
+}
+.finish-dialog :is(.growth-reward, .value-reward) {
+  grid-template-columns: minmax(64px, 0.7fr) minmax(70px, 1.5fr) 64px;
+  gap: 10px;
+}
+.growth-reward[data-phase="complete"] .experience-fill {
+  background: var(--experience-color);
+}
+.growth-reward[data-phase="complete"] .experience-fill::after {
+  display: none;
+}
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+html[data-ime-visible="true"] .mobile-nav {
+  display: none !important;
+}
+@media (max-width: 759px) {
+  html[data-theme] .mobile-nav button,
+  html[data-theme]
+    .simulator-shell:has(.mobile-home[data-responsive])
+    .mobile-nav
+    button {
+    min-width: 0;
+    flex: 1;
+    font-size: clamp(10px, 2.8vw, 12px);
+    white-space: nowrap;
+  }
+}
+
+/* Bounded text regions: reserve real line-height before positioning artwork. */
+html[data-theme] .action-card-face .fan-card-category {
+  height: 1.3em;
+  line-height: 1.3;
+  max-width: none;
+  width: 82%;
+  left: 9%;
+  margin: 0;
+}
+html[data-theme] .action-card-face .fan-card-art {
+  top: calc(
+    23% + clamp(10px, calc(var(--card-type-unit) * 7.5), 14px) * 1.3 + 4px
+  );
+  height: 45%;
+  overflow: hidden;
+}
+html[data-theme] .action-card-face:has(.action-card-details) .fan-card-art {
+  height: 32%;
+}
+@container (max-height:160px) {
+  html[data-theme] .action-card-face .fan-card-category {
+    top: 36%;
+  }
+  html[data-theme] .action-card-face .fan-card-art {
+    top: calc(36% + 13px + 3px);
+    height: 27%;
+  }
+}
+/* All text action buttons share geometry and typography, including hover/danger. */
+html[data-theme]
+  :is(
+    .dialog-actions,
+    .abandon-actions,
+    .drawn-card-actions,
+    .global-member-actions:not(.membership-summary-actions)
+  )
+  button:not(.icon-button):not(.text-button),
+html[data-theme]
+  :is(.mobile-timer, .timer-dock)
+  > button:not(.icon-button):not(.text-button) {
+  box-sizing: border-box;
+  min-height: 44px;
+  height: auto;
+  padding: 10px 16px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  border: 3px double var(--accent-ink, var(--ink)) !important;
+  border-image: none !important;
+  border-radius: 12px !important;
+  background: var(--surface) !important;
+  color: var(--ink);
+  box-shadow: none !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+html[data-theme]
+  :is(
+    .dialog-actions,
+    .abandon-actions,
+    .drawn-card-actions,
+    .global-member-actions:not(.membership-summary-actions)
+  )
+  button.primary {
+  font-weight: 600;
+  color: var(--accent-ink, var(--ink));
+}
+html[data-theme] :is(.dialog-actions, .abandon-actions) button.danger {
+  color: var(--warning-ink);
+}
+html[data-theme] .meter-form-dialog .meter-form-actions {
+  background: transparent;
+  position: static;
+}
+.meter-value-unit {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+}
+.meter-value-unit .field > span {
+  white-space: nowrap;
+}

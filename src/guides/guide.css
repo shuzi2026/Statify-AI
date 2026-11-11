@@ -1,0 +1,426 @@
+dialog.guide-spotlight {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: var(--visible-height, 100vh);
+  max-width: none;
+  max-height: none;
+  border: 0;
+  border-image: none !important;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+  color: var(--theme-ink);
+  transform: none;
+  touch-action: pan-y;
+}
+dialog.guide-spotlight::backdrop {
+  background: transparent;
+  backdrop-filter: none;
+}
+.guide-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.guide-shade path {
+  fill: color-mix(in srgb, var(--theme-ink) 72%, transparent);
+}
+.guide-shade rect {
+  fill: none;
+  stroke: var(--theme-paper);
+  stroke-width: 2;
+}
+.guide-paper {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-ui);
+  min-width: 0;
+  min-height: 0;
+  touch-action: pan-y;
+}
+.guide-paper h2 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 10px 0 14px;
+  outline-offset: 5px;
+}
+.guide-paper p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
+}
+.guide-body p {
+  white-space: pre-line;
+  text-wrap: pretty;
+}
+.guide-body p + p {
+  margin-top: 12px;
+}
+.guide-paper[data-narrow] .guide-body p {
+  white-space: normal;
+}
+.guide-paper .guide-review-note {
+  font-size: 0.75rem;
+  color: var(--theme-muted);
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.guide-review-note > span {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.guide-review-note i {
+  font-style: normal;
+  opacity: 0.5;
+  margin-inline: 3px;
+}
+.guide-step-track {
+  height: 2px;
+  background: var(--border-soft);
+  margin-top: 9px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.guide-step-track > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0.7;
+}
+.guide-paper footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0;
+  margin-top: 8px;
+  padding-top: 8px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border-soft);
+}
+html[data-theme]
+  dialog.guide-spotlight[data-step]
+  .guide-paper
+  footer.dialog-actions
+  > button {
+  min-height: 44px;
+  padding: 6px 8px;
+  font-size: 13px;
+  line-height: 1.25;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.guide-paper footer > button + button {
+  margin-left: 8px;
+}
+.guide-paper footer > button:not(.guide-skip) {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.guide-paper footer .guide-skip {
+  margin-right: auto;
+  color: var(--muted);
+  padding-inline: 3px;
+  font-size: 12px;
+}
+.guide-paper[data-narrow] {
+  padding: 10px;
+}
+.guide-paper[data-narrow] footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+}
+html[data-theme]
+  dialog.guide-spotlight[data-step]
+  .guide-paper[data-narrow]
+  footer.dialog-actions
+  > button {
+  min-width: 0;
+  padding: 4px;
+  font-size: 12px;
+  margin-left: 0;
+}
+.guide-paper[data-narrow] footer .guide-skip {
+  grid-column: 1/-1;
+  grid-row: 2;
+  margin: 0;
+  justify-self: stretch;
+}
+.guide-paper :focus-visible {
+  outline: 2px solid var(--theme-accent);
+  outline-offset: 3px;
+}
+.guide-copy {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 0;
+  min-width: 0;
+  flex: 1 1 0px;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding: 4px;
+  outline-offset: -2px;
+}
+.guide-content {
+  padding: 2px;
+  overflow-wrap: anywhere;
+  animation: guide-content-arrive 0.18s ease-out;
+}
+.guide-copy::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.guide-step-header {
+  flex: none;
+}
+.guide-paper .guide-scroll-note {
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 4px 0 0;
+  flex: none;
+  color: var(--muted);
+}
+.guide-paper .guide-instruction {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  margin-top: 12px;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.guide-operation {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 4px;
+  margin-top: 12px;
+}
+.guide-operation-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.guide-operation-heading > span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.guide-paper .guide-replay {
+  font-size: 12px;
+  min-height: 44px;
+  gap: 4px;
+  margin: 0;
+  padding: 3px 0;
+  white-space: normal;
+}
+.guide-motion-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.guide-motion-steps i {
+  font-style: normal;
+  opacity: 0.5;
+}
+.guide-motion-steps span {
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.guide-motion-steps[data-phase="browse"] [data-action="browse"],
+.guide-motion-steps[data-phase="draw"] [data-action="draw"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.guide-paper[data-narrow] .guide-operation-heading {
+  flex-wrap: wrap;
+}
+.guide-motion-layer {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.guide-motion-layer[data-card-drag] {
+  z-index: 1;
+}
+.guide-target-action {
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  min-height: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  touch-action: manipulation;
+}
+.guide-paper {
+  z-index: 2;
+}
+.guide-demo-pointer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  color: var(--accent);
+  background: var(--surface-hover);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.guide-demo-pointer svg {
+  width: 20px;
+  height: 20px;
+}
+.guide-motion-layer .guide-demo-card {
+  position: absolute !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  opacity: 0;
+  z-index: 0;
+  box-shadow: var(--card-shadow);
+  transform-origin: center;
+}
+@keyframes guide-content-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.guide-shade rect {
+  animation: guide-highlight-arrive 0.35s ease-out both;
+}
+@keyframes guide-highlight-arrive {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-spotlight * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+html[data-reduce-effects="true"] .guide-spotlight * {
+  animation: none !important;
+  transition: none !important;
+}
+/* Keep the example card and its count visible together in a short task area. */
+.plan-system[data-guide-demo].is-timeline-off
+  > .workspace-plans
+  > .plan-goal-board {
+  flex: none;
+  min-height: max-content;
+  padding: 6px 8px;
+}
+.plan-system[data-guide-demo] .plan-goal-board > .plan-rail-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.plan-system[data-guide-demo] .plan-goal-board .plan-paper-wrap {
+  width: min(100%, 7dvh);
+  margin-inline: auto;
+}
+.plan-system[data-guide-demo] .plan-goal-board .gallery-card-paper {
+  height: auto;
+  aspect-ratio: 158/218;
+}
+/* Demo cards shrink with the viewport, so their print slots scale with the face. */
+.plan-system[data-guide-demo].is-timeline-off
+  :is(.plan-goal-board, .plan-card-library)
+  .action-card-face
+  .fan-card-name,
+html[data-theme]
+  .guide-spotlight[data-scene="plans"]
+  .guide-demo-card
+  .action-card-face
+  .fan-card-name {
+  top: 7%;
+  bottom: auto;
+  height: 26%;
+  max-height: 26%;
+  padding-block: 0;
+  font-size: min(9.5px, calc(var(--card-type-unit) * 14));
+  transform: none;
+}
+.plan-system[data-guide-demo].is-timeline-off
+  :is(.plan-goal-board, .plan-card-library)
+  .action-card-face
+  .fan-card-category,
+html[data-theme]
+  .guide-spotlight[data-scene="plans"]
+  .guide-demo-card
+  .action-card-face
+  .fan-card-category {
+  font-size: min(9px, calc(var(--card-type-unit) * 12));
+  transform: none;
+}
+.plan-system[data-guide-demo] .plan-goal-summary {
+  min-height: 32px;
+  align-items: center;
+  padding: 3px 0;
+}
+@media (max-height: 600px) {
+  .plan-system[data-guide-demo].is-timeline-off
+    > .workspace-plans
+    :is(.plan-mode-note, .plan-small) {
+    display: none;
+  }
+}
+@media (max-height: 480px) {
+  .plan-system[data-guide-demo].is-timeline-off
+    > .workspace-plans
+    .plan-progress-summary {
+    display: none;
+  }
+  .plan-system[data-guide-demo].is-timeline-off .plan-card-library > h2 {
+    display: none;
+  }
+  .plan-system[data-guide-demo].is-timeline-off
+    .plan-card-library
+    .gallery-card-paper {
+    width: min(100%, 7dvh);
+    height: auto;
+    aspect-ratio: 158/218;
+    margin-inline: auto;
+  }
+}

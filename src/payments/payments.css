@@ -1,0 +1,364 @@
+.membership-heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.membership-account-line {
+  display: block;
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+.membership-status-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  color: var(--skin-ink, var(--ink));
+}
+.membership-status-line > .membership-founder-badge {
+  margin-left: 8px;
+}
+/* The account view reads as one character record on the active theme surface. */
+.cn-account-panel .membership-heading h2 {
+  font: 500 22px/1.4 var(--font-ui);
+  margin: 0 0 16px;
+}
+.cn-member-identity {
+  margin: 0 0 24px;
+  padding: 16px 0;
+  border-block: 1px solid var(--skin-line, var(--line));
+}
+.cn-account-panel .cn-member-identity h3 {
+  margin: 0;
+  font: 600 24px/1.4 var(--font-ui);
+  text-wrap: balance;
+}
+.cn-member-identity small {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.cn-account-facts {
+  margin: 0;
+}
+.cn-account-facts > div {
+  display: grid;
+  grid-template-columns: 5em minmax(0, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+  align-items: baseline;
+}
+.cn-account-facts dt {
+  font-size: 14px;
+  color: var(--muted);
+}
+.cn-account-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.cn-character-actions button {
+  white-space: normal;
+}
+.cn-account-panel .cn-nickname-update {
+  display: grid;
+  gap: 12px;
+}
+.cn-nickname-update [role="group"] {
+  padding: 14px;
+  background: var(--surface-tint);
+  border-radius: var(--theme-radius-button);
+}
+.cn-purchase-price {
+  font-size: 18px;
+  line-height: 1.6;
+}
+.membership-launch-pricing {
+  margin: 16px 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  line-height: 1.65;
+}
+.membership-launch-pricing p {
+  margin: 5px 0;
+}
+.membership-launch-pricing small {
+  color: var(--muted);
+}
+.cn-account-panel > .help {
+  max-width: 42em;
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  .cn-nickname-update button {
+    width: 100%;
+    margin-top: 8px;
+    white-space: normal;
+  }
+}
+.membership-heading h2 {
+  margin: 0;
+}
+.membership-heading p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.membership-summary .global-member-actions > button:last-child:nth-child(odd) {
+  grid-column: 1/-1;
+}
+.membership-summary .global-member-actions > button {
+  background: var(--skin-control);
+  color: var(--skin-ink);
+  border-color: var(--skin-line);
+}
+.membership-status {
+  display: inline-block;
+  background: var(--surface-tint);
+  border: 1px solid var(--line);
+  border-radius: var(--theme-radius-button);
+  padding: 8px 14px;
+  font-weight: 700;
+}
+.membership-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.membership-fields .field,
+.membership-block .field {
+  min-width: 0;
+}
+.membership input:not([type="checkbox"]) {
+  width: 100%;
+  box-sizing: border-box;
+}
+.membership button,
+.membership-orders a {
+  min-height: 44px;
+}
+.membership-block {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-top: 18px;
+}
+.membership-account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  overflow-wrap: anywhere;
+}
+.membership-consent {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 44px;
+  margin: 8px 0;
+}
+.membership-consent input {
+  width: 20px;
+  height: 20px;
+}
+.membership a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.membership-orders {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.membership-orders li {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--theme-radius-button);
+  display: grid;
+  gap: 7px;
+}
+.membership-orders small {
+  color: var(--muted);
+}
+.membership-orders code {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.membership-orders a {
+  display: inline-flex;
+  align-items: center;
+}
+.membership .help {
+  margin-top: 10px;
+}
+.membership [role="alert"] {
+  color: var(--ink);
+  border-left: 3px solid var(--danger);
+  padding-left: 10px;
+}
+@media (max-width: 550px) {
+  .membership-fields {
+    grid-template-columns: 1fr;
+  }
+  .membership button {
+    min-height: 48px;
+  }
+  .membership-account {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.cn-account-panel {
+  padding: 0 4px;
+  color: var(--skin-ink, var(--ink));
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.cn-account-panel .button-row {
+  display: flex;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+.cn-account-panel .button-row > .text-button {
+  margin: 0;
+  padding-inline: 4px;
+}
+.cn-account-panel .help {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.cn-account-panel input {
+  font-size: 16px;
+}
+.cn-account-panel #cn-code input {
+  min-height: 44px;
+  border: 1px solid var(--skin-line, var(--line));
+  border-radius: var(--theme-radius-button);
+  color: inherit;
+}
+.cn-account-panel .membership-fields {
+  margin: 8px 0;
+}
+.cn-account-panel form > button.primary {
+  margin-top: 8px;
+}
+@media (max-width: 550px) {
+  .cn-account-panel .membership-fields {
+    gap: 6px;
+  }
+}
+.global-member-summary {
+  padding: 18px;
+  margin: 0 0 18px;
+  border: 1px solid var(--skin-line);
+  border-radius: 18px;
+  background: var(--skin-panel);
+  color: var(--skin-ink);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--skin-shadow) 14%, transparent);
+}
+.global-member-summary > div:first-child {
+  display: grid;
+  grid-template-columns: 22px auto;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+.global-member-summary h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+.membership-summary.global-member-summary > p {
+  margin: 12px 0 20px;
+  line-height: 1.6;
+}
+.membership-summary .membership-account-line {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.membership-summary .membership-status-line {
+  font-size: 14px;
+}
+.membership-summary .membership-summary-actions > button {
+  min-height: 44px;
+  padding: 8px;
+  margin: 0;
+  gap: 0;
+  border: 1px solid var(--skin-line, var(--line));
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--skin-ink, var(--ink));
+  font: 500 14px/1.4 var(--font-ui);
+}
+.membership-summary .membership-summary-actions > button > svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin-right: 6px;
+}
+@media (min-width: 760px) {
+  .membership-summary .membership-summary-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: -4px;
+  }
+  .membership-summary .membership-summary-actions > button {
+    min-width: 124px;
+    margin: 4px;
+    padding: 8px 14px;
+  }
+}
+.global-member-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.global-member-actions button {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  white-space: normal;
+  min-height: 48px;
+  line-height: 1.3;
+  padding: 10px;
+}
+.global-member-page label:not(.membership-consent) {
+  display: grid;
+  gap: 7px;
+  margin: 12px 0;
+}
+.global-member-page input:not([type="checkbox"]):not([type="radio"]) {
+  width: 100%;
+  min-width: 0;
+}
+.global-cloud fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  border: 0;
+  padding: 0;
+}
+.global-cloud fieldset label {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+}
+.cloud-conflict {
+  padding: 12px;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+}
+.global-member-page h1,
+.global-member-page h2,
+.global-member-page h3 {
+  overflow-wrap: anywhere;
+}
+.global-member-page .button-row {
+  flex-wrap: wrap;
+}

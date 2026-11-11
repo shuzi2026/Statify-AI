@@ -1,0 +1,55 @@
+{
+  "name": "statify-ai",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent Statify web baseline for AI development",
+  "scripts": {
+    "start": "vite --open",
+    "dev": "vite",
+    "start:global": "vite --mode ai-global --open",
+    "dev:global": "vite --mode ai-global",
+    "start:hackathon": "vite --mode ai-hackathon --open",
+    "build:hackathon": "npm run typecheck && vite build --mode ai-hackathon && vite build --config scripts/hosted.vite.config.ts",
+    "start:hosted": "node --env-file-if-exists=.env.ai-global.local --env-file-if-exists=.env.paypal-channel3.local --env-file-if-exists=.env.statify-hosted.local output/build/hackathon/server/server.mjs",
+    "start:guest-test": "npm run start:hosted -- --guest-test",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:compat": "node --test scripts/i18n-plugin.test.mjs scripts/webview-compat.test.mjs scripts/offline.test.mjs scripts/service-worker.test.mjs",
+    "assets:check": "node scripts/assets.mjs",
+    "build": "npm run typecheck && vite build && node scripts/offline.mjs",
+    "preview": "vite preview --host 127.0.0.1 --port 15285 --strictPort"
+  },
+  "dependencies": {
+    "@capacitor/core": "7.6.9",
+    "@capacitor/filesystem": "7.1.9",
+    "@capacitor/share": "7.0.4",
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource-variable/geist-mono": "5.3.0",
+    "better-sqlite3": "12.11.1",
+    "dexie": "4.4.6",
+    "lucide-react": "1.55.0",
+    "mem0ai": "3.3.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "fake-indexeddb": "6.2.5",
+    "opencode-ai": "1.19.5",
+    "postcss": "8.5.29",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "5.0.3"
+  },
+  "license": "AGPL-3.0-only",
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true,
+    "esbuild@0.28.2": true,
+    "opencode-ai@1.19.5": true
+  }
+}

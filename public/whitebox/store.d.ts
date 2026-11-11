@@ -1,0 +1,11 @@
+import type {Layout} from './core.js';
+export type Profile={layout:Layout;defaults:Record<string,Record<string,Partial<Layout>>>};
+export type LayoutDocument={version:number;revision:number;activeTheme:string;profiles:Record<string,Profile>};
+export function snapshot():LayoutDocument;
+export function subscribe(fn:()=>void):()=>void;
+export function syncStatus():string;
+export function startSync():void;
+export function updateLayout(patch:Partial<Layout>,theme?:string):void;
+export function applyDefault(group:string,key:string,theme?:string):void;
+export function saveDefault(group:string,key:string,values:Partial<Layout>,theme?:string):void;
+export function setActiveTheme(theme:string):void;

@@ -1,0 +1,21 @@
+html:lang(en) {
+  --english-label-line-height: 1.25;
+}
+html:lang(en) .workspace-page-tabs button,
+html:lang(en) .plan-panel-tabs button {
+  white-space: normal;
+  line-height: 1.2;
+}
+html:lang(en) .card-tile-title {
+  overflow-wrap: anywhere;
+  line-height: 1.18;
+}
+html:lang(en) .dialog-actions {
+  flex-wrap: wrap;
+}
+html:lang(en) .global-member-page .membership-panel {
+  max-width: 720px;
+  margin-inline: auto;
+}
+/* English words need their own measure; Chinese keeps the three-character rail. */
+/* Label and value sit above the full-width bar, instead of a 22px label column. */

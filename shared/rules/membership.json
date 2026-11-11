@@ -1,0 +1,6 @@
+{
+  "trialMs": 604800000,
+  "entitlementCacheMs": 900000,
+  "globalLifetimeAmount": "7.40",
+  "globalCurrency": "USD"
+}

@@ -1,0 +1,102 @@
+/* Shared paint and dialog contract; proportional home geometry is separate. */
+:root {
+  color-scheme: only light;
+}
+html {
+  overflow-wrap: break-word;
+}
+.field > .field-label-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+.field > .field-label-line small {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--muted);
+}
+@media (max-width: 759px) {
+  /* Legacy/custom windows only; registered shells belong to dialog-contract.css. */
+  .dialog:not([data-layout-shell]):not(.focus-session):not(
+      .drawn-card-overlay
+    ) {
+    max-width: calc(100vw - 2 * var(--layout-dialog-gap));
+    max-height: calc(100dvh - 2 * var(--layout-dialog-gap));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .dialog :is(input, textarea) {
+    scroll-margin-block: 20px;
+  }
+  .dialog :is(.dialog-actions > button, .dialog-heading > .icon-button) {
+    min-height: var(--layout-touch);
+  }
+  .dialog-heading > .icon-button {
+    min-width: var(--layout-touch);
+  }
+}
+/* Card print coordinates are percentages of the paper rectangle, never theme pixels. */
+html[data-theme] .action-card-face {
+  container-type: size;
+  --card-type-unit: min(1cqw, calc(158cqh / 218));
+  font-family: var(--font-ui);
+}
+html[data-theme] .action-card-face .fan-card-name {
+  top: 4%;
+  height: 18%;
+  left: 9%;
+  width: 82%;
+  font-size: calc(var(--card-type-unit) * 10 * var(--card-text-fit, 1));
+  font-weight: 700;
+  align-items: center;
+  min-height: 0;
+  line-height: 1.2;
+}
+html[data-theme] .action-card-face .fan-card-name[data-title-wrap="two-lines"] {
+  font-size: calc(var(--card-type-unit) * 9.5 * var(--card-text-fit, 1));
+  overflow: visible;
+}
+html[data-theme] .action-card-face .fan-card-category {
+  top: 22%;
+  font-size: calc(var(--card-type-unit) * 7.5 * var(--card-text-fit, 1));
+  font-weight: 400;
+  line-height: 1.3;
+}
+html[data-theme] .action-card-face .fan-card-art {
+  top: 29%;
+  height: 53%;
+  left: 5%;
+  width: 90%;
+}
+html[data-theme] .action-card-face .fan-card-method {
+  bottom: 7%;
+  font-size: calc(var(--card-type-unit) * 7.5 * var(--card-text-fit, 1));
+  font-weight: 400;
+  line-height: 1.3;
+}
+html[data-theme] .action-card-face:has(.action-card-details) .fan-card-art {
+  height: 39%;
+}
+html[data-theme] .action-card-details {
+  top: 67%;
+}
+/* Three CJK characters, a quarter-character reserve, and the actual padding. */
+/* White model uses the live UI and its exact boxes, not the older scaled canvas. */
+/* User-selectable reduction also applies when the OS has no motion preference. */
+html[data-reduce-effects="true"]
+  :is(
+    .quiet-orb,
+    .fan-card,
+    .drawn-card-paper,
+    .plan-source,
+    .completed-animation
+  ) {
+  animation: none !important;
+}
+html[data-reduce-effects="true"]
+  :is(.hand-focus-veil, .floating-attributes, .mobile-hud),
+html[data-reduce-effects="true"] dialog::backdrop {
+  backdrop-filter: none !important;
+}

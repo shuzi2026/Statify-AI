@@ -1,0 +1,42 @@
+/* Global interaction contract. Do not blur controls to hide focus: that breaks
+   typing, dialog return and keyboard navigation. White-model guides are separate. */
+html[data-input-method] * {
+  -webkit-tap-highlight-color: transparent;
+}
+html[data-input-method="pointer"] :focus {
+  outline: none !important;
+}
+html[data-input-method]
+  :is(
+    .task-card.playing-card,
+    .settings-import,
+    .file-button,
+    .method-picker label,
+    .plan-goal-fields label
+  ):focus-within {
+  outline: none !important;
+}
+html[data-input-method="keyboard"] :focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+/* Paper keeps its irregular silhouette; a keyboard highlight follows the paint. */
+html[data-input-method="keyboard"]
+  :is(.fan-card, .gallery-card-paper, .fan-card-main):focus-visible {
+  outline: none !important;
+  filter: drop-shadow(0 0 3px var(--focus));
+}
+html[data-input-method="pointer"]
+  :is(
+    .workspace-scene .gallery-card-paper,
+    .plan-paper-wrap > .gallery-card-paper
+  ):focus-visible::after {
+  content: none;
+}
+html[data-input-method="pointer"]
+  :is(
+    .workspace-scene .gallery-card-paper,
+    .plan-paper-wrap > .gallery-card-paper
+  ):focus-visible::before {
+  filter: var(--theme-card-depth);
+}

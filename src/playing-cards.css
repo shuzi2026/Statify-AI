@@ -1,0 +1,207 @@
+/* Cardstock primitives → semantic ink/paper → playing-card tokens. */
+:root {
+  --stock-cream: #fff7df;
+  --stock-ink: #332e29;
+  --stock-red: #a43d37;
+  --stock-blue: #34566d;
+  --stock-green: #3d654f;
+  --stock-purple: #66517c;
+  --card-paper: var(--stock-cream);
+  --card-outline: var(--stock-ink);
+  --card-print: var(--stock-red);
+  --playing-radius: 7px;
+  --playing-edge: 2px solid var(--card-outline);
+}
+.playing-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 40px;
+  position: relative;
+}
+.playing-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 20px;
+  color: var(--card-print);
+  line-height: 1;
+}
+.playing-index b {
+  font: 700 22px/1 var(--font-number);
+}
+.playing-category {
+  flex: 1;
+  text-align: center;
+  color: var(--card-print);
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 7px;
+  overflow-wrap: anywhere;
+}
+.playing-header .favorite {
+  width: 48px;
+  height: 48px;
+  margin: -8px -8px 0 0;
+  min-width: 48px;
+  border-radius: 3px;
+  color: var(--card-print);
+  box-shadow: none;
+  background: transparent;
+}
+.playing-header .favorite.selected {
+  background: #a43d3710;
+}
+.playing-art {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  height: 118px;
+  flex-shrink: 0;
+  margin: 4px 8px 9px;
+  overflow: hidden;
+  color: var(--card-print);
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 6px,
+    #332e2905 6px,
+    #332e2905 7px
+  );
+  border-top: 1px solid #332e2920;
+  border-bottom: 1px solid #332e2920;
+}
+.playing-emblem {
+  width: 78px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(3px 3px 0 #332e2920);
+}
+.playing-emblem svg {
+  stroke-linejoin: miter;
+  stroke-linecap: square;
+}
+.print-star {
+  position: absolute;
+  font-size: 21px;
+  line-height: 1;
+}
+.star-one {
+  top: 18px;
+  left: 5px;
+}
+.star-two {
+  bottom: 23px;
+  right: 4px;
+  font-size: 14px;
+}
+.print-caption {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.playing-title,
+.compact-card .playing-title {
+  font-size: 18px;
+  line-height: 1.45;
+  margin: 0 0 8px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  color: var(--stock-ink);
+  font-weight: 800;
+}
+.playing-title-button {
+  display: block;
+  width: 100%;
+  padding: 2px 0;
+  min-height: 48px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 3px;
+}
+.playing-title-button:hover {
+  background: #332e2908;
+  box-shadow: none;
+}
+.playing-title-button .playing-title {
+  margin: 0;
+}
+.playing-description {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 4px 0 10px;
+  overflow-wrap: anywhere;
+}
+.playing-rewards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--card-print);
+  margin-bottom: 10px;
+}
+.playing-meta {
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.4;
+  color: var(--stock-ink);
+}
+.playing-index-bottom {
+  position: absolute;
+  bottom: 9px;
+  right: 11px;
+  transform: rotate(180deg);
+  flex-direction: row;
+  gap: 3px;
+  width: auto;
+}
+.playing-index-bottom b {
+  font-size: 14px;
+}
+.quick-deck {
+  display: flex;
+  gap: 19px;
+  overflow-x: auto;
+  padding: 9px 9px 19px 3px;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 3px;
+  align-items: stretch;
+}
+.quick-deck .playing-art {
+  height: 108px;
+}
+.workspace-plan {
+  border: var(--playing-edge);
+  border-radius: var(--playing-radius);
+  background: var(--card-paper);
+  box-shadow: 2px 3px 0 #d4c5ab;
+}
+@media (max-width: 759px) {
+  .quick-deck {
+    gap: 16px;
+    padding-top: 8px;
+  }
+  .playing-art {
+    margin: 4px 4px 9px;
+    height: 106px;
+  }
+  .playing-title,
+  .compact-card .playing-title {
+    font-size: 16px;
+  }
+  .playing-category {
+    font-size: 11px;
+  }
+  .playing-rewards {
+    font-size: 12px;
+  }
+}

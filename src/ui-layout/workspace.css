@@ -1,0 +1,431 @@
+/* Phone and desktop consume the same surface recipes. Card print and shared
+   layout stay independent of the surrounding wells and folder chrome. */
+:root {
+  --workspace-reference-paper: var(--theme-paper);
+  --workspace-ink: var(--skin-ink);
+  --workspace-muted: var(--skin-ink);
+  --workspace-accent: var(--theme-accent);
+  --workspace-accent-ink: var(--skin-action);
+  --workspace-paper: var(--skin-sidebar);
+  --workspace-partition: var(--skin-exterior);
+  --workspace-liner: var(--skin-card-well);
+  --workspace-seam: var(--skin-line);
+  --workspace-tab-selected: var(--workspace-paper);
+  --workspace-tab-idle: var(--skin-control);
+  --workspace-tab-backdrop: var(--workspace-partition);
+  --workspace-edge-shadow: 0 4px 12px -5px
+    color-mix(in srgb, var(--theme-shadow) 22%, transparent);
+  --workspace-panel-shadow:
+    inset 0 1px 0 var(--workspace-seam),
+    0 -3px 10px color-mix(in srgb, var(--theme-shadow) 12%, transparent);
+}
+
+html[data-theme] .workspace-scene,
+html[data-theme] .workspace-folder {
+  background: var(--skin-exterior);
+}
+html[data-theme] .workspace-folder {
+  box-shadow: var(--workspace-edge-shadow);
+}
+html[data-theme] .workspace-folder .workspace-panel-viewport,
+html[data-theme] .workspace-card-layout,
+html[data-theme] .workspace-plan-layout {
+  background: var(--workspace-partition);
+}
+
+html[data-theme] .workspace-folder .workspace-tabs,
+html[data-theme] .workspace-folder .plan-source-tabs {
+  position: relative;
+  isolation: isolate;
+  background: var(--workspace-paper);
+  gap: 0;
+}
+html[data-theme] .workspace-folder .workspace-tabs {
+  --workspace-tab-selected: var(--workspace-partition);
+  --workspace-tab-backdrop: var(--skin-exterior);
+  background: var(--skin-exterior);
+}
+/* Paint the notch explicitly to avoid a fractional-pixel clip seam. */
+html[data-theme]
+  .workspace-folder
+  :is(.workspace-tabs, .plan-source-tabs)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - 16px);
+  width: 32px;
+  height: 16px;
+  background: var(--workspace-tab-backdrop);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+html[data-theme]
+  .workspace-folder
+  :is(.workspace-tab, .plan-source-tabs button) {
+  background: var(--workspace-tab-idle);
+  box-shadow: inset 0 1px 0 var(--workspace-seam);
+  color: var(--workspace-ink);
+  transform: none;
+  transition: none;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+html[data-theme]
+  .workspace-folder
+  :is(.workspace-tab, .plan-source-tabs button):last-child {
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
+}
+html[data-theme]
+  .workspace-folder
+  :is(.workspace-tab, .plan-source-tabs button)[aria-selected="true"] {
+  background: var(--workspace-tab-selected);
+  color: var(--workspace-ink);
+}
+html[data-theme]
+  .workspace-folder
+  :is(.workspace-tab, .plan-source-tabs button):focus-visible {
+  outline-offset: -4px;
+}
+
+/* Outline the actual cut folder shape, including its diagonal shoulder.
+   The selected cap stays open along its bottom edge to join the content. */
+html[data-theme] .workspace-folder .workspace-tabs > .workspace-tab {
+  position: relative;
+  isolation: isolate;
+  box-shadow: none;
+}
+html[data-theme] .workspace-folder .workspace-tabs > .workspace-tab::before,
+html[data-theme] .workspace-folder .workspace-tabs > .workspace-tab::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  clip-path: inherit;
+}
+html[data-theme] .workspace-folder .workspace-tabs > .workspace-tab::before {
+  inset: 0;
+  background: var(--skin-line);
+}
+html[data-theme] .workspace-folder .workspace-tabs > .workspace-tab::after {
+  inset: 1px;
+  background: var(--workspace-tab-idle);
+}
+html[data-theme]
+  .workspace-folder
+  .workspace-tabs
+  > .workspace-tab[aria-selected="true"]::after {
+  bottom: 0;
+  background: var(--workspace-tab-selected);
+}
+
+@media (max-width: 759px) {
+  html[data-theme] .workspace-scene {
+    --workspace-top-fill: var(--native-window-top, var(--theme-canvas));
+    --workspace-top-space: calc(var(--safe-top) + 14px);
+    --workspace-partition: var(--skin-panel);
+    --workspace-tab-backdrop: var(--workspace-partition);
+    padding-top: var(--workspace-top-space);
+    background: linear-gradient(
+      var(--workspace-top-fill) var(--workspace-top-space),
+      var(--skin-exterior) 0
+    );
+  }
+  html[data-theme] .workspace-folder .workspace-tabs {
+    --workspace-tab-backdrop: var(--workspace-top-fill);
+    --workspace-tab-idle: color-mix(
+      in srgb,
+      var(--workspace-tab-selected) 87%,
+      var(--workspace-ink)
+    );
+    background: var(--workspace-top-fill);
+  }
+  html[data-theme] .workspace-folder .workspace-panel-viewport {
+    border-radius: 0;
+  }
+  html[data-theme] .mobile-nav[data-workspace] {
+    border-top: 0;
+    box-shadow: none;
+  }
+}
+
+html[data-theme] .workspace-card-layout > .workspace-categories {
+  background: transparent;
+}
+html[data-theme]
+  .workspace-card-layout
+  > .workspace-categories
+  nav
+  > button[aria-pressed="true"] {
+  background: var(--skin-navigation);
+}
+html[data-theme] .workspace-card-layout > .tasks {
+  background: var(--workspace-liner);
+  border-radius: 12px 0 0 0;
+  box-shadow: var(--skin-recess-shadow);
+}
+
+html[data-theme="night-sprout"] .simulator-shell .workspace-card-layout > .tasks .gallery-card-actions .card-action {
+  color: var(--theme-paper);
+}
+
+html[data-theme] .workspace-plan-layout.plan-two-panels > .workspace-plans {
+  background: var(--workspace-partition);
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-theme] .workspace-folder .workspace-plans > .plan-rail {
+  background: var(--skin-timeline);
+  border-radius: 10px;
+  box-shadow: var(--skin-recess-shadow);
+}
+html[data-theme] .workspace-plan-layout > .plan-source-panel {
+  background: var(--workspace-paper);
+  border-color: var(--workspace-seam);
+  border-radius: 16px 16px 0 0;
+  box-shadow: var(--workspace-panel-shadow);
+  padding-top: 0;
+}
+html[data-theme]
+  .workspace-plan-layout
+  :is(.plan-task-source, .plan-warehouse-source) {
+  background: var(--workspace-liner);
+  box-shadow: var(--skin-recess-shadow);
+  /* Move the folder cap to the panel edge while retaining every card's inset. */
+  padding-top: 22px;
+}
+html[data-theme] .workspace-plan-layout .plan-card-categories {
+  background: var(--workspace-paper);
+  box-shadow: inset 1px 0 0 var(--workspace-seam);
+}
+html[data-theme]
+  .workspace-plan-layout
+  .plan-card-categories
+  nav
+  > button[aria-pressed="true"] {
+  background: var(--skin-navigation);
+}
+html[data-theme] .workspace-plan-layout .plan-resize-handle > span {
+  background: var(--workspace-seam);
+}
+/* Only workspace chrome shares the approved palette; card art and print keep
+   their own theme variables. */
+html[data-theme] .workspace-folder .workspace-categories nav > button {
+  color: var(--workspace-ink);
+}
+html[data-theme]
+  .workspace-folder
+  .workspace-categories
+  nav
+  > button[aria-pressed="true"] {
+  color: var(--skin-on-action);
+  box-shadow: inset 3px 0 0 var(--workspace-accent-ink);
+}
+html[data-theme]
+  .workspace-folder
+  :is(
+    .plan-area-label,
+    .plan-small,
+    .plan-goal-summary,
+    .plan-mode-note,
+    .plan-progress-line
+  ) {
+  color: var(--workspace-muted);
+}
+html[data-theme]
+  .workspace-folder
+  :is(.plan-selectors select, .plan-date-choice summary) {
+  background: var(--skin-control);
+  color: var(--workspace-ink);
+  border-color: var(--workspace-seam);
+}
+html[data-theme] .workspace-folder .plan-timeline-toggle {
+  color: var(--workspace-ink);
+}
+html[data-theme] .workspace-folder .plan-timeline-toggle input {
+  accent-color: var(--workspace-accent-ink);
+}
+html[data-theme]
+  .workspace-scene
+  :is(
+    .workspace-categories,
+    .workspace-pane-tools,
+    .plan-selectors,
+    .plan-progress-summary,
+    .plan-slot-heading,
+    .plan-ticks,
+    .gallery-card-actions,
+    .category-wheel
+  ) {
+  --ink: var(--workspace-ink);
+  --muted: var(--workspace-muted);
+  --accent: var(--workspace-accent-ink);
+  --accent-ink: var(--workspace-accent-ink);
+  --line: var(--workspace-seam);
+  --surface: var(--workspace-paper);
+  --surface-hover: color-mix(
+    in srgb,
+    var(--workspace-paper) 92%,
+    var(--workspace-ink)
+  );
+  --border-soft: var(--workspace-seam);
+  --accent-wash: color-mix(
+    in srgb,
+    var(--workspace-accent) 12%,
+    var(--workspace-paper)
+  );
+  --sheet-background: var(--workspace-paper);
+  --color-shadow: var(--theme-shadow);
+  --sage: var(--workspace-accent-ink);
+}
+html[data-theme] .workspace-folder .plan-card-library > h2 {
+  color: var(--workspace-ink);
+}
+
+/* Card controls and plan labels sit directly on the lining. The shared scene
+   ink keeps them readable on both the night and the warm surfaces. */
+html[data-theme] .workspace-folder .gallery-card-actions {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  --ink: var(--skin-well-ink);
+  --muted: var(--skin-well-ink);
+  --accent: var(--skin-well-ink);
+}
+html[data-theme] .workspace-folder .gallery-card-actions button {
+  background: transparent;
+  color: var(--skin-well-ink);
+  border-color: transparent;
+  box-shadow: none;
+}
+html[data-theme] .workspace-folder .workspace-pane-tools > .icon-button {
+  background: var(--skin-control);
+  color: var(--workspace-ink);
+}
+html[data-theme]
+  .workspace-folder
+  .workspace-plans
+  > .plan-rail
+  :is(
+    .plan-goal-summary,
+    .plan-time-label,
+    .plan-mode-note,
+    .plan-progress-line,
+    .plan-target,
+    .plan-empty
+  ) {
+  color: var(--workspace-ink);
+}
+html[data-theme]
+  .workspace-folder
+  :is(.workspace-plans > .plan-rail, .plan-task-source)
+  .plan-goal-summary,
+html[data-theme] .workspace-folder .plan-task-source .plan-progress-summary {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-theme]
+  .workspace-folder
+  .plan-task-source
+  :is(.plan-goal-summary, .plan-mode-note, .plan-progress-line, .plan-target) {
+  color: var(--skin-well-ink);
+}
+html[data-theme]
+  .workspace-folder
+  .plan-task-source
+  :is(.plan-progress-summary, .plan-goal-summary) {
+  color: var(--skin-well-ink);
+  --ink: var(--skin-well-ink);
+  --muted: var(--skin-well-ink);
+  --accent: var(--skin-well-ink);
+}
+html[data-theme] .workspace-folder .plan-task-source .plan-empty {
+  background: var(--workspace-paper);
+  color: var(--workspace-ink);
+  border-radius: 10px;
+}
+html[data-theme]
+  .workspace-folder
+  .workspace-plans
+  > .plan-rail
+  .plan-time-label {
+  background: transparent;
+}
+html[data-theme] .workspace-folder .workspace-plans > .plan-rail .plan-ticks {
+  --ink: var(--workspace-ink);
+  --line: var(--workspace-seam);
+}
+html[data-theme]
+  .workspace-folder
+  .plan-task-source
+  progress::-webkit-progress-bar {
+  background: var(--skin-track);
+}
+html[data-theme]
+  .workspace-folder
+  .plan-task-source
+  progress::-webkit-progress-value {
+  background: var(--skin-action);
+}
+html[data-theme]
+  .workspace-folder
+  .plan-task-source
+  progress::-moz-progress-bar {
+  background: var(--skin-action);
+}
+
+/* WebView 83 compiles many blur programs for these large wells, including the
+   offscreen pane in the translated track. Keep its layout for swiping, but do
+   not paint it while idle. Flat theme fills avoid the cold GPU stall; printed
+   card shadows, selected-category accents and glass outlines remain intact. */
+html[data-statify-no-aspect="true"] .workspace-scene {
+  --skin-recess-shadow: none;
+  --workspace-edge-shadow: none;
+  --workspace-panel-shadow: none;
+}
+html[data-statify-no-aspect="true"]
+  .workspace-folder .workspace-pane-tools > .icon-button {
+  box-shadow: none;
+}
+html[data-statify-no-aspect="true"]
+  .workspace-panels:not(.is-panel-sliding) > .workspace-pane[aria-hidden="true"] {
+  visibility: hidden;
+}
+/* Explicit ancestry also beats the legacy-expanded plan/timeline paper rule;
+   its rectangle must not add a second shadow beneath the printed silhouette. */
+html[data-statify-no-aspect="true"][data-card-surface="image"]
+  .workspace-scene .gallery-card-paper {
+  box-shadow: none;
+}
+
+/* Secondary-page frame. Feature content is owned by journal/ and settings/. */
+
+.simulator-shell main[data-page="journal"] {
+  margin: 0 auto;
+}
+.simulator-shell main[data-page="settings"] {
+  background: var(--surface);
+  min-height: 100dvh;
+}
+@media (max-width: 759px) {
+  html[data-theme] :is(.settings-page, .journal-page, .payment-test-page) {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+}
+@media (min-width: 760px) {
+  html[data-theme] :is(.settings-page, .journal-page) {
+    background: var(--web-paper);
+    color: var(--web-ink);
+    border: 1px solid var(--border-soft);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow:
+      inset 0 1px 0 #fffbee80,
+      0 5px 16px color-mix(in srgb, var(--web-shadow) 12%, transparent);
+  }
+}

@@ -1,0 +1,422 @@
+/* Desktop numerical workspace. Mobile retains its existing stage and gestures. */
+@media (min-width: 760px) {
+  html[data-theme]
+    .simulator-shell
+    .workspace-scene
+    .workspace-folder
+    :is(.workspace-scroll-area, .plan-timeline, .plan-goal-board) {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html[data-theme]
+    .simulator-shell
+    .workspace-scene
+    .workspace-folder
+    :is(
+      .workspace-scroll-area,
+      .plan-timeline,
+      .plan-goal-board
+    )::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+@media (min-width: 760px) {
+  html[data-theme] .simulator-shell > main {
+    padding-bottom: 20px;
+  }
+  html[data-theme] .simulator-shell > main.workspace-main {
+    padding-bottom: 0;
+  }
+  .desktop-page-switch {
+    display: grid;
+    grid-template-columns: repeat(var(--page-count), minmax(0, 1fr));
+    position: relative;
+    isolation: isolate;
+    width: 348px;
+    min-width: 0;
+    padding: 4px;
+    border-radius: 28px;
+  }
+  .desktop-page-switch > i {
+    position: absolute;
+    inset: 4px auto 4px 4px;
+    width: calc((100% - 8px) / var(--page-count));
+    border-radius: 24px;
+    transform: translateX(calc(var(--page-index) * 100%));
+    transition: transform 200ms ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .desktop-page-switch > button {
+    min-height: 44px;
+    padding: 8px 6px;
+    background: transparent;
+    border: 0;
+    border-radius: 24px;
+    box-shadow: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desktop-page-switch > i {
+    transition: none;
+  }
+}
+@media (min-width: 760px) {
+  .desktop-view-picker {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .desktop-view-label {
+    min-height: 44px;
+    padding: 8px 4px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--desktop-ink);
+  }
+  .desktop-view-label[aria-pressed="true"] {
+    box-shadow: inset 0 -2px 0 var(--desktop-ink);
+  }
+}
+@media (min-width: 760px) {
+  .app-shell.simulator-shell {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    min-height: 100dvh;
+    padding: 0;
+  }
+  .simulator-shell > main {
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 18px 24px 90px;
+    box-sizing: border-box;
+  }
+  .desktop-view-controls {
+    grid-area: controls;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+  }
+  .desktop-view-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 4px 8px;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font-size: 13px;
+    box-shadow: none;
+  }
+  .desktop-view-switch i {
+    display: block;
+    position: relative;
+    width: 76px;
+    height: 38px;
+    border-radius: 30px;
+    background: color-mix(in srgb, var(--sage) 40%, var(--surface));
+    box-shadow:
+      inset 2px 3px 5px color-mix(in srgb, var(--ink) 24%, transparent),
+      inset -1px -1px 2px var(--surface);
+  }
+  .desktop-view-switch b {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface);
+    box-shadow: 1px 2px 4px color-mix(in srgb, var(--ink) 28%, transparent);
+    transition: transform 180ms ease;
+  }
+  .desktop-view-switch[aria-checked="true"] b {
+    transform: translateX(38px);
+  }
+  .desktop-view-switch[aria-checked="true"] i {
+    background: color-mix(in srgb, var(--accent) 40%, var(--surface));
+  }
+  .simulator-shell .workspace-scene {
+    min-height: calc(100dvh - 260px);
+    padding: 0;
+    border-radius: 0;
+    gap: 0;
+    background: transparent;
+  }
+  .simulator-shell .workspace-heading {
+    display: none;
+  }
+  .simulator-shell .workspace-folder {
+    min-height: 0;
+    border-radius: 16px;
+  }
+  .simulator-shell .workspace-panel-viewport {
+    border-radius: 16px;
+  }
+  .simulator-shell .workspace-pane-tools {
+    justify-content: flex-end;
+    padding: 4px 0 12px;
+  }
+  .simulator-shell .tasks {
+    padding: 16px 22px 32px;
+    min-width: 0;
+  }
+  .desktop-utilities {
+    position: fixed;
+    z-index: 35;
+    right: 24px;
+    bottom: 18px;
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    border: 1px solid var(--border-soft);
+    border-radius: 30px;
+    background: var(--surface);
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+  .desktop-utilities button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 44px;
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--ink);
+    border: 0;
+    border-radius: 24px;
+  }
+  .desktop-utilities button[aria-current="page"] {
+    background: var(--accent-wash);
+    color: var(--accent);
+  }
+  .simulator-shell .category-wheel {
+    bottom: 90px;
+  }
+}
+@media (min-width: 760px) and (max-width: 1399px) {
+  .app-shell.simulator-shell {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+}
+@media (min-width: 760px) and (max-width: 1099px) {
+  .app-shell.simulator-shell {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+  .simulator-shell > main {
+    padding-inline: 14px;
+  }
+}
+@media (min-width: 760px) and (max-width: 1149px) {
+  .desktop-view-controls {
+    gap: 6px;
+  }
+  .desktop-view-controls .plan-message-bell {
+    width: 30px;
+    min-width: 30px;
+    padding-inline: 0;
+  }
+  .desktop-page-switch {
+    width: clamp(192px, 25vw, 288px);
+  }
+  .desktop-page-switch > button {
+    padding-inline: 2px;
+    font-size: clamp(11px, 1.25vw, 14px);
+  }
+  .desktop-view-controls .desktop-view-switch {
+    gap: 4px;
+    padding-inline: 2px;
+  }
+  .desktop-view-controls .desktop-view-switch > span {
+    font-size: clamp(11px, 1.25vw, 14px);
+  }
+  .desktop-view-switch i {
+    width: 36px;
+    height: 26px;
+  }
+  .desktop-view-switch b {
+    width: 20px;
+    height: 20px;
+  }
+  .desktop-view-switch[aria-checked="true"] b {
+    transform: translateX(10px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desktop-view-switch b {
+    transition: none;
+  }
+}
+
+/* Desktop surfaces use the scene palette, rather than phone-sized paper frames. */
+@media (min-width: 760px) {
+  .simulator-shell {
+    --desktop-canvas: var(--theme-canvas);
+    --desktop-ink: var(--theme-scene-ink, var(--ink));
+    --desktop-line: color-mix(in srgb, var(--desktop-ink) 24%, transparent);
+    --desktop-light: color-mix(in srgb, var(--desktop-canvas) 72%, #fff9eb);
+    --desktop-shadow: color-mix(in srgb, var(--desktop-canvas) 45%, #163d43);
+    --desktop-inset:
+      inset 4px 5px 12px
+        color-mix(in srgb, var(--desktop-shadow) 62%, transparent),
+      inset -2px -2px 4px #fff8e73d, 0 1px 0 #fff8e766;
+  }
+  html[data-theme="mouse-balloon"] .simulator-shell {
+    --desktop-ink: #102d31;
+  }
+  html[data-theme] .simulator-shell .workspace-folder {
+    --workspace-ink: var(--desktop-ink);
+    --workspace-muted: var(--desktop-ink);
+    --workspace-accent: var(--desktop-ink);
+    --workspace-accent-ink: var(--desktop-ink);
+    --workspace-paper: var(--desktop-light);
+    --workspace-reference-paper: var(--desktop-light);
+    --workspace-partition: color-mix(
+      in srgb,
+      var(--desktop-canvas) 85%,
+      var(--desktop-light)
+    );
+    --workspace-tab-backdrop: var(--desktop-canvas);
+    --workspace-seam: var(--desktop-line);
+  }
+  html[data-theme] .desktop-view-controls,
+  html[data-theme] .desktop-view-switch {
+    color: var(--desktop-ink);
+  }
+  html[data-theme] .desktop-view-switch i {
+    background: var(--desktop-canvas);
+    box-shadow: var(--desktop-inset);
+  }
+  html[data-theme] .desktop-view-switch[aria-checked="true"] i {
+    background: var(--desktop-shadow);
+  }
+  html[data-theme] .desktop-view-switch b {
+    background: var(--desktop-light);
+  }
+  html[data-theme]
+    .simulator-shell
+    :is(
+      .workspace-scene,
+      .workspace-folder,
+      .workspace-panel-viewport,
+      .workspace-card-layout
+    ) {
+    background: transparent;
+    border: 0;
+    border-image: none;
+    box-shadow: none;
+  }
+  html[data-theme] .simulator-shell .workspace-folder {
+    height: calc(100dvh - 246px);
+    border-radius: 0;
+  }
+  html[data-theme] .simulator-shell .workspace-pane-tools {
+    background: none;
+    --ink: var(--desktop-ink);
+    --accent: var(--desktop-ink);
+    padding: 0 0 18px;
+  }
+  html[data-theme] .simulator-shell .workspace-pane-tools > .icon-button {
+    background: var(--desktop-light);
+    color: var(--desktop-ink);
+    border: 1px solid #fff8e766;
+    border-radius: 50%;
+    box-shadow:
+      0 3px 8px #163d4326,
+      inset 0 1px 0 #fff8e780;
+    width: 44px;
+    height: 44px;
+  }
+  html[data-theme] .desktop-utilities {
+    background: var(--desktop-light);
+    color: var(--desktop-ink);
+    border: 1px solid #fff8e780;
+    box-shadow:
+      0 5px 18px #163d4329,
+      inset 0 1px 0 #fff8e7b3;
+  }
+  html[data-theme] .desktop-utilities button {
+    color: var(--desktop-ink);
+  }
+  html[data-theme] .desktop-utilities button:hover {
+    background: color-mix(in srgb, var(--desktop-canvas) 30%, transparent);
+  }
+  html[data-theme] .desktop-utilities button[aria-current="page"] {
+    background: var(--desktop-canvas);
+    color: var(--desktop-ink);
+  }
+}
+@media (min-width: 760px) and (max-width: 1099px) {
+  html[data-theme] .simulator-shell .workspace-folder {
+    height: calc(100dvh - 310px);
+  }
+}
+
+/* Landscape workspace: right category rail and independently scrolling plan panes. */
+@media (min-width: 760px) {
+  html[data-theme] .desktop-view-switch,
+  html[data-theme] .desktop-utilities button {
+    font-size: 14px;
+    font-weight: 550;
+  }
+}
+
+/* Fixed desktop chrome and a compact, complete six-attribute column. */
+@media (min-width: 760px) {
+  .app-shell.simulator-shell {
+    height: 100dvh;
+    min-height: 0;
+    max-height: 100dvh;
+    overflow: clip;
+    overscroll-behavior: none;
+  }
+  .simulator-shell > main {
+    height: 100%;
+    min-height: 0;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 76px;
+    position: relative;
+    overscroll-behavior: none;
+  }
+  html[data-theme] .simulator-shell .workspace-scene {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    overflow: hidden;
+  }
+  html[data-theme] .simulator-shell .workspace-folder {
+    height: 100%;
+    min-height: 0;
+    flex: 1;
+  }
+  html[data-theme] .simulator-shell .workspace-panel-viewport {
+    min-height: 0;
+    overflow: hidden;
+  }
+  .simulator-shell
+    > main
+    > :is(.journal-page, .settings-page, .payment-test-page) {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .simulator-shell > main > :is(.notice, .rest-banner, .plan-live-reminder) {
+    flex: none;
+  }
+}
+
+@media (min-width: 760px) {
+  .app-shell.simulator-shell.plan-workspace-expanded {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

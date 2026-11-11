@@ -1,0 +1,188 @@
+.value-input {
+  display: inline-flex;
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+}
+.field > .value-input {
+  display: flex;
+  width: 100%;
+}
+.value-input > input {
+  min-width: 0;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+.time-input > svg,
+.date-input > svg {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  color: var(--ink);
+}
+.time-input > input,
+.date-input > input {
+  padding-right: 36px !important;
+}
+.value-input input[disabled] {
+  cursor: default;
+}
+.value-picker {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--theme-radius-panel);
+  background: var(--sheet-background);
+  box-shadow: var(--sheet-shadow);
+  color: var(--ink);
+  font: 14px/1.5 var(--font-ui);
+  overscroll-behavior: contain;
+}
+.value-picker::backdrop {
+  background: transparent;
+}
+.value-picker button {
+  min-height: 44px;
+  min-width: 0;
+  padding: 6px 9px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface-hover);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--theme-radius-button);
+  box-shadow: none;
+  touch-action: manipulation;
+}
+.value-picker button:hover:not(:disabled),
+.value-picker button[aria-pressed="true"] {
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+.value-picker button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.value-picker footer {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.value-picker footer .primary {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+.picker-readout {
+  display: block;
+  text-align: right;
+  font: 32px/1.4 var(--font-number);
+  padding: 0 6px 12px;
+  overflow-wrap: anywhere;
+}
+.number-keys {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.number-keys button {
+  font: 22px/1.5 var(--font-number);
+}
+.value-wheels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.value-wheels .plan-wheel-column {
+  flex: 1;
+  min-width: 0;
+}
+.value-picker .plan-wheel {
+  height: 160px;
+  overflow: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  scroll-snap-type: y mandatory;
+  box-sizing: border-box;
+  touch-action: pan-y;
+  scrollbar-width: none;
+  mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
+}
+.value-picker .plan-wheel button {
+  height: 40px;
+  min-height: 40px;
+  width: 100%;
+  display: block;
+  scroll-snap-align: center;
+  flex: none;
+  border: 0;
+  background: transparent;
+  font: 22px/40px var(--font-number);
+  padding: 0;
+}
+.value-picker .plan-wheel [aria-selected="true"] {
+  color: var(--accent);
+  background: var(--accent-wash);
+}
+.date-picker header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+}
+.calendar-grid button {
+  min-height: 36px;
+  padding: 3px;
+  font-variant-numeric: tabular-nums;
+}
+.calendar-grid small {
+  padding: 4px 0;
+}
+.calendar-grid button:disabled {
+  opacity: 0.3;
+}
+html[data-theme="raven-wizard"] .value-picker {
+  border: 14px solid transparent;
+  border-image: var(--theme-dialog-image) 150 fill / 14px stretch;
+  background: transparent;
+  box-shadow: var(--sheet-shadow);
+  border-radius: 0;
+}
+
+.value-input > input {
+  padding: 8px 10px;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--theme-radius-button);
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+.number-keys .number-action-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 14px/1.25 var(--font-ui);
+}
+html[data-theme="raven-wizard"] .value-picker footer button.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+@supports not selector(:popover-open) {
+  [popover]:not([data-picker-open="true"]) {
+    display: none;
+  }
+  [popover][data-picker-open="true"] {
+    display: block;
+    z-index: 2147483000;
+  }
+}

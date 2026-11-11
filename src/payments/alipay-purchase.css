@@ -1,0 +1,115 @@
+.alipay-purchase {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  line-height: 1.6;
+}
+.alipay-purchase p,
+.alipay-purchase h3 {
+  margin: 0;
+}
+.alipay-purchase .purchase-offer {
+  display: grid;
+  gap: 8px;
+}
+.alipay-purchase .purchase-offer-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+}
+.alipay-purchase .purchase-offer-price strong {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.alipay-purchase .purchase-founder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.alipay-purchase .purchase-founder small {
+  color: var(--muted, inherit);
+}
+.alipay-purchase .purchase-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.6;
+}
+.alipay-purchase .purchase-consent input {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin: 0.25em 0 0;
+  padding: 0;
+}
+.alipay-purchase .purchase-consent span {
+  min-width: 0;
+}
+.alipay-purchase .purchase-submit {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  margin: 0;
+  padding: 11px 16px;
+}
+.alipay-purchase .purchase-orders-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--skin-line, var(--line, currentColor));
+}
+.alipay-purchase .purchase-orders-heading h3 {
+  font-size: 1rem;
+}
+.alipay-purchase .purchase-refresh {
+  margin: 0;
+  padding: 6px 10px;
+  min-height: 40px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.9rem;
+}
+.alipay-purchase .purchase-empty,
+.alipay-purchase > .help,
+.alipay-purchase .purchase-refund {
+  font-size: 0.85rem;
+  color: var(--muted, inherit);
+}
+.alipay-purchase .membership-orders {
+  margin: 0;
+}
+.alipay-purchase .membership-orders:empty {
+  display: none;
+}
+.alipay-purchase summary {
+  cursor: pointer;
+}
+.alipay-purchase details[open] > p {
+  margin-top: 8px;
+}
+.purchase-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 0;
+  color: var(--muted);
+}
+.purchase-loading svg {
+  animation: purchase-loading-spin 0.9s linear infinite;
+}
+@keyframes purchase-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .purchase-loading svg {
+    animation: none;
+  }
+}

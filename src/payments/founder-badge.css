@@ -1,0 +1,10 @@
+.membership-founder-badge {
+  display: inline-block;
+  padding: 1px 7px;
+  border: 1px solid var(--founder-badge-border, #c3b38d);
+  border-radius: 999px;
+  background: var(--founder-badge-surface, #e6dcc3);
+  color: var(--founder-badge-ink, #685b3b);
+  font: 500 11px/1.5 var(--font-ui, sans-serif);
+  white-space: nowrap;
+}

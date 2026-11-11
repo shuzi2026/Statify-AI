@@ -1,0 +1,229 @@
+.card-motion-switch i {
+  display: block;
+  position: relative;
+  flex: 0 0 38px;
+  height: 22px;
+  border-radius: 20px;
+  background: var(--web-track, var(--theme-line));
+  box-shadow: inset 1px 1px 3px #0002;
+}
+.card-motion-switch b {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--web-paper, var(--theme-paper));
+}
+.card-motion-switch[aria-checked="true"] i {
+  background: var(--web-navigation, var(--theme-accent));
+}
+.card-motion-switch[aria-checked="true"] b {
+  transform: translateX(16px);
+}
+
+.hand-plan-finish {
+  --hand-foil-metal: var(--theme-card-light-metal, #c9b28b);
+  --hand-foil-light: var(--theme-card-light-highlight, #f8eed8);
+  --hand-firefly-color: var(--theme-card-light-glow, #c1a77c);
+  --hand-foil-prism: var(--theme-card-light-prism, #e3d3b7);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+html[data-card-lighting="false"] .hand-plan-finish,
+html[data-lighting-background] .hand-plan-finish,
+.workspace-pane[inert] .hand-plan-finish,
+.hand-plan-finish[data-lighting-offscreen] {
+  display: none;
+}
+.hand-plan-finish::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: -5% -8%;
+  background:
+    radial-gradient(ellipse at left, var(--hand-firefly-color), transparent 68%) left center / 18% 78% no-repeat,
+    radial-gradient(ellipse at right, var(--hand-firefly-color), transparent 68%) right center / 18% 78% no-repeat;
+  opacity: 0.38;
+  filter: blur(5px);
+}
+.hand-foil {
+  position: absolute;
+  z-index: 2;
+  inset: calc(0% - var(--theme-card-outset-y, 0%))
+    calc(0% - var(--theme-card-outset-x, 0%));
+  border-radius: inherit;
+  mask-image: var(--theme-card-image, linear-gradient(#fff, #fff));
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+.hand-foil-top {
+  background:
+    radial-gradient(ellipse at 30% 24%, var(--hand-foil-light), transparent 62%),
+    radial-gradient(ellipse at 62% 58%, var(--hand-foil-prism), transparent 68%),
+    radial-gradient(ellipse at 80% 84%, var(--hand-foil-metal), transparent 72%);
+  background-size: 235% 100%;
+  background-position: 50% 50%;
+  mix-blend-mode: soft-light;
+  opacity: 0.48;
+}
+.hand-foil-bottom {
+  background:
+    linear-gradient(116deg, transparent 32%, var(--hand-foil-metal) 43%,
+      var(--hand-foil-light) 50%, var(--hand-foil-prism) 60%,
+      transparent 70%) 50% 50% / 320% 100% no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.24;
+}
+.hand-fireflies {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.hand-firefly-cluster {
+  fill: var(--hand-foil-light);
+  stroke: var(--hand-firefly-color);
+  stroke-width: 0.7;
+  filter: drop-shadow(0 0 2px var(--hand-foil-light))
+    drop-shadow(0 0 3px var(--hand-firefly-color));
+  opacity: 0.95;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hand-foil {
+    background-position: calc(50% + var(--offset, 0) * 46%) 50%;
+    transition: background-position 240ms ease-out;
+  }
+  .hand-foil-bottom {
+    animation: hand-foil-sweep 4s ease-in-out infinite;
+  }
+  .hand-dock.is-interacting .hand-foil {
+    transition: none;
+  }
+  .hand-firefly-cluster {
+    animation: hand-firefly-glimmer 2.8s ease-in-out infinite;
+  }
+  .hand-fireflies > g:nth-child(2) .hand-firefly-cluster {
+    animation-delay: -1.4s;
+  }
+  .hand-fireflies > g:nth-child(3) .hand-firefly-cluster {
+    animation-delay: -0.7s;
+  }
+  .hand-fireflies > g:nth-child(4) .hand-firefly-cluster {
+    animation-delay: -2.1s;
+  }
+}
+@keyframes hand-foil-sweep {
+  0% {
+    background-position: 100% 50%;
+    opacity: 0;
+  }
+  11% {
+    opacity: var(--plan-foil-peak, 0.42);
+  }
+  24%, 100% {
+    background-position: 0% 50%;
+    opacity: 0;
+  }
+}
+.plan-card-finish-compact {
+  --plan-foil-peak: 0.34;
+}
+.plan-card-finish-compact::before {
+  opacity: 0.19;
+}
+.plan-card-finish-compact .hand-foil-top {
+  opacity: 0.24;
+}
+.plan-card-finish-compact .hand-foil-bottom {
+  opacity: 0.14;
+}
+.plan-card-finish-compact .hand-fireflies > g:nth-child(n + 3),
+.plan-card-finish-lights-only .hand-fireflies > g:nth-child(n + 3) {
+  display: none;
+}
+.plan-card-finish-lights-only::before {
+  display: none;
+}
+.plan-system[data-guide-demo] .plan-card-finish-compact {
+  display: none;
+}
+@keyframes hand-firefly-glimmer {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateY(3px) scale(0.7);
+  }
+  42% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.25);
+  }
+  72% {
+    opacity: 0.6;
+    transform: translateY(-9px) scale(0.82);
+  }
+}
+
+/* WebView 83 repaints masked/blended gradients and SVG filter chains while
+   cards move. Keep the theme colours and shared beat, but composite one moving
+   highlight and one opacity-only sparkle layer on these older engines. */
+html[data-statify-no-aspect="true"] .hand-plan-finish {
+  inset: 3% 5%;
+  overflow: hidden;
+  border-radius: 8px;
+  /* The same paper inset without clip-path: WebView 83 allocates an extra
+     mask and overlapping surfaces for each moving card with that clip. */
+}
+html[data-statify-no-aspect="true"] .hand-plan-finish::before,
+html[data-statify-no-aspect="true"] .hand-foil-top {
+  display: none;
+}
+html[data-statify-no-aspect="true"] .hand-foil-bottom {
+  /* Undo the clipping container's inset for the artwork coordinate system.
+     Its gradient, outward frame budget and sweep distance stay unchanged. */
+  inset: calc((-3% - var(--theme-card-outset-y, 0%)) / 0.94)
+    calc((-5% - var(--theme-card-outset-x, 0%)) / 0.9);
+  background: linear-gradient(116deg, transparent 30%, var(--hand-foil-light) 50%, transparent 70%)
+    center / 100% 100% no-repeat;
+  mix-blend-mode: normal;
+  mask: none;
+  -webkit-mask: none;
+  transition: none;
+  will-change: transform, opacity;
+}
+html[data-statify-no-aspect="true"] .hand-fireflies {
+  top: calc(-3% / 0.94);
+  left: calc(-5% / 0.9);
+  right: auto;
+  bottom: auto;
+  width: calc(100% / 0.9);
+  height: calc(100% / 0.94);
+}
+html[data-statify-no-aspect="true"] .hand-firefly-cluster {
+  filter: none;
+  animation: none;
+  transform: none;
+  opacity: 0.8;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-statify-no-aspect="true"] .hand-foil-bottom {
+    animation: hand-foil-sweep-light 4s ease-in-out infinite;
+  }
+  html[data-statify-no-aspect="true"] .hand-fireflies {
+    animation: hand-firefly-glimmer-light 2.8s ease-in-out infinite;
+  }
+}
+@keyframes hand-foil-sweep-light {
+  0% { transform: translateX(-110%); opacity: 0; }
+  11% { opacity: var(--plan-foil-peak, 0.42); }
+  24%, 100% { transform: translateX(110%); opacity: 0; }
+}
+@keyframes hand-firefly-glimmer-light {
+  0%, 100% { opacity: 0.5; }
+  42% { opacity: 1; }
+}

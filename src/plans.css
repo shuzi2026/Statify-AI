@@ -1,0 +1,273 @@
+/* Plan components use the existing Statify surfaces and shared card face. */
+.plan-wheels {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 12px 1fr;
+  gap: 4px;
+  align-items: center;
+  position: relative;
+}
+.plan-wheels::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 8px);
+  height: 40px;
+  left: 0;
+  right: 0;
+  background: var(--accent-wash);
+  border-radius: 10px;
+  pointer-events: none;
+}
+.plan-wheel-column {
+  min-width: 0;
+  text-align: center;
+  z-index: 1;
+}
+.plan-wheel-column > small {
+  font-size: 10px;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
+}
+.plan-wheel {
+  height: 160px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  box-sizing: border-box;
+  mask-image: linear-gradient(transparent, #000 28%, #000 72%, transparent);
+  touch-action: pan-y;
+}
+.plan-wheel::-webkit-scrollbar {
+  display: none;
+}
+.plan-wheel button {
+  display: block;
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  font-size: 16px;
+  scroll-snap-align: center;
+  color: var(--muted);
+}
+.plan-wheel button[aria-selected="true"] {
+  color: var(--ink);
+  font-weight: 650;
+}
+.plan-schedule-dialog .plan-wheel > button,
+.plan-schedule-dialog .plan-wheel > button:is(:hover, :active) {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.plan-wheel-colon {
+  align-self: center;
+  z-index: 1;
+  padding-top: 22px;
+}
+.plan-todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.plan-todo-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 6px;
+  min-height: 52px;
+  padding-inline-end: 2px;
+  box-shadow: inset 0 -1px var(--border-soft);
+}
+.plan-todo-row:last-child {
+  box-shadow: none;
+}
+.plan-todo-copy {
+  padding-block: 9px;
+  overflow-wrap: anywhere;
+}
+.plan-todo-copy small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.82em;
+}
+.plan-todo-time,
+.plan-todo-count {
+  font-variant-numeric: tabular-nums;
+}
+.plan-todo-time .is-next {
+  color: var(--ink);
+  font-weight: 650;
+}
+.plan-todo-count,
+.plan-todo-empty {
+  color: var(--muted);
+}
+.plan-todo-empty {
+  margin: 0;
+  padding-block: 8px;
+}
+.plan-todo-row.is-done strong {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+html[data-theme] .plan-messages .plan-todo-row .plan-todo-control,
+html[data-theme] .plan-messages .plan-todo-row .plan-todo-control:hover {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--accent);
+}
+.plan-todo-box {
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+.plan-todo-control:not([aria-disabled="true"]):hover .plan-todo-box,
+.plan-todo-row.is-done .plan-todo-box {
+  background: var(--accent-wash);
+}
+.plan-todo-control[aria-disabled="true"]:not([aria-checked="true"]) {
+  opacity: 0.58;
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-wheel {
+    scroll-behavior: auto;
+  }
+}
+
+.action-quantity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+  gap: 3px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.action-quantity span {
+  max-width: 68px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.action-quantity input {
+  width: 68px;
+  min-height: 44px;
+  padding: 3px 5px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: var(--surface-hover);
+}
+
+/* Direct planning: one horizontal upper rail, controls between the two windows. */
+@keyframes plan-arrival {
+  0% {
+    transform: translateY(-8px) scale(0.96);
+  }
+  25% {
+    transform: translateY(-6px) scale(1.12) rotate(-4deg);
+  }
+  48% {
+    transform: translateY(-6px) scale(1.12) rotate(4deg);
+  }
+  68% {
+    transform: translateY(-3px) scale(1.06) rotate(-2deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Compact HUD and content-sized planning controls. */
+:root {
+  --compact-label-size: 11px;
+  --compact-value-size: 14px;
+  --compact-gap: 6px;
+  --compact-surface: var(--surface-hover);
+}
+
+/* Independent schedule rail and vertically scrolling requirement board. */
+
+.workspace-scene {
+  padding: 0;
+  border-radius: 0;
+  gap: 0;
+}
+.workspace-folder > .workspace-heading {
+  height: 44px;
+}
+.workspace-tab {
+  min-height: 44px;
+  padding: 9px 8px 6px;
+}
+.workspace-heading .workspace-tab h1 {
+  font-size: 14px;
+}
+.workspace-panel-viewport {
+  padding: 10px 8px 0;
+}
+@media (max-width: 759px) {
+  .workspace-scene {
+    padding: env(safe-area-inset-top) 0 calc(76px + env(safe-area-inset-bottom));
+  }
+  .workspace-folder {
+    height: 100%;
+    flex: 1;
+    min-height: 0;
+  }
+  .workspace-heading .workspace-tab h1 {
+    font-size: 14px;
+  }
+}
+
+/* Keep the first line empty; the reminder sits beside the coefficient. */
+
+/* One shared blank first line across every main page. */
+:root {
+  --page-top-space: 36px;
+  --page-top-inset: calc(var(--page-top-space) + env(safe-area-inset-top, 0px));
+}
+.simulator-shell main {
+  padding-top: var(--page-top-inset);
+}
+@media (max-width: 759px) {
+  .workspace-scene {
+    padding-top: var(--page-top-inset);
+  }
+}
+/* Reserve each theme's painted frame, including the mouse card's tall crown. */
+/* B surfaces and two-panel timeline layout, 2026-10-14. */
+
+/* Timeline handles pan independently of the workspace page gesture. */

@@ -1,0 +1,134 @@
+/* Paint remains soft; functional text uses ink on opaque paper surfaces. */
+:root {
+  --accent-ink: var(--theme-accent-ink);
+  --navigation-paper: var(--theme-paper);
+  --navigation-tint: color-mix(
+    in srgb,
+    var(--theme-lavender) 18%,
+    var(--theme-paper)
+  );
+}
+html[data-theme] .workspace-folder .workspace-tab {
+  color: var(--ink);
+  font-weight: 500;
+}
+html[data-theme] .workspace-folder .workspace-tab[aria-selected="true"] {
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+html[data-theme] .workspace-categories {
+  color: var(--ink);
+}
+html[data-theme] .workspace-categories nav > button {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+html[data-theme] .workspace-categories nav > button[aria-pressed="true"] {
+  color: var(--accent-ink);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--accent-ink);
+}
+html[data-theme]
+  :is(
+    .sidebar nav button,
+    .mobile-nav button,
+    .simulator-shell:has(.mobile-home) .mobile-nav button
+  ) {
+  color: var(--ink);
+  font-weight: 500;
+}
+html[data-theme]
+  :is(
+    .sidebar nav button.active,
+    .mobile-nav button.active,
+    .simulator-shell:has(.mobile-home) .mobile-nav button.active
+  ) {
+  color: var(--accent-ink);
+  background: var(--navigation-tint);
+  font-weight: 700;
+}
+html[data-theme]
+  :is(
+    .text-button,
+    .gallery-card-actions button,
+    .card-management-actions button,
+    .workspace-heading button,
+    .settings-options > button,
+    .membership button[aria-pressed="true"]
+  ) {
+  color: var(--accent-ink);
+}
+html[data-theme]
+  :is(.settings-section, .dialog, .workspace-scene)
+  :is(.help, small, .plan-small) {
+  color: var(--muted);
+}
+html[data-theme] .dialog .meter-error {
+  color: var(--accent);
+}
+html[data-theme]
+  :is(
+    .membership .membership-status,
+    .membership .membership-account,
+    .membership h2,
+    .membership [role="status"]
+  ) {
+  color: var(--ink);
+}
+html[data-theme] .membership :is([role="alert"], .membership-error) {
+  color: var(--accent-ink);
+}
+html[data-theme] button.primary {
+  background-color: var(--accent-ink);
+  border-color: var(--accent-ink);
+  color: var(--theme-on-accent);
+}
+html[data-theme] button.primary:hover:not(:disabled) {
+  background-color: var(--accent-ink);
+  color: var(--theme-on-accent);
+}
+html[data-skin="selected"] .dialog-actions button.primary,
+html[data-theme="raven-wizard"] .dialog-actions button.primary {
+  color: var(--accent-ink);
+}
+html[data-skin="selected"] .dialog-actions button.primary:is(:hover, :active),
+html[data-theme="raven-wizard"]
+  .dialog-actions
+  button.primary:is(:hover, :active) {
+  background: var(--theme-button-image) center/100% 100% no-repeat;
+  border-color: transparent;
+  color: var(--accent-ink);
+}
+html[data-theme] .membership .membership-status {
+  background: var(--navigation-tint);
+}
+html[data-theme] .quick-actions > .section-heading .text-button {
+  color: var(--accent-ink);
+}
+html[data-theme] :is(.workspace-heading .icon-button) {
+  color: var(--accent-ink);
+}
+html[data-theme="night-sprout"]
+  :is(
+    .quick-actions > .section-heading .text-button,
+    .home-progress-footer .text-button,
+    .character-stage .sleep-reminder
+  ) {
+  color: var(--theme-scene-ink);
+}
+@media (max-width: 759px) {
+  html[data-theme] .workspace-heading .workspace-tab h1 {
+    font-size: clamp(14px, 3.8vw, 17px);
+    font-weight: inherit;
+  }
+  html[data-theme]
+    .simulator-shell:has(.mobile-home[data-responsive])
+    .mobile-nav
+    button,
+  html[data-theme] .mobile-nav button {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}

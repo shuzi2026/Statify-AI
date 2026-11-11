@@ -1,0 +1,2362 @@
+{
+  "schema": 2,
+  "themes": {
+    "raven-wizard": {
+      "code": "X",
+      "name": "乌鸦",
+      "folder": "assets/素材/X_乌鸦",
+      "runtimeName": "乌鸦巫师 · 月窗书房"
+    },
+    "night-sprout": {
+      "code": "Y",
+      "name": "小芽",
+      "folder": "assets/素材/Y_小芽",
+      "runtimeName": "纸绘 · 夜色小芽"
+    },
+    "mouse-balloon": {
+      "code": "M",
+      "name": "气球小鼠",
+      "folder": "assets/素材/M_气球小鼠",
+      "runtimeName": "绘本 · 气球小鼠"
+    },
+    "pearl-pistachio": {
+      "code": "Q",
+      "name": "浅青柠",
+      "folder": "assets/素材/Q_浅青柠",
+      "runtimeName": "柔透 · 浅青柠"
+    },
+    "pearl-apricot": {
+      "code": "N",
+      "name": "奶油杏",
+      "folder": "assets/素材/N_奶油杏",
+      "runtimeName": "柔透 · 奶油杏"
+    },
+    "bakery-ochre": {
+      "code": "B",
+      "name": "麦香面包",
+      "folder": "assets/素材/B_麦香面包",
+      "runtimeName": "厚涂 · 麦香面包"
+    },
+    "paper-lavender": {
+      "code": "L",
+      "name": "薰衣草",
+      "folder": "assets/素材/L_薰衣草",
+      "runtimeName": "纸绘 · 薰衣草"
+    },
+    "peach": {
+      "code": "T",
+      "name": "暖桃",
+      "folder": "assets/素材/T_暖桃",
+      "runtimeName": "素色 · 暖桃"
+    }
+  },
+  "slots": {
+    "background": {
+      "number": "001",
+      "label": "背景"
+    },
+    "companion": {
+      "number": "002",
+      "label": "伙伴"
+    },
+    "reading": {
+      "number": "003",
+      "label": "阅读行动"
+    },
+    "writing": {
+      "number": "004",
+      "label": "书写行动"
+    },
+    "drinking": {
+      "number": "005",
+      "label": "饮水行动"
+    },
+    "walking": {
+      "number": "006",
+      "label": "步行行动"
+    },
+    "card": {
+      "number": "007",
+      "label": "卡牌正面"
+    },
+    "sleeping": {
+      "number": "008",
+      "label": "睡眠行动"
+    },
+    "paper": {
+      "number": "009",
+      "label": "纸面材质"
+    },
+    "panel": {
+      "number": "010",
+      "label": "属性面板"
+    },
+    "hud": {
+      "number": "011",
+      "label": "顶部信息面板"
+    },
+    "dialog": {
+      "number": "012",
+      "label": "弹窗边框"
+    },
+    "button": {
+      "number": "013",
+      "label": "主按钮"
+    },
+    "round-button": {
+      "number": "014",
+      "label": "圆形按钮"
+    },
+    "square-button": {
+      "number": "015",
+      "label": "方形按钮"
+    },
+    "card-back": {
+      "number": "016",
+      "label": "卡牌背面"
+    },
+    "small-card": {
+      "number": "017",
+      "label": "小卡牌正面"
+    },
+    "card-default": {
+      "number": "018",
+      "label": "默认卡牌插画"
+    },
+    "focus": {
+      "number": "019",
+      "label": "专注行动"
+    },
+    "companion-atlas": {
+      "number": "020",
+      "label": "伙伴图集"
+    },
+    "material-atlas": {
+      "number": "021",
+      "label": "材质图集"
+    },
+    "paint-texture": {
+      "number": "022",
+      "label": "绘画纹理"
+    },
+    "foliage": {
+      "number": "023",
+      "label": "植物装饰"
+    },
+    "brush": {
+      "number": "024",
+      "label": "笔刷装饰"
+    },
+    "ground": {
+      "number": "025",
+      "label": "地面装饰"
+    },
+    "meter": {
+      "number": "026",
+      "label": "数值面板"
+    },
+    "argyle": {
+      "number": "027",
+      "label": "菱格实验稿"
+    },
+    "shopping-product": {
+      "number": "028",
+      "label": "购物卡商品图"
+    },
+    "common-100": {
+      "number": "100",
+      "label": "splash"
+    },
+    "common-101": {
+      "number": "101",
+      "label": "splash"
+    },
+    "common-102": {
+      "number": "102",
+      "label": "splash"
+    },
+    "common-103": {
+      "number": "103",
+      "label": "splash"
+    },
+    "common-104": {
+      "number": "104",
+      "label": "splash"
+    },
+    "common-105": {
+      "number": "105",
+      "label": "splash"
+    },
+    "common-106": {
+      "number": "106",
+      "label": "splash"
+    },
+    "common-107": {
+      "number": "107",
+      "label": "splash"
+    },
+    "common-108": {
+      "number": "108",
+      "label": "splash"
+    },
+    "common-109": {
+      "number": "109",
+      "label": "splash"
+    },
+    "common-110": {
+      "number": "110",
+      "label": "splash"
+    },
+    "common-111": {
+      "number": "111",
+      "label": "ic_launcher"
+    },
+    "common-112": {
+      "number": "112",
+      "label": "ic_launcher_foreground"
+    },
+    "common-113": {
+      "number": "113",
+      "label": "ic_launcher_round"
+    },
+    "common-114": {
+      "number": "114",
+      "label": "ic_launcher"
+    },
+    "common-115": {
+      "number": "115",
+      "label": "ic_launcher_foreground"
+    },
+    "common-116": {
+      "number": "116",
+      "label": "ic_launcher_round"
+    },
+    "common-117": {
+      "number": "117",
+      "label": "ic_launcher"
+    },
+    "common-118": {
+      "number": "118",
+      "label": "ic_launcher_foreground"
+    },
+    "common-119": {
+      "number": "119",
+      "label": "ic_launcher_round"
+    },
+    "common-120": {
+      "number": "120",
+      "label": "ic_launcher"
+    },
+    "common-121": {
+      "number": "121",
+      "label": "ic_launcher_foreground"
+    },
+    "common-122": {
+      "number": "122",
+      "label": "ic_launcher_round"
+    },
+    "common-123": {
+      "number": "123",
+      "label": "ic_launcher"
+    },
+    "common-124": {
+      "number": "124",
+      "label": "ic_launcher_foreground"
+    },
+    "common-125": {
+      "number": "125",
+      "label": "ic_launcher_round"
+    },
+    "common-126": {
+      "number": "126",
+      "label": "statify-logo-source"
+    },
+    "common-127": {
+      "number": "127",
+      "label": "statify-logo-v1-180"
+    },
+    "common-128": {
+      "number": "128",
+      "label": "statify-logo-v1-192"
+    },
+    "common-129": {
+      "number": "129",
+      "label": "statify-logo-v1-512"
+    },
+    "common-130": {
+      "number": "130",
+      "label": "ref-1"
+    },
+    "common-131": {
+      "number": "131",
+      "label": "ref-2"
+    },
+    "common-132": {
+      "number": "132",
+      "label": "ref-3"
+    },
+    "common-133": {
+      "number": "133",
+      "label": "ref-4"
+    },
+    "common-134": {
+      "number": "134",
+      "label": "ref-5"
+    },
+    "common-135": {
+      "number": "135",
+      "label": "ref-6"
+    },
+    "common-136": {
+      "number": "136",
+      "label": "ref-7"
+    },
+    "common-137": {
+      "number": "137",
+      "label": "ref-8"
+    },
+    "common-138": {
+      "number": "138",
+      "label": "action-reading-v1"
+    },
+    "common-139": {
+      "number": "139",
+      "label": "action-sleeping-v1"
+    },
+    "common-140": {
+      "number": "140",
+      "label": "action-walking-v1"
+    },
+    "common-141": {
+      "number": "141",
+      "label": "action-writing-v1"
+    },
+    "common-142": {
+      "number": "142",
+      "label": "brand"
+    },
+    "common-143": {
+      "number": "143",
+      "label": "social"
+    },
+    "common-144": {
+      "number": "144",
+      "label": "social"
+    }
+  },
+  "assets": [
+    {
+      "id": "SG028",
+      "slot": "shopping-product",
+      "file": "assets/素材/G_公用/SG028_GenericDishSoap.png",
+      "themes": [],
+      "owner": "common",
+      "status": "runtime-registered",
+      "sha256": "7c2fb7365e568305642c64a7a0caabe6104e28ee048555de80020c82993711d0",
+      "generated": []
+    },
+    {
+      "id": "SB005",
+      "legacyIds": [
+        "VIS-8207dc9c94"
+      ],
+      "slot": "drinking",
+      "file": "assets/素材/B_麦香面包/SB005_饮水行动.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "8581def65292abd37fdb5e1ba2fe071f7d5d5f3568ab7ca6d47465a7aead0628",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/action-drinking.webp"
+      ]
+    },
+    {
+      "id": "SB003",
+      "legacyIds": [
+        "VIS-f44b7524d8"
+      ],
+      "slot": "reading",
+      "file": "assets/素材/B_麦香面包/SB003_阅读行动.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "f482be9e90faf5041233e12a8fba523a52106984468cdf997493ec02f58529a8",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/action-reading.webp"
+      ]
+    },
+    {
+      "id": "SB008",
+      "legacyIds": [
+        "VIS-ff6032bfe4"
+      ],
+      "slot": "sleeping",
+      "file": "assets/素材/B_麦香面包/SB008_睡眠行动.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "a831f7b04aacab8dd02fc60fac1b85b5cd24d16edbfc8173590c0e3d21418538",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/action-sleeping.webp"
+      ]
+    },
+    {
+      "id": "SB006",
+      "legacyIds": [
+        "VIS-782abb4158"
+      ],
+      "slot": "walking",
+      "file": "assets/素材/B_麦香面包/SB006_步行行动.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "86c75dd6afea6f915a56427691174682e7cfadd0a7aa7b54448f75e92759ad0f",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/action-walking.webp"
+      ]
+    },
+    {
+      "id": "SB004",
+      "legacyIds": [
+        "VIS-4d36ccf78f"
+      ],
+      "slot": "writing",
+      "file": "assets/素材/B_麦香面包/SB004_书写行动.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "a5acb1469b89f210e9b68042c68a4838296de85e043182446343c73a93546a65",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/action-writing.webp"
+      ]
+    },
+    {
+      "id": "SB001",
+      "legacyIds": [
+        "VIS-8e1fec0a66",
+        "VIS-b314f69d79"
+      ],
+      "slot": "background",
+      "file": "assets/素材/B_麦香面包/SB001_背景.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "c2f583dd6b8116e5e87e17829a45716caf27fd7ddc6e5fc4060823157e6efa7f",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/background-quiet-v2.webp",
+        "src/themes/bakery-ochre/assets/background.webp"
+      ]
+    },
+    {
+      "id": "SB013",
+      "legacyIds": [
+        "VIS-5c0cfcf3b3"
+      ],
+      "slot": "button",
+      "file": "assets/素材/B_麦香面包/SB013_主按钮.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "c1e96120d7e45654ee87fd70288d70ef39c96a359ed8062edee3cf570c02eb98",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/button-blank.webp"
+      ]
+    },
+    {
+      "id": "SB014",
+      "legacyIds": [
+        "VIS-4c9d0edb23"
+      ],
+      "slot": "round-button",
+      "file": "assets/素材/B_麦香面包/SB014_圆形按钮.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "3b39bb118bd9423a9c2ac4e985fea70a566c2e4293a2318fafc39268871b913a",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/button-round.webp"
+      ]
+    },
+    {
+      "id": "SB018",
+      "legacyIds": [
+        "VIS-0a2e163fc3"
+      ],
+      "slot": "card-default",
+      "file": "assets/素材/B_麦香面包/SB018_默认卡牌插画.png",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "1c2e435e5f4b6767c135c4b25200d844e1c5d223ffb99702973379c82d999f25",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/card-default-cutout-v1.png"
+      ]
+    },
+    {
+      "id": "SB007",
+      "legacyIds": [
+        "VIS-a91cb905c0"
+      ],
+      "slot": "card",
+      "file": "assets/素材/B_麦香面包/SB007_卡牌正面.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "edb65e47e825ed958234688bfc7bd000ba5ff2bbde22fdd1de2ddfedac57c527",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/card-frame.webp"
+      ]
+    },
+    {
+      "id": "SB002",
+      "legacyIds": [
+        "VIS-0cf9d60a4f"
+      ],
+      "slot": "companion",
+      "file": "assets/素材/B_麦香面包/SB002_伙伴.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "4c902fd2fa304b659e4aa8f64df452764bba1da2e1515a8265c9b4c46f9439f2",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/companion-atmosphere-v2.webp"
+      ]
+    },
+    {
+      "id": "SB012",
+      "legacyIds": [
+        "VIS-a47ef9327e"
+      ],
+      "slot": "dialog",
+      "file": "assets/素材/B_麦香面包/SB012_弹窗边框.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "96c8f326e657bbf1a00a4eddda3ba2535cf652b7e83c13e53252aea793bb8c73",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/dialog-frame.webp"
+      ]
+    },
+    {
+      "id": "SB011",
+      "legacyIds": [
+        "VIS-a08ca4371a"
+      ],
+      "slot": "hud",
+      "file": "assets/素材/B_麦香面包/SB011_顶部信息面板.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "b6757aa10059daa29cf4be95d4396ff32201dd3bb5141faeca34272d9d13ca95",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/hud-frame.webp"
+      ]
+    },
+    {
+      "id": "SB010",
+      "legacyIds": [
+        "VIS-bcd5a9b58f"
+      ],
+      "slot": "panel",
+      "file": "assets/素材/B_麦香面包/SB010_属性面板.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "f05e61a70bb2cfe5c1762084b6907e3fdedea8375d14fe8cf448e34bbe25cc22",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/panel-portrait.webp"
+      ]
+    },
+    {
+      "id": "SB009",
+      "legacyIds": [
+        "VIS-9260e59c0b"
+      ],
+      "slot": "paper",
+      "file": "assets/素材/B_麦香面包/SB009_纸面材质.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "runtime-registered",
+      "sha256": "abeb2b2c27041d6dd8f823a3ab85e374eb97a69b44403eb86128cb0c997a05bf",
+      "generated": [],
+      "previousSources": [
+        "src/themes/bakery-ochre/assets/paper-quiet.webp"
+      ]
+    },
+    {
+      "id": "SM005",
+      "legacyIds": [
+        "VIS-f84e17cb48"
+      ],
+      "slot": "drinking",
+      "file": "assets/素材/M_气球小鼠/SM005_饮水行动.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "bb719792ef1efb06fcafca58f9e3a53bf92d18f4f2bdfd5871b4e8ecf9c9fadf",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/action-drinking.webp"
+      ]
+    },
+    {
+      "id": "SM003",
+      "legacyIds": [
+        "VIS-9a67faa853"
+      ],
+      "slot": "reading",
+      "file": "assets/素材/M_气球小鼠/SM003_阅读行动.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "ac3eb39a49ec6f417309e6900423046cc3d4f98747a5ce70e9fa402881e0cc73",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/action-reading.webp"
+      ]
+    },
+    {
+      "id": "SM008",
+      "legacyIds": [
+        "VIS-2b815b48c1"
+      ],
+      "slot": "sleeping",
+      "file": "assets/素材/M_气球小鼠/SM008_睡眠行动.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "82985539255db33f0428e5dd99ef40eea231f5128831ae58e2d2a633cf4549b6",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/action-sleeping.webp"
+      ]
+    },
+    {
+      "id": "SM006",
+      "legacyIds": [
+        "VIS-412f872d18"
+      ],
+      "slot": "walking",
+      "file": "assets/素材/M_气球小鼠/SM006_步行行动.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "32902c426cc8d828ef9f43f4018edda75075d445d41e92b1fdbd8d48022e6378",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/action-walking.webp"
+      ]
+    },
+    {
+      "id": "SM004",
+      "legacyIds": [
+        "VIS-2d99a19906"
+      ],
+      "slot": "writing",
+      "file": "assets/素材/M_气球小鼠/SM004_书写行动.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "6d59534b8b091100d9a09fa846b9852d48cac8692d3e635d1e53f9728a311443",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/action-writing.webp"
+      ]
+    },
+    {
+      "id": "SM001",
+      "legacyIds": [
+        "VIS-c0ab41e059"
+      ],
+      "slot": "background",
+      "file": "assets/素材/M_气球小鼠/SM001_背景.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "f3dff9947a02929cdd0a744953397229246ba5109546d438e8769e352d0e8fb4",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/background-quiet-v2.webp"
+      ]
+    },
+    {
+      "id": "SM013",
+      "legacyIds": [
+        "VIS-cb119fe5ba"
+      ],
+      "slot": "button",
+      "file": "assets/素材/M_气球小鼠/SM013_主按钮.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "d1afee54819bb567e77b9501754a3e4fed4189e16d5b1fbb0248d64d74f83474",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/button-blank.webp"
+      ]
+    },
+    {
+      "id": "SM014",
+      "legacyIds": [
+        "VIS-8384a9b6be"
+      ],
+      "slot": "round-button",
+      "file": "assets/素材/M_气球小鼠/SM014_圆形按钮.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "7f0f60bff7a6583294b073e6451eacbdc7c4762433c7967f9d9a1619f828bae0",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/button-round.webp"
+      ]
+    },
+    {
+      "id": "SM018",
+      "legacyIds": [
+        "VIS-5a11548aaf"
+      ],
+      "slot": "card-default",
+      "file": "assets/素材/M_气球小鼠/SM018_默认卡牌插画.png",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "e3def69f92bbf482dfdecca68673f5653e955f35c18f38d5213b4941724190a9",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/card-default-cutout-v1.png"
+      ]
+    },
+    {
+      "id": "SM007",
+      "legacyIds": [
+        "VIS-3aeec34535"
+      ],
+      "slot": "card",
+      "file": "assets/素材/M_气球小鼠/SM007_卡牌正面.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "e9b724283a27f253b04e8ac11ded18b1556349eed76d3697de067ca4e7c51318",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/card-frame.webp"
+      ]
+    },
+    {
+      "id": "SM002",
+      "legacyIds": [
+        "VIS-8cc0214f13"
+      ],
+      "slot": "companion",
+      "file": "assets/素材/M_气球小鼠/SM002_伙伴.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "2775f9eab1530f7258fddd7e8a9e0b364ea8fa5212ea310e89dd260440545e10",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/companion-atmosphere-v2.webp"
+      ]
+    },
+    {
+      "id": "SM012",
+      "legacyIds": [
+        "VIS-91cdfd6c96"
+      ],
+      "slot": "dialog",
+      "file": "assets/素材/M_气球小鼠/SM012_弹窗边框.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "d1e20139a719a63fb6561f0e25edf86a309c2382d9225d6fdf97c381ce2f9302",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/dialog-frame.webp"
+      ]
+    },
+    {
+      "id": "SM011",
+      "legacyIds": [
+        "VIS-ed0257fbc1"
+      ],
+      "slot": "hud",
+      "file": "assets/素材/M_气球小鼠/SM011_顶部信息面板.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "06ab5278cec3ecfa172ec70e6b714f8d49516a65f9f62df9c9ca6e439a217331",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/hud-frame.webp"
+      ]
+    },
+    {
+      "id": "SM010",
+      "legacyIds": [
+        "VIS-233b5f5c76"
+      ],
+      "slot": "panel",
+      "file": "assets/素材/M_气球小鼠/SM010_属性面板.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "afc4895a1e800221f4327c94fb8be78c1de4b1247c8fc776ae59a7eb36e09e90",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/panel-portrait.webp"
+      ]
+    },
+    {
+      "id": "SM009",
+      "legacyIds": [
+        "VIS-35bb7e4808"
+      ],
+      "slot": "paper",
+      "file": "assets/素材/M_气球小鼠/SM009_纸面材质.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "runtime-registered",
+      "sha256": "ca4f12cc761618fab93779fac598ecb6759906f69509e7326803e369acb034de",
+      "generated": [],
+      "previousSources": [
+        "src/themes/mouse-balloon/assets/paper-quiet.webp"
+      ]
+    },
+    {
+      "id": "SY005",
+      "legacyIds": [
+        "VIS-ae2e4d0de9"
+      ],
+      "slot": "drinking",
+      "file": "assets/素材/Y_小芽/SY005_饮水行动.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "beaa460e04b46e0fe51e9bfc7b3e16befda715fdb8e060a5a01275860f39c346",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/action-drinking.webp"
+      ]
+    },
+    {
+      "id": "SY003",
+      "legacyIds": [
+        "VIS-77e7c88f28"
+      ],
+      "slot": "reading",
+      "file": "assets/素材/Y_小芽/SY003_阅读行动.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "601985194477f4e09180651574a8333062a440005c41c7197ce0321190af7d0c",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/action-reading.webp"
+      ]
+    },
+    {
+      "id": "SY008",
+      "legacyIds": [
+        "VIS-791dc9576d"
+      ],
+      "slot": "sleeping",
+      "file": "assets/素材/Y_小芽/SY008_睡眠行动.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "e9f791d1d42701815abe56f16bcd2b66d6b1521abf2e900be5fde5bfa1157b96",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/action-sleeping.webp"
+      ]
+    },
+    {
+      "id": "SY006",
+      "legacyIds": [
+        "VIS-832fdabaad"
+      ],
+      "slot": "walking",
+      "file": "assets/素材/Y_小芽/SY006_步行行动.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "aeb16661ebfea764c0ab66c725a5c25f95397ec1ffdb6a7327469234b066ad40",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/action-walking.webp"
+      ]
+    },
+    {
+      "id": "SY004",
+      "legacyIds": [
+        "VIS-54327e345e"
+      ],
+      "slot": "writing",
+      "file": "assets/素材/Y_小芽/SY004_书写行动.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "1c1606d494ca8c23f62de0da9b84710a5427ad6071c239b3874ede0c96dbfab5",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/action-writing.webp"
+      ]
+    },
+    {
+      "id": "SY001",
+      "legacyIds": [
+        "VIS-af918c5ab0"
+      ],
+      "slot": "background",
+      "file": "assets/素材/Y_小芽/SY001_背景.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "761c878cfdeb4a23f6b77760a1a79ec988162d5835fa50b6a533c04ef9693714",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/background-quiet-v2.webp"
+      ]
+    },
+    {
+      "id": "SY013",
+      "legacyIds": [
+        "VIS-86afafeaa4"
+      ],
+      "slot": "button",
+      "file": "assets/素材/Y_小芽/SY013_主按钮.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "4a19091b43f42b7051678930d841c5a06e643f75a5afd4cfa8656edf6cbcc7ea",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/button-blank.webp"
+      ]
+    },
+    {
+      "id": "SY014",
+      "legacyIds": [
+        "VIS-4123892ffb"
+      ],
+      "slot": "round-button",
+      "file": "assets/素材/Y_小芽/SY014_圆形按钮.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "30d7fd62858fc46c3a7d3a53b89e8f111ed80ae9294b203d04466919e6e811f4",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/button-round.webp"
+      ]
+    },
+    {
+      "id": "SY018",
+      "legacyIds": [
+        "VIS-59dc531209"
+      ],
+      "slot": "card-default",
+      "file": "assets/素材/Y_小芽/SY018_默认卡牌插画.png",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "5dabeb8d72abc6a41edecab8b1f869a6c7d60fd1fc0f40649331ae139376ff83",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/card-default-cutout-v1.png"
+      ]
+    },
+    {
+      "id": "SY007",
+      "legacyIds": [
+        "VIS-6f23f17f48"
+      ],
+      "slot": "card",
+      "file": "assets/素材/Y_小芽/SY007_卡牌正面.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "ed1bc809ca7ec7a708cbef87813ccbd255e39e7ce33f6ab7d0d0517236289f7e",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/card-frame.webp"
+      ]
+    },
+    {
+      "id": "SY002",
+      "legacyIds": [
+        "VIS-0e5fe59f72"
+      ],
+      "slot": "companion",
+      "file": "assets/素材/Y_小芽/SY002_伙伴.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "a7c39e83f2a036301119214e395179954dd56d7064f7456ed2b1ce8c4b24256f",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/companion-flat-v3.webp"
+      ]
+    },
+    {
+      "id": "SY012",
+      "legacyIds": [
+        "VIS-5cd569e7c8"
+      ],
+      "slot": "dialog",
+      "file": "assets/素材/Y_小芽/SY012_弹窗边框.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "a236a587b09e37fec1eaa46986ce89bd36342adc8929c1d61de23bce9ed59cfe",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/dialog-frame.webp"
+      ]
+    },
+    {
+      "id": "SY011",
+      "legacyIds": [
+        "VIS-28921ba624"
+      ],
+      "slot": "hud",
+      "file": "assets/素材/Y_小芽/SY011_顶部信息面板.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "250bb2f0549cd7c959872be80fe12a85466433e7f637b23fcaad9d4093d1419c",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/hud-frame.webp"
+      ]
+    },
+    {
+      "id": "SY010",
+      "legacyIds": [
+        "VIS-0a279c349e"
+      ],
+      "slot": "panel",
+      "file": "assets/素材/Y_小芽/SY010_属性面板.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "691368945b2139537d1bf77caec14536c4f3544f8d1f40945e0d70e8b105db1d",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/panel-portrait.webp"
+      ]
+    },
+    {
+      "id": "SY009",
+      "legacyIds": [
+        "VIS-3b5dfb7fbf"
+      ],
+      "slot": "paper",
+      "file": "assets/素材/Y_小芽/SY009_纸面材质.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "runtime-registered",
+      "sha256": "c703fa96937351b6502fc9d05aec71b3c803f2df3785953a37a601a35002f0e5",
+      "generated": [],
+      "previousSources": [
+        "src/themes/night-sprout/assets/paper-quiet.webp"
+      ]
+    },
+    {
+      "id": "SL007",
+      "legacyIds": [
+        "VIS-d009510b10"
+      ],
+      "slot": "card",
+      "file": "assets/素材/L_薰衣草/SL007_卡牌正面.webp",
+      "themes": [
+        "paper-lavender"
+      ],
+      "owner": "paper-lavender",
+      "status": "runtime-registered",
+      "sha256": "88c2faeaa684f672989100f6ead3a3d28abb7ff13d84cfa31ec996da0041b770",
+      "generated": [],
+      "previousSources": [
+        "src/themes/paper-lavender/card-stock-impasto-v2.webp"
+      ]
+    },
+    {
+      "id": "SL020",
+      "legacyIds": [
+        "VIS-0dcc568bfb"
+      ],
+      "slot": "companion-atlas",
+      "file": "assets/素材/L_薰衣草/SL020_伙伴图集.webp",
+      "themes": [
+        "paper-lavender"
+      ],
+      "owner": "paper-lavender",
+      "status": "runtime-registered",
+      "sha256": "5c5afde1ff4fe5d4196a2de9b0f0fc2143ec1f4851bf161c795772db4ead1255",
+      "generated": [],
+      "previousSources": [
+        "src/themes/paper-lavender/companion-atlas.webp"
+      ]
+    },
+    {
+      "id": "SL021",
+      "legacyIds": [
+        "VIS-3e4397c43b"
+      ],
+      "slot": "material-atlas",
+      "file": "assets/素材/L_薰衣草/SL021_材质图集.webp",
+      "themes": [
+        "paper-lavender"
+      ],
+      "owner": "paper-lavender",
+      "status": "runtime-registered",
+      "sha256": "9f0e46fcac8ea10ecac4c55ae3d740568378adb8adeef05a4a855d7eda4b2952",
+      "generated": [],
+      "previousSources": [
+        "src/themes/paper-lavender/material-atlas.webp"
+      ]
+    },
+    {
+      "id": "SL022",
+      "legacyIds": [
+        "VIS-d8843b2bc4"
+      ],
+      "slot": "paint-texture",
+      "file": "assets/素材/L_薰衣草/SL022_绘画纹理.webp",
+      "themes": [
+        "paper-lavender"
+      ],
+      "owner": "paper-lavender",
+      "status": "runtime-registered",
+      "sha256": "923294d24092e3e39de1b411e99319a89ce3448468d4c76b6872e60da71f7a61",
+      "generated": [],
+      "previousSources": [
+        "src/themes/paper-lavender/paint-texture-impasto-v2.webp"
+      ]
+    },
+    {
+      "id": "SN005",
+      "legacyIds": [
+        "VIS-51ed6bd4ff"
+      ],
+      "slot": "drinking",
+      "file": "assets/素材/N_奶油杏/SN005_饮水行动.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "003eff5b7ba010067380a5b25f6c282dd601c74e22c0ce765a7605a775077daa",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/action-drinking-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SN003",
+      "legacyIds": [
+        "VIS-b6b3f58cc8"
+      ],
+      "slot": "reading",
+      "file": "assets/素材/N_奶油杏/SN003_阅读行动.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "d2dbe7c7de19617538d3d69a928ae98a50451ee5dda3f55a5ccd7398395df8d2",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/action-reading-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SN008",
+      "legacyIds": [
+        "VIS-69b5230e43"
+      ],
+      "slot": "sleeping",
+      "file": "assets/素材/N_奶油杏/SN008_睡眠行动.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "8d0d9fbc634861d15463f13b76d14ba9bbfa6bc8d12fab29c6077696569c806a",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/action-sleeping-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SN006",
+      "legacyIds": [
+        "VIS-dd82260daa"
+      ],
+      "slot": "walking",
+      "file": "assets/素材/N_奶油杏/SN006_步行行动.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "a72815aff2e47e1e1f4e593d788ef4b40c088ba9c5b9da0f19748522e600bb73",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/action-walking-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SN004",
+      "legacyIds": [
+        "VIS-c72076314a"
+      ],
+      "slot": "writing",
+      "file": "assets/素材/N_奶油杏/SN004_书写行动.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "f93882cdb39be64401cf832350ab54123f37a6dc1fa8c561e436a7434a3ae0e4",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/action-writing-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SN001",
+      "legacyIds": [
+        "VIS-22a96a9588"
+      ],
+      "slot": "background",
+      "file": "assets/素材/N_奶油杏/SN001_背景.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "319d1cb4d65453793fab0ffcac2d0ca06cc120f8b114796626811dad51f496be",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/background-quiet-v2.webp"
+      ]
+    },
+    {
+      "id": "SN013",
+      "legacyIds": [
+        "VIS-4456054831"
+      ],
+      "slot": "button",
+      "file": "assets/素材/N_奶油杏/SN013_主按钮.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "97a608df28816ccd2db40eea1210dbf29b87c47950293591dee10a77f6c3f37e",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/button-blank.webp"
+      ]
+    },
+    {
+      "id": "SN014",
+      "legacyIds": [
+        "VIS-15bffd54a7"
+      ],
+      "slot": "round-button",
+      "file": "assets/素材/N_奶油杏/SN014_圆形按钮.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "14f4357ba571550a7dfb29eb11bf4c5f2eff379127284a737f10e490ecc37c6e",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/button-round.webp"
+      ]
+    },
+    {
+      "id": "SN018",
+      "legacyIds": [
+        "VIS-ba4f89cb78"
+      ],
+      "slot": "card-default",
+      "file": "assets/素材/N_奶油杏/SN018_默认卡牌插画.png",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "a58f38e3b0735474ce50fe46c28d280ac40458674533609d0ada675bf2c6d4a4",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/card-default-cutout-v1.png"
+      ]
+    },
+    {
+      "id": "SN007",
+      "legacyIds": [
+        "VIS-070270adbb"
+      ],
+      "slot": "card",
+      "file": "assets/素材/N_奶油杏/SN007_卡牌正面.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "a0ef87d841f1f82bce6ba36f788baa6e302fda7a7e28687a11242692e1f840d3",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/card-frame.webp"
+      ]
+    },
+    {
+      "id": "SN002",
+      "legacyIds": [
+        "VIS-8cc0bf9fcc"
+      ],
+      "slot": "companion",
+      "file": "assets/素材/N_奶油杏/SN002_伙伴.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "db7641326544cfff72d39211a13e0667f050d4246128f02a6759a2cb26b9dfc6",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/companion-atmosphere-v2.webp"
+      ]
+    },
+    {
+      "id": "SN012",
+      "legacyIds": [
+        "VIS-238417250e"
+      ],
+      "slot": "dialog",
+      "file": "assets/素材/N_奶油杏/SN012_弹窗边框.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "0dd383da2204a85631c1ce9da30ccb0a98189ba3162dbe197a2773627f89298d",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/dialog-frame.webp"
+      ]
+    },
+    {
+      "id": "SN011",
+      "legacyIds": [
+        "VIS-c730f9fdd1"
+      ],
+      "slot": "hud",
+      "file": "assets/素材/N_奶油杏/SN011_顶部信息面板.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "7b5f7cdd6042fe87c5a7c4685ec4a6090d6587130ae1621019dafa24b357f098",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/hud-frame.webp"
+      ]
+    },
+    {
+      "id": "SN010",
+      "legacyIds": [
+        "VIS-3d7477a110"
+      ],
+      "slot": "panel",
+      "file": "assets/素材/N_奶油杏/SN010_属性面板.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "3dc85164706cc171e2fac83e54a35aa83da87cf9faee3c4e5281c6d7be0071eb",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/panel-portrait.webp"
+      ]
+    },
+    {
+      "id": "SN009",
+      "legacyIds": [
+        "VIS-5ac5f0202f"
+      ],
+      "slot": "paper",
+      "file": "assets/素材/N_奶油杏/SN009_纸面材质.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "runtime-registered",
+      "sha256": "4f20480a9853892c427ef03ce66b1be9a550f13378d58931808e531c6c7246c9",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-apricot/assets/paper-quiet.webp"
+      ]
+    },
+    {
+      "id": "SQ005",
+      "legacyIds": [
+        "VIS-1e811728fe"
+      ],
+      "slot": "drinking",
+      "file": "assets/素材/Q_浅青柠/SQ005_饮水行动.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "003eff5b7ba010067380a5b25f6c282dd601c74e22c0ce765a7605a775077daa",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/action-drinking-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SQ003",
+      "legacyIds": [
+        "VIS-d80098a4a0"
+      ],
+      "slot": "reading",
+      "file": "assets/素材/Q_浅青柠/SQ003_阅读行动.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "d2dbe7c7de19617538d3d69a928ae98a50451ee5dda3f55a5ccd7398395df8d2",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/action-reading-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SQ008",
+      "legacyIds": [
+        "VIS-aac8b86b53"
+      ],
+      "slot": "sleeping",
+      "file": "assets/素材/Q_浅青柠/SQ008_睡眠行动.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "8d0d9fbc634861d15463f13b76d14ba9bbfa6bc8d12fab29c6077696569c806a",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/action-sleeping-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SQ006",
+      "legacyIds": [
+        "VIS-56b6eec68c"
+      ],
+      "slot": "walking",
+      "file": "assets/素材/Q_浅青柠/SQ006_步行行动.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "a72815aff2e47e1e1f4e593d788ef4b40c088ba9c5b9da0f19748522e600bb73",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/action-walking-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SQ004",
+      "legacyIds": [
+        "VIS-6cbaadf20c"
+      ],
+      "slot": "writing",
+      "file": "assets/素材/Q_浅青柠/SQ004_书写行动.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "f93882cdb39be64401cf832350ab54123f37a6dc1fa8c561e436a7434a3ae0e4",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/action-writing-matte-v3.webp"
+      ]
+    },
+    {
+      "id": "SQ001",
+      "legacyIds": [
+        "VIS-1e1d937ef6"
+      ],
+      "slot": "background",
+      "file": "assets/素材/Q_浅青柠/SQ001_背景.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "965bde24717156b3cf80de37a097365d7504524fbab87002defafeaf4c764dfc",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/background-quiet-v2.webp"
+      ]
+    },
+    {
+      "id": "SQ013",
+      "legacyIds": [
+        "VIS-adb2ce7947"
+      ],
+      "slot": "button",
+      "file": "assets/素材/Q_浅青柠/SQ013_主按钮.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "97a608df28816ccd2db40eea1210dbf29b87c47950293591dee10a77f6c3f37e",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/button-blank.webp"
+      ]
+    },
+    {
+      "id": "SQ014",
+      "legacyIds": [
+        "VIS-444ef9b9d0"
+      ],
+      "slot": "round-button",
+      "file": "assets/素材/Q_浅青柠/SQ014_圆形按钮.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "14f4357ba571550a7dfb29eb11bf4c5f2eff379127284a737f10e490ecc37c6e",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/button-round.webp"
+      ]
+    },
+    {
+      "id": "SQ018",
+      "legacyIds": [
+        "VIS-c0704f95ae"
+      ],
+      "slot": "card-default",
+      "file": "assets/素材/Q_浅青柠/SQ018_默认卡牌插画.png",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "0a178b6d50fd9ff715ff830c69ae4d6ea19d44bdf0b069a255b53bfe53f88611",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/card-default-cutout-v1.png"
+      ]
+    },
+    {
+      "id": "SQ007",
+      "legacyIds": [
+        "VIS-bac273b59e"
+      ],
+      "slot": "card",
+      "file": "assets/素材/Q_浅青柠/SQ007_卡牌正面.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "a0ef87d841f1f82bce6ba36f788baa6e302fda7a7e28687a11242692e1f840d3",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/card-frame.webp"
+      ]
+    },
+    {
+      "id": "SQ002",
+      "legacyIds": [
+        "VIS-c6518d0cce"
+      ],
+      "slot": "companion",
+      "file": "assets/素材/Q_浅青柠/SQ002_伙伴.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "eade35da5ba92d5fdcaee745a8fc745ea2242d88c902f62fe707f7c21188deff",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/companion-atmosphere-v2.webp"
+      ]
+    },
+    {
+      "id": "SQ012",
+      "legacyIds": [
+        "VIS-83f2da3e4d"
+      ],
+      "slot": "dialog",
+      "file": "assets/素材/Q_浅青柠/SQ012_弹窗边框.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "0dd383da2204a85631c1ce9da30ccb0a98189ba3162dbe197a2773627f89298d",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/dialog-frame.webp"
+      ]
+    },
+    {
+      "id": "SQ011",
+      "legacyIds": [
+        "VIS-6336c0b69c"
+      ],
+      "slot": "hud",
+      "file": "assets/素材/Q_浅青柠/SQ011_顶部信息面板.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "7b5f7cdd6042fe87c5a7c4685ec4a6090d6587130ae1621019dafa24b357f098",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/hud-frame.webp"
+      ]
+    },
+    {
+      "id": "SQ010",
+      "legacyIds": [
+        "VIS-7247a9e6fd"
+      ],
+      "slot": "panel",
+      "file": "assets/素材/Q_浅青柠/SQ010_属性面板.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "3dc85164706cc171e2fac83e54a35aa83da87cf9faee3c4e5281c6d7be0071eb",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/panel-portrait.webp"
+      ]
+    },
+    {
+      "id": "SQ009",
+      "legacyIds": [
+        "VIS-df87a3dc38"
+      ],
+      "slot": "paper",
+      "file": "assets/素材/Q_浅青柠/SQ009_纸面材质.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "runtime-registered",
+      "sha256": "4f20480a9853892c427ef03ce66b1be9a550f13378d58931808e531c6c7246c9",
+      "generated": [],
+      "previousSources": [
+        "src/themes/pearl-pistachio/assets/paper-quiet.webp"
+      ]
+    },
+    {
+      "id": "SX005",
+      "legacyIds": [
+        "VIS-de1f097d5f"
+      ],
+      "slot": "drinking",
+      "file": "assets/素材/X_乌鸦/SX005_饮水行动.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "357a2d3cc4d649f5981c72ed939b176ce2544b897cf9bcc910abbdbb376b6681",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/action-drinking.webp"
+      ]
+    },
+    {
+      "id": "SX003",
+      "legacyIds": [
+        "VIS-896f6630c0"
+      ],
+      "slot": "reading",
+      "file": "assets/素材/X_乌鸦/SX003_阅读行动.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "112e88ae28e81623128fb187572ad95e6523a484a4be4b786c79c7f3566ad3ec",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/action-reading.webp"
+      ]
+    },
+    {
+      "id": "SX008",
+      "legacyIds": [
+        "VIS-cd91bdf5e0"
+      ],
+      "slot": "sleeping",
+      "file": "assets/素材/X_乌鸦/SX008_睡眠行动.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "1994076687054f81fb752a7eba3aaa96de35237b04bcbc609db51864e7cdeafe",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/action-sleeping.webp"
+      ]
+    },
+    {
+      "id": "SX006",
+      "legacyIds": [
+        "VIS-49fe4a8ebf"
+      ],
+      "slot": "walking",
+      "file": "assets/素材/X_乌鸦/SX006_步行行动.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "7d7543bc165a615af9513f31b81448a012e80b3bdca2f228bd3467d0e2c84763",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/action-walking.webp"
+      ]
+    },
+    {
+      "id": "SX004",
+      "legacyIds": [
+        "VIS-62d2f8e26f"
+      ],
+      "slot": "writing",
+      "file": "assets/素材/X_乌鸦/SX004_书写行动.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "4a0772d7308779f6bd8ebc43c5745c22157dcc0d60dee02a0df0d5d2d250b45f",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/action-writing.webp"
+      ]
+    },
+    {
+      "id": "SX013",
+      "legacyIds": [
+        "VIS-d7b36fc94d"
+      ],
+      "slot": "button",
+      "file": "assets/素材/X_乌鸦/SX013_主按钮.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "5bcda53b03388fe657a9be7bd28a1d9dffd9c2154e2a4b61b073ba846489486d",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/button-blank.webp"
+      ]
+    },
+    {
+      "id": "SX018",
+      "legacyIds": [
+        "VIS-1b55e61bf4"
+      ],
+      "slot": "card-default",
+      "file": "assets/素材/X_乌鸦/SX018_默认卡牌插画.png",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "c12eb023845576d379a6a0582be7db94cf51b50f8594082a6319086050cb59fb",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/card-default-cutout-v1.png"
+      ]
+    },
+    {
+      "id": "SX017",
+      "slot": "small-card",
+      "file": "assets/素材/X_乌鸦/SX017_小卡牌正面-app.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "app-optimized",
+      "sha256": "ba9a40ef9d9733d037e500063c3d677e3967fed9d246facdab4d3f3d0ff253b2",
+      "generated": [],
+      "derivedFrom": "assets/素材/X_乌鸦/SX017_小卡牌正面.png"
+    },
+    {
+      "id": "SX007",
+      "legacyIds": [
+        "VIS-342d000e80"
+      ],
+      "slot": "card",
+      "file": "assets/素材/X_乌鸦/SX007_卡牌正面.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "54f5a93275b91b392699c63555069243b5774062c00b43fd5d617cfdc9629f04",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/card-frame.webp"
+      ]
+    },
+    {
+      "id": "SX002",
+      "legacyIds": [
+        "VIS-547cd552a6"
+      ],
+      "slot": "companion",
+      "file": "assets/素材/X_乌鸦/SX002_伙伴.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "b34909fe5cb0d80c2d767ac9aa54ec9028a6b8534f4fa4df2b2cc9bcd64b6a61",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/companion-raven.webp"
+      ]
+    },
+    {
+      "id": "SX012",
+      "legacyIds": [
+        "VIS-bf3a5cac97"
+      ],
+      "slot": "dialog",
+      "file": "assets/素材/X_乌鸦/SX012_弹窗边框.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "4fbeb7680573309778e809d6162136885a71f8e134eb9d166684457616ad4fca",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/dialog-frame.webp"
+      ]
+    },
+    {
+      "id": "SX001",
+      "legacyIds": [
+        "VIS-37bcf49d59"
+      ],
+      "slot": "background",
+      "file": "assets/素材/X_乌鸦/SX001_背景.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "c1c232398a6352c7989d1f51a41b894b8d6b0808f645bdfaeb973b6046074c78",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/library-scene.webp"
+      ]
+    },
+    {
+      "id": "SX010",
+      "legacyIds": [
+        "VIS-07776a193f"
+      ],
+      "slot": "panel",
+      "file": "assets/素材/X_乌鸦/SX010_属性面板.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "7f0d656cd6c25da0f29b773f4a9fbc8b0f974d020b664a6baa3847ae2ba230d6",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/panel-portrait.webp"
+      ]
+    },
+    {
+      "id": "SX009",
+      "legacyIds": [
+        "VIS-f070934d2c"
+      ],
+      "slot": "paper",
+      "file": "assets/素材/X_乌鸦/SX009_纸面材质.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "3891e94b4077e85a798f523b114db939759222713bf597ca96783bb1622cf825",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/paper-quiet.webp"
+      ]
+    },
+    {
+      "id": "SG127",
+      "legacyIds": [
+        "VIS-6d03b48dca"
+      ],
+      "slot": "common-127",
+      "file": "assets/brand/应用标识/statify-logo-v1-180.png",
+      "themes": [],
+      "owner": "common",
+      "status": "platform-resource",
+      "sha256": "72efd137c177d602fd703cb1b34574cbf0b7bdb5dae3186d7ba14ba555dd7bf8",
+      "generated": [
+        "public/icons/statify-logo-v1-180.png"
+      ],
+      "previousSources": [
+        "icons/statify-logo-v1-180.png"
+      ]
+    },
+    {
+      "id": "SG128",
+      "legacyIds": [
+        "VIS-af07e67319"
+      ],
+      "slot": "common-128",
+      "file": "assets/brand/应用标识/statify-logo-v1-192.png",
+      "themes": [],
+      "owner": "common",
+      "status": "platform-resource",
+      "sha256": "04b0a0772373feda9b779cbd92875e3e0058ebd092a057390eab467fb1038d54",
+      "generated": [
+        "public/icons/statify-logo-v1-192.png",
+        "public/icons/icon-192.png"
+      ],
+      "previousSources": [
+        "icons/statify-logo-v1-192.png"
+      ]
+    },
+    {
+      "id": "SG129",
+      "legacyIds": [
+        "VIS-0b0d43fecd"
+      ],
+      "slot": "common-129",
+      "file": "assets/brand/应用标识/statify-logo-v1-512.png",
+      "themes": [],
+      "owner": "common",
+      "status": "platform-resource",
+      "sha256": "ff306c82ccd0bd6bd4697c5d3fd6fd7073b4f2b2e7ef6ccfaae67647aa18c126",
+      "generated": [
+        "public/icons/statify-logo-v1-512.png",
+        "public/icons/icon-512.png"
+      ],
+      "previousSources": [
+        "icons/statify-logo-v1-512.png"
+      ]
+    },
+    {
+      "id": "SG130",
+      "legacyIds": [
+        "VIS-9155e61117"
+      ],
+      "slot": "common-130",
+      "file": "assets/素材/G_公用/SG130_references_ref-1.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "3551d0287f06081562ee38f2878d7a206ef5126ccaa878116d553ff5e876b9ea",
+      "generated": [
+        "public/whitebox/references/ref-1.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-1.png"
+      ]
+    },
+    {
+      "id": "SG131",
+      "legacyIds": [
+        "VIS-22658a8e5f"
+      ],
+      "slot": "common-131",
+      "file": "assets/素材/G_公用/SG131_references_ref-2.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "70ee75af7e705550a99da416079fc110205fb6736987a970d7274b18ade517ba",
+      "generated": [
+        "public/whitebox/references/ref-2.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-2.png"
+      ]
+    },
+    {
+      "id": "SG132",
+      "legacyIds": [
+        "VIS-42e0069068"
+      ],
+      "slot": "common-132",
+      "file": "assets/素材/G_公用/SG132_references_ref-3.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "edfd25215cf509c13da2f0ed2c2c393e96e8a1ea5a2c6296f5b27f571b434f90",
+      "generated": [
+        "public/whitebox/references/ref-3.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-3.png"
+      ]
+    },
+    {
+      "id": "SG133",
+      "legacyIds": [
+        "VIS-b4b0face1c"
+      ],
+      "slot": "common-133",
+      "file": "assets/素材/G_公用/SG133_references_ref-4.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "5cc149a7fc09ec20564239d375b454caf16c854c882280d1d10295ef7ef418bd",
+      "generated": [
+        "public/whitebox/references/ref-4.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-4.png"
+      ]
+    },
+    {
+      "id": "SG134",
+      "legacyIds": [
+        "VIS-9e40f08cea"
+      ],
+      "slot": "common-134",
+      "file": "assets/素材/G_公用/SG134_references_ref-5.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "4576e003f5c8d69e827a87f6f8fee21f1c05e2b3214fba22844bfd8b057e8619",
+      "generated": [
+        "public/whitebox/references/ref-5.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-5.png"
+      ]
+    },
+    {
+      "id": "SG135",
+      "legacyIds": [
+        "VIS-68d1e5ca78"
+      ],
+      "slot": "common-135",
+      "file": "assets/素材/G_公用/SG135_references_ref-6.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "a44a6c3d46e936907bccce03eb03092e82af41385da193b09bdfc2a74228f299",
+      "generated": [
+        "public/whitebox/references/ref-6.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-6.png"
+      ]
+    },
+    {
+      "id": "SG136",
+      "legacyIds": [
+        "VIS-5d4d524752"
+      ],
+      "slot": "common-136",
+      "file": "assets/素材/G_公用/SG136_references_ref-7.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "30b00ab711c8b278566cd5670575565754f4c76aa00654ad2cd351c1c64f5611",
+      "generated": [
+        "public/whitebox/references/ref-7.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-7.png"
+      ]
+    },
+    {
+      "id": "SG137",
+      "legacyIds": [
+        "VIS-cb0c5232ce"
+      ],
+      "slot": "common-137",
+      "file": "assets/素材/G_公用/SG137_references_ref-8.png",
+      "themes": [],
+      "owner": "common",
+      "status": "development-reference",
+      "sha256": "6594b463c4e8348310f7231ae4e86dfc428d7b604010885082e9ed81fa9ef163",
+      "generated": [
+        "public/whitebox/references/ref-8.png"
+      ],
+      "previousSources": [
+        "public/whitebox/references/ref-8.png"
+      ]
+    },
+    {
+      "id": "SX014",
+      "legacyIds": [
+        "VIS-993204189b"
+      ],
+      "slot": "round-button",
+      "file": "assets/素材/X_乌鸦/SX014_圆形按钮.svg",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "fc36177974405e759ea4d7116280752fa586a950413c4bb7dc864d8187995079",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/button-round.svg"
+      ]
+    },
+    {
+      "id": "SX015",
+      "legacyIds": [
+        "VIS-8fd8b647a5"
+      ],
+      "slot": "square-button",
+      "file": "assets/素材/X_乌鸦/SX015_方形按钮.svg",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "afdfd45a742a859de98fec0e6124a22d1e9b05137269e704711f1e86218c7e35",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/button-square.svg"
+      ]
+    },
+    {
+      "id": "SX016",
+      "legacyIds": [
+        "VIS-fe3dbc9377"
+      ],
+      "slot": "card-back",
+      "file": "assets/素材/X_乌鸦/SX016_卡牌背面.svg",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "runtime-registered",
+      "sha256": "a0a54503926e07dce9579fb5cf7bc5ce360c9680a5a1c2c8afbe3f762a1d787c",
+      "generated": [],
+      "previousSources": [
+        "src/themes/raven-wizard/card-back.svg"
+      ]
+    },
+    {
+      "id": "SB001",
+      "slot": "background",
+      "file": "assets/素材/B_麦香面包/SB001_背景-web.webp",
+      "themes": [
+        "bakery-ochre"
+      ],
+      "owner": "bakery-ochre",
+      "status": "web-optimized",
+      "sha256": "6cc7f4e1183d428bb1d3fa12192daa7ed32aa46c1fd80886c1ae8b2881290aa0",
+      "generated": [],
+      "derivedFrom": "assets/素材/B_麦香面包/SB001_背景.webp"
+    },
+    {
+      "id": "SM001",
+      "slot": "background",
+      "file": "assets/素材/M_气球小鼠/SM001_背景-web.webp",
+      "themes": [
+        "mouse-balloon"
+      ],
+      "owner": "mouse-balloon",
+      "status": "web-optimized",
+      "sha256": "42889ec1b760f95f89c7db4fb6e397e5599d671663c0fdeca724e39970e4eee8",
+      "generated": [],
+      "derivedFrom": "assets/素材/M_气球小鼠/SM001_背景.webp"
+    },
+    {
+      "id": "SY001",
+      "slot": "background",
+      "file": "assets/素材/Y_小芽/SY001_背景-web.webp",
+      "themes": [
+        "night-sprout"
+      ],
+      "owner": "night-sprout",
+      "status": "web-optimized",
+      "sha256": "45d472acb4f39212313dfa6bc12871046ac4059bd7d6707189caaa9ae952a3e9",
+      "generated": [],
+      "derivedFrom": "assets/素材/Y_小芽/SY001_背景.webp"
+    },
+    {
+      "id": "SN001",
+      "slot": "background",
+      "file": "assets/素材/N_奶油杏/SN001_背景-web.webp",
+      "themes": [
+        "pearl-apricot"
+      ],
+      "owner": "pearl-apricot",
+      "status": "web-optimized",
+      "sha256": "75b9eb7d769b27a85b7d65f698d2c06985233fefd882c382738b75ba47cad841",
+      "generated": [],
+      "derivedFrom": "assets/素材/N_奶油杏/SN001_背景.webp"
+    },
+    {
+      "id": "SQ001",
+      "slot": "background",
+      "file": "assets/素材/Q_浅青柠/SQ001_背景-web.webp",
+      "themes": [
+        "pearl-pistachio"
+      ],
+      "owner": "pearl-pistachio",
+      "status": "web-optimized",
+      "sha256": "efe78103fdce93ac22f473875d50908feac507b0618c13c8b6a33acc55858092",
+      "generated": [],
+      "derivedFrom": "assets/素材/Q_浅青柠/SQ001_背景.webp"
+    },
+    {
+      "id": "SX001",
+      "slot": "background",
+      "file": "assets/素材/X_乌鸦/SX001_背景-web.webp",
+      "themes": [
+        "raven-wizard"
+      ],
+      "owner": "raven-wizard",
+      "status": "web-optimized",
+      "sha256": "aa773adf9a965889dbc55c827742ae0471a6f3e5e67154c7d7f464cf8a3ccce7",
+      "generated": [],
+      "derivedFrom": "assets/素材/X_乌鸦/SX001_背景.webp"
+    }
+  ]
+}

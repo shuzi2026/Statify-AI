@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Statify · 竖条纹卡牌</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: #eee9e1;
+        color: #39312c;
+        font: 15px/1.5 system-ui, "Microsoft YaHei", sans-serif;
+      }
+      main { max-width: 1080px; margin: 0 auto; padding: 32px 28px 44px; }
+      header {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid #c9bcb0;
+      }
+      h1 { font-size: 30px; margin: 0; }
+      header p { margin: 4px 0 0; color: #665849; }
+      a { color: #6b4136; text-underline-offset: 4px; }
+      #cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px 18px;
+        padding-top: 24px;
+      }
+      figure { margin: 0; text-align: center; min-width: 0; }
+      figcaption { margin-top: 9px; font-size: 14px; }
+      .sample-card {
+        margin-inline: auto;
+        position: relative;
+        width: min(100%, 180px);
+        aspect-ratio: var(--theme-card-ratio);
+        color: var(--theme-ink);
+        background: var(--theme-card-image) center / 100% 100% no-repeat;
+        filter: drop-shadow(0 4px 4px #47362726);
+      }
+      [data-theme="peach"] .sample-card {
+        border: 1px solid var(--theme-line);
+        border-radius: var(--theme-radius-card);
+        background: var(--theme-paper-light);
+        box-shadow: inset 0 0 0 4px var(--theme-paper);
+      }
+      .action-card-face { position: absolute; inset: 0; }
+      .sample-title, .sample-method, .sample-art {
+        position: absolute;
+        z-index: 1;
+      }
+      .sample-title, .sample-method { inset-inline: 8%; }
+      .sample-title {
+        top: 8%;
+        font-size: clamp(13px, 3.4vw, 17px);
+        letter-spacing: .06em;
+        line-height: 1.2;
+      }
+      .sample-method { bottom: 8%; font-size: 11px; color: var(--theme-muted); }
+      [data-theme="raven-wizard"] .sample-title { top: 7.2%; }
+      [data-theme="raven-wizard"] .sample-method { bottom: 6%; }
+      [data-theme="mouse-balloon"] .sample-title { top: 10%; }
+      [data-theme="mouse-balloon"] .sample-method { bottom: 10%; }
+      .sample-art { inset: 23% 23% 17%; }
+      .sample-art svg { display: block; width: 100%; height: 100%; }
+      [data-theme="paper-lavender"] .sample-art { inset: 20% 12% 15%; }
+      @media (max-width: 660px) {
+        main { padding: 24px 18px; }
+        #cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>竖条纹卡牌</h1>
+          <p>同一套宽窄竖纹，八种主题纸面。</p>
+        </div>
+        <a href="./preview.html?card=vertical-stripes">在应用中预览</a>
+      </header>
+      <section id="cards" aria-label="八款主题卡牌"></section>
+    </main>
+    <script type="module" src="/src/themes/vertical-stripes-board.tsx"></script>
+  </body>
+</html>

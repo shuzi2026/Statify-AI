@@ -1,0 +1,85 @@
+/* Shared decorative layers: never change content, hit areas or card geometry. */
+.action-card-face {
+  --card-pattern-ink: var(--theme-muted);
+}
+html[data-theme="mouse-balloon"] .action-card-face {
+  --card-pattern-ink: #b98835;
+}
+html[data-theme="raven-wizard"] .action-card-face {
+  --card-pattern-ink: #71805b;
+}
+html[data-theme="night-sprout"] .action-card-face {
+  --card-pattern-ink: #9690af;
+}
+html[data-theme="bakery-ochre"] .action-card-face {
+  --card-pattern-ink: #cc983e;
+}
+html[data-theme="pearl-pistachio"] .action-card-face {
+  --card-pattern-ink: #aabb72;
+}
+html[data-theme="pearl-apricot"] .action-card-face {
+  --card-pattern-ink: #e8af7b;
+}
+.card-method-texture {
+  position: absolute;
+  inset: 7% 8%;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 8px;
+  opacity: 0.19;
+  background: var(--card-pattern-ink);
+  mask-repeat: repeat;
+  mask-size: 27% auto;
+}
+html[data-theme="raven-wizard"] .card-method-texture {
+  inset: 20% 7% 17%;
+}
+.card-text-paper-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 48% 9% at 50% 12.5%,
+      color-mix(in srgb, var(--theme-paper) 85%, transparent) 15%,
+      color-mix(in srgb, var(--theme-paper) 65%, transparent) 48%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 32% 5.5% at 50% 26%,
+      color-mix(in srgb, var(--theme-paper) 82%, transparent) 10%,
+      color-mix(in srgb, var(--theme-paper) 58%, transparent) 48%,
+      transparent 100%
+    );
+}
+/* Raven has a green body and separate cream panels; a cream wash mismatches it. */
+html[data-theme="raven-wizard"] .card-text-paper-wash {
+  display: none;
+}
+/* Content follows the wash in DOM order and remains above the decoration. */
+.action-card-face
+  > :is(
+    .fan-card-name,
+    .fan-card-category,
+    .fan-card-art,
+    .action-card-details,
+    .fan-card-method,
+    .fan-card-corner
+  ) {
+  z-index: 1;
+}
+.card-method-texture[data-method="instant"] {
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2260%22%20viewBox%3D%220%200%2040%2060%22%3E%3Cg%20fill%3D%22black%22%20color%3D%22black%22%3E%3Cpath%20d%3D%22M20%200%2040%2030%2020%2060%200%2030Z%22%2F%3E%3Cpath%20d%3D%22M-20%200%200%2030-20%2060-40%2030ZM60%200%2080%2030%2060%2060%2040%2030Z%22%2F%3E%3Cpath%20d%3D%22M0-30%2040%2030%200%2090M40-30%200%2030%2040%2090%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%22.55%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+.card-method-texture[data-method="duration"] {
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cg%20fill%3D%22black%22%20color%3D%22black%22%3E%3Cpath%20d%3D%22M0%200H20V20H0ZM20%2020H40V40H20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+.card-method-texture[data-method="timed"] {
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2280%22%20height%3D%2240%22%20viewBox%3D%220%200%2080%2040%22%3E%3Cg%20fill%3D%22black%22%20color%3D%22black%22%3E%3Cpath%20d%3D%22M20%209C11-3%200%204%202%2014C3%2020%2012%2027%2020%2035C28%2027%2037%2020%2038%2014C40%204%2029-3%2020%209Z%22%2F%3E%3Cpath%20d%3D%22M20%209C11-3%200%204%202%2014C3%2020%2012%2027%2020%2035C28%2027%2037%2020%2038%2014C40%204%2029-3%2020%209Z%22%20transform%3D%22translate(80%2040)%20rotate(180)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  mask-size: 54% auto;
+}
+.card-method-texture[data-method="quantity"] {
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2280%22%20height%3D%2240%22%20viewBox%3D%220%200%2080%2040%22%3E%3Cg%20fill%3D%22black%22%20color%3D%22black%22%3E%3Cpath%20d%3D%22M20%202C9%202%208%2014%2014%2018C3%2011-3%2024%204%2030C10%2035%2017%2029%2018%2026L15%2038H25L22%2026C23%2029%2030%2035%2036%2030C43%2024%2037%2011%2026%2018C32%2014%2031%202%2020%202Z%22%2F%3E%3Cpath%20d%3D%22M20%202C9%202%208%2014%2014%2018C3%2011-3%2024%204%2030C10%2035%2017%2029%2018%2026L15%2038H25L22%2026C23%2029%2030%2035%2036%2030C43%2024%2037%2011%2026%2018C32%2014%2031%202%2020%202Z%22%20transform%3D%22translate(80%2040)%20rotate(180)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  mask-size: 54% auto;
+}

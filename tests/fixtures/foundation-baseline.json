@@ -1,0 +1,512 @@
+{
+  "fresh": {
+    "version": "0.2.2",
+    "preferences": {
+      "earlyCompletion": "ask",
+      "rewardPerUnitMax": 100,
+      "rewardTotalMax": 1000
+    },
+    "region": "cn",
+    "planMode": "cards",
+    "createdAt": 1793563200000,
+    "profile": {
+      "name": "朋友",
+      "age": 25,
+      "onboarded": false
+    },
+    "homeTourPending": false,
+    "firstActionGuide": false,
+    "cards": [],
+    "cardTemplates": [],
+    "attributes": [
+      {
+        "id": "attr-body",
+        "name": "体魄",
+        "initial": 50,
+        "earned": 0,
+        "slot": 0,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-mem",
+        "name": "记忆",
+        "initial": 50,
+        "earned": 0,
+        "slot": 1,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-know",
+        "name": "认知",
+        "initial": 50,
+        "earned": 0,
+        "slot": 2,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-foc",
+        "name": "专注",
+        "initial": 50,
+        "earned": 0,
+        "slot": 3,
+        "daily": {},
+        "original": true
+      }
+    ],
+    "meters": [],
+    "states": {
+      "mood": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "vitality": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "stress": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "comfort": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "sleep": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      }
+    },
+    "sleepCycle": "",
+    "restUntil": 0,
+    "actions": [],
+    "entries": [],
+    "plans": [],
+    "days": [],
+    "dailyPlan": "",
+    "planCycles": [],
+    "messages": [],
+    "changes": [],
+    "trialStarted": null,
+    "initialEdited": false,
+    "slotChanges": {},
+    "legacy": null,
+    "migrationNotice": false,
+    "categories": ["生活", "学习", "工作", "运动"]
+  },
+  "newCard": {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "name": "",
+    "message": "",
+    "customArt": "",
+    "artwork": "auto",
+    "description": "",
+    "method": "instant",
+    "minutes": 25,
+    "unit": "个",
+    "category": "",
+    "favorite": false,
+    "order": 1793563200000,
+    "createdAt": 1793563200000,
+    "life": "repeat",
+    "uses": 1,
+    "count": 0,
+    "state": "active",
+    "evaluate": false,
+    "settle": true,
+    "score": 1,
+    "cap": 0,
+    "capPeriod": "day",
+    "timeStart": "",
+    "timeEnd": "",
+    "timeWindows": [],
+    "timeMode": "block",
+    "rewards": [],
+    "effects": [],
+    "values": [],
+    "sleep": false,
+    "rest": false,
+    "statsSince": 0,
+    "changes": []
+  },
+  "templates": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "安静读一会儿",
+      "message": "",
+      "customArt": "",
+      "artwork": "auto",
+      "description": "留一段时间给文字，也给自己。",
+      "method": "duration",
+      "minutes": 25,
+      "unit": "个",
+      "category": "学习",
+      "favorite": false,
+      "order": 1793563200000,
+      "createdAt": 1793563200000,
+      "life": "repeat",
+      "uses": 1,
+      "count": 0,
+      "state": "active",
+      "evaluate": false,
+      "settle": true,
+      "score": 2,
+      "cap": 0,
+      "capPeriod": "day",
+      "timeStart": "",
+      "timeEnd": "",
+      "timeWindows": [],
+      "timeMode": "block",
+      "rewards": [
+        {
+          "id": "attr-know",
+          "amount": 100
+        },
+        {
+          "id": "attr-foc",
+          "amount": 40
+        }
+      ],
+      "effects": [
+        {
+          "id": "stress",
+          "amount": -3
+        }
+      ],
+      "values": [],
+      "sleep": false,
+      "rest": false,
+      "statsSince": 0,
+      "changes": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "出去走走",
+      "message": "",
+      "customArt": "",
+      "artwork": "auto",
+      "description": "换一口空气，不必走得很远。",
+      "method": "timed",
+      "minutes": 25,
+      "unit": "个",
+      "category": "运动",
+      "favorite": false,
+      "order": 1793563200000,
+      "createdAt": 1793563200000,
+      "life": "repeat",
+      "uses": 1,
+      "count": 0,
+      "state": "active",
+      "evaluate": false,
+      "settle": true,
+      "score": 1,
+      "cap": 0,
+      "capPeriod": "day",
+      "timeStart": "",
+      "timeEnd": "",
+      "timeWindows": [],
+      "timeMode": "block",
+      "rewards": [
+        {
+          "id": "attr-body",
+          "amount": 4
+        }
+      ],
+      "effects": [],
+      "values": [],
+      "sleep": false,
+      "rest": false,
+      "statsSince": 0,
+      "changes": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "喝一杯水",
+      "message": "",
+      "customArt": "",
+      "artwork": "auto",
+      "description": "照顾自己的小事，也值得记住。",
+      "method": "instant",
+      "minutes": 25,
+      "unit": "个",
+      "category": "",
+      "favorite": false,
+      "order": 1793563200000,
+      "createdAt": 1793563200000,
+      "life": "repeat",
+      "uses": 1,
+      "count": 0,
+      "state": "active",
+      "evaluate": false,
+      "settle": true,
+      "score": 1,
+      "cap": 0,
+      "capPeriod": "day",
+      "timeStart": "",
+      "timeEnd": "",
+      "timeWindows": [],
+      "timeMode": "block",
+      "rewards": [
+        {
+          "id": "attr-body",
+          "amount": 30
+        }
+      ],
+      "effects": [
+        {
+          "id": "comfort",
+          "amount": 2
+        }
+      ],
+      "values": [],
+      "sleep": false,
+      "rest": false,
+      "statsSince": 0,
+      "changes": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "写下一点收获",
+      "message": "",
+      "customArt": "",
+      "artwork": "auto",
+      "description": "让今天留下一个小小的印记。",
+      "method": "quantity",
+      "minutes": 25,
+      "unit": "条",
+      "category": "学习",
+      "favorite": false,
+      "order": 1793563200000,
+      "createdAt": 1793563200000,
+      "life": "repeat",
+      "uses": 1,
+      "count": 0,
+      "state": "active",
+      "evaluate": false,
+      "settle": true,
+      "score": 1,
+      "cap": 0,
+      "capPeriod": "day",
+      "timeStart": "",
+      "timeEnd": "",
+      "timeWindows": [],
+      "timeMode": "block",
+      "rewards": [
+        {
+          "id": "attr-know",
+          "amount": 10
+        }
+      ],
+      "effects": [],
+      "values": [],
+      "sleep": false,
+      "rest": false,
+      "statsSince": 0,
+      "changes": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "准备睡了",
+      "message": "",
+      "customArt": "",
+      "artwork": "auto",
+      "description": "今天就到这里，明天再继续。",
+      "method": "instant",
+      "minutes": 25,
+      "unit": "个",
+      "category": "",
+      "favorite": false,
+      "order": 1793563200000,
+      "createdAt": 1793563200000,
+      "life": "repeat",
+      "uses": 1,
+      "count": 0,
+      "state": "active",
+      "evaluate": true,
+      "settle": true,
+      "score": 1,
+      "cap": 0,
+      "capPeriod": "day",
+      "timeStart": "",
+      "timeEnd": "",
+      "timeWindows": [],
+      "timeMode": "block",
+      "rewards": [
+        {
+          "id": "attr-body",
+          "amount": 30
+        }
+      ],
+      "effects": [
+        {
+          "id": "sleep",
+          "amount": 85
+        }
+      ],
+      "values": [],
+      "sleep": true,
+      "rest": true,
+      "statsSince": 0,
+      "changes": []
+    }
+  ],
+  "parsedFresh": {
+    "version": "0.2.2",
+    "preferences": {
+      "earlyCompletion": "ask",
+      "rewardPerUnitMax": 100,
+      "rewardTotalMax": 1000
+    },
+    "region": "cn",
+    "planMode": "cards",
+    "createdAt": 1793563200000,
+    "profile": {
+      "name": "朋友",
+      "age": 25,
+      "onboarded": false
+    },
+    "homeTourPending": false,
+    "firstActionGuide": false,
+    "cards": [],
+    "cardTemplates": [],
+    "attributes": [
+      {
+        "id": "attr-body",
+        "name": "体魄",
+        "initial": 50,
+        "earned": 0,
+        "slot": 0,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-mem",
+        "name": "记忆",
+        "initial": 50,
+        "earned": 0,
+        "slot": 1,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-know",
+        "name": "认知",
+        "initial": 50,
+        "earned": 0,
+        "slot": 2,
+        "daily": {},
+        "original": true
+      },
+      {
+        "id": "attr-foc",
+        "name": "专注",
+        "initial": 50,
+        "earned": 0,
+        "slot": 3,
+        "daily": {},
+        "original": true
+      }
+    ],
+    "meters": [],
+    "states": {
+      "mood": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "vitality": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "stress": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "comfort": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      },
+      "sleep": {
+        "base": 50,
+        "offset": 0,
+        "expires": 0
+      }
+    },
+    "sleepCycle": "",
+    "restUntil": 0,
+    "actions": [],
+    "entries": [],
+    "plans": [],
+    "days": [],
+    "dailyPlan": "",
+    "planCycles": [],
+    "messages": [],
+    "changes": [],
+    "trialStarted": null,
+    "initialEdited": false,
+    "slotChanges": {},
+    "legacy": null,
+    "migrationNotice": false,
+    "categories": ["生活", "学习", "工作", "运动"]
+  },
+  "text": [
+    {
+      "value": "字字字字字字字字字字字字字字字字",
+      "width": 16,
+      "card": "accepted",
+      "length": "名称最多8个字符"
+    },
+    {
+      "value": "字字字字字字字字字字字字字字字字字",
+      "width": 17,
+      "card": "卡牌名称最多16个宽字符，英文按字宽折算",
+      "length": "名称最多8个字符"
+    },
+    {
+      "value": "ffffffffffffffffffffffffffffffff",
+      "width": 16,
+      "card": "accepted",
+      "length": "名称最多8个字符"
+    },
+    {
+      "value": "fffffffffffffffffffffffffffffffff",
+      "width": 16.5,
+      "card": "卡牌名称最多16个宽字符，英文按字宽折算",
+      "length": "名称最多8个字符"
+    },
+    {
+      "value": "WWWWWWWWWWWWWWWW",
+      "width": 16,
+      "card": "accepted",
+      "length": "名称最多8个字符"
+    },
+    {
+      "value": "é",
+      "width": 0.5,
+      "card": "accepted",
+      "length": "accepted"
+    },
+    {
+      "value": "😀😀",
+      "width": 2,
+      "card": "accepted",
+      "length": "accepted"
+    },
+    {
+      "value": "读abc",
+      "width": 2.5,
+      "card": "accepted",
+      "length": "accepted"
+    }
+  ]
+}

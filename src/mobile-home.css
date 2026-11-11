@@ -1,0 +1,385 @@
+/* Shared card-face primitives and legacy drawn-card appearance. Active home layout and hand styles live in home/. */
+.fan-card-name {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  min-height: 42px;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fan-card-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+}
+.fan-card-category {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.fan-card-art {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 102px;
+  margin: 8px 0;
+  color: var(--sage);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.fan-card-art svg {
+  width: 58px;
+  height: 58px;
+}
+.fan-card-method {
+  font-size: 10px;
+  color: var(--muted);
+}
+.fan-card-corner {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font: 12px/1 var(--font-number);
+  color: var(--accent);
+}
+.is-collapsed .fan-card-body {
+  visibility: hidden;
+}
+.dialog:has(.drawn-card) {
+  width: min(320px, calc(100% - 44px));
+  padding: 22px 24px 16px;
+  border: 1px solid var(--card-outline);
+  border-radius: 12px;
+  box-shadow:
+    0 4px 0 #d2c6b5,
+    0 7px 0 -1px #f8f3e9,
+    0 9px 0 -1px #bcae9b,
+    0 34px 75px #443c3560;
+  background:
+    linear-gradient(125deg, #ffffff88, transparent 70%), var(--card-paper);
+  animation: draw-card-in 230ms cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.dialog:has(.drawn-card)::backdrop {
+  background: #443c3542;
+  backdrop-filter: blur(7px);
+}
+.dialog:has(.drawn-card) .dialog-heading {
+  gap: 6px;
+  margin-bottom: 4px;
+  align-items: flex-start;
+}
+.dialog:has(.drawn-card) .dialog-heading h2 {
+  font-size: 22px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  padding-top: 5px;
+}
+.dialog:has(.drawn-card) .dialog-heading .icon-button {
+  margin: -5px -13px 0 0;
+}
+.drawn-card-type {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.drawn-card-art {
+  height: 148px;
+  display: grid;
+  place-items: center;
+  margin: 18px 0;
+  color: var(--sage);
+  background: radial-gradient(
+    ellipse,
+    color-mix(in srgb, var(--sage) 8%, transparent),
+    transparent 70%
+  );
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.drawn-card-art svg {
+  width: 100px;
+  height: 100px;
+}
+.drawn-card-description {
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  margin-bottom: 14px;
+}
+.drawn-card-rewards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.drawn-card-rewards b {
+  color: var(--accent);
+  font-weight: 500;
+}
+.drawn-card-meta {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  margin: 12px 0;
+}
+.drawn-card-reason {
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+.drawn-card-start {
+  width: 100%;
+  min-height: 48px;
+}
+.drawn-card-secondary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.drawn-card-secondary .text-button {
+  font-size: 11px;
+  min-height: 44px;
+  color: var(--muted);
+}
+@keyframes draw-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(70px) scale(0.8) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 359px) {
+  .fan-card-name {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialog:has(.drawn-card) {
+    animation: none;
+  }
+}
+
+/* Reference approved 2026-10-12: warm translucent simulator and soft paper hand. */
+@media (max-width: 759px) {
+  .fan-card-name {
+    font-size: 14px;
+    line-height: 1.4;
+    min-height: 23px;
+    font-weight: 650;
+    color: #191714;
+  }
+  .fan-card-category {
+    font-size: 11px;
+    color: #514940;
+    margin-top: 4px;
+  }
+  .fan-card-art {
+    border: 0;
+    width: 86px;
+    height: 76px;
+    margin: 4px 0;
+    flex: 1;
+  }
+  .card-soft-orb {
+    display: block;
+    width: 66px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at 51% 49%,
+      #eca694 8%,
+      #f0baaa 40%,
+      #f5d1bc 65%,
+      #fff0d900 77%
+    );
+    filter: blur(1px);
+  }
+  @supports not (aspect-ratio: 1/1) {
+    .card-soft-orb {
+      height: 66px;
+    }
+    .drawn-card-art .card-soft-orb {
+      height: 126px;
+    }
+  }
+  .card-soft-orb-warm {
+    background: radial-gradient(
+      ellipse at 52% 54%,
+      #ec7857 7%,
+      #ee9c7a 38%,
+      #f7cbb000 75%
+    );
+  }
+  .fan-card-method {
+    font-size: 11px;
+    color: #514940;
+  }
+  .fan-card-corner {
+    right: 9px;
+    bottom: 12px;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .drawn-card-art {
+    border: 0;
+    background: none;
+  }
+  .drawn-card-art .card-soft-orb {
+    width: 126px;
+  }
+}
+@media (max-width: 359px) {
+  .fan-card-name {
+    font-size: 14px;
+  }
+}
+@media (max-width: 759px) and (max-height: 720px) {
+  .fan-card-art {
+    height: 50px;
+  }
+  .card-soft-orb {
+    width: 52px;
+  }
+}
+@supports not (aspect-ratio: 1/1) {
+  @media (max-width: 759px) and (max-height: 720px) {
+    .card-soft-orb {
+      height: 52px;
+    }
+  }
+}
+
+/* Gesture surfaces move on compositor transforms; the central stage returns with the hand. */
+/* 2026-10-12: screen gestures, three attribute states and a dedicated manager rail. */
+@media (max-width: 759px) {
+  .drawn-card-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 24px 22px;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    overflow: auto;
+    box-sizing: border-box;
+  }
+  .drawn-card-overlay[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .drawn-card-overlay::backdrop {
+    background: #443c3542;
+    backdrop-filter: blur(7px);
+  }
+  .drawn-card-paper {
+    width: min(292px, 100%);
+    padding: 20px 22px 16px;
+    border: 1px solid #fff6e7;
+    border-radius: 14px;
+    background: linear-gradient(140deg, #fff9ed, #fff0de);
+    box-shadow:
+      0 3px 0 #d8c1aa,
+      0 26px 50px -12px #75523965;
+    max-height: calc(100dvh - 174px);
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+  .drawn-card-paper > header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .drawn-card-paper h2 {
+    font-size: 22px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    padding-top: 6px;
+  }
+  .drawn-card-paper > header .icon-button {
+    margin: -6px -12px 0 0;
+    flex-shrink: 0;
+  }
+  .drawn-card-actions {
+    width: min(292px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .drawn-card-actions > .primary {
+    box-shadow: 0 8px 18px #75523920;
+  }
+  .drawn-card-actions > .text-button {
+    font-size: 12px;
+    color: var(--paper);
+  }
+  .drawn-card-overlay.is-flying > .drawn-card-paper,
+  .drawn-card-overlay.is-flying > .drawn-card-actions {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .card-flight {
+    transform-origin: center;
+    transition: none !important;
+    pointer-events: none !important;
+  }
+  .card-flight .fan-card-body {
+    visibility: visible;
+  }
+}
+
+/* Return the attributes and orb together when the hand folds away. */
+
+/* Attribute folding preserves the panel length and each row's position. */
+
+/* Larger expanded paper hand; the collapsed title reveal stays unchanged. */
+@media (max-width: 759px) {
+  .fan-card-name {
+    font-size: 15px;
+  }
+  .fan-card-art {
+    height: 96px;
+  }
+  .fan-card-art .card-soft-orb {
+    width: 80px;
+  }
+}
+@media (max-width: 759px) and (max-height: 720px) {
+  .fan-card-art {
+    height: 66px;
+  }
+  .fan-card-art .card-soft-orb {
+    width: 64px;
+  }
+}
+
+/* Half-folded attributes: icon beside a name with its level underneath. */

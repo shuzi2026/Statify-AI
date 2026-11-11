@@ -1,0 +1,134 @@
+/* Skin-only recipes; all data, controls and gestures remain in shared components. */
+html[data-theme="raven-wizard"] {
+  --overlay: #241d2d88;
+  --sheet-shadow: 0 10px 24px -14px #201b2050;
+}
+html[data-theme="raven-wizard"]
+  :is(
+    .guide-paper,
+    .dialog,
+    .dialog:has(.compact-creation),
+    .abandon-dialog,
+    .abandon-message,
+    .plan-date-menu,
+    .card-more-menu
+  ) {
+  background: transparent;
+  border: 18px solid transparent;
+  border-image: var(--theme-dialog-image) 150 fill / 18px stretch;
+  border-radius: 0;
+  box-shadow: var(--sheet-shadow);
+  color: var(--ink);
+}
+html[data-theme="raven-wizard"]
+  :is(.dialog, .drawn-card-overlay, .abandon-dialog)::backdrop {
+  backdrop-filter: blur(2px);
+  background: var(--overlay);
+}
+html[data-theme="raven-wizard"]
+  :is(.dialog-actions, .abandon-actions, .payment-test-page)
+  button:not(.icon-button):not(.text-button):not(.gallery-card-paper):not(
+    .card-delete-button
+  ):not(.card-edit-button):not(.attribute-library-add):not([role="option"]) {
+  border-color: transparent;
+  background: var(--theme-button-image) center/100% 100% no-repeat;
+  box-shadow: none;
+  color: var(--ink);
+  border-radius: 0;
+}
+html[data-theme="raven-wizard"]
+  :is(.guide-paper, .dialog, .payment-test-page)
+  button.primary {
+  color: var(--accent);
+}
+html[data-theme="raven-wizard"]
+  :is(.dialog, .payment-test-page)
+  button[aria-pressed="true"] {
+  background-color: var(--accent-wash);
+  color: var(--accent);
+}
+html[data-theme="raven-wizard"] :is(.settings-page, .payment-test-page) {
+  background: var(--sheet-background);
+  border-radius: 0;
+}
+html[data-theme="raven-wizard"] :is(progress, progress::-webkit-progress-bar) {
+  background: var(--line);
+}
+html[data-theme="raven-wizard"] progress::-webkit-progress-value {
+  background: var(--theme-growth);
+}
+html[data-theme="raven-wizard"] progress::-moz-progress-bar {
+  background: var(--theme-growth);
+}
+html[data-theme="raven-wizard"] .attribute-panel {
+  border: 16px solid transparent;
+  border-image: var(--theme-dialog-image) 150 fill / 16px stretch;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+html[data-theme="raven-wizard"] .action-card-face::before {
+  display: none;
+}
+/* Card print coordinates belong to ui-layout/standard.css for every theme. */
+/* Match night-sprout's visible small-card footprint, including each PNG's transparent border. */
+html[data-theme="raven-wizard"]
+  :is(
+    .workspace-scene,
+    .mobile-card-tray,
+    .plan-drag-layer,
+    .guide-motion-layer,
+    .collection-drag-preview,
+    .plan-schedule-dialog,
+    .card-created-dialog
+  ) {
+  --theme-card-outset-y: 4.8%;
+  --theme-card-outset-x: 3.4%;
+  --theme-card-outset-y-ratio: 0.048;
+  --theme-card-outset-x-ratio: 0.034;
+}
+html[data-theme="raven-wizard"] .gallery-card-paper::before {
+  inset: calc(0% - var(--theme-card-outset-y))
+    calc(0% - var(--theme-card-outset-x));
+}
+html[data-theme="raven-wizard"]:not([data-simple-theme="true"]):not(
+    [data-white-model="true"]
+  )
+  .gallery-card-paper::before {
+  background-image: var(--theme-small-card-image, var(--theme-card-image));
+}
+html[data-theme="raven-wizard"]
+  :is(
+    .action-card-face .fan-card-category,
+    .action-card-face .fan-card-method,
+    .action-card-details
+  ) {
+  color: var(--ink);
+}
+html[data-theme="raven-wizard"] .drawn-card-back::before {
+  background-image: var(--theme-dialog-image);
+}
+html[data-theme="raven-wizard"] .drawn-card-back::after {
+  display: none;
+}
+html[data-theme="raven-wizard"] .card-history header {
+  border-bottom-color: var(--line);
+}
+html[data-theme="raven-wizard"] .companion-portrait {
+  filter: none;
+}
+html[data-theme="raven-wizard"] .workspace-scene {
+  background: var(--sheet-background);
+}
+html[data-theme="raven-wizard"] :is(.workspace-plans, .plan-source-panel) {
+  border-color: var(--theme-lavender);
+}
+@media (min-width: 760px) {
+  html[data-theme="raven-wizard"] .simulator-shell > main {
+    background: color-mix(
+      in srgb,
+      var(--theme-lavender-light) 62%,
+      transparent
+    );
+  }
+}

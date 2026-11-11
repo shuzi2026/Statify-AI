@@ -1,0 +1,52 @@
+/* Optional source defaults. Empty configuration leaves existing CSS untouched. */
+html[data-theme][data-workbench-dialog] .dialog[data-layout-shell] {
+  max-width: min(
+    calc(100vw - var(--safe-left) - var(--safe-right) - 24px),
+    calc(32.5rem * var(--wb-dialogWidth))
+  );
+}
+html[data-theme][data-workbench-dialog] .dialog[data-layout-shell].wide {
+  max-width: min(calc(100vw - 24px), calc(42.5rem * var(--wb-dialogWidth)));
+}
+html[data-theme][data-workbench-dialog]
+  .dialog[data-layout-shell].settlement-page {
+  max-width: min(calc(100vw - 24px), calc(28.75rem * var(--wb-dialogWidth)));
+}
+html[data-theme][data-workbench-font]
+  .dialog[data-layout-shell]
+  > .dialog-heading
+  h2 {
+  font-size: calc(clamp(1rem, 4.5vw, 1.25rem) * var(--wb-fontSize));
+}
+html[data-theme][data-workbench-font]
+  .dialog[data-layout-shell]
+  :is(input:not([type="range"]):not([type="checkbox"]), textarea, select) {
+  font-size: calc(clamp(0.875rem, 3.8vw, 1rem) * var(--wb-fontSize));
+}
+html[data-theme][data-workbench-font]
+  .dialog[data-layout-shell]
+  :is(label, p, .hint) {
+  font-size: calc(0.875rem * var(--wb-fontSize));
+}
+html[data-theme][data-workbench-font] .action-card-face .fan-card-name {
+  font-size: calc(
+    clamp(0.75rem, calc(var(--card-type-unit, 1px) * 9.5), 1.25rem) *
+      var(--wb-fontSize)
+  );
+}
+
+@media (max-width: 759px) {
+  html[data-workbench-companion] .mobile-home .companion-portrait {
+    transform-box: border-box;
+    transform-origin: center;
+    transform: translate(var(--subject-shift, 0px), var(--subject-shift-y, 0px))
+      scale(var(--subject-fit, 1));
+  }
+}
+
+html[data-theme][data-workbench-field]
+  .dialog[data-layout-shell]
+  :is(input:not([type="range"]):not([type="checkbox"]), textarea, select) {
+  padding: calc(0.5rem * var(--wb-fieldPadding))
+    calc(0.75rem * var(--wb-fieldPadding));
+}
