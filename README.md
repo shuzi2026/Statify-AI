@@ -1,105 +1,43 @@
 # Statify AI
 
-Statify AI turns everyday actions into cards, plans and a visible record of personal growth. Its AI companion helps create and manage those cards, reads relevant activity history, remembers preferences when asked, and helps compare products before a user-approved PayPal Sandbox checkout.
+Statify turns your abilities into levels, your physical and mental states into observable values, and your daily actions into cards linked to your growth. Through tracking and immediate feedback, it helps you shift your attention from short-term results to long-term progress.
+
+Building on Statify, Statify AI introduces an AI persona shaped by the data you accumulate over time: a digital extension of yourself that grows alongside you. As it develops, we envision it extending what you can do beyond your physical boundaries: helping you plan tasks and gradually taking on more of the things you may not have the time or ability to do yourself. This could include anticipating your needs, comparing and selecting products, and helping you purchase them through PayPal.
 
 **Demo:** https://ai.mystatify.com/  
 **Source:** https://github.com/shuzi2026/Statify-AI  
 **License:** [GNU AGPL v3.0 only](LICENSE)
 
-## Project scope
+## Try the demo
 
-This is a standalone Web project derived from Statify v0.3.0. The card, planning, progression, journal and local-storage foundations existed before this AI project. The competition work adds the AI companion and its user-confirmed tools, preference memory, Channel3 product search and comparison, PayPal Sandbox checkout, shopping cards and receipts, and a standalone hosted demo.
+Explore [Statify AI](https://ai.mystatify.com) and ask your digital persona to help you:
 
-The repository includes the application, backend, tests, build tools and registered artwork needed to run this version. It does not include account or payment credentials, real user data, private development notes, original repository history, or production-server configuration. The original Statify commercial services are not required for the hackathon demo.
+- **Assess your abilities:** Discuss your current skills and establish a starting point for your growth.
+- **Turn goals into action cards:** Break a task down into manageable steps and create cards to work on them.
+- **Record your journey:** Log your actions and reflections as you make progress.
+- **Find and buy a product:** Describe what you need, compare available options, and complete a test purchase through PayPal.
+- **Buy a previous purchase again:** Ask your digital persona to help you reorder an item you have purchased before when you need more.
 
-## What the demo does
+**PayPal Sandbox:** Use a PayPal Sandbox personal buyer account to test checkout. This is a simulated payment: no real money is charged, and no order is placed with a retailer or shipped. Product information comes from Channel3; availability and search results depend on its catalog.
 
-- Enter as a guest and keep cards, plans, journals and purchase receipts in this browser.
-- Ask the AI to draft a card or plan, inspect the draft, and confirm before it changes your data.
-- Read relevant records through bounded, read-only AI queries.
-- Ask the AI to remember a preference, then retrieve or clear it when memory is enabled.
-- Search the US product catalog through Channel3, compare offers, and confirm a PayPal Sandbox payment.
+## Demo boundaries and project scope
 
-**Payment boundary:** Channel3 supplies product information. PayPal Sandbox processes a test payment to the configured sandbox merchant. This demo does not place a real order with a retailer, arrange shipping, or charge a live payment account. Use PayPal Sandbox buyer credentials, never a real buyer account. A successful catalog query is not evidence that checkout completed.
+Channel3 supplies the US product catalog; coverage varies. PayPal Sandbox makes test payments to the configured sandbox merchant, with **no real charges, retailer orders or deliveries**. Never use a real PayPal buyer account.
 
-## Requirements
+Built on **Statify v0.3.0**, the project retains its cards, planning, progression, journals and local storage. Hackathon additions connect the digital persona and user-confirmed tools with preference memory, product comparison, Sandbox checkout, shopping cards and receipts in a standalone hosted demo.
 
-- Node.js 24 and npm.
-- Git for cloning and for the optional local developer Agent. ZIP downloads can run the app, but the developer Agent needs a Git checkout.
-- An OpenAI API project and key. The configured model must be available to that project.
-- A Channel3 API key.
-- A PayPal developer sandbox application, its client ID and secret, and a sandbox buyer for checkout testing.
+The public repository includes the application, backend, tests, build tools and artwork. Credentials, real user data, private notes, original repository history and production-server configuration are excluded. The demo runs independently of Statify's commercial account backend.
 
-External services have their own terms and usage costs. This repository does not provide API credit, credentials or access to commercial Statify accounts. Set spending limits in the API provider's account; in-app visitor limits are not a hard total spending cap.
+## Testing and verification
 
-## Quick start: local hackathon preview
+Recorded on **November 11, 2026**:
 
-```sh
-npm ci
-```
+- The project owner reported completing sandbox buyer approval and payment capture in the web demo.
+- A fresh public clone passed dependency installation, type checking, **709 automated tests**, **22 compatibility checks**, asset checks and the hackathon build.
 
-Create `.env.ai-global.local` containing:
+Automated tests use synthetic fixtures and mocked external services; the manual payment test is separate evidence.
 
-```dotenv
-STATIFY_OPENAI_API_KEY_GLOBAL=your_openai_api_key
-STATIFY_OPENAI_MODEL_GLOBAL=gpt-6.1-sol
-```
-
-Create `.env.paypal-channel3.local` containing:
-
-```dotenv
-CHANNEL3_API_KEY=your_channel3_api_key
-PAYPAL_SANDBOX_CLIENT_ID=your_sandbox_client_id
-PAYPAL_SANDBOX_CLIENT_SECRET=your_sandbox_client_secret
-```
-
-Then run:
-
-```sh
-npm run start:hackathon
-```
-
-The package manifest pins the install-script allowlist for better-sqlite3, esbuild and opencode-ai for npm versions that require it. These scripts install the native SQLite binding and development/build tools.
-
-Open http://127.0.0.1:15287/. The preview runs only on the loopback interface and uses its own browser storage. It does not connect to the commercial account backend. Keep the development server running while testing a sandbox checkout. Restart it after changing environment variables.
-
-Other development modes remain available: `npm start` for the Chinese preview at port 15284, and `npm run start:global` for the international preview at port 15286. They use independent browser stores. For Chinese AI, put `STATIFY_OPENAI_API_KEY_CN` and optional `STATIFY_OPENAI_MODEL_CN` in `.env.development.local`.
-
-## Run the standalone hosted build
-
-```sh
-npm run build:hackathon
-```
-
-Copy `.env.example` to `.env.statify-hosted.local` and fill in your own credentials. For a local build test, leave `STATIFY_HOSTED_ORIGIN=http://127.0.0.1:15288`. Generate the signing key once:
-
-```sh
-node -p "require('node:crypto').randomBytes(32).toString('base64url')"
-```
-
-Use the result for `STATIFY_DEMO_SIGNING_KEY`, then run:
-
-```sh
-npm run start:hosted
-```
-
-Open http://127.0.0.1:15288/. The compiled frontend and backend share one origin. For a public deployment, set `STATIFY_HOSTED_ORIGIN` to your complete HTTPS origin and use a reverse proxy to the loopback Node service. Preserve the Host header, disable response buffering for streamed AI replies, and allow at least 60 seconds for upstream responses. Install dependencies on the target operating system; do not copy Windows `node_modules` to Linux.
-
-Only expose the compiled `output/build/hackathon/web/` content through the provided server. Do not expose the source checkout or environment files. Keep the signing key stable between restarts so existing sessions and pending signed orders remain verifiable. The hosted server has no developer Agent endpoint.
-
-### Preference memory
-
-Set `STATIFY_MEMORY_DIR` to a private writable directory to enable Mem0 OSS with SQLite. The OpenAI project also supplies embeddings. Ordinary chat, cards and journals are not automatically written to memory; the feature stores preferences the user asks to remember. Keep this directory out of Git and back it up according to your own privacy policy.
-
-For a local first-visit test, after building and configuring credentials run `npm run start:guest-test` and open http://127.0.0.1:15292/. This uses separate local guest memory under ignored `output/guest-memory/`. The Reset guest button clears only that test visitor's browser data and saved preferences after confirmation.
-
-## Optional local developer Agent
-
-The ordinary Chinese/international development previews retain a local OpenCode-based developer Agent. It is disabled in the hackathon preview and hosted server. Configure a local passphrase in `.env.statify-developer-global.local` as `STATIFY_DEV_CHAT_PASSPHRASE_GLOBAL`, or the corresponding `_CN` setting in `.env.statify-developer-cn.local`. It uses the region's OpenAI project by default. Keep this service on loopback.
-
-The developer Agent works in a separate filtered workspace. Review proposed changes before applying them to the main checkout. Its state, passphrase, credentials and private project notes must not be committed.
-
-## Verification
+After installing dependencies, run:
 
 ```sh
 npm run typecheck
@@ -109,17 +47,61 @@ npm run assets:check
 npm run build:hackathon
 ```
 
-Unit tests use synthetic fixtures and mocked external services. They do not prove a real sandbox buyer approval and capture succeeded. For end-to-end testing, use a fresh guest session and verify AI response, confirmed card creation, persistence after refresh, catalog results, sandbox approval, return-to-app receipt, and optional memory persistence. Also verify that a foreign Origin cannot write and that private files and developer endpoints are unavailable from the hosted service.
+## Local quick start
+
+You need **Git, Node.js 24 and npm**, an OpenAI API project with access to the configured model, a Channel3 API key, and a PayPal Sandbox application's client ID and secret. Checkout testing also requires a sandbox buyer.
+
+```sh
+git clone https://github.com/shuzi2026/Statify-AI.git
+cd Statify-AI
+npm ci
+```
+
+Create `.env.ai-global.local`:
+
+```dotenv
+STATIFY_OPENAI_API_KEY_GLOBAL=your_openai_api_key
+STATIFY_OPENAI_MODEL_GLOBAL=gpt-6.1-sol
+```
+
+Create `.env.paypal-channel3.local`:
+
+```dotenv
+CHANNEL3_API_KEY=your_channel3_api_key
+PAYPAL_SANDBOX_CLIENT_ID=your_sandbox_client_id
+PAYPAL_SANDBOX_CLIENT_SECRET=your_sandbox_client_secret
+```
+
+Start the preview:
+
+```sh
+npm run start:hackathon
+```
+
+Open http://127.0.0.1:15287/. This loopback-only preview has its own browser storage. Keep it running during checkout and restart it after environment changes. Never commit filled-in environment files.
+
+External services have their own terms and costs. Set spending limits with the provider; in-app visitor limits are not a hard total spending cap.
+
+## Standalone hosting and preference memory
+
+The hosted build serves the frontend and backend from one origin. Optional preference memory uses Mem0 OSS with SQLite and OpenAI embeddings; it stores preferences the user asks to remember, rather than automatically saving chats, cards or journals.
+
+See the [deployment guide](docs/deployment.md) for build commands, environment settings, private memory storage and deployment checks.
 
 ## Code map
 
-- `src/`, `shared/`: interface, card and planning rules, local storage, AI tools and shopping contracts.
-- `scripts/user-chat.ts`, `scripts/user-tool-guide.ts`: AI requests and bounded business tools.
-- `scripts/shopping-*.ts`, `scripts/channel3-search.ts`: product search, artwork and sandbox checkout.
-- `scripts/hosted-server.ts`, `scripts/hosted-api.ts`: standalone server and request/session checks.
+- `src/`, `shared/`: interface, card and planning rules, storage, AI tools and shopping contracts.
+- `scripts/user-chat.ts`, `scripts/user-tool-guide.ts`: AI requests and bounded tools.
+- `scripts/channel3-search.ts`, `scripts/shopping-comparison.ts`: product search and offer comparison.
+- `scripts/shopping-paypal.ts`: sandbox authentication, orders, approval links and capture.
+- `scripts/hosted-server.ts`, `scripts/hosted-api.ts`: server and request/session checks.
 - `scripts/visitor-memory.ts`: optional preference memory.
-- `assets/`: registered source artwork; generated Web copies come from `scripts/assets.mjs`.
-- `tests/` and colocated `*.test.*`: synthetic regression and compatibility tests.
+- `assets/`, `scripts/assets.mjs`: source artwork and generated Web assets.
+- `tests/`, colocated `*.test.*`: regression and compatibility tests.
+
+## Optional local developer Agent
+
+An OpenCode-based developer Agent is available for local development. It is disabled in the hackathon preview and hosted server, and is not needed to evaluate the demo. See the [local developer Agent guide](docs/developer-agent.md) for setup.
 
 ## License and third-party components
 
